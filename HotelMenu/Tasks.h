@@ -7,6 +7,12 @@
 
 namespace task
 {
+    class Tasks
+    {
+    private:
 
+    public:
+
+    };
 }
 #endif // TASKS_H
