@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< Updated upstream
 <!-- Written by QtCreator 4.13.1, 2020-10-01T21:13:30. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
   <value type="QByteArray">{fef48386-d9f3-416e-93dd-94fa5419276c}</value>
+=======
+<!-- Written by QtCreator 4.13.1, 2020-10-01T21:13:51. -->
+<qtcreator>
+ <data>
+  <variable>EnvironmentId</variable>
+  <value type="QByteArray">{29a87879-c290-4ffc-9410-ad0e9306c493}</value>
+>>>>>>> Stashed changes
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -87,6 +95,7 @@
   <variable>ProjectExplorer.Project.Target.0</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="DeviceType">Desktop</value>
+<<<<<<< Updated upstream
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 5.15.1 MinGW 32-bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 5.15.1 MinGW 32-bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt5.5151.win32_mingw81_kit</value>
@@ -346,6 +355,8 @@
   <variable>ProjectExplorer.Project.Target.1</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="DeviceType">Desktop</value>
+=======
+>>>>>>> Stashed changes
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 5.15.1 MinGW 64-bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Desktop Qt 5.15.1 MinGW 64-bit</value>
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt5.5151.win64_mingw81_kit</value>
@@ -355,8 +366,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">E:\Balassa\Documents\GitHub\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">E:/Balassa/Documents/GitHub/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -407,8 +423,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">2</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">E:\Balassa\Documents\GitHub\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">E:/Balassa/Documents/GitHub/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -459,8 +480,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">E:\Balassa\Documents\GitHub\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">E:/Balassa/Documents/GitHub/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -603,7 +629,7 @@
  </data>
  <data>
   <variable>ProjectExplorer.Project.TargetCount</variable>
-  <value type="int">2</value>
+  <value type="int">1</value>
  </data>
  <data>
   <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
