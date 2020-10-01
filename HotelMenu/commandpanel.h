@@ -8,14 +8,14 @@ class CommandPanel:public Login
 public:
 
     CommandPanel(std::list<User>&users);
-    void doStuff();
-    void logIn();
-    void ricroll();
+    void doStuff();//gyakorlatilag egy main
+    void logIn(); //Egy felhasználó bejelentkezését valósítja meg
+    void ricroll();//Rick Roll
     class CommandNotFoundException:public std::exception
     {
         std::string massage;
         public:
-        CommandNotFoundException(std::string command)
+        CommandNotFoundException(std::string command)//Nem talált parancs kivétel
         {
             std::stringstream ss;
             ss<<command<<"-is an invalid command";
