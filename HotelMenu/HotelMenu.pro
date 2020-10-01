@@ -12,4 +12,5 @@ SOURCES += \
 HEADERS += \
     Commandpanel.h \
     Login.h \
+    Tasks.h \
     User.h
