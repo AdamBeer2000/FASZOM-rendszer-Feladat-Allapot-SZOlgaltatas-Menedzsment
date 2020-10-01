@@ -5,6 +5,8 @@
 #ifndef TASKS_H
 #define TASKS_H
 
+#include <exception>
+
 namespace task
 {
     class Tasks
