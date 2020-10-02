@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< Updated upstream
 <!-- Written by QtCreator 4.13.1, 2020-10-01T22:26:29. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
   <value type="QByteArray">{3f4ad7f4-f75b-4255-b00b-2470d2cdb6fd}</value>
+=======
+<!-- Written by QtCreator 4.13.1, 2020-10-01T21:35:10. -->
+<qtcreator>
+ <data>
+  <variable>EnvironmentId</variable>
+  <value type="QByteArray">{fef48386-d9f3-416e-93dd-94fa5419276c}</value>
+>>>>>>> Stashed changes
  </data>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>
@@ -338,7 +346,11 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
+<<<<<<< Updated upstream
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Projects/SzallideSzallOda/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_32_bit-Debug</value>
+=======
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_32_bit-Debug</value>
+>>>>>>> Stashed changes
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
@@ -356,8 +368,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Projects\SzallideSzallOda\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Projects/SzallideSzallOda/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Debug</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -408,8 +425,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">2</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Projects\SzallideSzallOda\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Projects/SzallideSzallOda/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Release</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -460,8 +482,13 @@
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
     <value type="bool">true</value>
     <value type="int" key="EnableQmlDebugging">0</value>
+<<<<<<< Updated upstream
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Projects\SzallideSzallOda\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Projects/SzallideSzallOda/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\marti\Desktop\SoftTech\FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment\build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory.shadowDir">C:/Users/marti/Desktop/SoftTech/FASZOM-rendszer-Feladat-Allapot-SZOlgaltatas-Menedzsment/build-HotelMenu-Desktop_Qt_5_15_1_MinGW_64_bit-Profile</value>
+>>>>>>> Stashed changes
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
