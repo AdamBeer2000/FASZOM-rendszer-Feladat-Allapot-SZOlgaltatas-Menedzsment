@@ -25,7 +25,7 @@ void Login::LogInWith(std::string username, std::string password)
                 userfound=true;
                 userloggeed=true;
                 logged_user= tempUsers[k];
-                std::cout<<"Logged in"<<std::endl;
+                std::cout<<"\nLogged in"<<std::endl;
             }
             else
             {
@@ -47,6 +47,7 @@ void Login::logOut()
     {
         logged_user=User();
         userloggeed=false;
+        std::cout<<"\nLogged out"<<std::endl;
     }
 }
 
@@ -58,4 +59,9 @@ bool Login::isLoggedIn()
 bool Login::isLoggedOut()
 {
     return !userloggeed;
+}
+
+std::string Login::getLoggedUsername() const
+{
+    return logged_user.getUsername();
 }

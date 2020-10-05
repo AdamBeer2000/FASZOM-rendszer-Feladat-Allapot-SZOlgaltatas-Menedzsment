@@ -13,6 +13,15 @@ void CommandPanel::doStuff()
     {
         try
         {
+            if(isLoggedIn())
+            {
+                std::cout<<getLoggedUsername()<<":>";
+            }
+            else
+            {
+                std::cout<<"Guest:>";
+            }
+
             std::cin>>command;
             std::transform(command.begin(), command.end(), command.begin(),
                 [](unsigned char c){ return std::tolower(c);});
@@ -21,7 +30,7 @@ void CommandPanel::doStuff()
             {
                 case Invalid:throw CommandNotFoundException(command.c_str());break;
                 case cLogin:logIn();break;
-                case cLogout:logIn();break;
+                case cLogout:logOut();break;
                 case cExit:;break;
             }
         }
@@ -38,9 +47,9 @@ void CommandPanel::logIn()
     {
         std::string tempUserName;
         std::string tempPasword;
-        std::cout<<"Username:" <<std::endl;
+        std::cout<<"Username:";
         std::cin>>tempUserName;
-        std::cout<<"Pasword: "<<std::endl;
+        std::cout<<"Pasword:";
         std::cin>>tempPasword;
         LogInWith(tempUserName,tempPasword);
         std::cout<<"Hi "<<tempUserName<<std::endl;
@@ -50,7 +59,7 @@ void CommandPanel::logIn()
         }
         if(tempPasword=="69"||tempPasword=="420"||tempPasword=="42069"||tempPasword=="69420")
         {
-            std::cout<<"Nice!"<<std::endl;
+            std::cout<<"\nNice!"<<std::endl;
         }
     }
     else

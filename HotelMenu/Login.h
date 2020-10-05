@@ -21,6 +21,7 @@ public:
     void logOut();
     bool isLoggedIn();
     bool isLoggedOut();
+    std::string getLoggedUsername() const;
 
     class NotExistingUsernameException:public std::exception
     {
