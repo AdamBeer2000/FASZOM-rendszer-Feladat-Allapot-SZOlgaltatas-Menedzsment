@@ -7,10 +7,11 @@ SOURCES += \
         Commandpanel.cpp \
         Login.cpp \
         main.cpp \
+        manager.cpp \
         user.cpp
 
 HEADERS += \
     Commandpanel.h \
     Login.h \
-    Tasks.h \
-    User.h
+    User.h \
+    manager.h
