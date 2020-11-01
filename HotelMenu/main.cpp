@@ -1,5 +1,6 @@
 #include <iostream>
 #include "commandpanel.h"
+#include "task.h"
 
 int main()
 {
@@ -13,7 +14,7 @@ int main()
     users.push_back(Test2);
     users.push_back(Test3);
     users.push_back(Test4);
-    //Login oneLogin= Login(users);
+    Login oneLogin= Login(users);
     /*
     oneLogin.LogInWith("JAni","123");//Jó felhasznév jó jelszó
     oneLogin.logOut();
@@ -28,5 +29,15 @@ int main()
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
 
+
+    //TASK DEBUG
+    //NOT WORK AS WELL AS I WANT (YET)
+    /*Tasks::Task t = Tasks::Task("emp", "w");
+    t.addToDo("todo");
+    t.addToDo("todo2");
+    t.removeToDo("todo");
+    std::cout << "work";
+    t.removeToDo("todo3"); //throw exception
+    */
     return 0;
 }
