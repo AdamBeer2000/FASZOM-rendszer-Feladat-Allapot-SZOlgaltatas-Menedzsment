@@ -7,7 +7,7 @@ class CommandPanel:public Login
     void login();
 public:
 
-    CommandPanel(std::list<User>&users);
+    CommandPanel(std::list<Users::User>&users);
     void doStuff();//gyakorlatilag egy main
     void logIn(); //Egy felhasználó bejelentkezését valósítja meg
     void ricroll();//Rick Roll

@@ -3,16 +3,20 @@
 #include "map"
 #include "string"
 
-class User
+namespace  Users
 {
-    std::string username;
-    std::string password;
+    class User
+    {
+        std::string username;
+        std::string password;
 
-public:
-    User();
-    User(std::string _username,std::string _password);
-    std::string getPassword() const;
-    std::string getUsername() const;
-};
+    public:
+        User();
+        User(const std::string& _username, const std::string& _password);
+        std::string getPassword() const;
+        std::string getUsername() const;
+    };
+} // eof Users
+
 
 #endif // RIGHTSANDCOMMANDS_H

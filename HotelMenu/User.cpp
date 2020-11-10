@@ -1,20 +1,20 @@
 #include "User.h"
-std::string User::getPassword() const
+std::string Users::User::getPassword() const
 {
     return password;
 }
 
-std::string User::getUsername() const
+std::string Users::User::getUsername() const
 {
     return username;
 }
 
-User::User()
+Users::User::User()
 {
 
 }
 
-User::User(std::string _username, std::string _password)
+Users::User::User(const std::string& _username, const std::string& _password)
 {
     username=_username;
     password=_password;

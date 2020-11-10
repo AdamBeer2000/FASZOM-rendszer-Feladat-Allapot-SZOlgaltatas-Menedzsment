@@ -1,6 +1,6 @@
 #include "Login.h"
 
-Login::Login(std::list<User>&_users):logged_user(User())
+Login::Login(std::list<Users::User>&_users):logged_user(Users::User())
 {
     userloggeed=false;
     users=_users;
@@ -8,8 +8,8 @@ Login::Login(std::list<User>&_users):logged_user(User())
 
 void Login::LogInWith(std::string username, std::string password)
 {
-    std::list<User>::iterator it;
-    std::vector<User> tempUsers(users.begin(),users.end());
+    std::list<Users::User>::iterator it;
+    std::vector<Users::User> tempUsers(users.begin(),users.end());
     bool userfound=false;
     unsigned int k=0;
     if(userloggeed)
@@ -45,7 +45,7 @@ void Login::logOut()
 {
     if(userloggeed)
     {
-        logged_user=User();
+        logged_user=Users::User();
         userloggeed=false;
         std::cout<<"\nLogged out"<<std::endl;
     }

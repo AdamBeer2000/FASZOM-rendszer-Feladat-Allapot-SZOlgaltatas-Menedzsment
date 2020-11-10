@@ -2,12 +2,14 @@
 
 using namespace Tasks;
 
+//CONSTRUCTORS
 Task::Task(std::string employee_c, std::string task_id_c):
     employee(employee_c), task_id(task_id_c)
 {
     setStatus(false);
 }
 
+//GETTERS SETTERS
 bool Task::getStatus() const
 {
     return status;
@@ -33,6 +35,7 @@ std::string Task::getTodo() const
     return todo;
 }
 
+//FUNCTIONS
 bool Task::isActive()
 {
     return getStatus();
@@ -40,13 +43,20 @@ bool Task::isActive()
 
 void Task::setTodo(const std::string &value)
 {
-    if(isValid(value))
+    try
     {
-        todo = value;
+        if(isValid(value))
+        {
+            todo = value;
+        }
+        else
+        {
+            throw InvalidTaskException("[SET TODO EXCEPTION]: Invalid todo");
+        }
     }
-    else
+    catch (InvalidTaskException& e)
     {
-        throw InvalidTaskException("[SET TODO EXCEPTION]: Invalid todo");
+        std::cout << e.what() << std::endl;
     }
 }
 

@@ -1,6 +1,6 @@
 #include "commandpanel.h"
 
-CommandPanel::CommandPanel(std::list<User> &users):Login(users)
+CommandPanel::CommandPanel(std::list<Users::User> &users):Login(users)
 {
 
 }

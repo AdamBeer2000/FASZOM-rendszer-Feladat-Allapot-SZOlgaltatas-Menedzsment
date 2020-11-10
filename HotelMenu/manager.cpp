@@ -1,11 +1,11 @@
 #include "manager.h"
 
-Manager::Manager()
+Users::Manager::Manager(const std::string& username_c, const std::string& password_c): User(username_c, password_c)
 {
 
 }
 
-Manager::~Manager()
+Users::Manager::~Manager()
 {
 
 }

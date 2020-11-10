@@ -2,19 +2,22 @@
 #define MANAGER_H
 
 #include <string>
+#include "User.h"
 
-using namespace std;
-
-class Manager
+namespace Users
 {
-private:
-    string Karen = "I want to speak to the manager!";
+    class Manager: public User
+    {
+    private:
+        std::string username = "manager";
+        std::string password = "admin";
 
-    string username = "Manager";
-    string password = "admin";
-public:
-    Manager();
-    ~Manager();
-};
+    public:
+        Manager(const std::string& username_c, const std::string& password_c);
+        ~Manager();
+
+    };
+
+} // eof Users
 
 #endif // MANAGER_H
