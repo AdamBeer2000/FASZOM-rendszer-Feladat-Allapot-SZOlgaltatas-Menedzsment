@@ -9,6 +9,14 @@ Task::Task(std::string employee_c, std::string task_id_c):
     setStatus(false);
 }
 
+Task::Task(Task::TaskBuilder &builder)
+{
+    this->employee = builder.employee;
+    this->task_id = builder.task_id;
+    this->todo = builder.todo;
+    this->status = builder.status;
+}
+
 //GETTERS SETTERS
 bool Task::getStatus() const
 {
@@ -76,6 +84,25 @@ bool Task::isValid(const std::string& data)
     }
 }
 
+bool Task::isValidId(const std::string &task_id_v)
+{
+    if(task_id_v.length() == 6)
+    {
+        if(task_id_v.substr(0,2).compare("JA") == 0 || task_id_v.substr(0,2).compare("RE") == 0 || task_id_v.substr(0,2).compare("CL") == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
 void Task::printTask() const
 {
     std::cout << "-------------------------------" << std::endl;
@@ -97,3 +124,4 @@ std::string Task::statusToString(bool stat) const
         return "Unfinished";
     }
 }
+

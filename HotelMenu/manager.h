@@ -3,6 +3,7 @@
 
 #include <string>
 #include "User.h"
+#include "task.h"
 
 namespace Users
 {
@@ -15,6 +16,8 @@ namespace Users
     public:
         Manager(const std::string& username_c, const std::string& password_c);
         ~Manager();
+
+        void generateTask();
 
     };
 
