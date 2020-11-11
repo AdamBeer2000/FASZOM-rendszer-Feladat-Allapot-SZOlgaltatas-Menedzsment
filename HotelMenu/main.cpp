@@ -24,10 +24,12 @@ int main()
 
     Manager Test5 = Manager("Manager", "admin");
     Manager Test6 = Manager("Manager", "admin");
+    Tasks::Task t1 = Test5.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
+    Tasks::Task t2 = Test6.generateTask(jobs::JAN, "George Soros", "Soros terv");
 
     TaskContainer task = TaskContainer();
-    task.addTask(Test5.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon"));
-    task.addTask(Test6.generateTask(jobs::JAN, "George Soros", "Soros terv"));
+    task.addTask(t1);
+    task.addTask(t2);
 
     task.printAllTask();
 
