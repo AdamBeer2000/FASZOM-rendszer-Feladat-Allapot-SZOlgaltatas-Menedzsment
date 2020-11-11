@@ -1,20 +1,15 @@
 #ifndef COMMANDPANEL_H
 #define COMMANDPANEL_H
 
-#include <map>
-#include <algorithm>
 #include "login.h"
 #include "task.h"
 
 class CommandPanel:public Login
 {
 private:
-
-    std::map<std::string, Tasks::Task> rename_this_please;
     void login();
 
 public:
-
     CommandPanel(std::list<Users::User*> users);
     void doStuff();//gyakorlatilag egy main
     void logIn(); //Egy felhasználó bejelentkezését valósítja meg

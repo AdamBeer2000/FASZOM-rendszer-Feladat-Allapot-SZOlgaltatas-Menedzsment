@@ -10,6 +10,7 @@ SOURCES += \
         main.cpp \
         manager.cpp \
         task.cpp \
+        taskcontainer.cpp \
         user.cpp
 
 HEADERS += \
@@ -18,4 +19,5 @@ HEADERS += \
     login.h \
     manager.h \
     task.h \
+    taskcontainer.h \
     user.h
