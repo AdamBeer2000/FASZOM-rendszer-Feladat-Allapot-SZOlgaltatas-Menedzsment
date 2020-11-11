@@ -12,11 +12,11 @@
 
 class Login
 {
-    std::list<Users::User>users;
-    Users::User logged_user;
+    std::list<Users::User *>users;
+    Users::User * logged_user;
     bool userloggeed;
 public:
-    Login(std::list<Users::User>&users);
+    Login(std::list<Users::User*>users);
     void LogInWith(std::string username,std::string password);
     void logOut();
     bool isLoggedIn();
@@ -40,6 +40,14 @@ public:
         virtual const char * what() const throw()
         {
             return massage.c_str();
+        }
+    };
+
+    class WrongUsernameException:public std::exception
+    {
+        virtual const char * what() const throw()
+        {
+            return "Wrong username!";
         }
     };
 

@@ -1,6 +1,6 @@
 #include "commandpanel.h"
 
-CommandPanel::CommandPanel(std::list<Users::User> &users):Login(users)
+CommandPanel::CommandPanel(std::list<Users::User*> users):Login(users)
 {
 
 }
@@ -52,7 +52,11 @@ void CommandPanel::logIn()
         std::cout<<"Pasword:";
         std::cin>>tempPasword;
         LogInWith(tempUserName,tempPasword);
-        std::cout<<"Hi "<<tempUserName<<std::endl;
+        if(isLoggedIn())
+        {
+            std::cout<<"Hi "<<tempUserName<<std::endl;
+        }
+
         if(tempUserName=="rickastley"||tempUserName=="RickAstley")
         {
             ricroll();

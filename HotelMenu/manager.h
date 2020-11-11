@@ -35,7 +35,7 @@ namespace Users
         };
 
     public:
-        Manager(const std::string& username_c, const std::string& password_c);
+        Manager(const std::string& username_c, const std::string& password_c,jobs _jobID);
         ~Manager();
 
         void generateTask(const std::string& employee_type, const std::string& employee_name, const std::string& todo);
