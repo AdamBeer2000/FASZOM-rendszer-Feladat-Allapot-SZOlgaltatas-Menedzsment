@@ -20,12 +20,12 @@ int main()
     users.push_back(&Test3);
     users.push_back(&Test4);
     Login oneLogin= Login(users);
-
+    /*
     Manager Test5 = Manager("Manager", "admin");
     Test5.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
     Manager Test6 = Manager("Manager", "admin");
     Test6.generateTask(jobs::JAN, "George Soros", "Soros terv");
-
+    */
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
 

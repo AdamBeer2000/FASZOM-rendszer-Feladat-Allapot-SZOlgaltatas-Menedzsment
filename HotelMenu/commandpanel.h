@@ -6,18 +6,18 @@
 #include "login.h"
 #include "task.h"
 
-class CommandPanel:public Login
+class CommandPanel
 {
 private:
 
     std::map<std::string, Tasks::Task> rename_this_please;
-    void login();
-
+    void logIn(); //Egy felhasználó bejelentkezését valósítja meg
+    Login logger;
 public:
 
     CommandPanel(std::list<Users::User*> users);
     void doStuff();//gyakorlatilag egy main
-    void logIn(); //Egy felhasználó bejelentkezését valósítja meg
+
     void ricroll();//Rick Roll
     class CommandNotFoundException:public std::exception
     {

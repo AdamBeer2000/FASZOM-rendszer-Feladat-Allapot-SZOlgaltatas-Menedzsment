@@ -32,31 +32,10 @@ void Login::LogInWith(std::string username, std::string password)
             }
         }
     }
-    throw WrongUsernameException();
-    /*
-    while (userfound!=true&&k<users.size())
+    if(isLoggedOut())
     {
-        if(tempUsers[k].getUsername()==username)
-        {
-            if(tempUsers[k].getPassword()==password)
-            {
-                userfound=true;
-                userloggeed=true;
-                logged_user= tempUsers[k];
-                std::cout<<"\nLogged in"<<std::endl;
-            }
-            else
-            {
-                throw WrongPasswordException();
-            }
-        }
-        k++;
+        throw WrongUsernameException();
     }
-    if(userfound!=true)
-    {
-        throw NotExistingUsernameException(username);
-    }
-    */
 }
 
 void Login::logOut()

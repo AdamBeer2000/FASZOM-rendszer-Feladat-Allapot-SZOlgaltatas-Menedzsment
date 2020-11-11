@@ -1,6 +1,6 @@
 #include "commandpanel.h"
 
-CommandPanel::CommandPanel(std::list<Users::User*> users):Login(users)
+CommandPanel::CommandPanel(std::list<Users::User*> users):logger(users)
 {
 
 }
@@ -13,9 +13,9 @@ void CommandPanel::doStuff()
     {
         try
         {
-            if(isLoggedIn())
+            if(logger.isLoggedIn())
             {
-                std::cout<<getLoggedUsername()<<":>";
+                std::cout<<logger.getLoggedUsername()<<":>";
             }
             else
             {
@@ -30,7 +30,7 @@ void CommandPanel::doStuff()
             {
                 case Invalid:throw CommandNotFoundException(command.c_str());break;
                 case cLogin:logIn();break;
-                case cLogout:logOut();break;
+                case cLogout:logger.logOut();break;
                 case cExit:;break;
             }
         }
@@ -43,7 +43,7 @@ void CommandPanel::doStuff()
 }
 void CommandPanel::logIn()
 {
-    if(isLoggedOut())
+    if(logger.isLoggedOut())
     {
         std::string tempUserName;
         std::string tempPasword;
@@ -51,8 +51,8 @@ void CommandPanel::logIn()
         std::cin>>tempUserName;
         std::cout<<"Pasword:";
         std::cin>>tempPasword;
-        LogInWith(tempUserName,tempPasword);
-        if(isLoggedIn())
+        logger.LogInWith(tempUserName,tempPasword);
+        if(logger.isLoggedIn())
         {
             std::cout<<"Hi "<<tempUserName<<std::endl;
         }
@@ -68,7 +68,7 @@ void CommandPanel::logIn()
     }
     else
     {
-        throw AlrreadyLoged();
+        throw Login::AlrreadyLoged();
     }
 }
 
