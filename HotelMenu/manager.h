@@ -35,13 +35,18 @@ namespace Users
         };
 
     public:
-        Manager(const std::string& username_c, const std::string& password_c,jobs _jobID);
+        Manager(const std::string& username_c, const std::string& password_c);
         ~Manager();
 
-        void generateTask(const std::string& employee_type, const std::string& employee_name, const std::string& todo);
-        std::string generateTaskId(const std::string& employee_type);
+        //FUNCTIONS
+        void generateTask(jobs job_id, const std::string& employee_name, const std::string& todo);
+        std::string generateTaskId(jobs job_id);
         //void sendTask(); //file-ba ír
         void deleteTask(const std::string& task_id_remove);
+
+        //FUNCTIONS FROM ABSTRACT USER
+        virtual void doWork() const;
+        virtual User* clone() const;
 
     };
 

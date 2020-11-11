@@ -67,9 +67,9 @@ bool Task::isValid(const std::string& data)
 
 bool Task::isValidId(const std::string& task_id_v)
 {
-    if(task_id_v.length() == 6)
+    if(task_id_v.length() == 8)
     {
-        if(task_id_v.substr(0,2).compare("JA") == 0 || task_id_v.substr(0,2).compare("RE") == 0 || task_id_v.substr(0,2).compare("CL") == 0)
+        if(task_id_v.substr(0,3).compare("JAN") == 0 || task_id_v.substr(0,3).compare("REC") == 0 || task_id_v.substr(0,3).compare("CLE") == 0)
         {
             return true;
         }

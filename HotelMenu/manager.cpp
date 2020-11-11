@@ -1,6 +1,6 @@
 #include "manager.h"
 
-Users::Manager::Manager(const std::string& username_c, const std::string& password_c,jobs _jobID): User(username_c, password_c,_jobID)
+Users::Manager::Manager(const std::string& username_c, const std::string& password_c): User(username_c, password_c, jobs::MAN)
 {
 
 }
@@ -10,17 +10,17 @@ Users::Manager::~Manager()
 
 }
 
-void Users::Manager::generateTask(const std::string& employee_type, const std::string& employee_name, const std::string& todo)
+void Users::Manager::generateTask(jobs job_id, const std::string& employee_name, const std::string& todo)
 {
     std::string current_id = "";
-    current_id = generateTaskId(employee_type);
+    current_id = generateTaskId(job_id);
 //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
     auto builder = new Tasks::Task::TaskBuilder(current_id);
     auto task = builder->withEmployee(employee_name)
             .withTodo(todo)
             .withStatus(false)
             .build();
-
+    task->printTask();
     //add to task list
     //add to file
     //delete nem biztos, hogy ide kell
@@ -28,27 +28,26 @@ void Users::Manager::generateTask(const std::string& employee_type, const std::s
     delete builder;
 }
 
-std::string Users::Manager::generateTaskId(const std::string& employee_type)
+std::string Users::Manager::generateTaskId(jobs job_id)
 {
     std::string generated_id = "";
     try
     {
-        if(employee_type.compare("JANITOR") == 0)
+        switch(job_id)
         {
-            generated_id = "JA";
-        }
-        else if(employee_type.compare("RECEPTIONIST") == 0)
-        {
-            generated_id = "RE";
-        }
-        else if(employee_type.compare("CLEANER") == 0)
-        {
-            generated_id = "CL";
-        }
-        else
-        {
-            generated_id = "ER"; //Error
-            throw InvalidInputException("[INVALID INPUT]: Employee type");
+            case Users::jobs::JAN:
+                generated_id = "JAN";
+                break;
+            case Users::jobs::CLE:
+                generated_id = "CLE";
+                break;
+            case Users::jobs::REC:
+                generated_id = "REC";
+                break;
+            default:
+                generated_id = "ERR"; //Error
+                throw InvalidInputException("[INVALID INPUT]: Employee type");
+                break;
         }
     }
     catch(InvalidInputException& e)
@@ -57,19 +56,23 @@ std::string Users::Manager::generateTaskId(const std::string& employee_type)
     }
 
 
-    int num_code = rand() % 10000;
+    int num_code = rand() % 100000;
 
-    if(num_code < 1000)
+    if(num_code < 10000)
     {
         generated_id += "0";
 
-        if(num_code < 100)
+        if(num_code < 1000)
         {
             generated_id += "0";
 
-            if(num_code < 10)
+            if(num_code < 100)
             {
                 generated_id += "0";
+                if(num_code < 10)
+                {
+                    generated_id += "0";
+                }
             }
         }
     }
@@ -79,7 +82,7 @@ std::string Users::Manager::generateTaskId(const std::string& employee_type)
     auto it = find(task_ids.begin(), task_ids.end(), generated_id);
     if(it != task_ids.end())
     {
-        generateTaskId(employee_type);
+        generateTaskId(job_id);
     }
     return generated_id;
 }
@@ -93,4 +96,14 @@ void Users::Manager::deleteTask(const std::string& task_id_remove)
         //task torlese
         //mentes
     }
+}
+
+void Users::Manager::doWork() const
+{
+
+}
+
+Users::User *Users::Manager::clone() const
+{
+    return new Manager(*this);
 }
