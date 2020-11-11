@@ -4,16 +4,16 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        Commandpanel.cpp \
-        Login.cpp \
+        commandpanel.cpp \
+        login.cpp \
         main.cpp \
         manager.cpp \
         task.cpp \
         user.cpp
 
 HEADERS += \
-    Commandpanel.h \
-    Login.h \
-    User.h \
+    commandpanel.h \
+    login.h \
     manager.h \
-    task.h
+    task.h \
+    user.h

@@ -1,4 +1,4 @@
-#include "User.h"
+#include "user.h"
 std::string Users::User::getPassword() const
 {
     return password;

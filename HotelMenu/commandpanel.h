@@ -1,6 +1,6 @@
 #ifndef COMMANDPANEL_H
 #define COMMANDPANEL_H
-#include "Login.h"
+#include "login.h"
 
 class CommandPanel:public Login
 {
