@@ -4,8 +4,6 @@
 #include <exception>
 #include <iostream>
 #include <string>
-#include <list>
-#include <algorithm>
 
 namespace Tasks
 {
@@ -14,10 +12,11 @@ namespace Tasks
     {
     private:
         std::string employee;
-        std::string task_id; // AA0000 -> for example: TA0001 (takarító) or RE0001 (recepciós) etc..
+        std::string task_id; // AA0000 -> for example: CL0001 (cleaner) or JA0001 (janitor) etc..
         std::string todo;
         bool status;
 
+        //EXCEPTION CLASS
         class InvalidTaskException: public std::exception
         {
         private:
@@ -39,7 +38,7 @@ namespace Tasks
         {
         private:
             std::string employee = "";
-            std::string task_id; // AA0000 -> for example: TA0001 (takarító) or RE0001 (recepciós) etc..
+            std::string task_id;
             std::string todo = "";
             bool status = false;
 
@@ -51,15 +50,46 @@ namespace Tasks
                 this->task_id = task_id_c;
             }
 
+            //FUNCTIONS
             TaskBuilder& withEmployee(const std::string& employee_opt)
             {
-                this->employee = employee_opt;
+                try
+                {
+                    if(Task::isValid(employee_opt))
+                    {
+                        this->employee = employee_opt;
+                    }
+                    else
+                    {
+                        throw InvalidTaskException("[SET EMPLOYEE EXCEPTION]: Invalid input detected!");
+                    }
+                }
+                catch (InvalidTaskException& e)
+                {
+                    std::cout << e.what() << std::endl;
+                }
+
                 return *this;
             }
 
             TaskBuilder& withTodo(const std::string& todo_opt)
             {
-                this->todo = todo_opt;
+                try
+                {
+                    if(Task::isValid(todo_opt))
+                    {
+                        this->todo = todo_opt;
+                    }
+                    else
+                    {
+                        throw InvalidTaskException("[SET TODO EXCEPTION]: Invalid todo");
+                    }
+                }
+                catch (InvalidTaskException& e)
+                {
+                    std::cout << e.what() << std::endl;
+                }
+
                 return *this;
             }
 
@@ -69,6 +99,7 @@ namespace Tasks
                 return *this;
             }
 
+            //BUILD
             Task* build()
             {
                 return new Task(*this);
@@ -81,8 +112,8 @@ namespace Tasks
         Task(TaskBuilder &builder);
 
         //FUNCTIONS
-        bool isValid(const std::string& data);
-        bool isValidId(const std::string& task_id_v);
+        static bool isValid(const std::string& data);
+        static bool isValidId(const std::string& task_id_v);
         void printTask() const;
         std::string statusToString(bool stat) const;
 
@@ -95,9 +126,6 @@ namespace Tasks
 
         //SETTERS
         void setStatus(bool value);
-        void setTodo(const std::string &value);
-
-
     };
 } // eof Tasks
 #endif // TASK_H

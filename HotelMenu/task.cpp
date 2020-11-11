@@ -25,7 +25,7 @@ bool Task::getStatus() const
 
 void Task::setStatus(bool value)
 {
-    status = value;
+    this->status = value;
 }
 
 std::string Task::getEmployee() const
@@ -49,25 +49,6 @@ bool Task::isActive()
     return getStatus();
 }
 
-void Task::setTodo(const std::string &value)
-{
-    try
-    {
-        if(isValid(value))
-        {
-            todo = value;
-        }
-        else
-        {
-            throw InvalidTaskException("[SET TODO EXCEPTION]: Invalid todo");
-        }
-    }
-    catch (InvalidTaskException& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-}
-
 bool Task::isValid(const std::string& data)
 {
     if(!data.empty())
@@ -84,7 +65,7 @@ bool Task::isValid(const std::string& data)
     }
 }
 
-bool Task::isValidId(const std::string &task_id_v)
+bool Task::isValidId(const std::string& task_id_v)
 {
     if(task_id_v.length() == 6)
     {
@@ -105,12 +86,26 @@ bool Task::isValidId(const std::string &task_id_v)
 
 void Task::printTask() const
 {
-    std::cout << "-------------------------------" << std::endl;
-    std::cout << "Task id: " << getTaskId() << std::endl;
-    std::cout << "Task: " << getTodo() << std::endl;
-    std::cout << "Status: " << statusToString(getStatus()) << std::endl;
-    std::cout << "Employee: " << getEmployee() << std::endl;
-    std::cout << "-------------------------------" << std::endl;
+    try
+    {
+        if(isValid(getTodo()) && isValid(getEmployee()) && isValidId(getTaskId()))
+        {
+            std::cout << "-------------------------------" << std::endl;
+            std::cout << "Task id: " << getTaskId() << std::endl;
+            std::cout << "Task: " << getTodo() << std::endl;
+            std::cout << "Status: " << statusToString(getStatus()) << std::endl;
+            std::cout << "Employee: " << getEmployee() << std::endl;
+            std::cout << "-------------------------------" << std::endl;
+        }
+        else
+        {
+            throw InvalidTaskException("[CORRUPTED TASK]: Something went wrong!\n[ID: "+ getTaskId() + "]");
+        }
+    }
+    catch(InvalidTaskException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 std::string Task::statusToString(bool stat) const
