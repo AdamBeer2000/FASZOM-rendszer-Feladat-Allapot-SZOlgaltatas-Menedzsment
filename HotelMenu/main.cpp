@@ -3,6 +3,7 @@
 #include "task.h"
 #include "guest.h"
 #include "manager.h"
+#include "taskcontainer.h"
 
 using namespace Users;
 
@@ -22,10 +23,21 @@ int main()
     Login oneLogin= Login(users);
     /*
     Manager Test5 = Manager("Manager", "admin");
-    Test5.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
     Manager Test6 = Manager("Manager", "admin");
+
     Test6.generateTask(jobs::JAN, "George Soros", "Soros terv");
+
+
+    Tasks::Task t1 = Test5.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
+    Tasks::Task t2 = Test6.generateTask(jobs::JAN, "George Soros", "Soros terv");
+
+    TaskContainer task = TaskContainer();
+    task.addTask(t1);
+    task.addTask(t2);
+
+    task.printAllTask();
     */
+
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
 

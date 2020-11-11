@@ -10,7 +10,7 @@ Users::Manager::~Manager()
 
 }
 
-void Users::Manager::generateTask(jobs job_id, const std::string& employee_name, const std::string& todo)
+Tasks::Task Users::Manager::generateTask(jobs job_id, const std::string& employee_name, const std::string& todo)
 {
     std::string current_id = "";
     current_id = generateTaskId(job_id);
@@ -20,12 +20,13 @@ void Users::Manager::generateTask(jobs job_id, const std::string& employee_name,
             .withTodo(todo)
             .withStatus(false)
             .build();
-    task->printTask();
-    //add to task list
-    //add to file
+
+    task_ids.push_back(task->getTaskId());
+    //közös task listához hozzáadás
     //delete nem biztos, hogy ide kell
-    delete task;
-    delete builder;
+    return *task;
+    //delete task;
+    //delete builder;
 }
 
 std::string Users::Manager::generateTaskId(jobs job_id)

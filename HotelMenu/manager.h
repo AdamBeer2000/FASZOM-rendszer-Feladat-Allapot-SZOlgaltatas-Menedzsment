@@ -39,9 +39,8 @@ namespace Users
         ~Manager();
 
         //FUNCTIONS
-        void generateTask(jobs job_id, const std::string& employee_name, const std::string& todo);
+        Tasks::Task generateTask(jobs job_id, const std::string& employee_name, const std::string& todo);
         std::string generateTaskId(jobs job_id);
-        //void sendTask(); //file-ba ír
         void deleteTask(const std::string& task_id_remove);
 
         //FUNCTIONS FROM ABSTRACT USER

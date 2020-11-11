@@ -12,7 +12,7 @@ namespace Tasks
     {
     private:
         std::string employee;
-        std::string task_id; // AA0000 -> for example: CL0001 (cleaner) or JA0001 (janitor) etc..
+        std::string task_id;
         std::string todo;
         bool status;
 
