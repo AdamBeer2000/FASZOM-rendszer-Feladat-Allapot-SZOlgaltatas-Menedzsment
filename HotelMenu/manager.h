@@ -41,7 +41,7 @@ namespace Users
         void generateTask(const std::string& employee_type, const std::string& employee_name, const std::string& todo);
         std::string generateTaskId(const std::string& employee_type);
         //void sendTask(); //file-ba ír
-        //void deleteTask();
+        void deleteTask(const std::string& task_id_remove);
 
     };
 

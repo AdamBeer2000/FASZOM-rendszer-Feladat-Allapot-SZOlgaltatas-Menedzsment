@@ -83,3 +83,14 @@ std::string Users::Manager::generateTaskId(const std::string& employee_type)
     }
     return generated_id;
 }
+
+void Users::Manager::deleteTask(const std::string& task_id_remove)
+{
+    auto it = find(task_ids.begin(), task_ids.end(), task_id_remove);
+    if(it != task_ids.end())
+    {
+        task_ids.remove(task_id_remove);
+        //task torlese
+        //mentes
+    }
+}
