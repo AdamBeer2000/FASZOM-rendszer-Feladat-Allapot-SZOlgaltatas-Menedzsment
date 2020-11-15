@@ -4,12 +4,14 @@
 #include "guest.h"
 #include "manager.h"
 #include "taskcontainer.h"
+#include <time.h>
 
 using namespace Users;
 
 int main()
 {
     //thingthing
+
 
     Guest Test1 = Guest("JAni","123");
     Guest Test2 = Guest("Bela","321");
@@ -21,7 +23,7 @@ int main()
     users.push_back(&Test3);
     users.push_back(&Test4);
     Login oneLogin= Login(users);
-    /*
+
     Manager Test5 = Manager("Manager", "admin");
     Manager Test6 = Manager("Manager", "admin");
 
@@ -36,9 +38,22 @@ int main()
     task.addTask(t2);
 
     task.printAllTask();
-    */
+
 
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
 
+    /*
+    time_t date;
+
+    struct tm * myTime;
+
+    time(&date);
+    myTime = localtime(&date);
+    myTime->tm_year = 2020;
+    myTime->tm_mon = 11;
+    myTime->tm_mday = 15;
+
+    mktime(myTime);
+    std::cout << asctime(gmtime(&date)) << std::endl;*/
 }

@@ -10,9 +10,9 @@ void TaskContainer::addTask(Tasks::Task _task)
     task_list.insert({_task.getTaskId(), _task});
 }
 
-void TaskContainer::removeTask(Tasks::Task _task)
+void TaskContainer::removeTask(std::string _task_id)
 {
-    task_list.erase(_task.getTaskId());
+    task_list.erase(_task_id);
 }
 
 void TaskContainer::printAllTask()

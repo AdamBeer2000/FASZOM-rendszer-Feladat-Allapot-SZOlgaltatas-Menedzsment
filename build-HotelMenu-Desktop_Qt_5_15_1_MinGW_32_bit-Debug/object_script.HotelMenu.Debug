@@ -1,0 +1,10 @@
+debug/commandpanel.o
+debug/guest.o
+debug/log.o
+debug/logfix.o
+debug/login.o
+debug/main.o
+debug/manager.o
+debug/task.o
+debug/taskcontainer.o
+debug/user.o

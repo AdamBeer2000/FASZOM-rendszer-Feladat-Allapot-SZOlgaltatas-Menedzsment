@@ -6,6 +6,8 @@ CONFIG -= qt
 SOURCES += \
         commandpanel.cpp \
         guest.cpp \
+        log.cpp \
+        logfix.cpp \
         login.cpp \
         main.cpp \
         manager.cpp \
@@ -16,6 +18,8 @@ SOURCES += \
 HEADERS += \
     commandpanel.h \
     guest.h \
+    log.h \
+    logfix.h \
     login.h \
     manager.h \
     task.h \

@@ -12,7 +12,7 @@ public:
     TaskContainer();
 
     void addTask(Tasks::Task _task);
-    void removeTask(Tasks::Task _task);
+    void removeTask(std::string _task_id);
 
     void printAllTask();
 };

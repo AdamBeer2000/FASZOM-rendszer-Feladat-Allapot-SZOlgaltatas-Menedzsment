@@ -3,12 +3,6 @@
 using namespace Tasks;
 
 //CONSTRUCTORS
-Task::Task(std::string employee_c, std::string task_id_c):
-    employee(employee_c), task_id(task_id_c)
-{
-    setStatus(false);
-}
-
 Task::Task(Task::TaskBuilder &builder)
 {
     this->employee = builder.employee;
@@ -26,6 +20,11 @@ bool Task::getStatus() const
 void Task::setStatus(bool value)
 {
     this->status = value;
+}
+
+void Task::setLog(Logs::Log *log)
+{
+    this->log = log;
 }
 
 std::string Task::getEmployee() const
@@ -118,5 +117,14 @@ std::string Task::statusToString(bool stat) const
     {
         return "Unfinished";
     }
+}
+
+bool Task::isActive() const
+{
+    if(this->getStatus())
+    {
+        return true;
+    }
+    return false;
 }
 

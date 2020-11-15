@@ -4,6 +4,7 @@
 #include <exception>
 #include <iostream>
 #include <string>
+#include "log.h"
 
 namespace Tasks
 {
@@ -12,9 +13,10 @@ namespace Tasks
     {
     private:
         std::string employee;
-        std::string task_id;
+        std::string task_id; //unique
         std::string todo;
         bool status;
+        Logs::Log* log;
 
         //EXCEPTION CLASS
         class InvalidTaskException: public std::exception
@@ -41,6 +43,7 @@ namespace Tasks
             std::string task_id;
             std::string todo = "";
             bool status = false;
+            Logs::Log* log = nullptr;
 
             friend class Task;
 
@@ -99,6 +102,12 @@ namespace Tasks
                 return *this;
             }
 
+            TaskBuilder& withLog(Logs::Log* log)
+            {
+                this->log = log;
+                return *this;
+            }
+
             //BUILD
             Task* build()
             {
@@ -108,7 +117,6 @@ namespace Tasks
         };
 
         //CONSTRUCTORS
-        Task(std::string employee_c, std::string task_id_c);
         Task(TaskBuilder &builder);
 
         //FUNCTIONS
@@ -116,6 +124,8 @@ namespace Tasks
         static bool isValidId(const std::string& task_id_v);
         void printTask() const;
         std::string statusToString(bool stat) const;
+        bool isActive() const;
+        //void printLog() const;
 
         //GETTERS
         std::string getEmployee() const;
@@ -126,6 +136,7 @@ namespace Tasks
 
         //SETTERS
         void setStatus(bool value);
+        void setLog(Logs::Log* log);
     };
 } // eof Tasks
 #endif // TASK_H
