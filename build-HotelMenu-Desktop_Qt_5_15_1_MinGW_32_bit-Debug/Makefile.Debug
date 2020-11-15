@@ -72,6 +72,7 @@ OBJECTS       = debug/commandpanel.o \
 		debug/user.o
 
 DIST          =  commandpanel.h \
+		date.h \
 		guest.h \
 		log.h \
 		logfix.h \
@@ -150,7 +151,8 @@ debug/guest.o: ../HotelMenu/guest.cpp ../HotelMenu/guest.h \
 debug/log.o: ../HotelMenu/log.cpp ../HotelMenu/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\log.o ..\HotelMenu\log.cpp
 
-debug/logfix.o: ../HotelMenu/logfix.cpp ../HotelMenu/logfix.h
+debug/logfix.o: ../HotelMenu/logfix.cpp ../HotelMenu/logfix.h \
+		../HotelMenu/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\logfix.o ..\HotelMenu\logfix.cpp
 
 debug/login.o: ../HotelMenu/login.cpp ../HotelMenu/login.h \
@@ -164,7 +166,9 @@ debug/main.o: ../HotelMenu/main.cpp ../HotelMenu/commandpanel.h \
 		../HotelMenu/log.h \
 		../HotelMenu/guest.h \
 		../HotelMenu/manager.h \
-		../HotelMenu/taskcontainer.h
+		../HotelMenu/taskcontainer.h \
+		../HotelMenu/logfix.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\HotelMenu\main.cpp
 
 debug/manager.o: ../HotelMenu/manager.cpp ../HotelMenu/manager.h \

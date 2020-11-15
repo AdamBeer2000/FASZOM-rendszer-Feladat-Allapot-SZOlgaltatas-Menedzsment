@@ -11,19 +11,19 @@ namespace Logs
         int room_id;
         std::string item, cause_of_failure;
         double cost;
-        time_t start_date;
-        time_t end_date;
+        date start_date;
+        date end_date;
 
     public:
-        LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, time_t start, time_t end);
+        LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end);
         virtual void printLog() const;
 
         int getRoomID() const;
         std::string getItem() const;
         std::string getCauseOfFailure() const;
         double getCost() const;
-        time_t getStartDate() const;
-        time_t getEndDate() const;
+        date getStartDate() const;
+        date getEndDate() const;
     };
 }// eof Logs
 #endif // LOGFIX_H

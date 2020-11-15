@@ -4,7 +4,9 @@
 #include "guest.h"
 #include "manager.h"
 #include "taskcontainer.h"
-#include <time.h>
+#include "logfix.h"
+#include "date.h"
+#include <iomanip> // a kettizedesre allitashoz (kerekít is)
 
 using namespace Users;
 
@@ -43,17 +45,30 @@ int main()
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
 
+
     /*
-    time_t date;
+    date d1;
+    d1.day = 15;
+    d1.month = 2;
+    d1.year = 2020;
+    d1.min = 5;
+    d1.sec = 23;
+    d1.hour = 13;
 
-    struct tm * myTime;
+    date d2;
+    d2.day = 5;
+    d2.month = 3;
+    d2.year = 2021;
+    d2.min = 16;
+    d2.sec = 3;
+    d2.hour = 23;
 
-    time(&date);
-    myTime = localtime(&date);
-    myTime->tm_year = 2020;
-    myTime->tm_mon = 11;
-    myTime->tm_mday = 15;
-
-    mktime(myTime);
-    std::cout << asctime(gmtime(&date)) << std::endl;*/
+    Logs::LogFix log = Logs::LogFix(206, "dardas virsli", "eltort", 20.128842, d1, d2);
+    log.printLog();
+    */
+    /*
+    double a = 12.3456789;
+    std::cout << a << std::endl;
+    std::cout << std::fixed <<std::setprecision(2) << a << std::endl;
+    */
 }

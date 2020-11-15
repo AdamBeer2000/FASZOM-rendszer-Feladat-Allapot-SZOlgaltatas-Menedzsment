@@ -17,6 +17,7 @@ SOURCES += \
 
 HEADERS += \
     commandpanel.h \
+    date.h \
     guest.h \
     log.h \
     logfix.h \

@@ -1,7 +1,7 @@
 #include "logfix.h"
 
 //CONSTRUCTOR
-Logs::LogFix::LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, time_t start, time_t end):
+Logs::LogFix::LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end):
     Log(room_id_c), room_id(room_id_c), item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), start_date(start), end_date(end){}
 
 
@@ -10,12 +10,12 @@ void Logs::LogFix::printLog() const
 {
     std::cout << "-----------------------------------" << std::endl;
     std::cout << "FIX: "<< std::endl;
-    std::cout << "Room:" << getRoomID() << std::endl;
+    std::cout << "Room: " << getRoomID() << std::endl;
     std::cout << "Item: " << getItem() << std::endl;
     std::cout << "Failure: " << getCauseOfFailure() << std::endl;
-    std::cout << "Repair cost:" << getCost() << " [EUR]" << std::endl;
+    std::cout << "Repair cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     std::cout << "Date:" << std::endl;
-    std::cout << ""<< getStartDate() <<" - " <<  getEndDate() <<std::endl; // szerkeszteni asctime(gmtime(&getStartDate()))
+    std::cout << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
     std::cout << "-----------------------------------" << std::endl;
 }
 
@@ -40,12 +40,12 @@ double Logs::LogFix::getCost() const
     return cost;
 }
 
-time_t Logs::LogFix::getStartDate() const
+date Logs::LogFix::getStartDate() const
 {
     return start_date;
 }
 
-time_t Logs::LogFix::getEndDate() const
+date Logs::LogFix::getEndDate() const
 {
     return end_date;
 }

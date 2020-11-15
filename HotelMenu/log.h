@@ -2,7 +2,9 @@
 #define LOG_H
 
 #include <iostream>
-#include <time.h>
+#include <iomanip>
+#include "date.h"
+
 namespace Logs
 {
     class Log
