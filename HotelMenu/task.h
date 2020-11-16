@@ -119,6 +119,9 @@ namespace Tasks
         //CONSTRUCTORS
         Task(TaskBuilder &builder);
 
+        //DESTRUCTOR
+        ~Task();
+
         //FUNCTIONS
         static bool isValid(const std::string& data);
         static bool isValidId(const std::string& task_id_v);

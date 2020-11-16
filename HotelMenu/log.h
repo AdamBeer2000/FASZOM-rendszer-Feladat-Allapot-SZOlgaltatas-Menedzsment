@@ -14,6 +14,7 @@ namespace Logs
 
     public:
         Log(int room_id_c);
+        virtual ~Log();
         virtual void printLog() const = 0;
     };
 } //eof Logs

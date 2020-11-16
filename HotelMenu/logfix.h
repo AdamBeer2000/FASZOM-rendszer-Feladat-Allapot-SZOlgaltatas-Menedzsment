@@ -8,7 +8,6 @@ namespace Logs
     class LogFix: public Log
     {
     private:
-        int room_id;
         std::string item, cause_of_failure;
         double cost;
         date start_date;

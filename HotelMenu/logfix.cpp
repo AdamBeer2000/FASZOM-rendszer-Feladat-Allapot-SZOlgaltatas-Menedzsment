@@ -2,7 +2,7 @@
 
 //CONSTRUCTOR
 Logs::LogFix::LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end):
-    Log(room_id_c), room_id(room_id_c), item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), start_date(start), end_date(end){}
+    Log(room_id_c), item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), start_date(start), end_date(end){}
 
 
 //FUNCTIONS
