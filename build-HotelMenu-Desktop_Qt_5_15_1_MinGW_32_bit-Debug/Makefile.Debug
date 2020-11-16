@@ -15,7 +15,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
-CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
+CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1y -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
 INCPATH       = -I..\HotelMenu -I. -IC:\Qt\5.15.1\mingw81_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
@@ -141,18 +141,21 @@ debug/commandpanel.o: ../HotelMenu/commandpanel.cpp ../HotelMenu/commandpanel.h 
 		../HotelMenu/login.h \
 		../HotelMenu/user.h \
 		../HotelMenu/task.h \
-		../HotelMenu/log.h
+		../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\commandpanel.o ..\HotelMenu\commandpanel.cpp
 
 debug/guest.o: ../HotelMenu/guest.cpp ../HotelMenu/guest.h \
 		../HotelMenu/user.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\guest.o ..\HotelMenu\guest.cpp
 
-debug/log.o: ../HotelMenu/log.cpp ../HotelMenu/log.h
+debug/log.o: ../HotelMenu/log.cpp ../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\log.o ..\HotelMenu\log.cpp
 
 debug/logfix.o: ../HotelMenu/logfix.cpp ../HotelMenu/logfix.h \
-		../HotelMenu/log.h
+		../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\logfix.o ..\HotelMenu\logfix.cpp
 
 debug/login.o: ../HotelMenu/login.cpp ../HotelMenu/login.h \
@@ -164,26 +167,29 @@ debug/main.o: ../HotelMenu/main.cpp ../HotelMenu/commandpanel.h \
 		../HotelMenu/user.h \
 		../HotelMenu/task.h \
 		../HotelMenu/log.h \
+		../HotelMenu/date.h \
 		../HotelMenu/guest.h \
 		../HotelMenu/manager.h \
 		../HotelMenu/taskcontainer.h \
-		../HotelMenu/logfix.h \
-		../HotelMenu/date.h
+		../HotelMenu/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\HotelMenu\main.cpp
 
 debug/manager.o: ../HotelMenu/manager.cpp ../HotelMenu/manager.h \
 		../HotelMenu/user.h \
 		../HotelMenu/task.h \
-		../HotelMenu/log.h
+		../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\manager.o ..\HotelMenu\manager.cpp
 
 debug/task.o: ../HotelMenu/task.cpp ../HotelMenu/task.h \
-		../HotelMenu/log.h
+		../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\task.o ..\HotelMenu\task.cpp
 
 debug/taskcontainer.o: ../HotelMenu/taskcontainer.cpp ../HotelMenu/taskcontainer.h \
 		../HotelMenu/task.h \
-		../HotelMenu/log.h
+		../HotelMenu/log.h \
+		../HotelMenu/date.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\taskcontainer.o ..\HotelMenu\taskcontainer.cpp
 
 debug/user.o: ../HotelMenu/user.cpp ../HotelMenu/user.h

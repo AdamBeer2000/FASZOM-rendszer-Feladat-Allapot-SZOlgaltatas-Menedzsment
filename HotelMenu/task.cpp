@@ -11,6 +11,12 @@ Task::Task(Task::TaskBuilder &builder)
     this->status = builder.status;
 }
 
+//DESTRUCTOR
+Task::~Task()
+{
+    delete log;
+}
+
 //GETTERS SETTERS
 bool Task::getStatus() const
 {

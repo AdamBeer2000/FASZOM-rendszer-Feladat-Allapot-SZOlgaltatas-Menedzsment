@@ -6,12 +6,12 @@
 struct date
 {
     //VARIABLES
-    int year;
-    int month;
-    int day;
-    int hour;
-    int min;
-    int sec;
+    int year = 0;
+    int month = 0;
+    int day = 0;
+    int hour = 0;
+    int min = 0;
+    int sec = 0;
 
     //FUNCTIONS
     std::string clockMode()
