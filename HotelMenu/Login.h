@@ -58,6 +58,13 @@ public:
             return "Wrong password!";
         }
     };
+    class NoPasswordException:public std::exception
+    {
+        virtual const char * what() const throw()
+        {
+            return "You have to give your password!";
+        }
+    };
 
     class AlrreadyLoged:public std::exception
     {
