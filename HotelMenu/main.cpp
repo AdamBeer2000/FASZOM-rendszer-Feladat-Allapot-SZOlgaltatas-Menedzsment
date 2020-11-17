@@ -19,6 +19,7 @@ int main()
     Guest Test2 = Guest("Bela","321");
     Guest Test3 = Guest("Cica","69420");
     Guest Test4 = Guest("RickAstley","kek");
+
     std::list<User*> users;
     users.push_back(&Test1);
     users.push_back(&Test2);

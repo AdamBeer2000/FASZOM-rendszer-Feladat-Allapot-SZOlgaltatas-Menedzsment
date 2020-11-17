@@ -47,10 +47,33 @@ void CommandPanel::logIn()
     {
         std::string tempUserName;
         std::string tempPasword;
-        std::cout<<"Username:";
-        std::cin>>tempUserName;
-        std::cout<<"Pasword:";
-        std::cin>>tempPasword;
+        std::string input;
+
+
+        std::getline(std::cin,input);
+        int poz=-1;
+        poz=input.find(" ");
+        if(poz==-1)
+        {
+            std::cout<<"Username:";
+            std::cin>>tempUserName;
+            std::cout<<"Pasword:";
+            std::cin>>tempPasword;
+        }
+        else
+        {
+            std::string trimed = input.substr(input.find(" ")+1);
+
+            tempUserName = trimed.substr(0,trimed.find(" "));
+
+            tempPasword = trimed.substr(trimed.find(" ")+1,input.length());
+            std::cout<<"pass:"<<tempPasword<<std::endl;
+            if(tempPasword==" "||tempPasword==""||tempPasword==tempUserName)
+            {
+                throw Login::NoPasswordException();
+            }
+        }
+
         logger.LogInWith(tempUserName,tempPasword);
         if(logger.isLoggedIn())
         {
