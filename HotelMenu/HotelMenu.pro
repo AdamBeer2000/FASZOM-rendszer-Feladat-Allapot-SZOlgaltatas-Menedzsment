@@ -10,6 +10,7 @@ SOURCES += \
         log.cpp \
         logfix.cpp \
         login.cpp \
+        logreservation.cpp \
         main.cpp \
         manager.cpp \
         task.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     log.h \
     logfix.h \
     login.h \
+    logreservation.h \
     manager.h \
     task.h \
     taskcontainer.h \
