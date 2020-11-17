@@ -4,6 +4,7 @@
 #include <map>
 #include <algorithm>
 #include "task.h"
+
 class TaskContainer
 {
 private:
