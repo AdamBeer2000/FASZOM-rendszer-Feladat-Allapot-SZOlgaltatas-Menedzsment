@@ -16,7 +16,7 @@ int main()
 {
     //thingthing
 
-/*
+
     Guest Test1 = Guest("JAni","123", jobs::GUE);
     Guest Test2 = Guest("Bela","321", jobs::GUE);
     Guest Test3 = Guest("Cica","69420", jobs::GUE);
@@ -47,9 +47,14 @@ int main()
 
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
-*/
 
 
+    //------------------------
+    //--- LOG SYSTEM DEBUG ---
+    //------------------------
+
+    //ELLENŐRZÉS KELL, HOGY MEGFELELŐ LOGOT MEGFELELŐ TASK-NAK LEHESSEN ADNI (if megegyezik a jobid-vel akkor ok, else nem egyezik akkor err..)
+    /*
     date d1;
     d1.day = 15;
     d1.month = 2;
@@ -66,17 +71,44 @@ int main()
     d2.sec = 3;
     d2.hour = 23;
 
-    Logs::LogFix log = Logs::LogFix(206, "dardas virsli", "eltort", 20.128842, d1, d2);
-    log.printLog();
+    Logs::LogFix log1 = Logs::LogFix(206, "dardas virsli", "eltort", 20.128842, d1, d2);
 
     Logs::LogCleaning log2 = Logs::LogCleaning(206, d1);
-    log2.printLog();
 
     Logs::LogCleaning log3 = Logs::LogCleaning(206, "dardas virsli", d2);
-    log3.printLog();
 
     Logs::LogReplace log4 = Logs::LogReplace(404, "asztal", "torott lab", 20.36, d1);
-    log4.printLog();
+
+    Manager Test7 = Manager("Manager", "admin", jobs::MAN);
+    Manager Test8 = Manager("Manager", "admin", jobs::MAN);
+    Manager Test9 = Manager("Manager", "admin", jobs::MAN);
+    Manager Test10 = Manager("Manager", "admin", jobs::MAN);
+
+    Tasks::Task t3 = Test7.generateTask(jobs::JAN, "Elon Musk", "Mars");
+    Tasks::Task t4 = Test8.generateTask(jobs::CLE, "George Soros", "Soros terv");
+    Tasks::Task t5 = Test9.generateTask(jobs::CLE, "Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
+    Tasks::Task t6 = Test10.generateTask(jobs::JAN, "George Soros", "Soros terv");
+    //REC-nek még nincs task
+
+    t3.setLog(&log4);
+    t4.setLog(&log2);
+    t5.setLog(&log3);
+    t6.setLog(&log1);
+
+    t3.printTask(); //REC
+    t3.printLog();  //REC
+    std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+    t4.printTask(); //JAN
+    t4.printLog(); //JAN
+    std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+    t5.printTask(); //CLE
+    t5.printLog(); //CLE
+    std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+    t6.printTask(); //JAN
+    t6.printLog(); //JAN
+    std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+    */
+
     /*
     double a = 12.3456789;
     std::cout << a << std::endl;

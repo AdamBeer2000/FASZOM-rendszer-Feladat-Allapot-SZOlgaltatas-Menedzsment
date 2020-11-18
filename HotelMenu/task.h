@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 #include "log.h"
+#include "logcleaning.h"
+#include "logreplace.h"
+#include "logreservation.h"
+#include "logfix.h"
 
 namespace Tasks
 {
@@ -128,14 +132,14 @@ namespace Tasks
         void printTask() const;
         std::string statusToString(bool stat) const;
         bool isActive() const;
-        //void printLog() const;
+        bool isActive();
+        void printLog() const;
 
         //GETTERS
         std::string getEmployee() const;
         std::string getTaskId() const;
         std::string getTodo() const;
         bool getStatus() const;
-        bool isActive();
 
         //SETTERS
         void setStatus(bool value);

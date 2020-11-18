@@ -54,6 +54,11 @@ bool Task::isActive()
     return getStatus();
 }
 
+void Task::printLog() const
+{
+    this->log->printLog();
+}
+
 bool Task::isValid(const std::string& data)
 {
     if(!data.empty())
