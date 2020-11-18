@@ -6,6 +6,7 @@
 #include "taskcontainer.h"
 #include "logfix.h"
 #include "logcleaning.h"
+#include "logreplace.h"
 #include "date.h"
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
 
@@ -73,6 +74,9 @@ int main()
 
     Logs::LogCleaning log3 = Logs::LogCleaning(206, "dardas virsli", d2);
     log3.printLog();
+
+    Logs::LogReplace log4 = Logs::LogReplace(404, "asztal", "torott lab", 20.36, d1);
+    log4.printLog();
     /*
     double a = 12.3456789;
     std::cout << a << std::endl;

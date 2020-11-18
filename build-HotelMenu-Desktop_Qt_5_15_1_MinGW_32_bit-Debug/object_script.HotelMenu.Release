@@ -4,6 +4,7 @@ release/log.o
 release/logcleaning.o
 release/logfix.o
 release/login.o
+release/logreplace.o
 release/logreservation.o
 release/main.o
 release/manager.o

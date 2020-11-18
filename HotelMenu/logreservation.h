@@ -2,7 +2,7 @@
 #define LOGRESERVATION_H
 
 #include "log.h"
-//#include "logreservation.h"
+//#include "reservation.h"
 
 namespace Logs
 {
@@ -13,17 +13,19 @@ namespace Logs
         date start_date;
         date end_date;
         bool status;
+        double cost;
         //suitTypes apartment
         //servingTypes serving
 
     public:
-        //LogReservation(int room_id_c, std::string guest_name_c, servingTypes, suitTypes su,date start, date end);
+        //LogReservation(int room_id_c, std::string guest_name_c, suitTypes apartment_c, servingTypes serving_c, bool cost_c ,date start, date end);
         virtual void printLog() const;
 
         int getRoomID() const;
-        std::string getItem() const;
-        std::string getCauseOfFailure() const;
+        std::string getGuestName() const;
         double getCost() const;
+        //getApartment() const;
+        //getServing(); const
         date getStartDate() const;
         date getEndDate() const;
     };
