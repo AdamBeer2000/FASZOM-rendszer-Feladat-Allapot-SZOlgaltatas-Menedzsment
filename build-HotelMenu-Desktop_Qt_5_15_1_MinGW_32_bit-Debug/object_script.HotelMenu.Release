@@ -1,8 +1,10 @@
 release/commandpanel.o
 release/guest.o
 release/log.o
+release/logcleaning.o
 release/logfix.o
 release/login.o
+release/logreservation.o
 release/main.o
 release/manager.o
 release/task.o

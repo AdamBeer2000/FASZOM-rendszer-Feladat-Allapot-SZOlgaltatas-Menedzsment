@@ -1,8 +1,10 @@
 debug/commandpanel.o
 debug/guest.o
 debug/log.o
+debug/logcleaning.o
 debug/logfix.o
 debug/login.o
+debug/logreservation.o
 debug/main.o
 debug/manager.o
 debug/task.o

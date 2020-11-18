@@ -5,6 +5,7 @@
 #include "manager.h"
 #include "taskcontainer.h"
 #include "logfix.h"
+#include "logcleaning.h"
 #include "date.h"
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
 
@@ -14,11 +15,11 @@ int main()
 {
     //thingthing
 
-
-    Guest Test1 = Guest("JAni","123");
-    Guest Test2 = Guest("Bela","321");
-    Guest Test3 = Guest("Cica","69420");
-    Guest Test4 = Guest("RickAstley","kek");
+/*
+    Guest Test1 = Guest("JAni","123", jobs::GUE);
+    Guest Test2 = Guest("Bela","321", jobs::GUE);
+    Guest Test3 = Guest("Cica","69420", jobs::GUE);
+    Guest Test4 = Guest("RickAstley","kek", jobs::GUE);
 
     std::list<User*> users;
     users.push_back(&Test1);
@@ -27,8 +28,8 @@ int main()
     users.push_back(&Test4);
     Login oneLogin= Login(users);
 
-    Manager Test5 = Manager("Manager", "admin");
-    Manager Test6 = Manager("Manager", "admin");
+    Manager Test5 = Manager("Manager", "admin", jobs::MAN);
+    Manager Test6 = Manager("Manager", "admin", jobs::MAN);
 
     Test6.generateTask(jobs::JAN, "George Soros", "Soros terv");
 
@@ -45,9 +46,9 @@ int main()
 
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
+*/
 
 
-    /*
     date d1;
     d1.day = 15;
     d1.month = 2;
@@ -66,7 +67,12 @@ int main()
 
     Logs::LogFix log = Logs::LogFix(206, "dardas virsli", "eltort", 20.128842, d1, d2);
     log.printLog();
-    */
+
+    Logs::LogCleaning log2 = Logs::LogCleaning(206, d1);
+    log2.printLog();
+
+    Logs::LogCleaning log3 = Logs::LogCleaning(206, "dardas virsli", d2);
+    log3.printLog();
     /*
     double a = 12.3456789;
     std::cout << a << std::endl;

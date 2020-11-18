@@ -30,6 +30,11 @@ namespace  Users
         User();
         User(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
 
+        //----------------------------------------------------------------------------------------------
+        //ideiglenes constructorok (manager, guest no matching konstruktort dobott [ha kész a User összes gyerekosztályának a konstruktora jól, akkor ez tötölhető]) ~Martin
+        User(const std::string& _username, const std::string& _password, jobs _job);
+        //----------------------------------------------------------------------------------------------
+
         std::string getFirstName() const;
         std::string getLastName() const;
         std::string getUsername() const;
