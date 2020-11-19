@@ -16,7 +16,7 @@ int main()
 {
     //thingthing
 
-
+    /* //NO MATCHING CONSTRUCTOR
     Guest Test1 = Guest("JAni","123", jobs::GUE);
     Guest Test2 = Guest("Bela","321", jobs::GUE);
     Guest Test3 = Guest("Cica","69420", jobs::GUE);
@@ -47,7 +47,7 @@ int main()
 
     CommandPanel OneCommandPanel= CommandPanel(users);
     OneCommandPanel.doStuff();
-
+    */
 
     //------------------------
     //--- LOG SYSTEM DEBUG ---
