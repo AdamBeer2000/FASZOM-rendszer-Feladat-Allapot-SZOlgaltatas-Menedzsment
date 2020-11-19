@@ -8,6 +8,8 @@ release/logreplace.o
 release/logreservation.o
 release/main.o
 release/manager.o
+release/reservation.o
+release/room.o
 release/task.o
 release/taskcontainer.o
 release/user.o

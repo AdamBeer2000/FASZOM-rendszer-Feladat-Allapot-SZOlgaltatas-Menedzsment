@@ -9,19 +9,73 @@
 #include "logreplace.h"
 #include "date.h"
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
-
+#include "reservation.h"
+#include "room.h"
 using namespace Users;
 
 int main()
 {
     //thingthing
 
-    /* //NO MATCHING CONSTRUCTOR
     Guest Test1 = Guest("JAni","123", jobs::GUE);
     Guest Test2 = Guest("Bela","321", jobs::GUE);
     Guest Test3 = Guest("Cica","69420", jobs::GUE);
     Guest Test4 = Guest("RickAstley","kek", jobs::GUE);
+    date dateBuild;
 
+    Reservation resTest0=Reservation("JAni",Suit::Luxury,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,11,9),Serving::Allinclusive);
+    Reservation resTest1=Reservation("Bela",Suit::Medium,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,10,15),Serving::Premium);
+    Reservation resTest2=Reservation("Cica",Suit::Notbad,dateBuild.buildDate(2021,10,9),dateBuild.buildDate(2022,11,9),Serving::Default);
+
+
+    std::list<Reservation>resTest;
+    resTest.push_back(resTest0);
+    resTest.push_back(resTest1);
+    resTest.push_back(resTest2);
+
+    for(auto test:resTest)
+    {
+        std::cout<<test.getUserename()<<" "<<test.getApartmentInString()<<" "<<test.getStyaingTime()<<" "<<test.getServingInString()<<std::endl;
+    }
+    std::cout<<std::endl;
+
+    Room roomTest0=Room(Suit::Luxury,69,true);
+    Room roomTest1=Room(Suit::Medium,420,false);
+    Room roomTest2=Room(Suit::Notbad,1408,true);
+
+    std::list<Room>roomTest;
+    roomTest.push_back(roomTest0);
+    roomTest.push_back(roomTest1);
+    roomTest.push_back(roomTest2);
+
+    for(auto test:roomTest)
+    {
+        std::cout<<test.getRoomid()<<" "<<test.getUsed()<<" "<<test.getApartmentInString()<<" "<<test.getCleaned()<<std::endl;
+    }
+
+    std::cout<<std::endl;
+
+    roomTest0.setReservation(resTest0);
+    roomTest1.setReservation(resTest1);
+    roomTest2.setReservation(resTest2);
+    roomTest1.setCleaned();
+    roomTest2.setDirty();
+
+    roomTest.clear();
+    roomTest.push_back(roomTest0);
+    roomTest.push_back(roomTest1);
+    roomTest.push_back(roomTest2);
+
+
+
+    for(auto test:roomTest)
+    {
+        std::cout<<test.getRoomid()<<" "<<test.getUsed()<<" "<<test.getApartmentInString()<<" "<<test.getCleaned()<<std::endl;
+    }
+
+
+
+    /*
     std::list<User*> users;
     users.push_back(&Test1);
     users.push_back(&Test2);
@@ -114,4 +168,6 @@ int main()
     std::cout << a << std::endl;
     std::cout << std::fixed <<std::setprecision(2) << a << std::endl;
     */
+
+    return 0;
 }

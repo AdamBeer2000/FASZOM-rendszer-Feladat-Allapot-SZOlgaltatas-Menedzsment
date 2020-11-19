@@ -15,6 +15,8 @@ SOURCES += \
         logreservation.cpp \
         main.cpp \
         manager.cpp \
+        reservation.cpp \
+        room.cpp \
         task.cpp \
         taskcontainer.cpp \
         user.cpp
@@ -22,6 +24,8 @@ SOURCES += \
 HEADERS += \
     commandpanel.h \
     date.h \
+    enumServing.h \
+    enumSuit.h \
     guest.h \
     log.h \
     logcleaning.h \
@@ -30,6 +34,8 @@ HEADERS += \
     logreplace.h \
     logreservation.h \
     manager.h \
+    reservation.h \
+    room.h \
     task.h \
     taskcontainer.h \
     user.h

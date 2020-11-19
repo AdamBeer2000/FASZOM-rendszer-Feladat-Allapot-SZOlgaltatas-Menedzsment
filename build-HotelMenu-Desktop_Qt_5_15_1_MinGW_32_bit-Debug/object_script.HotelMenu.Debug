@@ -8,6 +8,8 @@ debug/logreplace.o
 debug/logreservation.o
 debug/main.o
 debug/manager.o
+debug/reservation.o
+debug/room.o
 debug/task.o
 debug/taskcontainer.o
 debug/user.o
