@@ -18,7 +18,7 @@ void Logs::LogReservation::printLog() const
     std::cout << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
     std::cout << "Serving: "<< Serving::servingToString(getServing()) << std::endl;
     std::cout << "Date [from-to]:" << std::endl;
-    std::cout << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
+    std::cout << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
     std::cout << "-----------------------------------" << std::endl;
 }
 
