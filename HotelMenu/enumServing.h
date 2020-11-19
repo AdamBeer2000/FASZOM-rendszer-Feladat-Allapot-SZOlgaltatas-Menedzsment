@@ -5,7 +5,7 @@ namespace Serving
 {
     enum servingTypes
     {
-        Allinclusive,Premium,Default,NotSetServing
+        Allinclusive,Premium,Default,NotSetServing,ERROR
     };
 
     inline std::string servingToString(servingTypes oneServing)

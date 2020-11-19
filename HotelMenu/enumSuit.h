@@ -5,7 +5,7 @@ namespace Suit
 {
     enum suitTypes
     {
-        Luxury,Medium,Notbad,NotSetSuit
+        Luxury,Medium,Notbad,NotSetSuit,ERROR
     };
     inline std::string suitToString(suitTypes oneSuit)
     {

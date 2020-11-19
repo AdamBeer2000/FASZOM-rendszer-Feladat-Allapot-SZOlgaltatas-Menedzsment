@@ -9,7 +9,9 @@ release/logreservation.o
 release/main.o
 release/manager.o
 release/reservation.o
+release/reservationcontainer.o
 release/room.o
+release/roomcontainer.o
 release/task.o
 release/taskcontainer.o
 release/user.o
