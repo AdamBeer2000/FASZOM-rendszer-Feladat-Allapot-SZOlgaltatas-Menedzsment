@@ -29,3 +29,8 @@ void Users::Guest::printLogs() const
 
 }
 
+Users::Guest::~Guest()
+{
+
+}
+

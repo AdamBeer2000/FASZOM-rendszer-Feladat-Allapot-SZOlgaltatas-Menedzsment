@@ -5,8 +5,10 @@ CONFIG -= qt
 CONFIG += c++14
 
 SOURCES += \
+        cleaner.cpp \
         commandpanel.cpp \
         guest.cpp \
+        janitor.cpp \
         log.cpp \
         logcleaning.cpp \
         logfix.cpp \
@@ -15,6 +17,7 @@ SOURCES += \
         logreservation.cpp \
         main.cpp \
         manager.cpp \
+        receptionist.cpp \
         reservation.cpp \
         room.cpp \
         task.cpp \
@@ -22,11 +25,13 @@ SOURCES += \
         user.cpp
 
 HEADERS += \
+    cleaner.h \
     commandpanel.h \
     date.h \
     enumServing.h \
     enumSuit.h \
     guest.h \
+    janitor.h \
     log.h \
     logcleaning.h \
     logfix.h \
@@ -34,6 +39,7 @@ HEADERS += \
     logreplace.h \
     logreservation.h \
     manager.h \
+    receptionist.h \
     reservation.h \
     room.h \
     task.h \
