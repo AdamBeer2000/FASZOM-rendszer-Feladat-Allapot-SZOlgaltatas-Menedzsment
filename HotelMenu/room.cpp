@@ -25,13 +25,23 @@ void Room::setDirty()
     cleaned=false;
 }
 
+void Room::setFree()
+{
+    used=false;
+}
+
+void Room::setUsed()
+{
+    used=true;
+}
+
 void Room::setReservation(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime,Serving:: servingTypes _serving)
 {
     activeReservation=Reservation(_userename,_apartment,_startTime,_endTime,_serving);
     used=true;
 }
 
-void Room::setReservation(Reservation & oneRes)
+void Room::setReservation(Reservation oneRes)
 {
     activeReservation= oneRes;
     used=true;

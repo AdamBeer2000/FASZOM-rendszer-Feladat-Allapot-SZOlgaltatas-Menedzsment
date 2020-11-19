@@ -13,8 +13,13 @@ namespace Logs
         int room_id;
 
     public:
+        //CONSTRUCTORS
         Log(int room_id_c);
+
+        //DESTRUCTOR
         virtual ~Log();
+
+        //FUNCTIONS
         virtual void printLog() const = 0;
     };
 } //eof Logs

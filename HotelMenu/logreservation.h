@@ -2,30 +2,40 @@
 #define LOGRESERVATION_H
 
 #include "log.h"
-//#include "reservation.h"
+#include "reservation.h"
+#include "enumServing.h"
+#include "enumSuit.h"
 
 namespace Logs
 {
     class LogReservation: public Log
     {
     private:
+        //VARIABLES
         std::string guest_name;
         date start_date;
         date end_date;
         bool status;
-        double cost;
-        //suitTypes apartment
-        //servingTypes serving
+        double cost = 0.0;
+        Suit::suitTypes apartment;
+        Serving::servingTypes serving;
 
     public:
-        //LogReservation(int room_id_c, std::string guest_name_c, suitTypes apartment_c, servingTypes serving_c, bool cost_c ,date start, date end);
+        //CONSTRUCTOR
+        LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end);
+
+        //DESTRUCTOR
+        ~LogReservation();
+
+        //FUNCTIONS
         virtual void printLog() const;
 
+        //GETTERS
         int getRoomID() const;
         std::string getGuestName() const;
         double getCost() const;
-        //getApartment() const;
-        //getServing(); const
+        Suit::suitTypes getApartment() const;
+        Serving::servingTypes getServing() const;
         date getStartDate() const;
         date getEndDate() const;
     };

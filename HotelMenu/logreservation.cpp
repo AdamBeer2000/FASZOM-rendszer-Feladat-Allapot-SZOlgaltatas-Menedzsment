@@ -1,7 +1,11 @@
 #include "logreservation.h"
 
 //CONSTRUCTOR
+Logs::LogReservation::LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end)
+    :Log(room_id_c), guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end) {}
 
+//DESTRUCTOR
+Logs::LogReservation::~LogReservation() {}
 
 //FUNCTIONS
 void Logs::LogReservation::printLog() const
@@ -11,10 +15,11 @@ void Logs::LogReservation::printLog() const
     std::cout << "Room: " << getRoomID() << std::endl;
     std::cout << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     std::cout << "Guest: " << getGuestName() << std::endl;
-    //std::cout << "Suit/Apartment: "<< getApartment() << std::endl;
-    //std::cout << "Serving: "<< getServing() << std::endl;
+    std::cout << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
+    std::cout << "Serving: "<< Serving::servingToString(getServing()) << std::endl;
+    std::cout << "Days: " << getStartDate().dateDiff(getEndDate()) << std::endl;
     std::cout << "Date [from-to]:" << std::endl;
-    std::cout << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
+    std::cout << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
     std::cout << "-----------------------------------" << std::endl;
 }
 
@@ -32,6 +37,16 @@ std::string Logs::LogReservation::getGuestName() const
 double Logs::LogReservation::getCost() const
 {
     return cost;
+}
+
+Suit::suitTypes Logs::LogReservation::getApartment() const
+{
+    return apartment;
+}
+
+Serving::servingTypes Logs::LogReservation::getServing() const
+{
+    return serving;
 }
 
 date Logs::LogReservation::getStartDate() const

@@ -17,10 +17,20 @@ int main()
 {
     //thingthing
 
+
+    date date1;
+    date1 = date1.buildDate(2000, 12, 6, 12, 4, 8);
+    Guest Test1 = Guest("Janos", "Onosz", "JAni", date1, jobs::GUE, 123456, "123");
+    Guest Test2 = Guest("Bela", "Lol", "Bela", date1, jobs::GUE, 69524, "321");
+    Guest Test3 = Guest("Van", "Gazdad", "Cica", date1, jobs::GUE, 420558, "69420");
+    Guest Test4 = Guest("Rick", "Astley", "RickAstley", date1, jobs::GUE, 988956, "kek");
+
+    /*
     Guest Test1 = Guest("JAni","123", jobs::GUE);
     Guest Test2 = Guest("Bela","321", jobs::GUE);
     Guest Test3 = Guest("Cica","69420", jobs::GUE);
     Guest Test4 = Guest("RickAstley","kek", jobs::GUE);
+    */
     date dateBuild;
 
     Reservation resTest0=Reservation("JAni",Suit::Luxury,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,11,9),Serving::Allinclusive);

@@ -19,7 +19,9 @@ SOURCES += \
         manager.cpp \
         receptionist.cpp \
         reservation.cpp \
+        reservationcontainer.cpp \
         room.cpp \
+        roomcontainer.cpp \
         task.cpp \
         taskcontainer.cpp \
         user.cpp
@@ -41,7 +43,9 @@ HEADERS += \
     manager.h \
     receptionist.h \
     reservation.h \
+    reservationcontainer.h \
     room.h \
+    roomcontainer.h \
     task.h \
     taskcontainer.h \
     user.h

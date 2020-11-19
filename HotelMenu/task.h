@@ -16,12 +16,16 @@ namespace Tasks
     class Task
     {
     private:
+
+        //VARIABLES
         std::string employee;
-        std::string task_id; //unique
+        std::string task_id; //UNIQUE
         std::string todo;
         bool status;
         Logs::Log* log;
 
+
+    public:
         //EXCEPTION CLASS
         class InvalidTaskException: public std::exception
         {
@@ -38,7 +42,6 @@ namespace Tasks
             }
         };
 
-    public:
         //BUILDER PATTERN
         class TaskBuilder
         {
@@ -52,6 +55,8 @@ namespace Tasks
             friend class Task;
 
         public:
+
+            //CONSTRUCTOR
             TaskBuilder(const std::string& task_id_c)
             {
                 this->task_id = task_id_c;

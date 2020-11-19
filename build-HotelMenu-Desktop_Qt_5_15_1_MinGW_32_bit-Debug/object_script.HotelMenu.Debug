@@ -9,7 +9,9 @@ debug/logreservation.o
 debug/main.o
 debug/manager.o
 debug/reservation.o
+debug/reservationcontainer.o
 debug/room.o
+debug/roomcontainer.o
 debug/task.o
 debug/taskcontainer.o
 debug/user.o
