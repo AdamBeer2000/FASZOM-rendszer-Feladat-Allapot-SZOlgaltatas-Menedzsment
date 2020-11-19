@@ -5,6 +5,7 @@
 #include "date.h"
 #include "taskcontainer.h"
 #include "log.h"
+#include "task.h"
 
 namespace  Users
 {
@@ -40,8 +41,16 @@ namespace  Users
 
         void setLog(const std::string& task_id , Logs::Log* onelog);
 
-        virtual void doWork()const=0;
-        virtual User * clone()const=0;
+        void addTask(Tasks::Task oneTask);
+
+        void deleteTask(std::string& TaskId);
+
+        virtual void logDoneTask(std::string& TaskId , std::string& data)const = 0;
+
+        virtual void printTasks()const=0;
+
+        virtual void printLogs()const=0;
+
         virtual ~User();
 
 

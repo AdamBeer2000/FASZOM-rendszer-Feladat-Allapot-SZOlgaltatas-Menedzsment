@@ -1,4 +1,4 @@
-#include "user.h"
+#include "User.h"
 
 std::string Users::User::getFirstName() const
 {

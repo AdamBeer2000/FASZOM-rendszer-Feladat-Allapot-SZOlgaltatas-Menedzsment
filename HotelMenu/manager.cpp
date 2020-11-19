@@ -1,9 +1,16 @@
 #include "manager.h"
 
-Users::Manager::Manager(const std::string& username_c, const std::string& password_c): User(username_c, password_c, jobs::MAN)
-{
-
-}
+Users::Manager::Manager(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password):
+    Users::User::User(_firstName , _lastName , _username, _birthDate , _jobID , _cardID , _password)
+    {
+        this->firstName = _firstName;
+        this->lastName = _lastName;
+        this->username = _username;
+        this->birthDate = _birthDate;
+        this->jobID = _jobID;
+        this->cardID = _cardID;
+        this->password = _password;
+    }
 
 Users::Manager::~Manager()
 {
@@ -88,6 +95,22 @@ std::string Users::Manager::generateTaskId(jobs job_id)
     return generated_id;
 }
 
+void Users::Manager::logDoneTask(std::string &TaskId, std::string &data) const
+{
+
+}
+
+void Users::Manager::printTasks() const
+{
+
+}
+
+void Users::Manager::printLogs() const
+{
+
+}
+
+/*
 void Users::Manager::deleteTask(const std::string& task_id_remove)
 {
     auto it = find(task_ids.begin(), task_ids.end(), task_id_remove);
@@ -98,13 +121,5 @@ void Users::Manager::deleteTask(const std::string& task_id_remove)
         //mentes
     }
 }
+*/
 
-void Users::Manager::doWork() const
-{
-
-}
-
-Users::User *Users::Manager::clone() const
-{
-    return new Manager(*this);
-}

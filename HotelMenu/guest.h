@@ -1,15 +1,17 @@
 #ifndef GUEST_H
 #define GUEST_H
-#include "user.h"
+#include "User.h"
 
 namespace Users
 {
-    class Guest:public Users::User
+    class Guest : public Users::User
     {
     public:
-        Guest(const std::string& _username, const std::string& _password);
-        void doWork()const;
-        User *clone()const;
+        Guest(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
+        void logDoneTask(std::string& taskId , std::string& data) const;
+        void printTasks() const;
+        void printLogs() const;
+        ~Guest();
     };
 }
 

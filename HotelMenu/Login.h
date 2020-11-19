@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 #include "string"
-#include "user.h"
+#include "User.h"
 #include "list"
 #include "algorithm"
 #include "vector"
