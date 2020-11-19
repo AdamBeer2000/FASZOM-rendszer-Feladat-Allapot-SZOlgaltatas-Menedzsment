@@ -8,8 +8,11 @@ SOURCES += \
         commandpanel.cpp \
         guest.cpp \
         log.cpp \
+        logcleaning.cpp \
         logfix.cpp \
         login.cpp \
+        logreplace.cpp \
+        logreservation.cpp \
         main.cpp \
         manager.cpp \
         task.cpp \
@@ -21,8 +24,11 @@ HEADERS += \
     date.h \
     guest.h \
     log.h \
+    logcleaning.h \
     logfix.h \
     login.h \
+    logreplace.h \
+    logreservation.h \
     manager.h \
     task.h \
     taskcontainer.h \

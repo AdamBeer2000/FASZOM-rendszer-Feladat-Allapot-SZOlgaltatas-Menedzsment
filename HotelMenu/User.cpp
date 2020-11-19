@@ -51,6 +51,9 @@ Users::User::User(const std::string &_firstName, const std::string &_lastName, c
 {
 }
 
+//IDEIGLENES KONSTRUCTOR
+Users::User::User(const std::string &_username, const std::string &_password, jobs _job): username(_username), password(_password), jobID(_job){}
+
 Users::User::~User()
 {
 }

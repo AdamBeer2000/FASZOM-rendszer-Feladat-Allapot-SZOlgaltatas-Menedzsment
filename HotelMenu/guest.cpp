@@ -1,5 +1,6 @@
 #include "guest.h"
 
+
 Users::Guest::Guest(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password):
     Users::User::User(_firstName , _lastName , _username, _birthDate , _jobID , _cardID , _password)
     {
@@ -10,5 +11,21 @@ Users::Guest::Guest(const std::string& _firstName , const std::string& _lastName
         this->jobID = _jobID;
         this->cardID = _cardID;
         this->password = _password;
-    }
+}
+
+
+void Users::Guest::logDoneTask(std::string &taskId, std::string &data) const
+{
+
+}
+
+void Users::Guest::printTasks() const
+{
+
+}
+
+void Users::Guest::printLogs() const
+{
+
+}
 
