@@ -8,7 +8,6 @@ Login::Login(std::list<Users::User*>_users):users(_users),logged_user(nullptr)
 void Login::LogInWith(std::string username, std::string password)
 {
     std::list<Users::User*>::iterator it;
-    //std::vector<Users::User> tempUsers(users.begin(),users.end());
     bool userfound=false;
     unsigned int k=0;
     if(userloggeed)
@@ -23,7 +22,7 @@ void Login::LogInWith(std::string username, std::string password)
             {
                 userfound=true;
                 userloggeed=true;
-                logged_user= user->clone();
+                logged_user= user;
                 std::cout<<"\nLogged in"<<std::endl;
             }
             else
