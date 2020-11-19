@@ -16,13 +16,16 @@ namespace Logs
         date start_date;
         date end_date;
         bool status;
-        double cost;
+        double cost = 0.0;
         Suit::suitTypes apartment;
         Serving::servingTypes serving;
 
     public:
         //CONSTRUCTOR
-        LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, bool cost_c ,date start, date end);
+        LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end);
+
+        //DESTRUCTOR
+        ~LogReservation();
 
         //FUNCTIONS
         virtual void printLog() const;

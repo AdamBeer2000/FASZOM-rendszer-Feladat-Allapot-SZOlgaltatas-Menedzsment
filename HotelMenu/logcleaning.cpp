@@ -8,6 +8,9 @@ Logs::LogCleaning::LogCleaning(int room_id_c, std::string item_c, date date_of_c
     setLostItemExists(true);
 }
 
+//DESTRUCTOR
+Logs::LogCleaning::~LogCleaning() {}
+
 //PRIVATE SETTERS
 void Logs::LogCleaning::setLostItemExists(bool condition)
 {

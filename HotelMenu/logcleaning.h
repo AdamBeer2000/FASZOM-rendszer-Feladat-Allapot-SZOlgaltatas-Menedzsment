@@ -21,6 +21,8 @@ namespace Logs
         LogCleaning(int room_id_c, date date_of_cleaning);
         LogCleaning(int room_id_c, std::string item_c, date date_of_cleaning);
 
+        //DESTRUCTOR
+        ~LogCleaning();
         //FUNCTIONS
         virtual void printLog() const;
 

@@ -1,7 +1,11 @@
 #include "logreservation.h"
 
 //CONSTRUCTOR
+Logs::LogReservation::LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end)
+    :Log(room_id_c), guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end) {}
 
+//DESTRUCTOR
+Logs::LogReservation::~LogReservation() {}
 
 //FUNCTIONS
 void Logs::LogReservation::printLog() const
