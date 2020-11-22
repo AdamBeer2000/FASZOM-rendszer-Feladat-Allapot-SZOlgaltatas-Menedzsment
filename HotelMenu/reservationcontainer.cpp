@@ -16,6 +16,10 @@ void ReservationContainer::deleteReservation(std::string guestName)
     {
         reservations.erase(reservations.find(guestName));
     }
+    else
+    {
+        throw NoReservationFound(guestName);
+    }
 }
 
 void ReservationContainer::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
@@ -25,5 +29,26 @@ void ReservationContainer::bookRoom(std::string _userename, Suit::suitTypes _apa
 
 Reservation ReservationContainer::getReservation(std::string guestName)
 {
-    return reservations.find(guestName)->second;
+    if(reservations.find(guestName)!=reservations.end())
+    {
+        return reservations.find(guestName)->second;
+    }
+    else
+    {
+        throw NoReservationFound(guestName);
+    }
+}
+
+Reservation ReservationContainer::popReservation(std::string guestName)
+{
+    if(reservations.find(guestName)!=reservations.end())
+    {
+        Reservation ret=reservations.find(guestName)->second;
+        deleteReservation(guestName);
+        return ret;
+    }
+    else
+    {
+        throw NoReservationFound(guestName);
+    }
 }

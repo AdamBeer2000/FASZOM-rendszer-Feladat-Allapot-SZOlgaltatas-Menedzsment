@@ -11,6 +11,8 @@
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
 #include "reservation.h"
 #include "room.h"
+#include "roomcontainer.h"
+#include "reservationcontainer.h"
 using namespace Users;
 
 int main()
@@ -25,62 +27,93 @@ int main()
     Guest Test3 = Guest("Van", "Gazdad", "Cica", date1, jobs::GUE, 420558, "69420");
     Guest Test4 = Guest("Rick", "Astley", "RickAstley", date1, jobs::GUE, 988956, "kek");
 
-    /*
-    Guest Test1 = Guest("JAni","123", jobs::GUE);
-    Guest Test2 = Guest("Bela","321", jobs::GUE);
-    Guest Test3 = Guest("Cica","69420", jobs::GUE);
-    Guest Test4 = Guest("RickAstley","kek", jobs::GUE);
-    */
     date dateBuild;
 
     Reservation resTest0=Reservation("JAni",Suit::Luxury,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,11,9),Serving::Allinclusive);
     Reservation resTest1=Reservation("Bela",Suit::Medium,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,10,15),Serving::Premium);
     Reservation resTest2=Reservation("Cica",Suit::Notbad,dateBuild.buildDate(2021,10,9),dateBuild.buildDate(2022,11,9),Serving::Default);
-
+    Reservation resTest3=Reservation("nemvotma",Suit::Notbad,dateBuild.buildDate(2021,10,9),dateBuild.buildDate(2022,11,9),Serving::Default);
+    Reservation resTest4=Reservation("Rick",Suit::Luxury,dateBuild.buildDate(2022,10,9),dateBuild.buildDate(2022,11,9),Serving::Allinclusive);
 
     std::list<Reservation>resTest;
     resTest.push_back(resTest0);
     resTest.push_back(resTest1);
     resTest.push_back(resTest2);
+    resTest.push_back(resTest3);
+
+    ReservationContainer resContTest;
+
+    std::vector<std::string>users;
+    users.push_back("JAni");
+    users.push_back("Bela");
+    users.push_back("Cica");
+    users.push_back("Teljesenkozonsegeskepüno");
+    users.push_back("nemvotma");
 
     for(auto test:resTest)
     {
-        std::cout<<test.getUserename()<<" "<<test.getApartmentInString()<<" "<<test.getStyaingTime()<<" "<<test.getServingInString()<<std::endl;
+        resContTest.addReservation(test);
+    }
+
+    for(unsigned int k=0;k<users.size();k++)
+    {
+        try
+        {
+            Reservation test=resContTest.getReservation(users[k]);
+            std::cout<<test.getUserename()<<" "<<test.getApartmentInString()<<" "<<test.getStyaingTime()<<" "<<test.getServingInString()<<std::endl;
+        }
+        catch (std::exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+
     }
     std::cout<<std::endl;
 
+    RoomContainer roomContTest;
     Room roomTest0=Room(Suit::Luxury,69,true);
     Room roomTest1=Room(Suit::Medium,420,false);
     Room roomTest2=Room(Suit::Notbad,1408,true);
 
     std::list<Room>roomTest;
-    roomTest.push_back(roomTest0);
-    roomTest.push_back(roomTest1);
-    roomTest.push_back(roomTest2);
-
-    for(auto test:roomTest)
-    {
-        std::cout<<test.getRoomid()<<" "<<test.getUsed()<<" "<<test.getApartmentInString()<<" "<<test.getCleaned()<<std::endl;
-    }
-
-    std::cout<<std::endl;
-
-    roomTest0.setReservation(resTest0);
-    roomTest1.setReservation(resTest1);
-    roomTest2.setReservation(resTest2);
-    roomTest1.setCleaned();
-    roomTest2.setDirty();
 
     roomTest.clear();
     roomTest.push_back(roomTest0);
     roomTest.push_back(roomTest1);
     roomTest.push_back(roomTest2);
 
-
+    std::vector<int>szobid;
+    szobid.push_back(69);
+    szobid.push_back(420);
+    szobid.push_back(1408);
+    szobid.push_back(70000);
 
     for(auto test:roomTest)
     {
-        std::cout<<test.getRoomid()<<" "<<test.getUsed()<<" "<<test.getApartmentInString()<<" "<<test.getCleaned()<<std::endl;
+        roomContTest.add(test);
+    }
+
+    for(auto test:szobid)
+    {
+        try
+        {
+            std::cout<<test<<" "<<roomContTest.isUsed(test)<<" "<<Suit::suitToString(roomContTest.getSuitType(test))<<" "<<roomContTest.isCleaned(test)<<std::endl;
+        }
+        catch (std::exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+    }
+
+    try
+    {
+        roomContTest.setReservation(69,resTest0);
+        roomContTest.setReservation(420,resTest1);
+        roomContTest.setReservation(1408,resTest4);
+    }
+    catch (std::exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
     }
 
 

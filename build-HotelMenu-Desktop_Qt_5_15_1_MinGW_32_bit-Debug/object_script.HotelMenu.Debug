@@ -1,5 +1,7 @@
+debug/cleaner.o
 debug/commandpanel.o
 debug/guest.o
+debug/janitor.o
 debug/log.o
 debug/logcleaning.o
 debug/logfix.o
@@ -8,6 +10,7 @@ debug/logreplace.o
 debug/logreservation.o
 debug/main.o
 debug/manager.o
+debug/receptionist.o
 debug/reservation.o
 debug/reservationcontainer.o
 debug/room.o

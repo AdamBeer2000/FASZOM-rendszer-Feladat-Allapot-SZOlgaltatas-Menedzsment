@@ -37,12 +37,20 @@ void Room::setUsed()
 
 void Room::setReservation(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime,Serving:: servingTypes _serving)
 {
+    if(apartment!=_apartment)
+    {
+        throw NotMachingSuitsExc(apartment,_apartment);
+    }
     activeReservation=Reservation(_userename,_apartment,_startTime,_endTime,_serving);
     used=true;
 }
 
 void Room::setReservation(Reservation oneRes)
 {
+    if(apartment!=oneRes.getApartment())
+    {
+        throw NotMachingSuitsExc(apartment,oneRes.getApartment());
+    }
     activeReservation= oneRes;
     used=true;
 }

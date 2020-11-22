@@ -1,7 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include "reservation.h"
-
+#include "sstream"
 class Room
 {
     Suit::suitTypes apartment;
@@ -38,7 +38,25 @@ public:
     std::string getApartmentInString() const;
 
     ~Room();
+    class NotMachingSuitsExc:public std::exception
+    {
+        std::string massage;
+        public:
+        NotMachingSuitsExc()
+        {
 
+        }
+        NotMachingSuitsExc(Suit::suitTypes first,Suit::suitTypes second)
+        {
+            std::stringstream ss;
+            ss<<Suit::suitToString(first)<<"-type room not compatible with "<<Suit::suitToString(second)<<"-type reservation";
+            massage=ss.str();
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
 
 };
 
