@@ -40,7 +40,7 @@ Users::User::User()
 
 }
 
-Users::User::User(const std::string &_firstName, const std::string &_lastName, const std::string &_username, struct date _birthDate, Users::jobs _jobID, int _cardID, const std::string &_password):
+Users::User::User(const std::string &_firstName, const std::string &_lastName, const std::string &_username, date _birthDate, Users::jobs _jobID, int _cardID, const std::string &_password):
     firstName(_firstName),
     lastName(_lastName),
     username(_username),

@@ -95,19 +95,14 @@ std::string Users::Manager::generateTaskId(jobs job_id)
     return generated_id;
 }
 
-void Users::Manager::logDoneTask(std::string &TaskId, std::string &data) const
-{
-
-}
-
 void Users::Manager::printTasks() const
 {
-
+    //NE LEGYEN ABSZTRAKT
 }
 
 void Users::Manager::printLogs() const
 {
-
+    //NE LEGYEN ABSZTRAKT
 }
 
 /*

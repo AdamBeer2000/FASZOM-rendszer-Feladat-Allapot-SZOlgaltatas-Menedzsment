@@ -12,29 +12,27 @@ Users::Cleaner::Cleaner(const std::string& _firstName , const std::string& _last
     this->password = _password;
 }
 
-void Users::Cleaner::logDoneTask(std::string &taskId, std::string &data) const
+void Users::Cleaner::logCleanedRoom(std::string &taskID, int roomid , date date)
 {
-
+    Logs::LogCleaning l = Logs::LogCleaning(roomid , date);
+    taskCont.setLog(taskID , &l);
+    taskCont.setStatusDone(taskID);
 }
 
-void Users::Cleaner::logCleanedRoom(int roomid) const
+void Users::Cleaner::logCleanedRoomWithLostItem(std::string& taskID , int roomID, std::string &item, date date)
 {
-
-}
-
-void Users::Cleaner::logCleanedRoomWithLostItem(int roomID, std::string &item, time_t date) const
-{
-
+    Logs::LogCleaning l = Logs::LogCleaning(roomID , item , date);
+    taskCont.setLog(taskID , &l);
 }
 
 void Users::Cleaner::printTasks() const
 {
-
+    taskCont.printAllTask();
 }
 
 void Users::Cleaner::printLogs() const
 {
-
+    taskCont.printAllLog();
 }
 
 Users::Cleaner::~Cleaner()

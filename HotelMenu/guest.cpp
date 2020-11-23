@@ -13,20 +13,14 @@ Users::Guest::Guest(const std::string& _firstName , const std::string& _lastName
         this->password = _password;
 }
 
-
-void Users::Guest::logDoneTask(std::string &taskId, std::string &data) const
-{
-
-}
-
 void Users::Guest::printTasks() const
 {
-
+    //NE LEGYEN ABSZTRAKT
 }
 
 void Users::Guest::printLogs() const
 {
-
+    //NE LEGYEN ABSZTRAKT
 }
 
 Users::Guest::~Guest()

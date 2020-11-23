@@ -40,9 +40,11 @@ namespace Users
 
         //FUNCTIONS
         Tasks::Task generateTask(jobs job_id, const std::string& employee_name, const std::string& todo);
+
         std::string generateTaskId(jobs job_id);
-        void logDoneTask(std::string& TaskId , std::string& data)const = 0;
+
         void printTasks() const;
+
         void printLogs() const;
         //void deleteTask(const std::string& task_id_remove); ez nem itt lesz
 

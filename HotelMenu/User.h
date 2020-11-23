@@ -21,14 +21,14 @@ namespace  Users
         std::string firstName;
         std::string lastName;
         std::string username;
-        struct date birthDate;
+        date birthDate;
         jobs jobID;
         int cardID;
         std::string password;
         TaskContainer taskCont;
     public:
         User();
-        User(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
+        User(const std::string& _firstName , const std::string& _lastName , const std::string& _username , date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
 
         std::string getFirstName() const;
         std::string getLastName() const;
@@ -43,8 +43,6 @@ namespace  Users
         void addTask(Tasks::Task oneTask);
 
         void deleteTask(std::string& TaskId);
-
-        virtual void logDoneTask(std::string& TaskId , std::string& data)const = 0;
 
         virtual void printTasks()const = 0;
 
