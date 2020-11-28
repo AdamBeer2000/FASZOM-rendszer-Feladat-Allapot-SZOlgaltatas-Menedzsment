@@ -1,3 +1,4 @@
+debug/datacommunicationcenter.o
 debug/main.o
 debug/commandpanel.o
 debug/log.o

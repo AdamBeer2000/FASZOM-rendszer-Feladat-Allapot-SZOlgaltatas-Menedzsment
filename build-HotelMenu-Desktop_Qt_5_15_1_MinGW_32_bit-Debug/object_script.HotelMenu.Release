@@ -1,3 +1,4 @@
+release/datacommunicationcenter.o
 release/main.o
 release/commandpanel.o
 release/log.o

@@ -5,6 +5,7 @@ CONFIG -= qt
 CONFIG += c++14
 
 SOURCES += \
+    datacommunicationcenter.cpp \
         main.cpp \
         commandpanel.cpp \
         Log/log.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
     User/usermanager.h \
     cleaner.h \
     commandpanel.h \
+    datacommunicationcenter.h \
     date.h \
     enumServing.h \
     enumSuit.h \
