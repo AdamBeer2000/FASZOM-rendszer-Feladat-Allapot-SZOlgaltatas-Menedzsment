@@ -4,7 +4,7 @@ UserManager::UserManager(std::list<Users::User *>_users)
 {
     for(auto user : _users)
     {
-        users.insert(std::pair<std::string,Users::User>(user->getUsername(),user));
+        users.insert(std::pair<std::string,Users::User*>(user->getUsername(),user));
     }
 }
 
@@ -13,9 +13,19 @@ UserManager::UserManager()
 
 }
 
+bool UserManager::isLoggedIn() const
+{
+    return loggedUser;
+}
+
+bool UserManager::isLoggedOut() const
+{
+    return loggedUser;
+}
+
 void UserManager::loginWith(std::string username, std::string password)
 {
-        if(userlogged)
+        if(isLoggedIn())
         {
             throw AlrreadyLoged();
         }
@@ -44,11 +54,9 @@ void UserManager::loginWith(std::string username, std::string password)
 
 void UserManager::logout()
 {
-    if(userlogged)
+    if(isLoggedIn())
     {
-        delete loggedUser;
         loggedUser=nullptr;
-        userlogged=false;
         std::cout<<"\nLogged out"<<std::endl;
     }
 }
