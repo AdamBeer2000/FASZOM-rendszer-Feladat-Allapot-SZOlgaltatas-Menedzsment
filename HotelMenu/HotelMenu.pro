@@ -55,7 +55,6 @@ HEADERS += \
     log.h \
     logcleaning.h \
     logfix.h \
-    login.h \
     logreplace.h \
     logreservation.h \
     manager.h \
