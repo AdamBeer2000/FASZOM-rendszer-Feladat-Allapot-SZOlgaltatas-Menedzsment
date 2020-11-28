@@ -12,6 +12,9 @@
 #include "User/user.h"
 #include "User/usermanager.h"
 #include "Room/roomcontainer.h"
+#include "ostream"
+#include "istream"
+#include "sstream"
 
 class DataCommunicationCenter
 {
@@ -22,8 +25,13 @@ private:
     std::list<std::string> lost_items;
 
     UserManager user_man;
+
     ReservationContainer reservation_cont;
+    void readReservationFile();
+
     RoomContainer room_cont;
+
+
 
     //CONSTRUCTOR
     DataCommunicationCenter();
@@ -55,6 +63,9 @@ public:
     void addLostItem(std::string desc);
     void printLostItem() const;
     bool permissionCheck(std::string task_type);
+
+    //test
+    void printRes();
 
 };
 

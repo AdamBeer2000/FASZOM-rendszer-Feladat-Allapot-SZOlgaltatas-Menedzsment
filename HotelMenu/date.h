@@ -3,6 +3,7 @@
 
 #include <string>
 #include <math.h>
+#include <iostream>
 
 struct date
 {
@@ -109,6 +110,9 @@ struct date
         year = _year;
         month = _month;
         day = _day;
+        hour = 0;
+        min = 0;
+        sec = 0;
         return date(*this);
     }
 
@@ -123,6 +127,26 @@ struct date
         return date(*this);
     }
 
+    date stringToDate(std::string sdate)
+    {
+        std::string temp;
+
+        temp=sdate.substr(0,sdate.find('.'));
+        year= stoi(temp);
+        sdate=sdate.substr(sdate.find('.')+1,sdate.size());
+
+        temp=sdate.substr(0,sdate.find('.'));
+        month= stoi(temp);
+        sdate=sdate.substr(sdate.find('.')+1,sdate.size());
+
+        temp=sdate.substr(0,sdate.find('.'));
+        day= stoi(temp);
+        sdate=sdate.substr(sdate.find('.')+1,sdate.size());
+        hour = 0;
+        min = 0;
+        sec = 0;
+        return date(*this);
+    }
 };
 
 #endif // DATE_H

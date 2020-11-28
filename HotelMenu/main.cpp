@@ -15,14 +15,19 @@
 #include "date.h"
 
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
+#include <memory>
 
 #include <fstream>
 
+#include "datacommunicationcenter.h"
 
 using namespace Users;
 
 int main()
 {
+
+    std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
+    datacom->printRes();
 
     //thingthing
 
@@ -158,7 +163,7 @@ int main()
     //------------------------
 
     //ELLENŐRZÉS KELL, HOGY MEGFELELŐ LOGOT MEGFELELŐ TASK-NAK LEHESSEN ADNI (if megegyezik a jobid-vel akkor ok, else nem egyezik akkor err..)
-
+    /*
     date d1;
     d1.day = 15;
     d1.month = 2;
@@ -227,5 +232,6 @@ int main()
         }
         s.close();
     }
+    */
     return 0;
 }

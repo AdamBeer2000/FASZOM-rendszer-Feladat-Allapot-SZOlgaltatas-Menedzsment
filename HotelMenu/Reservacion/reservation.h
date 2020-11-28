@@ -25,6 +25,8 @@ public:
 
     std::string getApartmentInString() const;
     std::string getServingInString() const;
+
+
 };
 
 #endif // RESERVATION_H

@@ -40,6 +40,9 @@ public:
         }
     };
 
+    //test
+
+    void printall();
 
 };
 

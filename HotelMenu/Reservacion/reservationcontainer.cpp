@@ -60,3 +60,16 @@ Reservation ReservationContainer::popReservation(std::string guestName)
         throw NoReservationFound(guestName);
     }
 }
+
+void ReservationContainer::printall()
+{
+    for(auto res:reservations)
+    {
+        std::cout<<res.second.getUserename()<<std::endl;
+        std::cout<<res.second.getApartmentInString()<<std::endl;
+        std::cout<<res.second.getStartTime().calendarMode()<<std::endl;
+        std::cout<<res.second.getEndTime().calendarMode()<<std::endl;
+        std::cout<<res.second.getServingInString()<<std::endl;
+        std::cout<<std::endl;
+    }
+}
