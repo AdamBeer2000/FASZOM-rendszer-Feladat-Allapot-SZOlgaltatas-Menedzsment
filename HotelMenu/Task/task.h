@@ -4,11 +4,11 @@
 #include <exception>
 #include <iostream>
 #include <string>
-#include "log.h"
-#include "logcleaning.h"
-#include "logreplace.h"
-#include "logreservation.h"
-#include "logfix.h"
+#include "Log/log.h"
+#include "Log/logcleaning.h"
+#include "Log/logreplace.h"
+#include "Log/logreservation.h"
+#include "Log/logfix.h"
 
 namespace Tasks
 {

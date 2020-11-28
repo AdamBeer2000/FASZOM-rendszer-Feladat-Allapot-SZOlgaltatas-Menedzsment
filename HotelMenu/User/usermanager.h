@@ -1,7 +1,12 @@
 #ifndef USERMANAGER_H
 #define USERMANAGER_H
 
-#include "User.h"
+#include "User/user.h"
+#include "User/cleaner.h"
+#include "User/guest.h"
+#include "User/janitor.h"
+#include "User/manager.h"
+#include "User/receptionist.h"
 
 class UserManager
 {

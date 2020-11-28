@@ -50,7 +50,6 @@ void Logs::LogReplace::saveStream(std::ofstream &stream) const
     stream << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     stream << "Date:" << std::endl;
     stream << ""<<  getReplaceDate().calendarMode() << "\t[" << getReplaceDate().clockMode() << "]" << std::endl;
-    stream << "-----------------------------------" << std::endl;
 }
 
 //GETTERS

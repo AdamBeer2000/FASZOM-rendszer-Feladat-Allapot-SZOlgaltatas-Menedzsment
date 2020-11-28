@@ -1,8 +1,8 @@
 #ifndef JANITOR_H
 #define JANITOR_H
-#include "User.h"
-#include "logfix.h"
-#include "logreplace.h"
+#include "User/user.h"
+#include "Log/logfix.h"
+#include "Log/logreplace.h"
 
 namespace Users
 {

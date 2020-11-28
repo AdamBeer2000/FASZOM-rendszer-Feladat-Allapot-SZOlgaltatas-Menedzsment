@@ -1,18 +1,20 @@
 #include "commandpanel.h"
 
-CommandPanel::CommandPanel(std::list<Users::User*> users):logger(users)
+CommandPanel::CommandPanel(std::list<Users::User*> users)//:logger(users)
 {
 
 }
 
 void CommandPanel::doStuff()
 {
+
     std::string command;
     std::cout<<"Udvozlet a FASZ rendszerben"<<std::endl;
     do
     {
         try
         {
+            /*
             if(logger.isLoggedIn())
             {
                 std::cout<<logger.getLoggedUsername()<<":>";
@@ -21,6 +23,7 @@ void CommandPanel::doStuff()
             {
                 std::cout<<"Guest:>";
             }
+            */
 
             std::cin>>command;
             std::transform(command.begin(), command.end(), command.begin(),
@@ -30,7 +33,7 @@ void CommandPanel::doStuff()
             {
                 case Invalid:throw CommandNotFoundException(command.c_str());break;
                 case cLogin:logIn();break;
-                case cLogout:logger.logOut();break;
+                //case cLogout:logger.logOut();break;
                 case cExit:;break;
             }
         }
@@ -43,6 +46,7 @@ void CommandPanel::doStuff()
 }
 void CommandPanel::logIn()
 {
+    /*
     if(logger.isLoggedOut())
     {
         std::string tempUserName;
@@ -93,6 +97,7 @@ void CommandPanel::logIn()
     {
         throw Login::AlrreadyLoged();
     }
+    */
 }
 
 void CommandPanel::ricroll()

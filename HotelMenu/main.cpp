@@ -1,24 +1,29 @@
 #include <iostream>
+
+#include "Log/log.h"
+#include "Log/logcleaning.h"
+#include "Log/logfix.h"
+#include "Log/logreplace.h"
+#include "Log/logreservation.h"
+
+
+#include "User/usermanager.h"
+
 #include "commandpanel.h"
-#include "task.h"
-#include "guest.h"
-#include "manager.h"
-#include "taskcontainer.h"
-#include "logfix.h"
-#include "logcleaning.h"
-#include "logreplace.h"
+
+
 #include "date.h"
+
 #include <iomanip> // a kettizedesre allitashoz (kerekít is)
-#include "reservation.h"
-#include "room.h"
-#include "roomcontainer.h"
-#include "reservationcontainer.h"
+
 #include <fstream>
+
 
 using namespace Users;
 
 int main()
 {
+
     //thingthing
 
     /*
@@ -222,12 +227,5 @@ int main()
         }
         s.close();
     }
-
-    /*
-    double a = 12.3456789;
-    std::cout << a << std::endl;
-    std::cout << std::fixed <<std::setprecision(2) << a << std::endl;
-    */
-
     return 0;
 }

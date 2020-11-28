@@ -5,29 +5,46 @@ CONFIG -= qt
 CONFIG += c++14
 
 SOURCES += \
-        cleaner.cpp \
-        commandpanel.cpp \
-        guest.cpp \
-        janitor.cpp \
-        log.cpp \
-        logcleaning.cpp \
-        logfix.cpp \
-        login.cpp \
-        logreplace.cpp \
-        logreservation.cpp \
         main.cpp \
-        manager.cpp \
-        receptionist.cpp \
-        reservation.cpp \
-        reservationcontainer.cpp \
-        room.cpp \
-        roomcontainer.cpp \
-        task.cpp \
-        taskcontainer.cpp \
-        user.cpp \
-        usermanager.cpp
+        commandpanel.cpp \
+        Log/log.cpp \
+        Log/logcleaning.cpp \
+        Log/logfix.cpp \
+        Log/logreplace.cpp \
+        Log/logreservation.cpp \
+        Reservacion/reservation.cpp \
+        Reservacion/reservationcontainer.cpp \
+        Room/room.cpp \
+        Room/roomcontainer.cpp \
+        Task/task.cpp \
+        Task/taskcontainer.cpp \
+        User/cleaner.cpp \
+        User/guest.cpp \
+        User/janitor.cpp \
+        User/manager.cpp \
+        User/receptionist.cpp \
+        User/user.cpp \
+        User/usermanager.cpp \
 
 HEADERS += \
+    Log/log.h \
+    Log/logcleaning.h \
+    Log/logfix.h \
+    Log/logreplace.h \
+    Log/logreservation.h \
+    Reservacion/reservation.h \
+    Reservacion/reservationcontainer.h \
+    Room/room.h \
+    Room/roomcontainer.h \
+    Task/task.h \
+    Task/taskcontainer.h \
+    User/cleaner.h \
+    User/guest.h \
+    User/janitor.h \
+    User/manager.h \
+    User/receptionist.h \
+    User/user.h \
+    User/usermanager.h \
     cleaner.h \
     commandpanel.h \
     date.h \

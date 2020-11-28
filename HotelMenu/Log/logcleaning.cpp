@@ -54,7 +54,6 @@ void Logs::LogCleaning::saveStream(std::ofstream &stream) const
 
     stream << "Date:" << std::endl;
     stream << ""<<  getCleaningDate().calendarMode() << "\t[" << getCleaningDate().clockMode() << "]" << std::endl;
-    stream << "-----------------------------------" << std::endl;
 }
 
 //GETTERS

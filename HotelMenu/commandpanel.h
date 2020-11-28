@@ -1,8 +1,8 @@
 #ifndef COMMANDPANEL_H
 #define COMMANDPANEL_H
 
-#include "login.h"
-#include "task.h"
+#include "Login.h"
+#include "Task/task.h"
 
 class CommandPanel
 {
@@ -10,7 +10,7 @@ private:
 
     //std::map<std::string, Tasks::Task> rename_this_please;
     void logIn(); //Egy felhasználó bejelentkezését valósítja meg
-    Login logger;
+    //Login logger;
     void login();
 public:
     CommandPanel(std::list<Users::User*> users);

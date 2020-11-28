@@ -1,7 +1,7 @@
 #ifndef CLEANER_H
 #define CLEANER_H
 #include "User.h"
-#include "logcleaning.h"
+#include "Log/logcleaning.h"
 
 namespace Users
 {

@@ -42,7 +42,6 @@ void Logs::LogReservation::saveStream(std::ofstream &stream) const
     stream << "Days: " << getStartDate().dateDiff(getEndDate()) << std::endl;
     stream << "Date [from-to]:" << std::endl;
     stream << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
-    stream << "-----------------------------------" << std::endl;
 }
 
 //GETTERS

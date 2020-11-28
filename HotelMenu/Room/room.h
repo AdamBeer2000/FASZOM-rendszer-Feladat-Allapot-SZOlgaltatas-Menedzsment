@@ -1,6 +1,6 @@
 #ifndef ROOM_H
 #define ROOM_H
-#include "reservation.h"
+#include "Reservacion/reservation.h"
 #include "sstream"
 class Room
 {

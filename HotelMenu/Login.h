@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 #include "string"
-#include "User.h"
+#include "User/user.h"
 #include "list"
 #include "algorithm"
 #include "vector"
@@ -9,7 +9,7 @@
 #include "sstream"
 #include "cstring"
 #include "iostream"
-
+/*
 class Login
 {
     std::list<Users::User *>users;
@@ -75,5 +75,5 @@ public:
     };
 
 };
-
+*/
 #endif // MENU_H

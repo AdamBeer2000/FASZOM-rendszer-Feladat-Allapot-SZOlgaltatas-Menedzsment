@@ -1,5 +1,5 @@
 #include "Login.h"
-
+/*
 Login::Login(std::list<Users::User*>_users):users(_users),logged_user(nullptr)
 {
     userloggeed=false;
@@ -62,3 +62,4 @@ std::string Login::getLoggedUsername() const
 {
     return logged_user->getUsername();
 }
+*/

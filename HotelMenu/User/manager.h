@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <cstdlib>
 
-#include "User.h"
-#include "task.h"
+#include "User/user.h"
+#include "Task/task.h"
 
 namespace Users
 {

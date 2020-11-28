@@ -50,7 +50,6 @@ void Logs::LogFix::saveStream(std::ofstream &stream) const
     stream << "Repair cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     stream << "Date:" << std::endl;
     stream << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
-    stream << "-----------------------------------" << std::endl;
 }
 
 //GETTERS
