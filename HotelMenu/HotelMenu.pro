@@ -24,7 +24,8 @@ SOURCES += \
         roomcontainer.cpp \
         task.cpp \
         taskcontainer.cpp \
-        user.cpp
+        user.cpp \
+        usermanager.cpp
 
 HEADERS += \
     cleaner.h \
@@ -48,4 +49,5 @@ HEADERS += \
     roomcontainer.h \
     task.h \
     taskcontainer.h \
-    user.h
+    user.h \
+    usermanager.h
