@@ -8,6 +8,11 @@ UserManager::UserManager(std::list<Users::User *>_users)
     }
 }
 
+UserManager::UserManager()
+{
+
+}
+
 void UserManager::loginWith(std::string username, std::string password)
 {
         if(userlogged)

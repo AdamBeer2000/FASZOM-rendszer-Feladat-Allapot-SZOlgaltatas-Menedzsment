@@ -1,12 +1,18 @@
 #include "datacommunicationcenter.h"
 std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::instance=nullptr;
 
+//------------------------------------------------------------------------------------------
+//SINGLETON FUNCTION
 DataCommunicationCenter::DataCommunicationCenter()
 {
 
 }
-//------------------------------------------------------------------------------------------
-//SINGLETON FUNCTION
+
+DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
+{
+
+}
+
 std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
 {
     if(instance == nullptr)

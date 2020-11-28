@@ -20,6 +20,7 @@ private:
 public:
     //CONSTRUCTORS
     UserManager(std::list<Users::User *>_users);
+    UserManager();
 
     //FUNCTIONS
     bool isLoggedIn() const;
