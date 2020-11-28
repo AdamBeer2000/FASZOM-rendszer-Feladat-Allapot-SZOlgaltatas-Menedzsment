@@ -9,7 +9,7 @@
 #include "sstream"
 #include "cstring"
 #include "iostream"
-/*
+
 class Login
 {
     std::list<Users::User *>users;
@@ -75,5 +75,5 @@ public:
     };
 
 };
-*/
+
 #endif // MENU_H

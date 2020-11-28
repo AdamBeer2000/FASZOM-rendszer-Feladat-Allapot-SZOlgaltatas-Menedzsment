@@ -46,7 +46,6 @@ namespace Users
         void printTasks() const;
 
         void printLogs() const;
-        //void deleteTask(const std::string& task_id_remove); ez nem itt lesz
 
     };
 

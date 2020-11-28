@@ -105,16 +105,3 @@ void Users::Manager::printLogs() const
     //NE LEGYEN ABSZTRAKT
 }
 
-/*
-void Users::Manager::deleteTask(const std::string& task_id_remove)
-{
-    auto it = find(task_ids.begin(), task_ids.end(), task_id_remove);
-    if(it != task_ids.end())
-    {
-        task_ids.remove(task_id_remove);
-        //task torlese
-        //mentes
-    }
-}
-*/
-
