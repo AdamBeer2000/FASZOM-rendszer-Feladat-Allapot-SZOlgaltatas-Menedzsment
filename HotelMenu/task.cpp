@@ -59,6 +59,11 @@ void Task::printLog() const
     this->log->printLog();
 }
 
+void Task::backupSaveStream(std::ofstream& stream)
+{
+    log->saveStream(stream);
+}
+
 bool Task::isValid(const std::string& data)
 {
     if(!data.empty())

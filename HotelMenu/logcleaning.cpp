@@ -34,6 +34,29 @@ void Logs::LogCleaning::printLog() const
     std::cout << "-----------------------------------" << std::endl;
 }
 
+std::string Logs::LogCleaning::toString() const
+{
+    std::string result = "";
+
+    return result;
+}
+
+void Logs::LogCleaning::saveStream(std::ofstream &stream) const
+{
+    stream << "-----------------------------------" << std::endl;
+    stream << "CLEANING: "<< std::endl;
+    stream << "Room: " << getRoomID() << std::endl;
+
+    if(getLostItemExists())
+    {
+        stream << "Lost Item: " << getLostItem() << std::endl;
+    }
+
+    stream << "Date:" << std::endl;
+    stream << ""<<  getCleaningDate().calendarMode() << "\t[" << getCleaningDate().clockMode() << "]" << std::endl;
+    stream << "-----------------------------------" << std::endl;
+}
+
 //GETTERS
 int Logs::LogCleaning::getRoomID() const
 {

@@ -25,6 +25,8 @@ namespace Logs
         ~LogCleaning();
         //FUNCTIONS
         virtual void printLog() const;
+        virtual std::string toString() const;
+        virtual void saveStream(std::ofstream& stream) const;
 
         //GETTERS
         int getRoomID() const;

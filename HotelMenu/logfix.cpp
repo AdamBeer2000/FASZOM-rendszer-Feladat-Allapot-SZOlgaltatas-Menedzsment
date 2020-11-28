@@ -21,6 +21,38 @@ void Logs::LogFix::printLog() const
     std::cout << "-----------------------------------" << std::endl;
 }
 
+std::string Logs::LogFix::toString() const
+{
+    std::string result = "";
+    std::stringstream stream;
+
+    stream << "-----------------------------------" << std::endl;
+    stream << "FIX: "<< std::endl;
+    stream << "Room: " << getRoomID() << std::endl;
+    stream << "Item: " << getItem() << std::endl;
+    stream << "Failure: " << getCauseOfFailure() << std::endl;
+    stream << "Repair cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
+    stream << "Date:" << std::endl;
+    stream << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
+    stream << "-----------------------------------" << std::endl;
+
+    result += stream.str();
+    return result;
+}
+
+void Logs::LogFix::saveStream(std::ofstream &stream) const
+{
+    stream << "-----------------------------------" << std::endl;
+    stream << "FIX: "<< std::endl;
+    stream << "Room: " << getRoomID() << std::endl;
+    stream << "Item: " << getItem() << std::endl;
+    stream << "Failure: " << getCauseOfFailure() << std::endl;
+    stream << "Repair cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
+    stream << "Date:" << std::endl;
+    stream << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
+    stream << "-----------------------------------" << std::endl;
+}
+
 //GETTERS
 int Logs::LogFix::getRoomID() const
 {

@@ -139,6 +139,7 @@ namespace Tasks
         bool isActive() const;
         bool isActive();
         void printLog() const;
+        void backupSaveStream(std::ofstream& stream);
 
         //GETTERS
         std::string getEmployee() const;

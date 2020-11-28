@@ -13,13 +13,15 @@
 #include "room.h"
 #include "roomcontainer.h"
 #include "reservationcontainer.h"
+#include <fstream>
+
 using namespace Users;
 
 int main()
 {
     //thingthing
 
-
+    /*
     date date1;
     date1 = date1.buildDate(2000, 12, 6, 12, 4, 8);
     Guest Test1 = Guest("Janos", "Onosz", "JAni", date1, jobs::GUE, 123456, "123");
@@ -115,7 +117,7 @@ int main()
     {
         std::cout<<e.what()<<std::endl;
     }
-
+    */
 
 
     /*
@@ -151,7 +153,7 @@ int main()
     //------------------------
 
     //ELLENŐRZÉS KELL, HOGY MEGFELELŐ LOGOT MEGFELELŐ TASK-NAK LEHESSEN ADNI (if megegyezik a jobid-vel akkor ok, else nem egyezik akkor err..)
-    /*
+
     date d1;
     d1.day = 15;
     d1.month = 2;
@@ -176,10 +178,10 @@ int main()
 
     Logs::LogReplace log4 = Logs::LogReplace(404, "asztal", "torott lab", 20.36, d1);
 
-    Manager Test7 = Manager("Manager", "admin", jobs::MAN);
-    Manager Test8 = Manager("Manager", "admin", jobs::MAN);
-    Manager Test9 = Manager("Manager", "admin", jobs::MAN);
-    Manager Test10 = Manager("Manager", "admin", jobs::MAN);
+    Manager Test7 = Manager("Teszt", "Mihaly", "Manager", d1, jobs::GUE, 988956, "admin");
+    Manager Test8 = Manager("Teszt", "Ferenc", "Manager", d2, jobs::GUE, 647656, "admin");
+    Manager Test9 = Manager("Teszt", "Matyas", "Manager", d1, jobs::GUE, 875468, "admin");
+    Manager Test10 = Manager("Teszt", "Onosz", "Manager", d2, jobs::GUE, 256875, "admin");
 
     Tasks::Task t3 = Test7.generateTask(jobs::JAN, "Elon Musk", "Mars");
     Tasks::Task t4 = Test8.generateTask(jobs::CLE, "George Soros", "Soros terv");
@@ -204,7 +206,22 @@ int main()
     t6.printTask(); //JAN
     t6.printLog(); //JAN
     std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
-    */
+
+    std::list<Tasks::Task> logs;
+    logs.push_back(t3);
+    logs.push_back(t4);
+    logs.push_back(t5);
+    logs.push_back(t6);
+
+    std::ofstream s("savetxttest.txt");
+    if (s.is_open())
+    {
+        for(auto it : logs)
+        {
+            it.backupSaveStream(s);
+        }
+        s.close();
+    }
 
     /*
     double a = 12.3456789;

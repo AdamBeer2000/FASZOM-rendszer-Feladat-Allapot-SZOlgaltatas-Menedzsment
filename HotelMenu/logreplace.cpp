@@ -21,6 +21,38 @@ void Logs::LogReplace::printLog() const
     std::cout << "-----------------------------------" << std::endl;
 }
 
+std::string Logs::LogReplace::toString() const
+{
+    std::string result = "";
+    std::stringstream stream;
+
+    stream << "-----------------------------------" << std::endl;
+    stream << "REPLACE: "<< std::endl;
+    stream << "Room: " << getRoomID() << std::endl;
+    stream << "Item: " << getItem() << std::endl;
+    stream << "Failure: " << getCauseOfFailure() << std::endl;
+    stream << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
+    stream << "Date:" << std::endl;
+    stream << ""<<  getReplaceDate().calendarMode() << "\t[" << getReplaceDate().clockMode() << "]" << std::endl;
+    stream << "-----------------------------------" << std::endl;
+
+    result += stream.str();
+    return result;
+}
+
+void Logs::LogReplace::saveStream(std::ofstream &stream) const
+{
+    stream << "-----------------------------------" << std::endl;
+    stream << "REPLACE: "<< std::endl;
+    stream << "Room: " << getRoomID() << std::endl;
+    stream << "Item: " << getItem() << std::endl;
+    stream << "Failure: " << getCauseOfFailure() << std::endl;
+    stream << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
+    stream << "Date:" << std::endl;
+    stream << ""<<  getReplaceDate().calendarMode() << "\t[" << getReplaceDate().clockMode() << "]" << std::endl;
+    stream << "-----------------------------------" << std::endl;
+}
+
 //GETTERS
 int Logs::LogReplace::getRoomID() const
 {
