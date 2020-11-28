@@ -5,11 +5,15 @@
 #include "Reservacion/reservation.h"
 #include "exception"
 #include "sstream"
+#include "list"
+
 class RoomContainer
 {
     std::map<int,Room>hotelRooms;
 public:
+    RoomContainer(std::list<Room> _hotelRooms);
     RoomContainer();
+
     void add(Suit::suitTypes _apartment,int _roomid,bool cleaned);
     void add(Room oneroom);
     void setRoomFree(int roomId);

@@ -20,6 +20,7 @@ private:
     std::map<std::string, std::string> task_list;
     std::list<std::pair<int, std::string>> ratings;
     std::list<std::string> lost_items;
+
     UserManager user_man;
     ReservationContainer reservation_cont;
     RoomContainer room_cont;
@@ -36,8 +37,11 @@ public:
 
     //FUNCTIONS
     void processTask(std::string task_id_arg, std::string data_arg);
+
     void createReservationRequest(std::string data_res);
+
     void accepptReservation(int room_id, Reservation res);
+
     void denyReservation(std::string username);
     void registration(std::string username, std::string password);
     void addRating(int rate, std::string comment);

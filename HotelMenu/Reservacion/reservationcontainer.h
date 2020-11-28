@@ -4,11 +4,15 @@
 #include "reservation.h"
 #include "exception"
 #include "sstream"
+#include "list"
+
 class ReservationContainer
 {
     std::map<std::string,Reservation>reservations;
 public:
     ReservationContainer();
+    ReservationContainer(std::list<Reservation> res);
+
     void addReservation(Reservation newRes);
     void deleteReservation(std::string guestName);
     void bookRoom(std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);

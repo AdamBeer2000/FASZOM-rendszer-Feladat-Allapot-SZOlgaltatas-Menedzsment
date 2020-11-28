@@ -22,3 +22,10 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
     return instance;
 }
 //------------------------------------------------------------------------------------------
+
+void DataCommunicationCenter::accepptReservation(int room_id, Reservation res)
+{
+    room_cont.setReservation(room_id,res);
+    reservation_cont.deleteReservation(res.getUserename());
+}
+

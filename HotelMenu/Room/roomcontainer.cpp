@@ -1,5 +1,13 @@
 #include "roomcontainer.h"
 
+RoomContainer::RoomContainer(std::list<Room> _hotelRooms)
+{
+    for(auto room : _hotelRooms)
+    {
+        hotelRooms.insert(std::pair<int,Room>(room.getRoomid(),room));
+    }
+}
+
 RoomContainer::RoomContainer()
 {
 
