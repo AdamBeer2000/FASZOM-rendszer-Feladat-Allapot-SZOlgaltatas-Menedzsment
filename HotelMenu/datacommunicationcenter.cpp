@@ -85,15 +85,18 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
 }
 //------------------------------------------------------------------------------------------
 
-void DataCommunicationCenter::accepptReservation(int room_id, Reservation res)
+void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id, Reservation res)
 {
     room_cont.setReservation(room_id,res);
     reservation_cont.deleteReservation(res.getUserename());
+
+    //Logs::LogReservation temp(room_id,res);
+    //user_man.logTask(taskid,&temp);
 }
 
-void DataCommunicationCenter::addRating(int rate, std::string comment)
+void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
 {
-    ratings.push_back({rate, comment});
+    reservation_cont.deleteReservation(username);
 }
 
 Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
