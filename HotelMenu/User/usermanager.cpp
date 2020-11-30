@@ -82,9 +82,46 @@ void UserManager::deleteUser(std::string username)
     users.find(username);
 }
 
+void UserManager::addTask(std::string username, Tasks::Task one_task)
+{
+    auto it = users.find(username);
+    if(it != users.end())
+    {
+        it->second->addTask(one_task);
+    }
+}
+
+void UserManager::deleteTask(std::string task_id_del)
+{
+    for(auto it = users.begin(); it != users.end(); ++it)
+    {
+        it->second->deleteTask(task_id_del);
+    }
+}
+
 void UserManager::printMyTask() const
 {
     loggedUser->printTasks();
+}
+
+void UserManager::printAllTask() const
+{
+    for(auto cit = users.cbegin(); cit != users.cend(); ++cit)
+    {
+        std::cout << cit->first <<"\'s tasks:" <<std::endl;
+        cit->second->printTasks();
+        std::cout << std::endl;
+    }
+}
+
+void UserManager::printLogs() const
+{
+    for(auto cit = users.cbegin(); cit != users.cend(); ++cit)
+    {
+        std::cout << cit->first <<"\'s logs:" <<std::endl;
+        cit->second->printLogs();
+        std::cout << std::endl;
+    }
 }
 
 void UserManager::logout()

@@ -35,6 +35,16 @@ std::string Users::User::getPassword() const
     return password;
 }
 
+void Users::User::addTask(Tasks::Task oneTask)
+{
+    taskCont.addTask(oneTask);
+}
+
+void Users::User::deleteTask(std::string &TaskId)
+{
+    taskCont.deleteTask(TaskId);
+}
+
 Users::User::User()
 {
 
