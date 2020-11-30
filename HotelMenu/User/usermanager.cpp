@@ -77,6 +77,11 @@ void UserManager::loginWith(std::string username, std::string password)
         }
 }
 
+void UserManager::deleteUser(std::string username)
+{
+    users.find(username);
+}
+
 void UserManager::logout()
 {
     if(isLoggedIn())

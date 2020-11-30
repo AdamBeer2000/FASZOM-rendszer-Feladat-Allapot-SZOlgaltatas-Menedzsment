@@ -179,7 +179,7 @@ void DataCommunicationCenter::createUser(std::string username, std::string first
 
 void DataCommunicationCenter::deleteUser(std::string username)
 {
-    //user_man.deleteUser(username);
+    user_man.deleteUser(username);
 }
 
 void DataCommunicationCenter::addLostItem(std::string desc)
