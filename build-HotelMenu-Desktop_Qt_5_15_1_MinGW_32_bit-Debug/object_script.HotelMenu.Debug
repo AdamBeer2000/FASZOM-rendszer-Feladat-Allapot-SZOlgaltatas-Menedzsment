@@ -1,4 +1,5 @@
 debug/datacommunicationcenter.o
+debug/datebuilder.o
 debug/main.o
 debug/commandpanel.o
 debug/log.o

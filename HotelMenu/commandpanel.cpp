@@ -1,6 +1,6 @@
 #include "commandpanel.h"
 
-CommandPanel::CommandPanel(std::list<Users::User*> users)//:logger(users)
+CommandPanel::CommandPanel(std::list<Users::User*> users)
 {
 
 }
@@ -35,6 +35,7 @@ void CommandPanel::doStuff()
                 case cLogin:logIn();break;
                 //case cLogout:logger.logOut();break;
                 case cExit:;break;
+                default:throw CommandNotFoundException(command);
             }
         }
         catch (std::exception &e)
