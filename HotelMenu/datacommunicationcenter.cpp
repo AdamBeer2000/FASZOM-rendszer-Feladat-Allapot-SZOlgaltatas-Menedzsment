@@ -91,6 +91,97 @@ void DataCommunicationCenter::accepptReservation(int room_id, Reservation res)
     reservation_cont.deleteReservation(res.getUserename());
 }
 
+Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
+{
+    std::string current_id = "";
+    current_id = generateTaskId(job_id);
+    //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
+    auto builder = new Tasks::Task::TaskBuilder(current_id);
+    auto task = builder->withEmployee(username)
+            .withTodo(todo)
+            .withStatus(false)
+            .build();
+
+    task_list.insert({task->getTaskId(), username});
+    //delete nem biztos, hogy ide kell
+    return *task;
+    //delete task;
+    //delete builder;
+}
+
+std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
+{
+    std::string generated_id = "";
+    try
+    {
+        switch(job_id)
+        {
+            case Users::jobs::JAN:
+                generated_id = "JAN";
+                break;
+            case Users::jobs::CLE:
+                generated_id = "CLE";
+                break;
+            case Users::jobs::REC:
+                generated_id = "REC";
+                break;
+            default:
+                generated_id = "ERR"; //Error
+                throw InvalidDataException("[INVALID TASK ID DATA]: Employee type");
+                break;
+        }
+    }
+    catch(InvalidDataException& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    int num_code = rand() % 100000;
+
+    if(num_code < 10000)
+    {
+        generated_id += "0";
+
+        if(num_code < 1000)
+        {
+            generated_id += "0";
+
+            if(num_code < 100)
+            {
+                generated_id += "0";
+                if(num_code < 10)
+                {
+                    generated_id += "0";
+                }
+            }
+        }
+    }
+
+    generated_id += std::to_string(num_code);
+
+    auto it = task_list.find(generated_id);
+    if(it != task_list.end())
+    {
+        generateTaskId(job_id);
+    }
+    return generated_id;
+}
+
+void DataCommunicationCenter::addLostItem(std::string desc)
+{
+    lost_items.push_back(desc);
+}
+
+void DataCommunicationCenter::printLostItem() const
+{
+    std::cout << "Lost items: " << std::endl;
+    for(auto cit : lost_items)
+    {
+        std::cout << cit << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 void DataCommunicationCenter::printRes()
 {
     reservation_cont.printall();

@@ -32,6 +32,21 @@ private:
     RoomContainer room_cont;
     void readRoomFile();
 
+    //EXCEPTION CLASS
+    class InvalidDataException: public std::exception
+    {
+    private:
+        std::string msg;
+
+    public:
+        InvalidDataException(const std::string& msg_c): msg(msg_c) {}
+        virtual ~InvalidDataException(){}
+
+        virtual const char* what() const noexcept override
+        {
+            return msg.c_str();
+        }
+    };
 
     //CONSTRUCTOR
     DataCommunicationCenter();
@@ -47,14 +62,12 @@ public:
     //void processTask(std::string task_id_arg, std::string data_arg); //commandpanelban lekezeljük
 
     void createReservationRequest(std::string data_res);
-
     void accepptReservation(int room_id, Reservation res);
-
     void denyReservation(std::string username);
     void registration(std::string username, std::string password);
     void addRating(int rate, std::string comment);
-    //generateTask //átemelni a managerből
-    //generateUniqueTaskID //átemelni --||--
+    Tasks::Task generateTask(Users::jobs job_id, const std::string& employee_name, const std::string& todo);
+    std::string generateTaskId(Users::jobs job_id);
     void login(std::string username, std::string password);
     //loadData() //soon
     //saveData() //soon

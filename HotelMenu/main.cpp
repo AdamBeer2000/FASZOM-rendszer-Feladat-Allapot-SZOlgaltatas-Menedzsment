@@ -25,7 +25,6 @@ using namespace Users;
 
 int main()
 {
-
     std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
     datacom->printRes();
 
