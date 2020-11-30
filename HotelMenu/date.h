@@ -105,47 +105,25 @@ struct date
         sec = _sec;
     }
 
-    date buildDate(int _year,int _month,int _day)//beálítja év hó nap
-    {
-        year = _year;
-        month = _month;
-        day = _day;
-        hour = 0;
-        min = 0;
-        sec = 0;
-        return date(*this);
-    }
-
-    date buildDate(int _year,int _month,int _day,int _hour,int _min,int _sec)//beálítja a többit is lusta voltam egyenként :D irogatni
-    {
-        year = _year;
-        month = _month;
-        day = _day;
-        hour = _hour;
-        min = _min;
-        sec = _sec;
-        return date(*this);
-    }
-
     date stringToDate(std::string sdate)
     {
         std::string temp;
-
+        date ret;
         temp=sdate.substr(0,sdate.find('.'));
-        year= stoi(temp);
+        ret.year= stoi(temp);
         sdate=sdate.substr(sdate.find('.')+1,sdate.size());
 
         temp=sdate.substr(0,sdate.find('.'));
-        month= stoi(temp);
+        ret.month= stoi(temp);
         sdate=sdate.substr(sdate.find('.')+1,sdate.size());
 
         temp=sdate.substr(0,sdate.find('.'));
-        day= stoi(temp);
+        ret.day= stoi(temp);
         sdate=sdate.substr(sdate.find('.')+1,sdate.size());
-        hour = 0;
-        min = 0;
-        sec = 0;
-        return date(*this);
+        ret.hour = 0;
+        ret.min = 0;
+        ret.sec = 0;
+        return ret;
     }
 };
 

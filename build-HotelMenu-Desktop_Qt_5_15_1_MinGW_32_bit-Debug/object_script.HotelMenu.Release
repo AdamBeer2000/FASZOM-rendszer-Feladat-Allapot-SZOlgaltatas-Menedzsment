@@ -1,4 +1,5 @@
 release/datacommunicationcenter.o
+release/datebuilder.o
 release/main.o
 release/commandpanel.o
 release/log.o

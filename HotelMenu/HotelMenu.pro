@@ -6,6 +6,7 @@ CONFIG += c++14
 
 SOURCES += \
     datacommunicationcenter.cpp \
+    datebuilder.cpp \
         main.cpp \
         commandpanel.cpp \
         Log/log.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     commandpanel.h \
     datacommunicationcenter.h \
     date.h \
+    datebuilder.h \
     enumServing.h \
     enumSuit.h \
     guest.h \
