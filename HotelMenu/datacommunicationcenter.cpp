@@ -91,6 +91,11 @@ void DataCommunicationCenter::accepptReservation(int room_id, Reservation res)
     reservation_cont.deleteReservation(res.getUserename());
 }
 
+void DataCommunicationCenter::addRating(int rate, std::string comment)
+{
+    ratings.push_back({rate, comment});
+}
+
 Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
 {
     std::string current_id = "";
@@ -165,6 +170,16 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
         generateTaskId(job_id);
     }
     return generated_id;
+}
+
+void DataCommunicationCenter::createUser(std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
+{
+    user_man.addUser(first_name, last_name, birth_date,position,card_id, password);
+}
+
+void DataCommunicationCenter::deleteUser(std::string username)
+{
+    user_man.deleteUser(username);
 }
 
 void DataCommunicationCenter::addLostItem(std::string desc)

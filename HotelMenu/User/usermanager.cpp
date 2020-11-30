@@ -23,6 +23,31 @@ bool UserManager::isLoggedOut() const
     return loggedUser;
 }
 
+void UserManager::addUser(std::string& username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
+{
+    Users::User* added_user;
+    switch(position)
+    {
+        case Users::jobs::CLE:
+            *added_user = Users::Cleaner(first_name, last_name, username, birth_date, position,card_id, password);
+            break;
+        case Users::jobs::GUE:
+            *added_user = Users::Guest(first_name, last_name, username, birth_date, position,card_id, password);
+            break;
+        case Users::jobs::JAN:
+            *added_user = Users::Janitor(first_name, last_name, username, birth_date, position,card_id, password);
+            break;
+        case Users::jobs::REC:
+            *added_user = Users::Receptionist(first_name, last_name, username, birth_date, position,card_id, password);
+            break;
+        case Users::jobs::MAN:
+            *added_user = Users::Manager(first_name, last_name, username, birth_date, position,card_id, password);
+            break;
+    }
+
+    users.insert({username, added_user});
+}
+
 void UserManager::loginWith(std::string username, std::string password)
 {
         if(isLoggedIn())

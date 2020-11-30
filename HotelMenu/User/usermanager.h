@@ -14,7 +14,7 @@ private:
     //VARIABLES
     bool userlogged;
     Users::User* loggedUser;   
-    std::map<std::string,Users::User *>users;
+    std::map<std::string,Users::User*>users;
 
 
 public:
@@ -26,7 +26,7 @@ public:
     bool isLoggedIn() const;
     bool isLoggedOut() const;
     bool loggedPermissionCheck(std::string task_type) const;
-    void addUser(std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
+    void addUser(std::string& _username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
 
     void logout();
     void loginWith(std::string username, std::string password);
