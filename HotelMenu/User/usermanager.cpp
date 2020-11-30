@@ -82,9 +82,27 @@ void UserManager::deleteUser(std::string username)
     users.find(username);
 }
 
+void UserManager::setTaskStatusDone(std::string username,std::string task_id)
+{
+    //users.find(username)->second  wip
+}
+
 void UserManager::printMyTask() const
 {
     loggedUser->printTasks();
+}
+
+void UserManager::logTask(std::string task_id, Logs::Log *onelog)
+{
+    auto it = users.find(task_id);
+    if(it!=users.end())
+    {
+        users.find(task_id)->second->setLog(task_id,onelog);
+    }
+    else
+    {
+        throw Tasks::Task::InvalidTaskException("Nincs task: "+task_id+"-idval");
+    }
 }
 
 void UserManager::logout()

@@ -35,6 +35,11 @@ std::string Users::User::getPassword() const
     return password;
 }
 
+void Users::User::setLog(const std::string &task_id, Logs::Log *onelog)
+{
+
+}
+
 Users::User::User()
 {
 

@@ -76,7 +76,7 @@ public:
     void addLostItem(std::string desc);
     void printLostItem() const;
     bool permissionCheck(std::string task_type);
-
+    std::string findTask(std::string task_id);
     //test
     void printRes();
 
