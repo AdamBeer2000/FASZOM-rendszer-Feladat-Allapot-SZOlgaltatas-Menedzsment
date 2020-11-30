@@ -62,8 +62,8 @@ public:
     //void processTask(std::string task_id_arg, std::string data_arg); //commandpanelban lekezeljük
 
     void createReservationRequest(std::string data_res);
-    void accepptReservation(int room_id, Reservation res);
-    void denyReservation(std::string username);
+    void accepptReservation(std::string taskid, int room_id, Reservation res);
+    void denyReservation(std::string taskid, std::string username);
     void registration(std::string username, std::string password);
     void addRating(int rate, std::string comment);
     Tasks::Task generateTask(Users::jobs job_id, const std::string& employee_name, const std::string& todo);

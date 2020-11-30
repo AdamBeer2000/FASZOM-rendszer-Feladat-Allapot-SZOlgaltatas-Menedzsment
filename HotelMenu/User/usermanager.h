@@ -36,7 +36,7 @@ public:
     void printMyTask() const;
     void printAllTask() const;
     void printLogs() const;
-    void logTask(std::string task_id, std::string data);
+    void logTask(std::string task_id, Logs::Log*);
 
     class WrongUsernameException:public std::exception
         {
