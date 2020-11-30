@@ -99,8 +99,6 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
 
     Logs::LogReservation temp(res,room_id);
     user_man.logTask(taskid,&temp);
-
-
 }
 
 void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)

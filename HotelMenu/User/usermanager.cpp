@@ -82,11 +82,11 @@ void UserManager::deleteUser(std::string username)
     users.find(username);
 }
 
-<<<<<<< HEAD
+
 void UserManager::setTaskStatusDone(std::string username,std::string task_id)
 {
-    //users.find(username)->second  wip
-=======
+    users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
+}
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);
@@ -102,7 +102,6 @@ void UserManager::deleteTask(std::string task_id_del)
     {
         it->second->deleteTask(task_id_del);
     }
->>>>>>> 9988b92b82e7d05d6b0a5337de2e9cf6b1e0f69e
 }
 
 void UserManager::printMyTask() const
@@ -110,18 +109,12 @@ void UserManager::printMyTask() const
     loggedUser->printTasks();
 }
 
-<<<<<<< HEAD
 void UserManager::logTask(std::string task_id, Logs::Log *onelog)
 {
-    auto it = users.find(task_id);
-    if(it!=users.end())
-    {
-        users.find(task_id)->second->setLog(task_id,onelog);
-    }
-    else
-    {
-        throw Tasks::Task::InvalidTaskException("Nincs task: "+task_id+"-idval");
-=======
+    users.find(loggedUser->getUsername())->second->setLog(task_id,onelog);
+    users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
+}
+
 void UserManager::printAllTask() const
 {
     for(auto cit = users.cbegin(); cit != users.cend(); ++cit)
@@ -139,7 +132,7 @@ void UserManager::printLogs() const
         std::cout << cit->first <<"\'s logs:" <<std::endl;
         cit->second->printLogs();
         std::cout << std::endl;
->>>>>>> 9988b92b82e7d05d6b0a5337de2e9cf6b1e0f69e
+
     }
 }
 
