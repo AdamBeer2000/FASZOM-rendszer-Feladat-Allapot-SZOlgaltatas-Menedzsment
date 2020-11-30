@@ -172,14 +172,14 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
     return generated_id;
 }
 
-void DataCommunicationCenter::createUser(std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
+void DataCommunicationCenter::createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
 {
-    user_man.addUser(first_name, last_name, birth_date,position,card_id, password);
+    user_man.addUser(username, first_name, last_name, birth_date,position,card_id, password);
 }
 
 void DataCommunicationCenter::deleteUser(std::string username)
 {
-    user_man.deleteUser(username);
+    //user_man.deleteUser(username);
 }
 
 void DataCommunicationCenter::addLostItem(std::string desc)
