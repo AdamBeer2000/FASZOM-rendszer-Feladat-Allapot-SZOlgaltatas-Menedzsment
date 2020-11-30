@@ -44,6 +44,8 @@ namespace  Users
 
         void deleteTask(std::string& TaskId);
 
+        virtual void setTaskStatus(std::string taskID) = 0;
+
         virtual void printTasks()const = 0;
 
         virtual void printLogs()const = 0;

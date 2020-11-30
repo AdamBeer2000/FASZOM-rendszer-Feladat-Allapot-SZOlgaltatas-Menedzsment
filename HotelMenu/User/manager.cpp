@@ -95,6 +95,11 @@ std::string Users::Manager::generateTaskId(jobs job_id)
     return generated_id;
 }
 
+void Users::Manager::setTaskStatus(std::string taskID)
+{
+    //NE LEGYEN ABSZTRAKT
+}
+
 void Users::Manager::printTasks() const
 {
     //NE LEGYEN ABSZTRAKT

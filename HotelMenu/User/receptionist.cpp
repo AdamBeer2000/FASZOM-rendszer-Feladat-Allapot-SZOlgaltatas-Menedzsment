@@ -19,6 +19,11 @@ void Users::Receptionist::logReservation(std::string& taskID , int roomID , std:
     taskCont.setStatusDone(taskID);
 }
 
+void Users::Receptionist::setTaskStatus(std::string taskID)
+{
+    taskCont.setStatusDone(taskID);
+}
+
 void Users::Receptionist::printTasks() const
 {
     taskCont.printAllTask();

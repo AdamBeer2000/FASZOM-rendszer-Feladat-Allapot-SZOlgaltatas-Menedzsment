@@ -1,6 +1,6 @@
 #ifndef CLEANER_H
 #define CLEANER_H
-#include "User.h"
+#include "user.h"
 #include "Log/logcleaning.h"
 
 namespace Users
@@ -12,6 +12,7 @@ namespace Users
 
         void logCleanedRoom(std::string& taskID , int roomid , date date);
         void logCleanedRoomWithLostItem(std::string& taskID , int roomID , std::string& item , date date);
+        void setTaskStatus(std::string taskID);
         void printTasks() const;
         void printLogs() const;
         ~Cleaner();

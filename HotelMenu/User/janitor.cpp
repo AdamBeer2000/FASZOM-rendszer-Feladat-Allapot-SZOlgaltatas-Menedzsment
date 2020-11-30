@@ -26,6 +26,11 @@ void Users::Janitor::logReplaceStuff(std::string& taskID , std::string &item, in
     taskCont.setStatusDone(taskID);
 }
 
+void Users::Janitor::setTaskStatus(std::string taskID)
+{
+    taskCont.setStatusDone(taskID);
+}
+
 void Users::Janitor::printTasks() const
 {
     taskCont.printAllTask();

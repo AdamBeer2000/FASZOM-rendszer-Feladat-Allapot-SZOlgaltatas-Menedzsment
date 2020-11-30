@@ -10,7 +10,12 @@ Users::Guest::Guest(const std::string& _firstName , const std::string& _lastName
         this->birthDate = _birthDate;
         this->jobID = _jobID;
         this->cardID = _cardID;
-        this->password = _password;
+    this->password = _password;
+}
+
+void Users::Guest::setTaskStatus(std::string taskID)
+{
+    //NE LEGYEN ABSZTRAKT
 }
 
 void Users::Guest::printTasks() const

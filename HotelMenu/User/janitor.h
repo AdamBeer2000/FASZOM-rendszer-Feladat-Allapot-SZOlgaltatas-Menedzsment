@@ -15,6 +15,8 @@ namespace Users
 
         void logReplaceStuff(std::string& taskID , std::string& item , int roomId , std::string& reason , double cost , date date);
 
+        void setTaskStatus(std::string taskID);
+
         void printTasks() const;
 
         void printLogs() const;

@@ -25,6 +25,11 @@ void Users::Cleaner::logCleanedRoomWithLostItem(std::string& taskID , int roomID
     taskCont.setLog(taskID , &l);
 }
 
+void Users::Cleaner::setTaskStatus(std::string taskID)
+{
+    taskCont.setStatusDone(taskID);
+}
+
 void Users::Cleaner::printTasks() const
 {
     taskCont.printAllTask();

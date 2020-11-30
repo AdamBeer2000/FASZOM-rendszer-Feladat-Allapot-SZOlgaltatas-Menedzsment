@@ -43,6 +43,8 @@ namespace Users
 
         std::string generateTaskId(jobs job_id);
 
+        void setTaskStatus(std::string taskID);
+
         void printTasks() const;
 
         void printLogs() const;

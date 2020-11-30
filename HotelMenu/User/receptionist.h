@@ -1,6 +1,6 @@
 #ifndef RECEPTIONIST_H
 #define RECEPTIONIST_H
-#include "User.h"
+#include "user.h"
 #include "enumSuit.h"
 #include "enumServing.h"
 
@@ -12,6 +12,8 @@ namespace Users
         Receptionist(const std::string& _firstName , const std::string& _lastName , const std::string& _username , date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
 
         void logReservation(std::string& taskID , int roomID , std::string& name , Suit::suitTypes apartment , Serving::servingTypes serving , double cost , date startTime , date endTime);
+
+        void setTaskStatus(std::string taskID);
 
         void printTasks() const;
 
