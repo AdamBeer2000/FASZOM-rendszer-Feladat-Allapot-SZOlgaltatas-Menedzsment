@@ -83,6 +83,13 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
     }
     return instance;
 }
+
+void DataCommunicationCenter::createReservationRequest(Reservation &newres)
+{
+    reservation_cont.addReservation(newres);
+}
+
+
 //------------------------------------------------------------------------------------------
 
 void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id, Reservation res)

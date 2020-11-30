@@ -61,7 +61,7 @@ public:
     //FUNCTIONS
     //void processTask(std::string task_id_arg, std::string data_arg); //commandpanelban lekezeljük
 
-    void createReservationRequest(std::string data_res);
+    void createReservationRequest(Reservation & newres);
     void accepptReservation(std::string taskid, int room_id, Reservation res);
     void denyReservation(std::string taskid, std::string username);
     void registration(std::string username, std::string password);
