@@ -82,6 +82,11 @@ void UserManager::deleteUser(std::string username)
     users.find(username);
 }
 
+void UserManager::printMyTask() const
+{
+    loggedUser->printTasks();
+}
+
 void UserManager::logout()
 {
     if(isLoggedIn())
