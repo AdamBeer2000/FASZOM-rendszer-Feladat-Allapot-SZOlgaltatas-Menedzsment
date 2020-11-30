@@ -7,8 +7,8 @@
 #include <list>
 #include <algorithm>
 #include "Task/taskcontainer.h"
-#include "Reservacion/reservation.h"
-#include "Reservacion/reservationcontainer.h"
+#include "Reservation/reservation.h"
+#include "Reservation/reservationcontainer.h"
 #include "User/user.h"
 #include "User/usermanager.h"
 #include "Room/roomcontainer.h"
@@ -30,7 +30,7 @@ private:
     void readReservationFile();
 
     RoomContainer room_cont;
-
+    void readRoomFile();
 
 
     //CONSTRUCTOR

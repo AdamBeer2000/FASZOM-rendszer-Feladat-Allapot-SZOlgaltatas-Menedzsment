@@ -2,7 +2,7 @@
 #define LOGRESERVATION_H
 
 #include "log.h"
-#include "Reservacion/reservation.h"
+#include "Reservation/reservation.h"
 #include "enumServing.h"
 #include "enumSuit.h"
 

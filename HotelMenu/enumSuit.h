@@ -51,7 +51,5 @@ namespace Suit
         throw WrongSuitUse(oneSuit);
         return ERROR;
     }
-
-
 }
 #endif // ENUMSUIT_H

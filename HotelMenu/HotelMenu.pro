@@ -13,8 +13,8 @@ SOURCES += \
         Log/logfix.cpp \
         Log/logreplace.cpp \
         Log/logreservation.cpp \
-        Reservacion/reservation.cpp \
-        Reservacion/reservationcontainer.cpp \
+        Reservation/reservation.cpp \
+        Reservation/reservationcontainer.cpp \
         Room/room.cpp \
         Room/roomcontainer.cpp \
         Task/task.cpp \
@@ -33,8 +33,8 @@ HEADERS += \
     Log/logfix.h \
     Log/logreplace.h \
     Log/logreservation.h \
-    Reservacion/reservation.h \
-    Reservacion/reservationcontainer.h \
+    Reservation/reservation.h \
+    Reservation/reservationcontainer.h \
     Room/room.h \
     Room/roomcontainer.h \
     Task/task.h \

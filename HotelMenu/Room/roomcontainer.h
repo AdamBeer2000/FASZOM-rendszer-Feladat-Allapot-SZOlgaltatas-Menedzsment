@@ -2,7 +2,7 @@
 #define ROOMCONTAINER_H
 #include "room.h"
 #include "map"
-#include "Reservacion/reservation.h"
+#include "Reservation/reservation.h"
 #include "exception"
 #include "sstream"
 #include "list"

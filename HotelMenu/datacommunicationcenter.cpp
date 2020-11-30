@@ -58,6 +58,11 @@ void DataCommunicationCenter::readReservationFile()
 
 }
 
+void DataCommunicationCenter::readRoomFile()
+{
+
+}
+
 //------------------------------------------------------------------------------------------
 //SINGLETON FUNCTION
 DataCommunicationCenter::DataCommunicationCenter()
