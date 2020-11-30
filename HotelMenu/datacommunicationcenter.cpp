@@ -97,13 +97,16 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
     room_cont.setReservation(room_id,res);
     reservation_cont.deleteReservation(res.getUserename());
 
-    //Logs::LogReservation temp(room_id,res);
-    //user_man.logTask(taskid,&temp);
+    Logs::LogReservation temp(res,room_id);
+    user_man.logTask(taskid,&temp);
+
+
 }
 
 void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
 {
     reservation_cont.deleteReservation(username);
+    user_man.setTaskStatusDone(findTask(taskid),taskid);
 }
 
 Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
@@ -205,6 +208,11 @@ void DataCommunicationCenter::printLostItem() const
         std::cout << cit << std::endl;
     }
     std::cout << std::endl;
+}
+
+std::string DataCommunicationCenter::findTask(std::string task_id)
+{
+    return task_list.find(task_id)->second;
 }
 
 void DataCommunicationCenter::printRes()
