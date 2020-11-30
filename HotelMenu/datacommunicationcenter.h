@@ -44,7 +44,7 @@ public:
     static std::shared_ptr<DataCommunicationCenter> getInstance();
 
     //FUNCTIONS
-    void processTask(std::string task_id_arg, std::string data_arg);
+    //void processTask(std::string task_id_arg, std::string data_arg); //commandpanelban lekezeljük
 
     void createReservationRequest(std::string data_res);
 
