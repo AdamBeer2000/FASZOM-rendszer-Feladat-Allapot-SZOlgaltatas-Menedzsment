@@ -98,22 +98,22 @@ public:
         cLogout,            //logout
         cExit,              //exit
         cReport,            //report
-        cPrintMyTask,       //print task
+        cPrintMyTask,       //print task    print mt
         cReg,               //registrate
         cBook,              //book
         cRate,              //rate
-        cCreateTask,        //create task
-        cDeleteTask,        //delete task
-        cCreateEmployee,    //create employee
-        cEmploYeet,         //delete employee
-        cPrintAllTask,      //print all task
-        cPrintAllLogs,      //print all log
+        cCreateTask,        //create task       create t
+        cDeleteTask,        //delete task       delete t
+        cCreateEmployee,    //create employee   create e
+        cEmploYeet,         //delete employee   create e
+        cPrintAllTask,      //print all task    print at
+        cPrintAllLogs,      //print all log     print al
         cFix,               //fix
         cReplace,           //replace
         cClean,             //clean
-        cAcceptRes,         //accept reservation
-        cDenyRes,           //deny reservation
-        cPrintLostItems,    //print lost
+        cAcceptRes,         //accept reservation    accept r
+        cDenyRes,           //deny reservation      deny r
+        cPrintLostItems,    //print lost            print l
         cChangeRoomStatus   //change room
     };
     Commands resolveOption(std::string input)
@@ -144,12 +144,16 @@ public:
 
         if(inputs[0]=="print")
         {
-            if(inputs[1] == "tasks" ) return cPrintMyTask;
+            if( inputs[1] == "tasks" ) return cPrintMyTask;
+            if( inputs[1] == "t" ) return cPrintMyTask;
+            if( inputs[1] == "at" ) return cPrintAllTask;
+            if( inputs[1]  == "al" ) return cPrintAllLogs;
 
             if(inputs[1]=="all")
             {
                 if( inputs[2] == "task" ) return cPrintAllTask;
                 if( inputs[2] == "log" ) return cPrintAllLogs;
+
                 throw IncompleteCommandException(originalinput);
             }
             if(inputs[1]=="lost")
@@ -161,25 +165,33 @@ public:
         if(inputs[0]=="create")
         {
             if( inputs[1] == "task" ) return cCreateTask;
+            if( inputs[1] == "t" ) return cCreateTask;
+
             if( inputs[1] == "employee" ) return cCreateEmployee;
+            if( inputs[1] == "e" ) return cCreateEmployee;
         }
 
         if(inputs[0]=="delete")
         {
             if( inputs[1] == "task" ) return cDeleteTask;
+            if( inputs[1] == "t" ) return cDeleteTask;
+
             if( inputs[1] == "employee" ) return cEmploYeet;
+            if( inputs[1] == "e" ) return cEmploYeet;
             throw IncompleteCommandException(originalinput);
         }
 
         if(inputs[0]=="accept")
         {
             if( inputs[1] == "reservation" ) return cAcceptRes;
+            if( inputs[1] == "r" ) return cAcceptRes;
             throw IncompleteCommandException(originalinput);
         }
 
         if(inputs[0]=="deny")
         {
             if( inputs[1] == "reservation" ) return cDenyRes;
+            if( inputs[1] == "r" ) return cDenyRes;
             throw IncompleteCommandException(originalinput);
         }
 
