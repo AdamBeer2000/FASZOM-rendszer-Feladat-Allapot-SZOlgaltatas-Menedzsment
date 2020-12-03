@@ -13,7 +13,8 @@ namespace  Users
         MAN,
         JAN,
         REC,
-        GUE
+        GUE,
+        Unlogged
     };
     class User
     {

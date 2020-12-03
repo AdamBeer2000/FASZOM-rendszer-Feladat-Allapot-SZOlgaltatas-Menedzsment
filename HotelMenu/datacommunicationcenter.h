@@ -69,13 +69,14 @@ public:
     Tasks::Task generateTask(Users::jobs job_id, const std::string& employee_name, const std::string& todo);
     std::string generateTaskId(Users::jobs job_id);
     void login(std::string username, std::string password);
+    void logOut();
     void loadData(); //soon
     void saveData() const;//soon
     void createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
     void deleteUser(std::string username); //employeet
     void addLostItem(std::string desc);
     void printLostItem() const;
-    bool permissionCheck(std::string task_type);
+    Users::jobs returnLoggedJob();
     std::string findTask(std::string task_id);
     //test
     void printRes();

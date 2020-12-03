@@ -1,5 +1,17 @@
 #include "commandpanel.h"
 
+void CommandPanel::login()
+{
+
+    std::cout<<"login"<<std::endl;
+}
+
+void CommandPanel::logout()
+{
+
+    std::cout<<"logout"<<std::endl;
+}
+
 void CommandPanel::reportLostItem()
 {
     std::cout<<"reportLostItem"<<std::endl;
@@ -90,23 +102,32 @@ void CommandPanel::changeRoomStatus()
     std::cout<<"changeRoomStatus"<<std::endl;
 }
 
-void CommandPanel::login()
+bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 {
-    std::cout<<"login"<<std::endl;
+    Users::jobs userPermisson=data_com->returnLoggedJob();
+
+    switch (reqvestedCommand)
+    {
+        case cLogin:;return true;
+        case cLogout:;return true;
+        case cReport:;return true;
+        case cExit:;return true;
+        case cReg:;return true;
+        default:;
+    }
+
+    switch (userPermisson)
+    {
+        case Users::jobs::CLE: if(reqvestedCommand==cClean)return true;break;
+        case Users::jobs::GUE: if(reqvestedCommand==cBook||reqvestedCommand==cRate)return true;break;
+        case Users::jobs::JAN: if(reqvestedCommand==cFix||reqvestedCommand==cReplace)return true;break;
+        case Users::jobs::MAN: if(reqvestedCommand==cCreateTask||reqvestedCommand==cDeleteTask||reqvestedCommand==cCreateEmployee||reqvestedCommand==cEmploYeet||reqvestedCommand==cPrintAllLogs||reqvestedCommand==cPrintAllTask)return true;break;
+        case Users::jobs::REC: if(reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
+        default:throw  NoPermissonException(reqvestedCommand);break;
+    }
+    return false;
 }
 
-void CommandPanel::logout()
-{
-    std::cout<<"logout"<<std::endl;
-}
-CommandPanel::CommandPanel(std::list<Users::User*> users)
-{
-
-}
-CommandPanel::CommandPanel()
-{
-
-}
 
 void CommandPanel::seudoMain()
 {
@@ -119,30 +140,33 @@ void CommandPanel::seudoMain()
         {
             std::cout<<":>";
             std::getline(std::cin, command);
-            switch (resolveOption(command))
+            if(permissionCheck(resolveOption(command)))
             {
-                case Invalid:throw CommandNotFoundException(command.c_str());break;
-                case cLogin:login();break;
-                case cLogout:logout();break;
-                case cExit:;break;
-                case cReport:reportLostItem();break;
-                case cPrintMyTask:printMyTasks();break;
-                case cReg:registration();break;
-                case cBook:bookRoom();break;
-                case cRate:rating();break;
-                case cCreateTask:createTask();break;
-                case cDeleteTask:deleteTask();break;
-                case cCreateEmployee:createEmployee();break;
-                case cEmploYeet:emploYeet();break;
-                case cPrintAllTask:printAllTasks();break;
-                case cPrintAllLogs:printAllLogs();break;
-                case cFix:fix();break;
-                case cReplace:replace();break;
-                case cClean:cleanroom();break;
-                case cAcceptRes:acceptReservation();break;
-                case cDenyRes:denyReservation();break;
-                case cPrintLostItems:printLostItems();break;
-                case cChangeRoomStatus:changeRoomStatus();break;
+                switch (resolveOption(command))
+                {
+                    case Invalid:throw CommandNotFoundException(command.c_str());break;
+                    case cLogin:login();break;
+                    case cLogout:logout();break;
+                    case cExit:;break;
+                    case cReport:reportLostItem();break;
+                    case cPrintMyTask:printMyTasks();break;
+                    case cReg:registration();break;
+                    case cBook:bookRoom();break;
+                    case cRate:rating();break;
+                    case cCreateTask:createTask();break;
+                    case cDeleteTask:deleteTask();break;
+                    case cCreateEmployee:createEmployee();break;
+                    case cEmploYeet:emploYeet();break;
+                    case cPrintAllTask:printAllTasks();break;
+                    case cPrintAllLogs:printAllLogs();break;
+                    case cFix:fix();break;
+                    case cReplace:replace();break;
+                    case cClean:cleanroom();break;
+                    case cAcceptRes:acceptReservation();break;
+                    case cDenyRes:denyReservation();break;
+                    case cPrintLostItems:printLostItems();break;
+                    case cChangeRoomStatus:changeRoomStatus();break;
+                }
             }
         }
         catch (std::exception &e)

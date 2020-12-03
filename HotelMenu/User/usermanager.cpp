@@ -8,7 +8,7 @@ UserManager::UserManager(std::list<Users::User *>_users)
     }
 }
 
-UserManager::UserManager()
+UserManager::UserManager():loggedUser(nullptr)
 {
 
 }
@@ -21,6 +21,20 @@ bool UserManager::isLoggedIn() const
 bool UserManager::isLoggedOut() const
 {
     return loggedUser;
+}
+
+Users::jobs UserManager::getLoggedJob() const
+{
+
+    if(loggedUser)
+    {
+        return loggedUser->getJobID();
+
+    }
+    else
+    {
+        return Users::Unlogged;
+    }
 }
 
 void UserManager::addUser(std::string& username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
@@ -44,7 +58,6 @@ void UserManager::addUser(std::string& username, std::string first_name, std::st
             *added_user = Users::Manager(first_name, last_name, username, birth_date, position,card_id, password);
             break;
     }
-
     users.insert({username, added_user});
 }
 

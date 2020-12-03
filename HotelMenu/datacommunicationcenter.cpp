@@ -183,6 +183,16 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
     return generated_id;
 }
 
+void DataCommunicationCenter::login(std::string username, std::string password)
+{
+    user_man.loginWith(username,password);
+}
+
+void DataCommunicationCenter::logOut()
+{
+    user_man.logout();
+}
+
 void DataCommunicationCenter::createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
 {
     user_man.addUser(username, first_name, last_name, birth_date,position,card_id, password);
@@ -207,6 +217,12 @@ void DataCommunicationCenter::printLostItem() const
     }
     std::cout << std::endl;
 }
+
+Users::jobs DataCommunicationCenter::returnLoggedJob()
+{
+    return user_man.getLoggedJob();
+}
+
 
 std::string DataCommunicationCenter::findTask(std::string task_id)
 {

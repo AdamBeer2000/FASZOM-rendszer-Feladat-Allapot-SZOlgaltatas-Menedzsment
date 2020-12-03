@@ -3,10 +3,34 @@
 
 #include "Login.h"
 #include "Task/task.h"
+#include "datacommunicationcenter.h"
 class CommandPanel
 {
 private:
-
+    enum Commands {
+        Invalid,
+        cLogin,             //login
+        cLogout,            //logout
+        cExit,              //exit
+        cReport,            //report
+        cPrintMyTask,       //print task            print t
+        cReg,               //registrate
+        cBook,              //book
+        cRate,              //rate
+        cCreateTask,        //create task           create t
+        cDeleteTask,        //delete task           delete t
+        cCreateEmployee,    //create employee       create e
+        cEmploYeet,         //delete employee       create e
+        cPrintAllTask,      //print all task        print at
+        cPrintAllLogs,      //print all log         print al
+        cFix,               //fix
+        cReplace,           //replace
+        cClean,             //clean
+        cAcceptRes,         //accept reservation    accept r
+        cDenyRes,           //deny reservation      deny r
+        cPrintLostItems,    //print lost            print l
+        cChangeRoomStatus   //change room
+    };
     //std::map<std::string, Tasks::Task> rename_this_please;
 
     //Egy felhasználó bejelentkezését valósítja meg
@@ -17,12 +41,12 @@ private:
     void logout();
     void reportLostItem();
     void exit();
+    void registration();
 
     //all worker
     void printMyTasks();
 
     //guest
-    void registration();
     void bookRoom();
     void rating();
 
@@ -47,11 +71,17 @@ private:
     void printLostItems();
     void changeRoomStatus();
 
+    bool permissionCheck(Commands a);
+    std::shared_ptr<DataCommunicationCenter> data_com;
 
 public:
-    CommandPanel();
+    CommandPanel():data_com(DataCommunicationCenter::getInstance())
+    {
+    }
     CommandPanel(std::list<Users::User*> users);
     void seudoMain();//gyakorlatilag egy main
+
+
 
     void ricroll();//Rick Roll
     class CommandNotFoundException:public std::exception
@@ -92,37 +122,55 @@ public:
             return massage.c_str();
         }
     };
-    enum Commands {
-        Invalid,
-        cLogin,             //login
-        cLogout,            //logout
-        cExit,              //exit
-        cReport,            //report
-        cPrintMyTask,       //print task    print mt
-        cReg,               //registrate
-        cBook,              //book
-        cRate,              //rate
-        cCreateTask,        //create task       create t
-        cDeleteTask,        //delete task       delete t
-        cCreateEmployee,    //create employee   create e
-        cEmploYeet,         //delete employee   create e
-        cPrintAllTask,      //print all task    print at
-        cPrintAllLogs,      //print all log     print al
-        cFix,               //fix
-        cReplace,           //replace
-        cClean,             //clean
-        cAcceptRes,         //accept reservation    accept r
-        cDenyRes,           //deny reservation      deny r
-        cPrintLostItems,    //print lost            print l
-        cChangeRoomStatus   //change room
+
+    class NoPermissonException:public std::exception
+    {
+        std::string massage;
+        public:
+        NoPermissonException(Commands command)//Jogosulatlan próbálkozás
+        {
+            std::stringstream ss;
+            switch (command)
+            {
+                case cPrintMyTask:ss<<"you have no perrmison to printing your tasks";break;
+                case cReg:ss<< "you have no acces to registracion or are you already logged in";break;
+                case cBook:ss<< "you have no perrmisson to boking rooms";break;
+                case cRate:ss<< "placeholder";break;
+                case cCreateTask:ss<< "placeholder";break;
+                case cDeleteTask:ss<< "placeholder";break;
+                case cCreateEmployee:ss<< "placeholder";break;
+                case cEmploYeet:ss<< "placeholder";break;
+                case cPrintAllTask:ss<< "placeholder";break;
+                case cPrintAllLogs:ss<< "placeholder";break;
+                case cFix:ss<< "placeholder";break;
+                case cReplace:ss<< "placeholder";break;
+                case cClean:ss<< "placeholder";break;
+                case cAcceptRes:ss<< "placeholder";break;
+                case cDenyRes:ss<< "placeholder";break;
+                case cPrintLostItems:ss<< "placeholder";break;
+                case cChangeRoomStatus:ss<< "placeholder";break;
+                default:ss<<"error";break;
+            }
+            massage=ss.str();
+        }
+        NoPermissonException()
+        {
+            massage="no perrmisson";
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
     };
+
+
     Commands resolveOption(std::string input)
     {
         std::string originalinput=input;
         std::string temp;
         std::string inputs[3];
         std::transform(input.begin(), input.end(), input.begin(),[](unsigned char c){ return std::tolower(c);});
-
+        //data_dom.permissionCheck();
         unsigned int i=0;
         while (i<3)
         {

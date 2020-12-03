@@ -25,7 +25,9 @@ public:
     //FUNCTIONS
     bool isLoggedIn() const;
     bool isLoggedOut() const;
-    bool loggedPermissionCheck(std::string task_type) const;
+
+    Users::jobs getLoggedJob() const;
+
     void addUser(std::string& _username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
 
     void logout();
