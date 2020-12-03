@@ -26,7 +26,7 @@ void DataCommunicationCenter::readReservationFile()
            try
            {
                temp=oneline.substr(0,oneline.find(','));
-               std::string userename=oneline.substr(0,oneline.find(','));
+               std::string userename=temp;
                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                temp=oneline.substr(0,oneline.find(','));
@@ -42,7 +42,7 @@ void DataCommunicationCenter::readReservationFile()
                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                temp=oneline.substr(0,oneline.find(','));
-               serving=Serving::stringToServing(oneline.substr(0,oneline.find(',')));
+               serving=Serving::stringToServing(temp);
                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                reservation_cont.bookRoom(userename,apartment,startTime,endTime,serving);
