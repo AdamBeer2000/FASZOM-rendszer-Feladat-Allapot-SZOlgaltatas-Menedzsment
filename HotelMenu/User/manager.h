@@ -35,18 +35,15 @@ namespace Users
         };
 
     public:
+        //CONSTRUCTORS
         Manager(const std::string& _firstName , const std::string& _lastName , const std::string& _username , struct date _birthDate , jobs _jobID , int _cardID , const std::string& _password);
+
+        //DESTRUCTOR;
         ~Manager();
 
         //FUNCTIONS
-        Tasks::Task generateTask(jobs job_id, const std::string& employee_name, const std::string& todo);
-
-        std::string generateTaskId(jobs job_id);
-
         void setTaskStatus(std::string taskID);
-
         void printTasks() const;
-
         void printLogs() const;
 
     };

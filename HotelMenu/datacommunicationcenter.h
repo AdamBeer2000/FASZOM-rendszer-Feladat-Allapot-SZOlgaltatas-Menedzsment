@@ -70,7 +70,7 @@ public:
     std::string generateTaskId(Users::jobs job_id);
     void login(std::string username, std::string password);
     void logOut();
-    void loadData(); //soon
+    void loadData() const; //soon
     void saveData() const;//soon
     void createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
     void deleteUser(std::string username); //employeet

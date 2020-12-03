@@ -133,7 +133,7 @@ void CommandPanel::seudoMain()
 {
 
     std::string command;
-    std::cout<<"Udvozlet a FASZ rendszerben"<<std::endl;
+    std::cout<<"Udvozollek a hotel task rendszereben"<<std::endl;
     do
     {
         try

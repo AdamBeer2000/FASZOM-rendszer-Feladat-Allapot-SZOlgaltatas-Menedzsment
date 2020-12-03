@@ -31,5 +31,6 @@ date DateBuilder::build(int _year, int _month, int _day, int _hour, int _min, in
 
 date DateBuilder::build(std::string sdate)
 {
-
+    date d;
+    return d;
 }
