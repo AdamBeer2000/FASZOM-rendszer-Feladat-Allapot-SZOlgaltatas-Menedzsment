@@ -107,6 +107,11 @@ void DataCommunicationCenter::denyReservation(std::string taskid, std::string us
     user_man.setTaskStatusDone(findTask(taskid),taskid);
 }
 
+void DataCommunicationCenter::addRating(int rate, std::string comment)
+{
+    ratings.push_back(std::pair<int,std::string>(rate,comment));
+}
+
 Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
 {
     std::string current_id = "";
@@ -196,6 +201,11 @@ void DataCommunicationCenter::logOut()
 void DataCommunicationCenter::createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
 {
     user_man.addUser(username, first_name, last_name, birth_date,position,card_id, password);
+}
+
+void DataCommunicationCenter::createUser(Users::User *newuser)
+{
+    user_man.addUser(newuser);
 }
 
 void DataCommunicationCenter::deleteUser(std::string username)

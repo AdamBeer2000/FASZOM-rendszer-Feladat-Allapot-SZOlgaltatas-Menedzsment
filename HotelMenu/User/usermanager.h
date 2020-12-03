@@ -29,6 +29,7 @@ public:
     Users::jobs getLoggedJob() const;
 
     void addUser(std::string& _username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
+    void addUser(Users::User * newUser);
 
     void logout();
     void loginWith(std::string username, std::string password);

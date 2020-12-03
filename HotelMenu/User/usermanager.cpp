@@ -61,6 +61,11 @@ void UserManager::addUser(std::string& username, std::string first_name, std::st
     users.insert({username, added_user});
 }
 
+void UserManager::addUser(Users::User *newUser)
+{
+    users.insert({newUser->getUsername(), newUser});
+}
+
 void UserManager::loginWith(std::string username, std::string password)
 {
         if(isLoggedIn())
