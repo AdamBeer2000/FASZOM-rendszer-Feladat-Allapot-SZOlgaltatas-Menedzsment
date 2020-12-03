@@ -1,11 +1,101 @@
 #include "commandpanel.h"
 
+void CommandPanel::reportLostItem()
+{
+
+}
+
+void CommandPanel::printMyTasks()
+{
+
+}
+
+void CommandPanel::registration()
+{
+
+}
+
+void CommandPanel::bookRoom()
+{
+
+}
+
+void CommandPanel::rating()
+{
+
+}
+
+void CommandPanel::createTask()
+{
+
+}
+
+void CommandPanel::deleteTask()
+{
+
+}
+
+void CommandPanel::createEmployee()
+{
+
+}
+
+void CommandPanel::emploYeet()
+{
+
+}
+
+void CommandPanel::printAllTasks()
+{
+
+}
+
+void CommandPanel::printAllLogs()
+{
+
+}
+
+void CommandPanel::fix()
+{
+
+}
+
+void CommandPanel::replace()
+{
+
+}
+
+void CommandPanel::cleanroom()
+{
+
+}
+
+void CommandPanel::acceptReservation()
+{
+
+}
+
+void CommandPanel::denyReservation()
+{
+
+}
+
+void CommandPanel::printLostItems()
+{
+
+}
+
+void CommandPanel::changeRoomStatus()
+{
+
+}
+
 CommandPanel::CommandPanel(std::list<Users::User*> users)
 {
 
 }
 
-void CommandPanel::doStuff()
+void CommandPanel::seudoMain()
 {
 
     std::string command;
@@ -26,13 +116,10 @@ void CommandPanel::doStuff()
             */
 
             std::cin>>command;
-            std::transform(command.begin(), command.end(), command.begin(),
-                [](unsigned char c){ return std::tolower(c);});
-
             switch (resolveOption(command))
             {
                 case Invalid:throw CommandNotFoundException(command.c_str());break;
-                case cLogin:logIn();break;
+                case cLogin:login();break;
                 //case cLogout:logger.logOut();break;
                 case cExit:;break;
                 default:throw CommandNotFoundException(command);
@@ -45,7 +132,7 @@ void CommandPanel::doStuff()
     }
     while (command!="exit"&&command!="Exit");
 }
-void CommandPanel::logIn()
+void CommandPanel::login()
 {
     /*
     if(logger.isLoggedOut())
@@ -99,6 +186,11 @@ void CommandPanel::logIn()
         throw Login::AlrreadyLoged();
     }
     */
+}
+
+void CommandPanel::logout()
+{
+
 }
 
 void CommandPanel::ricroll()
