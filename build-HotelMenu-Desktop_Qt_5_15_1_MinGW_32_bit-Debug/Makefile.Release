@@ -221,7 +221,6 @@ release/datacommunicationcenter.o: ../HotelMenu/datacommunicationcenter.cpp ../H
 		../HotelMenu/User/user.h \
 		../HotelMenu/User/usermanager.h \
 		../HotelMenu/User/cleaner.h \
-		../HotelMenu/User/User.h \
 		../HotelMenu/User/guest.h \
 		../HotelMenu/User/janitor.h \
 		../HotelMenu/User/manager.h \
@@ -248,7 +247,6 @@ release/main.o: ../HotelMenu/main.cpp ../HotelMenu/Log/log.h \
 		../HotelMenu/Task/taskcontainer.h \
 		../HotelMenu/Task/task.h \
 		../HotelMenu/User/cleaner.h \
-		../HotelMenu/User/User.h \
 		../HotelMenu/User/guest.h \
 		../HotelMenu/User/janitor.h \
 		../HotelMenu/User/manager.h \
@@ -358,7 +356,7 @@ release/taskcontainer.o: ../HotelMenu/Task/taskcontainer.cpp ../HotelMenu/Task/t
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\taskcontainer.o ..\HotelMenu\Task\taskcontainer.cpp
 
 release/cleaner.o: ../HotelMenu/User/cleaner.cpp ../HotelMenu/User/cleaner.h \
-		../HotelMenu/User/User.h \
+		../HotelMenu/User/user.h \
 		../HotelMenu/date.h \
 		../HotelMenu/Task/taskcontainer.h \
 		../HotelMenu/Task/task.h \
@@ -418,7 +416,7 @@ release/manager.o: ../HotelMenu/User/manager.cpp ../HotelMenu/User/manager.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\manager.o ..\HotelMenu\User\manager.cpp
 
 release/receptionist.o: ../HotelMenu/User/receptionist.cpp ../HotelMenu/User/receptionist.h \
-		../HotelMenu/User/User.h \
+		../HotelMenu/User/user.h \
 		../HotelMenu/date.h \
 		../HotelMenu/Task/taskcontainer.h \
 		../HotelMenu/Task/task.h \
@@ -432,7 +430,7 @@ release/receptionist.o: ../HotelMenu/User/receptionist.cpp ../HotelMenu/User/rec
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\receptionist.o ..\HotelMenu\User\receptionist.cpp
 
-release/user.o: ../HotelMenu/User/user.cpp ../HotelMenu/User/User.h \
+release/user.o: ../HotelMenu/User/user.cpp ../HotelMenu/User/user.h \
 		../HotelMenu/date.h \
 		../HotelMenu/Task/taskcontainer.h \
 		../HotelMenu/Task/task.h \
@@ -460,7 +458,6 @@ release/usermanager.o: ../HotelMenu/User/usermanager.cpp ../HotelMenu/User/userm
 		../HotelMenu/enumServing.h \
 		../HotelMenu/Log/logfix.h \
 		../HotelMenu/User/cleaner.h \
-		../HotelMenu/User/User.h \
 		../HotelMenu/User/guest.h \
 		../HotelMenu/User/janitor.h \
 		../HotelMenu/User/manager.h \

@@ -2,95 +2,108 @@
 
 void CommandPanel::reportLostItem()
 {
-
+    std::cout<<"reportLostItem"<<std::endl;
 }
 
 void CommandPanel::printMyTasks()
 {
-
+    std::cout<<"printMyTasks"<<std::endl;
 }
 
 void CommandPanel::registration()
 {
-
+    std::cout<<"registration"<<std::endl;
 }
 
 void CommandPanel::bookRoom()
 {
-
+    std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
 {
-
+    std::cout<<"rating"<<std::endl;
 }
 
 void CommandPanel::createTask()
 {
-
+    std::cout<<"createTask"<<std::endl;
 }
 
 void CommandPanel::deleteTask()
 {
-
+    std::cout<<"deleteTask"<<std::endl;
 }
 
 void CommandPanel::createEmployee()
 {
-
+    std::cout<<"createEmployee"<<std::endl;
 }
 
 void CommandPanel::emploYeet()
 {
-
+    std::cout<<"emploYeet"<<std::endl;
 }
 
 void CommandPanel::printAllTasks()
 {
-
+    std::cout<<"printAllTasks"<<std::endl;
 }
 
 void CommandPanel::printAllLogs()
 {
-
+    std::cout<<"printAllLogs"<<std::endl;
 }
 
 void CommandPanel::fix()
 {
-
+    std::cout<<"fix"<<std::endl;
 }
 
 void CommandPanel::replace()
 {
-
+    std::cout<<"replace"<<std::endl;
 }
 
 void CommandPanel::cleanroom()
 {
-
+    std::cout<<"cleanroom"<<std::endl;
 }
 
 void CommandPanel::acceptReservation()
 {
-
+    std::cout<<"acceptReservation"<<std::endl;
 }
 
 void CommandPanel::denyReservation()
 {
-
+    std::cout<<"denyReservation"<<std::endl;
 }
 
 void CommandPanel::printLostItems()
 {
-
+    std::cout<<"printLostItems"<<std::endl;
 }
 
 void CommandPanel::changeRoomStatus()
 {
-
+    std::cout<<"changeRoomStatus"<<std::endl;
 }
 
+void CommandPanel::login()
+{
+    std::cout<<"login"<<std::endl;
+}
+
+void CommandPanel::logout()
+{
+    std::cout<<"logout"<<std::endl;
+}
 CommandPanel::CommandPanel(std::list<Users::User*> users)
+{
+
+}
+CommandPanel::CommandPanel()
 {
 
 }
@@ -104,25 +117,32 @@ void CommandPanel::seudoMain()
     {
         try
         {
-            /*
-            if(logger.isLoggedIn())
-            {
-                std::cout<<logger.getLoggedUsername()<<":>";
-            }
-            else
-            {
-                std::cout<<"Guest:>";
-            }
-            */
-
-            std::cin>>command;
+            std::cout<<":>";
+            std::getline(std::cin, command);
             switch (resolveOption(command))
             {
                 case Invalid:throw CommandNotFoundException(command.c_str());break;
                 case cLogin:login();break;
-                //case cLogout:logger.logOut();break;
+                case cLogout:logout();break;
                 case cExit:;break;
-                default:throw CommandNotFoundException(command);
+                case cReport:reportLostItem();break;
+                case cPrintMyTask:printMyTasks();break;
+                case cReg:registration();break;
+                case cBook:bookRoom();break;
+                case cRate:rating();break;
+                case cCreateTask:createTask();break;
+                case cDeleteTask:deleteTask();break;
+                case cCreateEmployee:createEmployee();break;
+                case cEmploYeet:emploYeet();break;
+                case cPrintAllTask:printAllTasks();break;
+                case cPrintAllLogs:printAllLogs();break;
+                case cFix:fix();break;
+                case cReplace:replace();break;
+                case cClean:cleanroom();break;
+                case cAcceptRes:acceptReservation();break;
+                case cDenyRes:denyReservation();break;
+                case cPrintLostItems:printLostItems();break;
+                case cChangeRoomStatus:changeRoomStatus();break;
             }
         }
         catch (std::exception &e)
@@ -132,66 +152,7 @@ void CommandPanel::seudoMain()
     }
     while (command!="exit"&&command!="Exit");
 }
-void CommandPanel::login()
-{
-    /*
-    if(logger.isLoggedOut())
-    {
-        std::string tempUserName;
-        std::string tempPasword;
-        std::string input;
 
-
-        std::getline(std::cin,input);
-        int poz=-1;
-        poz=input.find(" ");
-        if(poz==-1)
-        {
-            std::cout<<"Username:";
-            std::cin>>tempUserName;
-            std::cout<<"Pasword:";
-            std::cin>>tempPasword;
-        }
-        else
-        {
-            std::string trimed = input.substr(input.find(" ")+1);
-
-            tempUserName = trimed.substr(0,trimed.find(" "));
-
-            tempPasword = trimed.substr(trimed.find(" ")+1,input.length());
-            std::cout<<"pass:"<<tempPasword<<std::endl;
-            if(tempPasword==" "||tempPasword==""||tempPasword==tempUserName)
-            {
-                throw Login::NoPasswordException();
-            }
-        }
-
-        logger.LogInWith(tempUserName,tempPasword);
-        if(logger.isLoggedIn())
-        {
-            std::cout<<"Hi "<<tempUserName<<std::endl;
-        }
-
-        if(tempUserName=="rickastley"||tempUserName=="RickAstley")
-        {
-            ricroll();
-        }
-        if(tempPasword=="69"||tempPasword=="420"||tempPasword=="42069"||tempPasword=="69420")
-        {
-            std::cout<<"\nNice!"<<std::endl;
-        }
-    }
-    else
-    {
-        throw Login::AlrreadyLoged();
-    }
-    */
-}
-
-void CommandPanel::logout()
-{
-
-}
 
 void CommandPanel::ricroll()
 {

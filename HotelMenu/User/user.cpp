@@ -1,4 +1,4 @@
-#include "User.h"
+#include "user.h"
 
 std::string Users::User::getFirstName() const
 {
@@ -34,20 +34,19 @@ std::string Users::User::getPassword() const
 {
     return password;
 }
-
+//ezt eddig miért nem jelezte hibának hogy nem voltak itt?
 void Users::User::setLog(const std::string &task_id, Logs::Log *onelog)
 {
-    taskCont.setLog(task_id, onelog);
+
 }
 
 void Users::User::addTask(Tasks::Task oneTask)
 {
-    taskCont.addTask(oneTask);
+
 }
 
 void Users::User::deleteTask(std::string &TaskId)
 {
-    taskCont.deleteTask(TaskId);
 
 }
 

@@ -3,7 +3,6 @@
 
 #include "Login.h"
 #include "Task/task.h"
-
 class CommandPanel
 {
 private:
@@ -50,6 +49,7 @@ private:
 
 
 public:
+    CommandPanel();
     CommandPanel(std::list<Users::User*> users);
     void seudoMain();//gyakorlatilag egy main
 
@@ -73,36 +73,122 @@ public:
             return massage.c_str();
         }
     };
+    class IncompleteCommandException:public std::exception
+    {
+        std::string massage;
+        public:
+        IncompleteCommandException(std::string command)//Nem befejezett parancs
+        {
+            std::stringstream ss;
+            ss<<command<<"-is an incomplete command";
+            massage=ss.str();
+        }
+        IncompleteCommandException()
+        {
+            massage="incomplete commands";
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
     enum Commands {
         Invalid,
-        cLogin,
-        cLogout,
-        cReport,
-        cExit,
-        cPrintMyTask,
-        cReg,
-        cBook,
-        cRate,
-        cCreateTask,
-        cDeleteTask,
-        cCreateEmployee,
-        cEmploYeet,
-        cPrintAllTask,
-        cPrintAllLogs,
-        cFix,
-        cReplace,
-        cClean,
-        cAcceptRes,
-        cDenyRes,
-        cPrintLostItems,
-        cChangeRoomStatus
+        cLogin,             //login
+        cLogout,            //logout
+        cExit,              //exit
+        cReport,            //report
+        cPrintMyTask,       //print task
+        cReg,               //registrate
+        cBook,              //book
+        cRate,              //rate
+        cCreateTask,        //create task
+        cDeleteTask,        //delete task
+        cCreateEmployee,    //create employee
+        cEmploYeet,         //delete employee
+        cPrintAllTask,      //print all task
+        cPrintAllLogs,      //print all log
+        cFix,               //fix
+        cReplace,           //replace
+        cClean,             //clean
+        cAcceptRes,         //accept reservation
+        cDenyRes,           //deny reservation
+        cPrintLostItems,    //print lost
+        cChangeRoomStatus   //change room
     };
     Commands resolveOption(std::string input)
     {
+        std::string originalinput=input;
+        std::string temp;
+        std::string inputs[3];
         std::transform(input.begin(), input.end(), input.begin(),[](unsigned char c){ return std::tolower(c);});
-        if( input == "login" ) return cLogin;
-        if( input == "logout" ) return cLogout;
-        if( input == "exit" ) return cExit;
+
+        unsigned int i=0;
+        while (i<3)
+        {
+            temp=input.substr(0,input.find(' '));
+            inputs[i]=input.substr(0,input.find(' '));
+            input=input.substr(input.find(' ')+1,input.size());
+            i++;
+        }
+        if( inputs[0] == "login" ) return cLogin;
+        if( inputs[0] == "logout" ) return cLogout;
+        if( inputs[0] == "report" ) return cReport;
+        if( inputs[0] == "fix" ) return cFix;
+        if( inputs[0] == "replace" ) return cReplace;
+        if( inputs[0] == "clean" ) return cClean;
+        if( inputs[0] == "registrate" ) return cReg;
+        if( inputs[0] == "book" ) return cBook;
+        if( inputs[0] == "rate" ) return cRate;
+        if( inputs[0] == "exit" ) return cRate;
+
+        if(inputs[0]=="print")
+        {
+            if(inputs[1] == "tasks" ) return cPrintMyTask;
+
+            if(inputs[1]=="all")
+            {
+                if( inputs[2] == "task" ) return cPrintAllTask;
+                if( inputs[2] == "log" ) return cPrintAllLogs;
+                throw IncompleteCommandException(originalinput);
+            }
+            if(inputs[1]=="lost")
+            {
+                return cPrintLostItems;
+            }
+            throw IncompleteCommandException(originalinput);
+        }
+        if(inputs[0]=="create")
+        {
+            if( inputs[1] == "task" ) return cCreateTask;
+            if( inputs[1] == "employee" ) return cCreateEmployee;
+        }
+
+        if(inputs[0]=="delete")
+        {
+            if( inputs[1] == "task" ) return cDeleteTask;
+            if( inputs[1] == "employee" ) return cEmploYeet;
+            throw IncompleteCommandException(originalinput);
+        }
+
+        if(inputs[0]=="accept")
+        {
+            if( inputs[1] == "reservation" ) return cAcceptRes;
+            throw IncompleteCommandException(originalinput);
+        }
+
+        if(inputs[0]=="deny")
+        {
+            if( inputs[1] == "reservation" ) return cDenyRes;
+            throw IncompleteCommandException(originalinput);
+        }
+
+        if(inputs[0]=="change")
+        {
+            if( inputs[1] == "room") return cChangeRoomStatus;
+            throw IncompleteCommandException(originalinput);
+        }
+        throw CommandNotFoundException(originalinput);
         return Invalid;
      }
 };

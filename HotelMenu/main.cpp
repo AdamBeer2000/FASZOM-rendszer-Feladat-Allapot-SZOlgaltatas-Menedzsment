@@ -26,7 +26,10 @@ using namespace Users;
 int main()
 {
     std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
-    datacom->printRes();
+    CommandPanel a=CommandPanel();
+    a.seudoMain();
+
+    //datacom->printRes();
 
     //thingthing
 
