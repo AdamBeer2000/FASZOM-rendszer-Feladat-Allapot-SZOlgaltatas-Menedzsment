@@ -62,11 +62,11 @@ void ReservationContainer::loadContent(std::string file_name)
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 temp=oneline.substr(0,oneline.find(','));
-                startTime=startTime.stringToDate(temp);
+                startTime=DateBuilder::build(temp);
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 temp=oneline.substr(0,oneline.find(','));
-                endTime=endTime.stringToDate(temp);
+                endTime=DateBuilder::build(temp);
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 temp=oneline.substr(0,oneline.find(','));

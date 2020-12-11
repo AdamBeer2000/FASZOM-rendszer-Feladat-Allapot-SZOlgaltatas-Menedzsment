@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 Luxury,0,1408,1
 Medium,1,1407,1,DebugJanos,Luxury,2022.10.9,2022.11.9,Allinclusive
 Luxury,0,1406,1
@@ -7,3 +8,6 @@ Medium,1,1403,1,DebugJanos,Luxury,2022.10.9,2022.11.9,Allinclusive
 Luxury,0,1402,1
 Notbad,1,1401,1,DebugJanos,Luxury,2022.10.9,2022.11.9,Allinclusive
 Luxury,0,1400,1
+=======
+Gyurcsany,Ferenc,Gyuribacsi,2006.4.20,JAN,69420,DK123
+>>>>>>> Stashed changes
