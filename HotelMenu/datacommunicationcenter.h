@@ -67,8 +67,8 @@ public:
     void denyReservation(std::string taskid, std::string username);
     void registration(std::string username, std::string password);
     void addRating(int rate, std::string comment);
-    Tasks::Task generateTask(Users::jobs job_id, const std::string& employee_name, const std::string& todo);
-    std::string generateTaskId(Users::jobs job_id);
+    Tasks::Task generateTask(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, const std::string& todo);
+    std::string generateTaskId(Users::jobs job_id, Users::taskdata type);
     void login(std::string username, std::string password);
     void logOut();
     void loadData() const; //soon

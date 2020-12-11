@@ -49,10 +49,10 @@ void DataCommunicationCenter::addRating(int rate, std::string comment)
     ratings.push_back(std::pair<int,std::string>(rate,comment));
 }
 
-Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std::string &username, const std::string &todo)
+Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, Users::taskdata type, const std::string &username, const std::string &todo)
 {
     std::string current_id = "";
-    current_id = generateTaskId(job_id);
+    current_id = generateTaskId(job_id, type);
     //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
     auto builder = new Tasks::Task::TaskBuilder(current_id);
     auto task = builder->withEmployee(username)
@@ -67,7 +67,7 @@ Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, const std:
     //delete builder;
 }
 
-std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
+std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id, Users::taskdata type)
 {
     std::string generated_id = "";
     try
@@ -86,6 +86,28 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
             default:
                 generated_id = "ERR"; //Error
                 throw InvalidDataException("[INVALID TASK ID DATA]: Employee type");
+                break;
+        }
+        switch(type)
+        {
+            case Users::taskdata::FIX:
+                generated_id += "FIX";
+                break;
+            case Users::taskdata::RES:
+                generated_id += "RES";
+                break;
+            case Users::taskdata::CLN:
+                generated_id += "CLN";
+                break;
+            case Users::taskdata::REP:
+                generated_id += "REP";
+                break;
+            case Users::taskdata::CLF:
+                generated_id += "CLF";
+                break;
+            default:
+                generated_id += "ERR"; //Error
+                throw InvalidDataException("[INVALID TASK ID DATA]: Log type");
                 break;
         }
     }
@@ -120,7 +142,7 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id)
     auto it = task_list.find(generated_id);
     if(it != task_list.end())
     {
-        generateTaskId(job_id);
+        generateTaskId(job_id, type);
     }
     return generated_id;
 }

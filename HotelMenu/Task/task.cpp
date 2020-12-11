@@ -82,7 +82,7 @@ bool Task::isValid(const std::string& data)
 
 bool Task::isValidId(const std::string& task_id_v)
 {
-    if(task_id_v.length() == 8)
+    if(task_id_v.length() == 10)
     {
         if(task_id_v.substr(0,3).compare("JAN") == 0 || task_id_v.substr(0,3).compare("REC") == 0 || task_id_v.substr(0,3).compare("CLE") == 0)
         {
