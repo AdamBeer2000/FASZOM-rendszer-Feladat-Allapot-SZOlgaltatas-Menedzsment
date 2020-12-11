@@ -8,7 +8,7 @@ public:
     DateBuilder();
     date build(int _year,int _month,int _day);
     date build(int _year,int _month,int _day,int _hour,int _min,int _sec);
-    date build(std::string sdate);
+    static date build(std::string sdate);
 };
 
 #endif // DATEBUILDER_H

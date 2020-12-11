@@ -6,6 +6,7 @@ DataCommunicationCenter::DataCommunicationCenter()
 {
     reservation_cont.loadContent("Reservation_Data.txt");
     room_cont.loadContent("Room_Data.txt");
+    user_man.loadContent("User_Data.txt","Task_Data.txt","Log_Data.txt");
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)

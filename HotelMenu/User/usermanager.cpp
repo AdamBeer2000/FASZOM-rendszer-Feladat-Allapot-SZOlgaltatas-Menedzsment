@@ -39,23 +39,24 @@ Users::jobs UserManager::getLoggedJob() const
 
 void UserManager::addUser(std::string& username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
 {
-    Users::User* added_user;
+    Users::User * added_user;
+
     switch(position)
     {
         case Users::jobs::CLE:
-            *added_user = Users::Cleaner(first_name, last_name, username, birth_date, position,card_id, password);
+            added_user = new Users::Cleaner(first_name, last_name, username, birth_date, position,card_id, password);
             break;
         case Users::jobs::GUE:
-            *added_user = Users::Guest(first_name, last_name, username, birth_date, position,card_id, password);
+            added_user =new Users::Guest(first_name, last_name, username, birth_date, position,card_id, password);
             break;
         case Users::jobs::JAN:
-            *added_user = Users::Janitor(first_name, last_name, username, birth_date, position,card_id, password);
+            added_user =new Users::Janitor(first_name, last_name, username, birth_date, position,card_id, password);
             break;
         case Users::jobs::REC:
-            *added_user = Users::Receptionist(first_name, last_name, username, birth_date, position,card_id, password);
+            added_user =new Users::Receptionist(first_name, last_name, username, birth_date, position,card_id, password);
             break;
         case Users::jobs::MAN:
-            *added_user = Users::Manager(first_name, last_name, username, birth_date, position,card_id, password);
+            added_user =new Users::Manager(first_name, last_name, username, birth_date, position,card_id, password);
             break;
     }
     users.insert({username, added_user});
@@ -193,55 +194,57 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
         std::string password;
         TaskContainer taskCont;*/
 
-    /*
+
     std::ifstream read(user_file_name);
     std::string temp,oneline;
     std::string firstName,lastName,username,password;
     date birthdate;
+    int cardid;
     Users::jobs jobID;
 
     while(getline (read, oneline))
     {
         try
         {
-
             TaskContainer temp_taskCont;
 
-            temp=oneline.substr(0,oneline.find(','));
+            temp=oneline.substr(0,oneline.find(','));std::cout<<temp<<std::endl;
             firstName=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
             lastName=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
             username=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
-            birthdate=
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            birthdate=DateBuilder::build(temp);
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
-            //adding here
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            jobID=Users::stringToJobID(temp);
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
-            username=password;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            cardid=stoi(temp);
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
             temp=oneline.substr(0,oneline.find(','));
+            password=temp;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
 
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+            addUser(username,firstName,lastName,birthdate,jobID,cardid,password);
+
+            std::cout<<username<<","<<firstName<<","<<lastName<<","<<birthdate.calendarMode()<<","<<jobID<<","<<cardid<<","<<password<<"\n";
         }
         catch(std::exception &e)
         {
             std::cout<<e.what()<<std::endl;
         }
     }
-
-*/
 }
 
 void UserManager::saveContent(std::string user_file_name,std::string task_file_name,std::string log_file_name)
