@@ -39,7 +39,72 @@ void CommandPanel::rating()
 
 void CommandPanel::createTask()
 {
-    std::cout<<"createTask"<<std::endl;
+
+    std::string username, todo, job_id_raw, task_type_raw, room;
+    Users::jobs job_id;
+    Users::taskdata task_type;
+    bool wrong_data = false;
+    do
+    {
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout << "Feladat kiadasa:\n" << std::endl;
+        std::cout << "Adja meg az alkalmazott felhasznalonevet: " << std::flush;
+        std::cin >> username;
+        std::cout << "Adja meg a beosztasat: " << std::flush;
+        std::cin >> job_id_raw;
+        std::cout << "Adja meg a feladat tipusat: " << std::flush;
+        std::cin >> task_type_raw;
+        std::cout << "Adja meg melyik szobaban: " << std::flush;
+        std::cin >> room;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+
+        todo = "Szoba: " + room + " [" + task_type_raw + "]";
+
+        if(job_id_raw == "Takarito")
+        {
+            job_id = Users::jobs::CLE;
+        }
+        else if(job_id_raw == "Karbantarto")
+        {
+            job_id = Users::jobs::JAN;
+        }
+        else if(job_id_raw == "Recepcios")
+        {
+            job_id = Users::jobs::REC;
+        }
+        else
+        {
+            wrong_data = true;
+            job_id = Users::jobs::ERR;
+        }
+
+        if(task_type_raw == "Takaritas")
+        {
+            task_type = Users::taskdata::CLN;
+        }
+        else if(task_type_raw == "Csere")
+        {
+            task_type = Users::taskdata::REP;
+        }
+        else if(task_type_raw == "Javitas")
+        {
+            task_type = Users::taskdata::FIX;
+        }
+        else if(task_type_raw == "Kiadas")
+        {
+            task_type = Users::taskdata::RES;
+        }
+        else
+        {
+            wrong_data = true;
+            task_type = Users::taskdata::ER2;
+        }
+
+    }while(wrong_data);
+
+    Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);
+    data_com->addTask(task);
+    task.printTask();
 }
 
 void CommandPanel::deleteTask()

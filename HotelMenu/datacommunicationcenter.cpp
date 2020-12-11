@@ -222,6 +222,11 @@ std::string DataCommunicationCenter::findTask(std::string task_id)
     return task_list.find(task_id)->second;
 }
 
+void DataCommunicationCenter::addTask(Tasks::Task task)
+{
+    user_man.addTask(task.getEmployee(), task);
+}
+
 void DataCommunicationCenter::printRes()
 {
     reservation_cont.printall();

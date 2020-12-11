@@ -81,8 +81,6 @@ public:
     CommandPanel(std::list<Users::User*> users);
     void seudoMain();//gyakorlatilag egy main
 
-
-
     void ricroll();//Rick Roll
     class CommandNotFoundException:public std::exception
     {

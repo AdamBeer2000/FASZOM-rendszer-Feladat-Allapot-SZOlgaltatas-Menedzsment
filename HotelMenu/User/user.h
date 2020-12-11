@@ -14,6 +14,7 @@ namespace  Users
         JAN,
         REC,
         GUE,
+        ERR,
         Unlogged,
     };
 
@@ -23,7 +24,7 @@ namespace  Users
         RES,
         CLF,//with talált tárgy
         CLN, //without talált tárgy
-        ERROR
+        ER2
     };
 
     inline jobs stringToJobID(std::string onejobid)
@@ -45,7 +46,7 @@ namespace  Users
         if(onetastdata=="CLF") return CLF;
         if(onetastdata=="CLN") return CLN;
         //todo excepcion
-        return ERROR;
+        return ER2;
     }
 //todo excepcion
 

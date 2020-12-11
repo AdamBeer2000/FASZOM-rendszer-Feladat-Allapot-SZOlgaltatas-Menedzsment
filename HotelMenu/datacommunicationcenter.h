@@ -81,6 +81,8 @@ public:
     void printLostItem() const;
     Users::jobs returnLoggedJob();
     std::string findTask(std::string task_id);
+    void addTask(Tasks::Task task);
+
     //test
     void printRes();
 
