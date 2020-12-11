@@ -233,6 +233,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             temp=oneline.substr(0,oneline.find(','));
             std::stringstream strm(temp);
             strm >> cardid;
+
             oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
@@ -290,174 +291,23 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                 taskdata tasklogtype=Users::stringTotaskdata(temp);
                 oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
+                Logs::Log * tasklog;
+
                 switch (tasklogtype)
                 {
-                    case FIX:
-                        {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string item=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string fail=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm2(temp);
-                            double cost;
-                            strm >>cost;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateStart=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateEnd=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-                            Logs::LogFix tempLog(roomID,item,fail,cost,dateStart,dateEnd);
-                            temp.setLog(&tempLog);
-                            addTask(employee,temp);
-                        }
-                        break;
-                    case REP:
-                        {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string item=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string fail=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm2(temp);
-                            double cost;
-                            strm >>cost;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateStart=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-                            Logs::LogReplace tempLog(roomID,item,fail,cost,dateStart);
-                            temp.setLog(&tempLog);
-                            addTask(employee,temp);
-                        }
-                        break;
-                    case RES:
-                        {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            bool status;
-                            if(temp=="0")
-                            {
-                                status=false;
-                            }
-                            else
-                            {
-                                status=true;
-                            }
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string guestname=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            Suit::suitTypes apartment=Suit::stringToSuit(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            Serving::servingTypes serving=Serving::stringToServing(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date startTime=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date endTime=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm2(temp);
-                            double cost;
-                            strm >>cost;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-
-                            Logs::LogReservation tempLog(roomID,guestname,apartment,serving,cost,startTime,endTime);
-                            temp.setLog(&tempLog);
-                            addTask(employee,temp);
-
-                        }
+                    case FIX:std::cout<<"FIX"<<std::endl;
                     break;
-                    case CLF:
-                        {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string item=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date datE=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-
-                            Logs::LogCleaning tempLog(roomID,item,datE);
-                            temp.setLog(&tempLog);
-                            addTask(employee,temp);
-                        }
+                    case REP:std::cout<<"REP"<<std::endl;
                     break;
-                    case CLN:
-                        {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date datE=DateBuilder::build(temp);
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-
-                            Logs::LogCleaning tempLog(roomID,datE);
-                            temp.setLog(&tempLog);
-                            addTask(employee,temp);
-                        }
+                    case RES:std::cout<<"RES"<<std::endl;
+                    break;
+                    case CLF:std::cout<<"CLF"<<std::endl;
+                    break;
+                    case CLN:std::cout<<"CLN"<<std::endl;
                     break;
                     default:break;
                 }
+                addTask(employee,Tasks::Task(employee,task_id,todo,status));
             }
             else
             {

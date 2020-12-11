@@ -4,6 +4,7 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::instance=nullp
 //SINGLETON FUNCTION
 DataCommunicationCenter::DataCommunicationCenter()
 {
+<<<<<<< HEAD
     std::cout<<"RESERVATIONS LOADED:"<<std::endl;
     reservation_cont.printall();
 
@@ -15,6 +16,11 @@ DataCommunicationCenter::DataCommunicationCenter()
 
     std::cout<<"LOGS  LOADING:"<<std::endl;
     user_man.printLogs();
+=======
+    reservation_cont.loadContent("Reservation_Data.txt");
+    room_cont.loadContent("Room_Data.txt");
+    user_man.loadContent("User_Data.txt","Task_Data.txt");
+>>>>>>> parent of 574aedd... dolgok
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
