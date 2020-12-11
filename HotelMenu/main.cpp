@@ -21,13 +21,14 @@
 
 #include "datacommunicationcenter.h"
 
+#include "User/usermanager.h"
+
 using namespace Users;
 
 int main()
 {
-    //std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
-    //CommandPanel a=CommandPanel();
-    //a.seudoMain();
+    CommandPanel a=CommandPanel();
+    a.seudoMain();
 
     //datacom->printRes();
 
@@ -235,8 +236,5 @@ int main()
         s.close();
     }
     */
-
-    CommandPanel test = CommandPanel();
-    test.TEST();
     return 0;
 }

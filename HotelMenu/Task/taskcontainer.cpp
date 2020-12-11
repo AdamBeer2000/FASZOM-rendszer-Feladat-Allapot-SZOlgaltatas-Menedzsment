@@ -9,7 +9,8 @@ TaskContainer::TaskContainer()
 //FUNCTIONS
 void TaskContainer::addTask(Tasks::Task _task)
 {
-    task_list.insert({_task.getTaskId(), _task});
+    Tasks::Task debug(_task);
+    task_list.insert({_task.getTaskId(), debug});
 }
 
 void TaskContainer::deleteTask(std::string _task_id)

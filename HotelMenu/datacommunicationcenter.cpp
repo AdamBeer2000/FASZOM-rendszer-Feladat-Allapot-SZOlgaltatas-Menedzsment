@@ -6,7 +6,7 @@ DataCommunicationCenter::DataCommunicationCenter()
 {
     reservation_cont.loadContent("Reservation_Data.txt");
     room_cont.loadContent("Room_Data.txt");
-    user_man.loadContent("User_Data.txt","Task_Data.txt","Log_Data.txt");
+    user_man.loadContent("User_Data.txt","Task_Data.txt");
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
@@ -59,18 +59,9 @@ Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, Users::tas
 {
     std::string current_id = "";
     current_id = generateTaskId(job_id, type);
-    //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
-    auto builder = new Tasks::Task::TaskBuilder(current_id);
-    auto task = builder->withEmployee(employee_name)
-            .withTodo(todo)
-            .withStatus(false)
-            .build();
-
-    task_list.insert({task->getTaskId(), employee_name});
-    //delete nem biztos, hogy ide kell
-    return *task;
-    //delete task;
-    //delete builder;
+    Tasks::Task task = Tasks::Task(employee_name, current_id, todo, false);
+    task_list.insert({task.getTaskId(), employee_name});
+    return task;
 }
 
 Tasks::Task DataCommunicationCenter::generateTaskReservation(Users::jobs job_id, Users::taskdata type, const std::string &employee_name, Reservation &reservation)
@@ -78,17 +69,10 @@ Tasks::Task DataCommunicationCenter::generateTaskReservation(Users::jobs job_id,
     std::string current_id = "";
     current_id = generateTaskId(job_id, type);
     //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
-    auto builder = new Tasks::Task::TaskBuilder(current_id);
-    auto task = builder->withEmployee(employee_name)
-            .withStatus(false)
-            .withReservation(reservation)
-            .build();
+    Tasks::Task task = Tasks::Task(employee_name, current_id, reservation, false);
 
-    task_list.insert({task->getTaskId(), employee_name});
-    //delete nem biztos, hogy ide kell
-    return *task;
-    //delete task;
-    //delete builder;
+    task_list.insert({task.getTaskId(), employee_name});
+    return task;
 }
 
 std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id, Users::taskdata type)

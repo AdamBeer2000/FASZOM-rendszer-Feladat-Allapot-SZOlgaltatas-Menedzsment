@@ -3,18 +3,27 @@
 using namespace Tasks;
 
 //CONSTRUCTORS
-Task::Task(Task::TaskBuilder &builder)
+
+Task::Task(std::string _employee, std::string _task_id, std::string _todo, bool _status)
 {
-    this->employee = builder.employee;
-    this->task_id = builder.task_id;
-    this->todo = builder.todo;
-    this->status = builder.status;
+    employee=_employee;
+    task_id=_task_id;
+    todo=_todo;
+    status=_status;
+}
+
+Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _status)
+{
+    employee=_employee;
+    task_id=_task_id;
+    this->res=res;
+    status=_status;
 }
 
 //DESTRUCTOR
 Task::~Task()
 {
-    delete log;
+    //delete log;
 }
 
 //GETTERS SETTERS
@@ -90,6 +99,7 @@ bool Task::isValidId(const std::string& task_id_v)
         }
         else
         {
+
             return false;
         }
     }

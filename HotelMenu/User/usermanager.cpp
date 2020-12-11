@@ -128,6 +128,7 @@ std::string UserManager::getLeastBusyWorker(Users::jobs jobID)
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);
+
     if(it != users.end())
     {
         it->second->addTask(one_task);
@@ -183,7 +184,7 @@ void UserManager::logout()
     }
 }
 
-void UserManager::loadContent(std::string user_file_name,std::string task_file_name,std::string log_file_name)
+void UserManager::loadContent(std::string user_file_name,std::string task_file_name)
 {
     /*std::string firstName;
         std::string lastName;
@@ -195,14 +196,15 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
         TaskContainer taskCont;*/
 
 
-    std::ifstream read(user_file_name);
+    std::ifstream readuser(user_file_name);
+
     std::string temp,oneline;
     std::string firstName,lastName,username,password;
     date birthdate;
     int cardid;
     Users::jobs jobID;
 
-    while(getline (read, oneline))
+    while(getline (readuser, oneline))
     {
         try
         {
@@ -238,7 +240,79 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             password=temp;
             oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
+            std::cout<<username<<','<<firstName<<","<<lastName<<","<<birthdate.calendarMode()<<","<<jobID<<","<<cardid<<","<<password<<std::endl;
+
             addUser(username,firstName,lastName,birthdate,jobID,cardid,password);
+        }
+        catch(std::exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+    }
+
+    std::ifstream readtask(task_file_name);
+
+    std::string employee;
+    std::string task_id;
+    std::string todo;
+    bool status;
+
+    while(getline (readtask, oneline))
+    {
+        try
+        {
+            temp=oneline.substr(0,oneline.find('#'));
+            employee=temp;
+            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find('#'));
+            task_id=temp;
+            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find('#'));
+            todo=temp;
+            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find('#'));
+            if(temp=="0")
+            {
+                status=false;
+            }
+            else
+            {
+                status=true;
+            }
+            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+            if(status)
+            {
+                using namespace Users;
+                temp=oneline.substr(0,oneline.find('#'));
+                taskdata tasklogtype=Users::stringTotaskdata(temp);
+                oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+                Logs::Log * tasklog;
+
+                switch (tasklogtype)
+                {
+                    case FIX:std::cout<<"FIX"<<std::endl;
+                    break;
+                    case REP:std::cout<<"REP"<<std::endl;
+                    break;
+                    case RES:std::cout<<"RES"<<std::endl;
+                    break;
+                    case CLF:std::cout<<"CLF"<<std::endl;
+                    break;
+                    case CLN:std::cout<<"CLN"<<std::endl;
+                    break;
+                    default:break;
+                }
+                addTask(employee,Tasks::Task(employee,task_id,todo,status));
+            }
+            else
+            {
+                addTask(employee,Tasks::Task(employee,task_id,todo,status));
+            }
         }
         catch(std::exception &e)
         {
@@ -247,7 +321,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
     }
 }
 
-void UserManager::saveContent(std::string user_file_name,std::string task_file_name,std::string log_file_name)
+void UserManager::saveContent(std::string user_file_name,std::string task_file_name)
 {
 
 }

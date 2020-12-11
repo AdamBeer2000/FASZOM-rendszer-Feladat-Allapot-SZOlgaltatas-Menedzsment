@@ -9,7 +9,8 @@ Users::Cleaner::Cleaner(const std::string& _firstName , const std::string& _last
         this->birthDate = _birthDate;
         this->jobID = _jobID;
         this->cardID = _cardID;
-    this->password = _password;
+        this->password = _password;
+        taskCont=TaskContainer();
 }
 
 void Users::Cleaner::logCleanedRoom(std::string &taskID, int roomid , date date)

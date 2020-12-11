@@ -9,7 +9,8 @@ Users::Janitor::Janitor(const std::string& _firstName , const std::string& _last
         this->birthDate = _birthDate;
         this->jobID = _jobID;
         this->cardID = _cardID;
-    this->password = _password;
+        this->password = _password;
+        taskCont=TaskContainer();
 }
 
 void Users::Janitor::logFixStuff(std::string& taskID , std::string &item, int roomId, std::string &reason, double cost, struct date startTime, struct date endTime)

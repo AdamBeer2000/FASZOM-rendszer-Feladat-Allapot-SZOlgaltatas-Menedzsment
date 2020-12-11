@@ -1,2 +1,1 @@
-Gyurcsany,Ferenc,Gyuribacsi,2006.4.20,JAN,69420,DK123
-
+Gyurcsany,Ferenc,Gyuriba,2006.4.20,JAN,69420,DK123

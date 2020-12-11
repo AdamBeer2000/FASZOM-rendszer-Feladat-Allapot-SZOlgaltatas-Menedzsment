@@ -10,6 +10,7 @@ Users::Receptionist::Receptionist(const std::string& _firstName , const std::str
         this->jobID = _jobID;
         this->cardID = _cardID;
         this->password = _password;
+        taskCont=TaskContainer();
 }
 
 void Users::Receptionist::logReservation(std::string& taskID , int roomID , std::string& name , Suit::suitTypes apartment , Serving::servingTypes serving , double cost , date startTime , date endTime)

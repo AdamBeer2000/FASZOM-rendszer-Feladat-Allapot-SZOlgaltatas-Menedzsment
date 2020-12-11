@@ -45,6 +45,7 @@ namespace Tasks
         };
 
         //BUILDER PATTERN
+        /*
         class TaskBuilder
         {
         private:
@@ -133,9 +134,19 @@ namespace Tasks
             }
 
         };
+        //Task(TaskBuilder &builder);
+        */
 
         //CONSTRUCTORS
-        Task(TaskBuilder &builder);
+
+        /*
+        std::string employee;
+        std::string task_id; //UNIQUE
+         todo;
+        bool status;
+         */
+        Task(std::string employee,std::string task_id,std::string todo,bool status);
+        Task(std::string _employee, std::string _task_id, Reservation& res, bool _status);
 
         //DESTRUCTOR
         ~Task();

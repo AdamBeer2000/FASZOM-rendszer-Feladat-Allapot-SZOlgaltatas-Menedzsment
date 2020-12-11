@@ -10,6 +10,7 @@ Users::Manager::Manager(const std::string& _firstName , const std::string& _last
         this->jobID = _jobID;
         this->cardID = _cardID;
         this->password = _password;
+        taskCont=TaskContainer();
     }
 
 Users::Manager::~Manager()

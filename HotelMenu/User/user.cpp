@@ -48,7 +48,7 @@ void Users::User::setLog(const std::string &task_id, Logs::Log *onelog)
 
 void Users::User::addTask(Tasks::Task oneTask)
 {
-
+    taskCont.addTask(oneTask);
 }
 
 void Users::User::deleteTask(std::string &TaskId)
@@ -70,6 +70,7 @@ Users::User::User(const std::string &_firstName, const std::string &_lastName, c
     cardID(_cardID),
     password(_password)
 {
+    taskCont=TaskContainer();
 }
 
 Users::User::~User()
