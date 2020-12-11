@@ -240,8 +240,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             password=temp;
             oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
-            std::cout<<username<<','<<firstName<<","<<lastName<<","<<birthdate.calendarMode()<<","<<jobID<<","<<cardid<<","<<password<<std::endl;
-
             addUser(username,firstName,lastName,birthdate,jobID,cardid,password);
         }
         catch(std::exception &e)

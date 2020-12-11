@@ -10,6 +10,7 @@ Task::Task(std::string _employee, std::string _task_id, std::string _todo, bool 
     task_id=_task_id;
     todo=_todo;
     status=_status;
+    log=nullptr;
 }
 
 Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _status)
@@ -18,6 +19,7 @@ Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _
     task_id=_task_id;
     this->res=res;
     status=_status;
+    log=nullptr;
 }
 
 //DESTRUCTOR
@@ -38,7 +40,7 @@ void Task::setStatus(bool value)
 }
 
 void Task::setLog(Logs::Log *log)
-{
+{   
     this->log = log;
 }
 
@@ -65,7 +67,10 @@ bool Task::isActive()
 
 void Task::printLog() const
 {
-    this->log->printLog();
+    if(log)
+    {
+        this->log->printLog();
+    }
 }
 
 void Task::backupSaveStream(std::ofstream& stream)
