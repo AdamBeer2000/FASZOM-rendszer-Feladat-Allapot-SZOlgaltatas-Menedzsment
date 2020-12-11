@@ -229,7 +229,8 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
-            cardid=stoi(temp);
+            std::stringstream strm(temp);
+            strm >> cardid;
 
             oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
@@ -240,7 +241,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             addUser(username,firstName,lastName,birthdate,jobID,cardid,password);
         }
         catch(std::exception &e)
-        {//stoi itt marad
+        {
             std::cout<<e.what()<<std::endl;
         }
     }

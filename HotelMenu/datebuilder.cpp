@@ -33,17 +33,27 @@ date DateBuilder::build(std::string sdate)
 {
     std::string temp;
     date ret;
+    std::stringstream stream;
 
     temp=sdate.substr(0,sdate.find('.'));
-    ret.year= stoi(temp);
+    stream << temp;
+    stream >> ret.year;
+    stream.clear();
+
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
 
     temp=sdate.substr(0,sdate.find('.'));
-    ret.month= stoi(temp);
+    stream << temp;
+    stream >> ret.month;
+    stream.clear();
+
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
 
     temp=sdate.substr(0,sdate.find('.'));
-    ret.day= stoi(temp);
+    stream << temp;
+    stream >> ret.day;
+    stream.clear();
+
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
     ret.hour = 0;
     ret.min = 0;

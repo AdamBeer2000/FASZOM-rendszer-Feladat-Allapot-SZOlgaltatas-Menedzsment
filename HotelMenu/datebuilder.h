@@ -1,6 +1,7 @@
 #ifndef DATEBUILDER_H
 #define DATEBUILDER_H
 #include "date.h"
+#include <sstream>
 
 class DateBuilder
 {
