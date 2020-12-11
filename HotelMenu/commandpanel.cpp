@@ -116,22 +116,103 @@ void CommandPanel::deleteTask()
 
 void CommandPanel::createEmployee()
 {
-    std::cout<<"createEmployee"<<std::endl;
+    std::string username, first_name, last_name, password, job_id_raw;
+    Users::jobs job_id;
+    date birth;
+    DateBuilder builder;
+    int card_id, year, month, day;
+    bool wrong_data = false;
+    do
+    {
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout<<"Alkalmazott hozzáadása: "<<std::endl;
+
+        std::cout << "Adja meg az alkalmazottnak szant felhasznalonevet: " << std::flush;
+        std::cin >> username;
+        std::cout << "Adja meg a beosztasat: " << std::flush;
+        std::cin >> job_id_raw;
+        std::cout << "Adja meg a belepo kartya számat: " << std::flush;
+        std::cin >> card_id;
+        std::cout << "Adja meg a szuletesi evet (pl.: 1980): " << std::flush;
+        std::cin >> year;
+        std::cout << "Adja meg a szuletesi honapot (pl.: 9): " << std::flush;
+        std::cin >> month;
+        std::cout << "Adja meg a szuletesi napot (pl.: 15): " << std::flush;
+        std::cin >> day;
+        birth = builder.build(year, month, day);
+
+        if(job_id_raw == "Takarito")
+        {
+            job_id = Users::jobs::CLE;
+        }
+        else if(job_id_raw == "Karbantarto")
+        {
+            job_id = Users::jobs::JAN;
+        }
+        else if(job_id_raw == "Recepcios")
+        {
+            job_id = Users::jobs::REC;
+        }
+        else
+        {
+            wrong_data = true;
+            job_id = Users::jobs::ERR;
+        }
+
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+    }while(wrong_data);
+
+    data_com->createUser(username, first_name, last_name, birth, job_id, card_id, password);
 }
 
 void CommandPanel::emploYeet()
 {
-    std::cout<<"emploYeet"<<std::endl;
+    bool wrong_data = false;
+
+    do
+    {
+        std::string username, confirm;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout<< "Alkalmazott eltávolítása: " << std::endl;
+        std::cout << "Adja meg az eltavolitando szemely felhasznalonevet: " << std::flush;
+        std::cin >> username;
+        std::cout << "Biztos torolni akarja?\n[igen/nem]: " << std::flush;
+        std::cin >> confirm;
+        if(confirm == "igen")
+        {
+            wrong_data = false;
+            data_com->deleteUser(username);
+            std::cout << "Felhasznalo sikeresen torolve!" << std::endl;
+        }
+        else if(confirm == "nem")
+        {
+            wrong_data = false;
+            std::cout << "Torles megszakitva!" << std::endl;
+        }
+        else
+        {
+            wrong_data = true;
+            std::cout << "Helytelen parancs, probalja ujra!" << std::endl;
+        }
+
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+     }while(wrong_data);
 }
 
 void CommandPanel::printAllTasks()
 {
-    std::cout<<"printAllTasks"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout << "Osszes Feladat:" << std::endl;
+    data_com->printAllTask();
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::printAllLogs()
 {
-    std::cout<<"printAllLogs"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout<<"Osszes log: "<<std::endl;
+    data_com->printAllLog();
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::fix()
