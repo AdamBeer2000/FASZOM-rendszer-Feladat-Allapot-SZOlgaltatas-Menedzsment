@@ -16,6 +16,15 @@ namespace  Users
         GUE,
         Unlogged
     };
+
+    enum taskdata {
+        FIX,
+        REP,
+        RES,
+        CLF,//with talált tárgy
+        CLN //without talált tárgy
+    };
+
     class User
     {
     protected:
