@@ -1,3 +1,4 @@
-JAni,Luxury,2022.10.9,2022.11.9,Allinclusive
-JAni,Luxuy,2022.10.9,2022.11.9,Allinclusive
-JAni,Luxury,2022.10.9,2022.11.9,Allincluive
+PewDiePie,Luxury,2089.10.9,2090.11.9,Allinclusive
+nemecsekerno,Notbad,2099.10.9,2100.11.9,Default
+InvoluntarilyFlex,Medium,2000.10.9,2022.11.9,Premium
+PTSD,Notbad,2022.10.9,2022.11.9,Default
