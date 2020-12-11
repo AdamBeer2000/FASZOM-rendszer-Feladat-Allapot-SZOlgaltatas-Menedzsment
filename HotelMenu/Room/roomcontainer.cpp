@@ -147,3 +147,97 @@ Suit::suitTypes RoomContainer::getSuitType(int roomId)
     }
     return Suit::ERROR;
 }
+void RoomContainer::loadContent(std::string file_name)
+{
+    std::ifstream read(file_name);
+    if(read.is_open())
+    {
+        std::string temp;
+        std::string oneline;
+
+        Suit::suitTypes apartment;
+        bool used=false;
+        int roomid;
+        bool cleaned;
+
+        std::string userename;
+        date startTime;
+        date endTime;
+        Serving::servingTypes serving;
+
+        while(getline (read, oneline))
+        {
+            try
+            {
+                temp=oneline.substr(0,oneline.find(','));
+                apartment=Suit::stringToSuit(temp);
+                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                temp=oneline.substr(0,oneline.find(','));
+                if(temp=="0")
+                {
+                    used=false;
+                }
+                else
+                {
+                    used=true;
+                }
+                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                temp=oneline.substr(0,oneline.find(','));
+                roomid=stoi(temp);
+                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                temp=oneline.substr(0,oneline.find(','));
+                if(temp=="0")
+                {
+                    cleaned=false;
+                }
+                else
+                {
+                    cleaned=true;
+                }
+                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+                std::cout<<Suit::suitToString(apartment)<<","<<used<<","<<roomid<<","<<cleaned<<"\n";
+                if(!used)
+                {
+                    hotelRooms.insert({roomid,Room(apartment,roomid,cleaned)});
+                }
+                else
+                {
+                    temp=oneline.substr(0,oneline.find(','));
+                    std::string userename=temp;
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    temp=oneline.substr(0,oneline.find(','));
+                    apartment=Suit::stringToSuit(temp);
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    temp=oneline.substr(0,oneline.find(','));
+                    startTime=startTime.stringToDate(temp);
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    temp=oneline.substr(0,oneline.find(','));
+                    endTime=endTime.stringToDate(temp);
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    temp=oneline.substr(0,oneline.find(','));
+                    serving=Serving::stringToServing(temp);
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    ;
+
+                    hotelRooms.insert({roomid,Room(apartment,roomid,cleaned,userename,apartment,startTime,endTime,serving)});
+                    std::cout<<Suit::suitToString(apartment)<<","
+                            <<used<<","<<roomid<<","<<cleaned<<","<<userename<<","<<apartment<<","
+                            <<startTime.calendarMode()<<","<<endTime.calendarMode()<<","<<Serving::servingToString(serving)<<"\n";
+                }
+                //std::cout<<oneline<<std::endl;
+            }
+            catch(std::exception &e)
+            {
+                std::cout<<e.what()<<std::endl;
+            }
+        }
+    }
+}

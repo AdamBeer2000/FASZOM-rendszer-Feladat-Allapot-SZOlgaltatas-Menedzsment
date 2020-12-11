@@ -58,7 +58,7 @@ void ReservationContainer::loadContent(std::string file_name)
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 temp=oneline.substr(0,oneline.find(','));
-                apartment=Suit::stringToServing(temp);
+                apartment=Suit::stringToSuit(temp);
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 temp=oneline.substr(0,oneline.find(','));
@@ -86,13 +86,6 @@ void ReservationContainer::loadContent(std::string file_name)
 
 void ReservationContainer::saveContent(std::string file_name)
 {
-    /*
-    std::string userename;
-    Suit::suitTypes apartment=Suit::NotSetSuit;
-    date endTime;
-    Serving::servingTypes serving=Serving::NotSetServing;
-    */
-
     std::ofstream save;
     save.open(file_name);
     for(auto res:reservations)

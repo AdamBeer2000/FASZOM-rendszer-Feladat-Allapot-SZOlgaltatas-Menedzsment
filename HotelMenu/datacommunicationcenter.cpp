@@ -5,6 +5,7 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::instance=nullp
 DataCommunicationCenter::DataCommunicationCenter()
 {
     reservation_cont.loadContent("Reservation_Data.txt");
+    room_cont.loadContent("Room_Data.txt");
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)

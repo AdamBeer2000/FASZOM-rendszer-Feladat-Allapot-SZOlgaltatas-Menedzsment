@@ -6,6 +6,7 @@
 #include "exception"
 #include "sstream"
 #include "list"
+#include <fstream>
 
 class RoomContainer
 {
@@ -22,6 +23,7 @@ public:
     void setReservation(int roomId,Reservation oneres);
     void deleteReservation(int roomId);
 
+    void loadContent(std::string filename);
     bool isFree(int roomId)const;
     bool isUsed(int roomId)const;
     bool isCleaned(int roomId)const;

@@ -1,4 +1,20 @@
 #include "room.h"
+Room::Room(Suit::suitTypes _apartment, int _roomid, bool _cleaned)
+{
+    apartment=_apartment;
+    roomid=_roomid;
+    cleaned=_cleaned;
+    used=false;
+}
+
+Room::Room(Suit::suitTypes _apartment, int _roomid, bool _cleaned,std::string _userename,Suit::suitTypes,date _startTime,date _endTime,Serving::servingTypes _serving)
+    :activeReservation(_userename,_apartment,_startTime,_endTime,_serving)
+{
+    apartment=_apartment;
+    roomid=_roomid;
+    cleaned=_cleaned;
+    used=true;
+}
 
 bool Room::getUsed() const
 {
@@ -82,17 +98,4 @@ Room::Room()
 
 }
 
-Room::Room(Suit::suitTypes _apartment, int _roomid, bool _cleaned)
-{
-    apartment=_apartment;
-    roomid=_roomid;
-    cleaned=_cleaned;
-}
 
-Room::Room(Suit::suitTypes _apartment, int _roomid, bool _cleaned,std::string _userename,Suit::suitTypes,date _startTime,date _endTime,Serving::servingTypes _serving)
-    :activeReservation(_userename,_apartment,_startTime,_endTime,_serving)
-{
-    apartment=_apartment;
-    roomid=_roomid;
-    cleaned=_cleaned;
-}

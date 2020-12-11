@@ -42,7 +42,7 @@ namespace Suit
             default:return "ERROR";
         }
     }
-    inline enum suitTypes stringToServing(std::string oneSuit)
+    inline enum suitTypes stringToSuit(std::string oneSuit)
     {
         if(oneSuit=="Luxury") return Luxury;
         if(oneSuit=="Medium") return Medium;
