@@ -168,10 +168,11 @@ public:
     {
         std::string originalinput=input;
         std::string temp;
-        std::string inputs[3];
+        std::string inputs[3]={"","",""};
         std::transform(input.begin(), input.end(), input.begin(),[](unsigned char c){ return std::tolower(c);});
         //data_dom.permissionCheck();
         unsigned int i=0;
+
         while (i<3)
         {
             temp=input.substr(0,input.find(' '));
@@ -179,6 +180,7 @@ public:
             input=input.substr(input.find(' ')+1,input.size());
             i++;
         }
+
         if( inputs[0] == "login" ) return cLogin;
         if( inputs[0] == "logout" ) return cLogout;
         if( inputs[0] == "report" ) return cReport;
@@ -201,15 +203,29 @@ public:
             {
                 if( inputs[2] == "task" ) return cPrintAllTask;
                 if( inputs[2] == "log" ) return cPrintAllLogs;
-
-                throw IncompleteCommandException(originalinput);
+                if(inputs[2]==inputs[1])
+                {
+                    throw IncompleteCommandException(originalinput);
+                }
+                else
+                {
+                    throw CommandNotFoundException(originalinput);
+                }
             }
             if(inputs[1]=="lost")
             {
                 return cPrintLostItems;
             }
-            throw IncompleteCommandException(originalinput);
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
+
         if(inputs[0]=="create")
         {
             if( inputs[1] == "task" ) return cCreateTask;
@@ -217,6 +233,15 @@ public:
 
             if( inputs[1] == "employee" ) return cCreateEmployee;
             if( inputs[1] == "e" ) return cCreateEmployee;
+
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
 
         if(inputs[0]=="delete")
@@ -226,27 +251,59 @@ public:
 
             if( inputs[1] == "employee" ) return cEmploYeet;
             if( inputs[1] == "e" ) return cEmploYeet;
-            throw IncompleteCommandException(originalinput);
+
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
 
         if(inputs[0]=="accept")
         {
             if( inputs[1] == "reservation" ) return cAcceptRes;
             if( inputs[1] == "r" ) return cAcceptRes;
-            throw IncompleteCommandException(originalinput);
+
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
 
         if(inputs[0]=="deny")
         {
             if( inputs[1] == "reservation" ) return cDenyRes;
             if( inputs[1] == "r" ) return cDenyRes;
-            throw IncompleteCommandException(originalinput);
+
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
 
         if(inputs[0]=="change")
         {
             if( inputs[1] == "room") return cChangeRoomStatus;
-            throw IncompleteCommandException(originalinput);
+
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
         }
         throw CommandNotFoundException(originalinput);
         return Invalid;

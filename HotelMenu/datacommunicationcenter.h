@@ -27,10 +27,10 @@ private:
     UserManager user_man;
 
     ReservationContainer reservation_cont;
-    void readReservationFile();
 
     RoomContainer room_cont;
-    void readRoomFile();
+
+
 
     //EXCEPTION CLASS
     class InvalidDataException: public std::exception
@@ -62,6 +62,7 @@ public:
     //void processTask(std::string task_id_arg, std::string data_arg); //commandpanelban lekezeljük
 
     void createReservationRequest(Reservation & newres);
+
     void accepptReservation(std::string taskid, int room_id, Reservation res);
     void denyReservation(std::string taskid, std::string username);
     void registration(std::string username, std::string password);
@@ -81,6 +82,17 @@ public:
     std::string findTask(std::string task_id);
     //test
     void printRes();
+
+    //jobs
+    void logTask(std::string task_id,Logs::Log * one_log);//bejelentkezet felhasznál    TODO
+    void logTask(std::string username,std::string task_id,Logs::Log * one_log);//bármijen felhasznél TODO
+
+    //egy munkát adnak a legkevésbbé terhelt munkásnak
+    void cleanRoom(std::string username,std::string task_id,Logs::Log * one_log);
+
+
+    void fixItemReqest(Tasks::Task rep_task);//todo
+    void reservacionReq(Tasks::Task resTask);//todo
 
 };
 

@@ -25,7 +25,7 @@ using namespace Users;
 
 int main()
 {
-    std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
+    //std::shared_ptr<DataCommunicationCenter>datacom(DataCommunicationCenter::getInstance());
     CommandPanel a=CommandPanel();
     a.seudoMain();
 

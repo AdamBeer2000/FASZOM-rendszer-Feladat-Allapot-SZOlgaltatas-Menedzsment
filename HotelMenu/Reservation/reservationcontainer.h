@@ -5,6 +5,11 @@
 #include "exception"
 #include "sstream"
 #include "list"
+#include "ostream"
+#include "istream"
+#include <fstream>
+#include "sstream"
+#include <iostream>
 
 class ReservationContainer
 {
@@ -16,6 +21,9 @@ public:
     void addReservation(Reservation newRes);
     void deleteReservation(std::string guestName);
     void bookRoom(std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
+
+    void loadContent(std::string file_name);
+    void saveContent(std::string file_name);
 
     Reservation getReservation(std::string guestName);//kikér egy foglalást
     Reservation popReservation(std::string guestName);//ki kér egy foglalást és asztán törli
