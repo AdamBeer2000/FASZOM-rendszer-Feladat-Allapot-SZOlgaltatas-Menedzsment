@@ -195,6 +195,16 @@ void DataCommunicationCenter::printLostItem() const
     std::cout << std::endl;
 }
 
+void DataCommunicationCenter::printAllTask()
+{
+    user_man.printAllTask();
+}
+
+void DataCommunicationCenter::printAllLog()
+{
+    user_man.printLogs();
+}
+
 Users::jobs DataCommunicationCenter::returnLoggedJob()
 {
     return user_man.getLoggedJob();

@@ -79,6 +79,8 @@ public:
     void deleteUser(std::string username); //employeet
     void addLostItem(std::string desc);
     void printLostItem() const;
+    void printAllTask();
+    void printAllLog();
     Users::jobs returnLoggedJob();
     std::string findTask(std::string task_id);
     void addTask(Tasks::Task task);
