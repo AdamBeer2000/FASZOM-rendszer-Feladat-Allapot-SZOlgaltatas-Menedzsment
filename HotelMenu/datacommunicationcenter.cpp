@@ -4,9 +4,17 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::instance=nullp
 //SINGLETON FUNCTION
 DataCommunicationCenter::DataCommunicationCenter()
 {
-    reservation_cont.loadContent("Reservation_Data.txt");
-    room_cont.loadContent("Room_Data.txt");
-    user_man.loadContent("User_Data.txt","Task_Data.txt");
+    std::cout<<"RESERVATIONS LOADED:"<<std::endl;
+    reservation_cont.printRes();
+
+    std::cout<<"ROOMS LOADED:"<<std::endl;
+    room_cont.printAllRoom();
+
+    std::cout<<"TASKS LOADED:"<<std::endl;
+    user_man.printAllTask();
+
+    std::cout<<"LOGS  LOADING:"<<std::endl;
+    user_man.printLogs();
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)

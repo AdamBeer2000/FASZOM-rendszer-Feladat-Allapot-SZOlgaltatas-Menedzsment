@@ -209,10 +209,6 @@ void RoomContainer::loadContent(std::string file_name)
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                     temp=oneline.substr(0,oneline.find(','));
-                    apartment=Suit::stringToSuit(temp);
-                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
-
-                    temp=oneline.substr(0,oneline.find(','));
                     startTime=DateBuilder::build(temp);
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
@@ -257,7 +253,6 @@ void RoomContainer::saveContent(std::string file_name)
             auto res=room.second.getActiveReservation();
 
             save<<","<<res.getUserename()<<","
-                <<res.getApartmentInString()<<","
                 <<res.getStartTime().calendarMode()<<","
                 <<res.getEndTime().calendarMode()<<","
                 <<res.getServingInString()
@@ -269,6 +264,32 @@ void RoomContainer::saveContent(std::string file_name)
         }
     }
     save.close();
+}
+
+void RoomContainer::printAllRoom()
+{
+    for(auto room:hotelRooms)
+    {
+        std::cout<<room.second.getApartmentInString()<<","
+            <<room.second.getUsed()<<","
+            <<room.second.getCleaned()<<","
+            <<room.second.getCleaned();
+
+        if(room.second.getUsed())
+        {
+            auto res=room.second.getActiveReservation();
+
+            std::cout<<","<<res.getUserename()<<","
+                <<res.getStartTime().calendarMode()<<","
+                <<res.getEndTime().calendarMode()<<","
+                <<res.getServingInString()
+                <<"\n";
+        }
+        else
+        {
+            std::cout<<"\n";
+        }
+    }
 }
 
 

@@ -26,6 +26,8 @@ public:
     void loadContent(std::string filename);
     void saveContent(std::string file_name);
 
+    void printAllRoom();
+
     bool isFree(int roomId)const;
     bool isUsed(int roomId)const;
     bool isCleaned(int roomId)const;
