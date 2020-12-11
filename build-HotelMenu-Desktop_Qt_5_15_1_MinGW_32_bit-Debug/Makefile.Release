@@ -216,6 +216,7 @@ release/datacommunicationcenter.o: ../HotelMenu/datacommunicationcenter.cpp ../H
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h \
 		../HotelMenu/Reservation/reservationcontainer.h \
 		../HotelMenu/User/user.h \
@@ -242,6 +243,7 @@ release/main.o: ../HotelMenu/main.cpp ../HotelMenu/Log/log.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/User/usermanager.h \
 		../HotelMenu/User/user.h \
 		../HotelMenu/Task/taskcontainer.h \
@@ -272,6 +274,7 @@ release/commandpanel.o: ../HotelMenu/commandpanel.cpp ../HotelMenu/commandpanel.
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h \
 		../HotelMenu/datacommunicationcenter.h \
 		../HotelMenu/Reservation/reservationcontainer.h \
@@ -309,7 +312,8 @@ release/logreservation.o: ../HotelMenu/Log/logreservation.cpp ../HotelMenu/Log/l
 		../HotelMenu/date.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
-		../HotelMenu/enumServing.h
+		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\logreservation.o ..\HotelMenu\Log\logreservation.cpp
 
 release/reservation.o: ../HotelMenu/Reservation/reservation.cpp ../HotelMenu/Reservation/reservation.h \
@@ -322,7 +326,8 @@ release/reservationcontainer.o: ../HotelMenu/Reservation/reservationcontainer.cp
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/date.h \
 		../HotelMenu/enumSuit.h \
-		../HotelMenu/enumServing.h
+		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\reservationcontainer.o ..\HotelMenu\Reservation\reservationcontainer.cpp
 
 release/room.o: ../HotelMenu/Room/room.cpp ../HotelMenu/Room/room.h \
@@ -337,7 +342,8 @@ release/roomcontainer.o: ../HotelMenu/Room/roomcontainer.cpp ../HotelMenu/Room/r
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/date.h \
 		../HotelMenu/enumSuit.h \
-		../HotelMenu/enumServing.h
+		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\roomcontainer.o ..\HotelMenu\Room\roomcontainer.cpp
 
 release/task.o: ../HotelMenu/Task/task.cpp ../HotelMenu/Task/task.h \
@@ -349,6 +355,7 @@ release/task.o: ../HotelMenu/Task/task.cpp ../HotelMenu/Task/task.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\task.o ..\HotelMenu\Task\task.cpp
 
@@ -362,6 +369,7 @@ release/taskcontainer.o: ../HotelMenu/Task/taskcontainer.cpp ../HotelMenu/Task/t
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\taskcontainer.o ..\HotelMenu\Task\taskcontainer.cpp
 
@@ -377,6 +385,7 @@ release/cleaner.o: ../HotelMenu/User/cleaner.cpp ../HotelMenu/User/cleaner.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\cleaner.o ..\HotelMenu\User\cleaner.cpp
 
@@ -392,6 +401,7 @@ release/guest.o: ../HotelMenu/User/guest.cpp ../HotelMenu/User/guest.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\guest.o ..\HotelMenu\User\guest.cpp
 
@@ -407,6 +417,7 @@ release/janitor.o: ../HotelMenu/User/janitor.cpp ../HotelMenu/User/janitor.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\janitor.o ..\HotelMenu\User\janitor.cpp
 
@@ -422,6 +433,7 @@ release/manager.o: ../HotelMenu/User/manager.cpp ../HotelMenu/User/manager.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\manager.o ..\HotelMenu\User\manager.cpp
 
@@ -437,6 +449,7 @@ release/receptionist.o: ../HotelMenu/User/receptionist.cpp ../HotelMenu/User/rec
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\receptionist.o ..\HotelMenu\User\receptionist.cpp
 
@@ -451,6 +464,7 @@ release/user.o: ../HotelMenu/User/user.cpp ../HotelMenu/User/user.h \
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\user.o ..\HotelMenu\User\user.cpp
 
@@ -466,6 +480,7 @@ release/usermanager.o: ../HotelMenu/User/usermanager.cpp ../HotelMenu/User/userm
 		../HotelMenu/Reservation/reservation.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
+		../HotelMenu/datebuilder.h \
 		../HotelMenu/Log/logfix.h \
 		../HotelMenu/User/cleaner.h \
 		../HotelMenu/User/guest.h \

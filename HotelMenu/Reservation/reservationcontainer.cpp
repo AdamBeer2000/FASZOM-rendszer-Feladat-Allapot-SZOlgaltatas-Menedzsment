@@ -74,7 +74,6 @@ void ReservationContainer::loadContent(std::string file_name)
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                 bookRoom(userename,apartment,startTime,endTime,serving);
-                //std::cout<<oneline<<std::endl;
             }
             catch(std::exception &e)
             {

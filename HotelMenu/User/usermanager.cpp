@@ -208,40 +208,39 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
         {
             TaskContainer temp_taskCont;
 
-            temp=oneline.substr(0,oneline.find(','));std::cout<<temp<<std::endl;
+            temp=oneline.substr(0,oneline.find(','));
             firstName=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             lastName=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             username=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             birthdate=DateBuilder::build(temp);
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             jobID=Users::stringToJobID(temp);
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             cardid=stoi(temp);
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find(','));
             password=temp;
-            oneline=oneline.substr(oneline.find(',')+1,oneline.size());std::cout<<temp<<std::endl;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
             addUser(username,firstName,lastName,birthdate,jobID,cardid,password);
-
-            std::cout<<username<<","<<firstName<<","<<lastName<<","<<birthdate.calendarMode()<<","<<jobID<<","<<cardid<<","<<password<<"\n";
         }
         catch(std::exception &e)
-        {
+        {//stoi itt marad
             std::cout<<e.what()<<std::endl;
         }
     }

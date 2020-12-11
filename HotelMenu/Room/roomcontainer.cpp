@@ -198,7 +198,6 @@ void RoomContainer::loadContent(std::string file_name)
                     cleaned=true;
                 }
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
-                std::cout<<Suit::suitToString(apartment)<<","<<used<<","<<roomid<<","<<cleaned<<"\n";
                 if(!used)
                 {
                     hotelRooms.insert({roomid,Room(apartment,roomid,cleaned)});
@@ -226,11 +225,7 @@ void RoomContainer::loadContent(std::string file_name)
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
                     hotelRooms.insert({roomid,Room(apartment,roomid,cleaned,userename,apartment,startTime,endTime,serving)});
-                    std::cout<<Suit::suitToString(apartment)<<","
-                            <<used<<","<<roomid<<","<<cleaned<<","<<userename<<","<<apartment<<","
-                            <<startTime.calendarMode()<<","<<endTime.calendarMode()<<","<<Serving::servingToString(serving)<<"\n";
                 }
-                //std::cout<<oneline<<std::endl;
             }
             catch(std::exception &e)
             {
