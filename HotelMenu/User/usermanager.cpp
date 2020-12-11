@@ -105,6 +105,25 @@ void UserManager::setTaskStatusDone(std::string username,std::string task_id)
 {
     users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
 }
+
+std::string UserManager::getLeastBusyWorker(Users::jobs jobID)
+{
+    std::map<std::string , int> temporary;
+    for(auto it = users.begin();it != users.end();++it){
+        if(it->second->getJobID() == jobID){
+            temporary.insert({it->first , it->second->getNumberOfTasks()});
+
+
+        }
+    }
+    auto min = temporary.begin();
+    for(auto it = temporary.begin();it != temporary.end();++it){
+        if(it->second < min->second){
+            min = it;
+        }
+    }
+    return min->first;
+}
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);

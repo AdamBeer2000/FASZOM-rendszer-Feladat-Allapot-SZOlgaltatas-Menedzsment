@@ -204,4 +204,14 @@ void DataCommunicationCenter::printRes()
     reservation_cont.printall();
 }
 
+void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
+{
+    std::stringstream fortodo;
+    fortodo << "FIX: " << szobaID << ", " << item;
+    std::string mytodo = fortodo.str();
+    std::string username = user_man.getLeastBusyWorker(Users::jobs::JAN);
+    Tasks::Task task = generateTask(Users::jobs::JAN , Users::taskdata::FIX , username , mytodo);
+    user_man.addTask(username , task);
+}
+
 
