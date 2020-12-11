@@ -90,10 +90,10 @@ void ReservationContainer::saveContent(std::string file_name)
     save.open(file_name);
     for(auto res:reservations)
     {
-        save<<res.second.getUserename()
-            <<res.second.getApartmentInString()
-            <<res.second.getStartTime().calendarMode()
-            <<res.second.getEndTime().calendarMode()
+        save<<res.second.getUserename()<<","
+            <<res.second.getApartmentInString()<<","
+            <<res.second.getStartTime().calendarMode()<<","
+            <<res.second.getEndTime().calendarMode()<<","
             <<res.second.getServingInString()
             <<"\n";
     }

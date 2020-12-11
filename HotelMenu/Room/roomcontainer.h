@@ -24,6 +24,8 @@ public:
     void deleteReservation(int roomId);
 
     void loadContent(std::string filename);
+    void saveContent(std::string file_name);
+
     bool isFree(int roomId)const;
     bool isUsed(int roomId)const;
     bool isCleaned(int roomId)const;

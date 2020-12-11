@@ -58,6 +58,7 @@ public:
         }
     };
 
+    Reservation getActiveReservation() const;
 };
 
 #endif // ROOM_H

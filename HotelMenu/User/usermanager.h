@@ -16,7 +16,6 @@ private:
     Users::User* loggedUser;   
     std::map<std::string,Users::User*>users;
 
-
 public:
     //CONSTRUCTORS
     UserManager(std::list<Users::User *>_users);
@@ -42,7 +41,6 @@ public:
     void logTask(std::string task_id, Logs::Log * onelog);
     void logTask(std::string username,std::string task_id, Logs::Log * onelog);
     void setTaskStatusDone(std::string username,std::string task_id);
-
 
     class WrongUsernameException:public std::exception
         {
