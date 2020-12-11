@@ -42,14 +42,8 @@ std::string Logs::LogReplace::toString() const
 
 void Logs::LogReplace::saveStream(std::ofstream &stream) const
 {
-    stream << "-----------------------------------" << std::endl;
-    stream << "REPLACE: "<< std::endl;
-    stream << "Room: " << getRoomID() << std::endl;
-    stream << "Item: " << getItem() << std::endl;
-    stream << "Failure: " << getCauseOfFailure() << std::endl;
-    stream << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
-    stream << "Date:" << std::endl;
-    stream << ""<<  getReplaceDate().calendarMode() << "\t[" << getReplaceDate().clockMode() << "]" << std::endl;
+    stream << "REP#: " << getRoomID() << "#" << getItem() << "#" << getCauseOfFailure() << "#" << getReplaceDate().calendarMode() << "#" << getReplaceDate().clockMode() << "#";
+    stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 
 //GETTERS

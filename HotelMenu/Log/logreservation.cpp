@@ -31,12 +31,8 @@ void Logs::LogReservation::printLog() const
 std::string Logs::LogReservation::toString() const
 {
     std::string result = "";
+    std::stringstream stream;
 
-    return result;
-}
-
-void Logs::LogReservation::saveStream(std::ofstream &stream) const
-{
     stream << "-----------------------------------" << std::endl;
     stream << "RESERVATION: "<< std::endl;
     stream << "Room: " << getRoomID() << std::endl;
@@ -47,6 +43,17 @@ void Logs::LogReservation::saveStream(std::ofstream &stream) const
     stream << "Days: " << getStartDate().dateDiff(getEndDate()) << std::endl;
     stream << "Date [from-to]:" << std::endl;
     stream << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
+    stream << "-----------------------------------" << std::endl;
+
+    result += stream.str();
+    return result;
+}
+
+void Logs::LogReservation::saveStream(std::ofstream &stream) const
+{
+    stream << "RES#"<< getRoomID() << "#" << getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
+    stream << getStartDate().dateDiff(getEndDate()) << "#" <<  getStartDate().calendarMode() << "#" << getEndDate().calendarMode() << "#";
+    stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 
 //GETTERS
