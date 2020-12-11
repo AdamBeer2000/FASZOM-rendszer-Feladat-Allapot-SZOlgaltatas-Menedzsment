@@ -5,7 +5,7 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::instance=nullp
 DataCommunicationCenter::DataCommunicationCenter()
 {
     std::cout<<"RESERVATIONS LOADED:"<<std::endl;
-    reservation_cont.printRes();
+    reservation_cont.printall();
 
     std::cout<<"ROOMS LOADED:"<<std::endl;
     room_cont.printAllRoom();
