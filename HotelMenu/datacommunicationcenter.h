@@ -82,6 +82,8 @@ public:
     Users::jobs returnLoggedJob();
     std::string findTask(std::string task_id);
     void addTask(Tasks::Task task);
+    void deleteTask(std::string task_id);
+    std::map<std::string, std::string> showTasks();
 
     //test
     void printRes();

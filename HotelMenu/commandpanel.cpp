@@ -109,7 +109,9 @@ void CommandPanel::createTask()
 
 void CommandPanel::deleteTask()
 {
-    std::cout<<"deleteTask"<<std::endl;
+    //std::map<std::string, std::string> temp = data_com->showTasks();
+    //showtasks módosítása megfelelő típusú mapra
+    //std::cout<<"Delete task:"<<std::endl;
 }
 
 void CommandPanel::createEmployee()

@@ -37,7 +37,7 @@ Users::jobs UserManager::getLoggedJob() const
     }
 }
 
-void UserManager::addUser(std::string& username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
+void UserManager::addUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)
 {
     Users::User * added_user;
 

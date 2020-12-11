@@ -62,7 +62,7 @@ namespace  Users
         jobs jobID;
         int cardID;
         std::string password;
-        TaskContainer taskCont;
+        TaskContainer taskCont = TaskContainer();
 
     public:
         User();

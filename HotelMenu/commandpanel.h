@@ -4,6 +4,8 @@
 #include "Login.h"
 #include "Task/task.h"
 #include "datacommunicationcenter.h"
+#include "User/usermanager.h"//KIVENNI
+#include "User/user.h"//KIVENNI
 class CommandPanel
 {
 private:
@@ -80,6 +82,31 @@ public:
     }
     CommandPanel(std::list<Users::User*> users);
     void seudoMain();//gyakorlatilag egy main
+
+    void TEST()
+    {
+        Tasks::Task t3 = data_com->generateTask(Users::jobs::JAN, Users::taskdata::FIX ,"Elon Musk", "Mars");
+        Tasks::Task t4 = data_com->generateTask(Users::jobs::CLE, Users::taskdata::CLN,"George Soros", "Soros terv");
+        Tasks::Task t5 = data_com->generateTask(Users::jobs::CLE, Users::taskdata::CLN,"Gyurcsany Ferenc", "Elbaszni, nem kicsit, nagyon");
+        Tasks::Task t6 = data_com->generateTask(Users::jobs::JAN, Users::taskdata::REP,"George Soros", "Soros terv");
+        TaskContainer t = TaskContainer();
+        UserManager u = UserManager();
+        DateBuilder builder = DateBuilder();
+
+        date d;
+        d.day = 2;
+        d.month = 9;
+        d.year = 2000;
+
+        Users::User *jozsi = new Users::Cleaner("Jozsef","Gyurcsany","jozsi",builder.build(2000, 10, 25), Users::jobs::CLE,5,"password");
+        u.addUser("Feri","Ferenc","Gyurcsany",builder.build(2000,11,16),Users::jobs::CLE,69420,"pass");
+        u.addUser(jozsi);
+
+        u.addTask("Feri",t3);
+        u.addTask("Feri",t4);
+        u.addTask(jozsi->getUsername(),t5);
+        u.printAllTask();
+    }
 
     void ricroll();//Rick Roll
     class CommandNotFoundException:public std::exception

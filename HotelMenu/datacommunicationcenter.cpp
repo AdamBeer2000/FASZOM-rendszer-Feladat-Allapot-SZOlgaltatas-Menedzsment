@@ -227,6 +227,16 @@ void DataCommunicationCenter::addTask(Tasks::Task task)
     user_man.addTask(task.getEmployee(), task);
 }
 
+void DataCommunicationCenter::deleteTask(std::string task_id)
+{
+    user_man.deleteTask(task_id);
+}
+
+std::map<std::string, std::string> DataCommunicationCenter::showTasks()
+{
+    return this->task_list;
+}
+
 void DataCommunicationCenter::printRes()
 {
     reservation_cont.printall();
