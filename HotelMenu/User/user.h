@@ -25,6 +25,7 @@ namespace  Users
         CLN, //without talált tárgy
         ERROR
     };
+
     inline jobs stringToJobID(std::string onejobid)
     {
         if(onejobid=="CLE") return CLE;
@@ -46,27 +47,8 @@ namespace  Users
         //todo excepcion
         return ERROR;
     }
+//todo excepcion
 
-    inline jobs stringToJobID(std::string onejobid)
-    {
-        if(onejobid=="CLE") return CLE;
-        if(onejobid=="MAN") return MAN;
-        if(onejobid=="JAN") return JAN;
-        if(onejobid=="REC") return REC;
-        if(onejobid=="GUE") return REC;
-        //todo excepcion
-        return Unlogged;
-    }
-
-    inline taskdata stringTotaskdata(std::string onetastdata)
-    {
-        if(onetastdata=="FIX") return FIX;
-        if(onetastdata=="REP") return REP;
-        if(onetastdata=="RES") return RES;
-        if(onetastdata=="CLF") return CLF;
-        if(onetastdata=="CLN") return CLN;
-        //todo excepcion
-    }
 
     class User
     {
