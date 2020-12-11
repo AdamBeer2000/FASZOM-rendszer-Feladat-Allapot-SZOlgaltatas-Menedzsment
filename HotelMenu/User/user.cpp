@@ -34,6 +34,12 @@ std::string Users::User::getPassword() const
 {
     return password;
 }
+
+int Users::User::getNumberOfTasks() const
+{
+    return taskCont.getActiveTasksNumber();;
+}
+
 //ezt eddig miért nem jelezte hibának hogy nem voltak itt?
 void Users::User::setLog(const std::string &task_id, Logs::Log *onelog)
 {
