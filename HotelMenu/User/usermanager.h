@@ -8,6 +8,8 @@
 #include "User/manager.h"
 #include "User/receptionist.h"
 #include "iterator"
+
+#include <fstream>
 class UserManager
 {
 private:
@@ -29,6 +31,9 @@ public:
 
     void addUser(std::string& _username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password);
     void addUser(Users::User * newUser);
+
+    void loadContent(std::string user_file_name,std::string task_file_name,std::string log_file_name);
+    void saveContent(std::string user_file_name,std::string task_file_name,std::string log_file_name);
 
     void logout();
     void loginWith(std::string username, std::string password);

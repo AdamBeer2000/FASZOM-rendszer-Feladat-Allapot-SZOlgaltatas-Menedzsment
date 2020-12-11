@@ -93,6 +93,11 @@ int Room::getRoomid() const
     return roomid;
 }
 
+Reservation Room::getActiveReservation() const
+{
+    return activeReservation;
+}
+
 Room::Room()
 {
 

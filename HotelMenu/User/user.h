@@ -28,6 +28,7 @@ namespace  Users
     class User
     {
     protected:
+
         std::string firstName;
         std::string lastName;
         std::string username;
@@ -36,6 +37,7 @@ namespace  Users
         int cardID;
         std::string password;
         TaskContainer taskCont;
+
     public:
         User();
         User(const std::string& _firstName , const std::string& _lastName , const std::string& _username , date _birthDate , jobs _jobID , int _cardID , const std::string& _password);

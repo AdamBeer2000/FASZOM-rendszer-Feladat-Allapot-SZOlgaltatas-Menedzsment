@@ -163,4 +163,70 @@ void UserManager::logout()
     }
 }
 
+void UserManager::loadContent(std::string user_file_name,std::string task_file_name,std::string log_file_name)
+{
+    /*std::string firstName;
+        std::string lastName;
+        std::string username;
+        date birthDate;
+        jobs jobID;
+        int cardID;
+        std::string password;
+        TaskContainer taskCont;*/
+
+    /*
+    std::ifstream read(user_file_name);
+    std::string temp,oneline;
+    std::string firstName,lastName,username,password;
+    date birthdate;
+    Users::jobs jobID;
+
+    while(getline (read, oneline))
+    {
+        try
+        {
+
+            TaskContainer temp_taskCont;
+
+            temp=oneline.substr(0,oneline.find(','));
+            firstName=temp;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+            lastName=temp;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+            username=temp;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+            birthdate=
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+            //adding here
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+            username=password;
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find(','));
+
+            oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+        }
+        catch(std::exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+    }
+
+*/
+}
+
+void UserManager::saveContent(std::string user_file_name,std::string task_file_name,std::string log_file_name)
+{
+
+}
 
