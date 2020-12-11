@@ -68,6 +68,7 @@ public:
     void registration(std::string username, std::string password);
     void addRating(int rate, std::string comment);
     Tasks::Task generateTask(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, const std::string& todo);
+    Tasks::Task generateTaskReservation(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, Reservation& reservation);
     std::string generateTaskId(Users::jobs job_id, Users::taskdata type);
     void login(std::string username, std::string password);
     void logOut();

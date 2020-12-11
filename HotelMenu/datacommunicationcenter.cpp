@@ -22,13 +22,17 @@ std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
     return instance;
 }
 
+//------------------------------------------------------------------------------------------
+
 void DataCommunicationCenter::createReservationRequest(Reservation &newres)
 {
+    std::stringstream fortodo;
+    std::string mytodo = fortodo.str();
+    std::string username = user_man.getLeastBusyWorker(Users::jobs::REC);
     reservation_cont.addReservation(newres);
+    Tasks::Task task = generateTaskReservation(Users::jobs::REC , Users::taskdata::RES , username , newres);
+    user_man.addTask(username , task);
 }
-
-
-//------------------------------------------------------------------------------------------
 
 void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id, Reservation res)
 {
@@ -50,18 +54,36 @@ void DataCommunicationCenter::addRating(int rate, std::string comment)
     ratings.push_back(std::pair<int,std::string>(rate,comment));
 }
 
-Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, Users::taskdata type, const std::string &username, const std::string &todo)
+Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, Users::taskdata type, const std::string &employee_name, const std::string &todo)
 {
     std::string current_id = "";
     current_id = generateTaskId(job_id, type);
     //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
     auto builder = new Tasks::Task::TaskBuilder(current_id);
-    auto task = builder->withEmployee(username)
+    auto task = builder->withEmployee(employee_name)
             .withTodo(todo)
             .withStatus(false)
             .build();
 
-    task_list.insert({task->getTaskId(), username});
+    task_list.insert({task->getTaskId(), employee_name});
+    //delete nem biztos, hogy ide kell
+    return *task;
+    //delete task;
+    //delete builder;
+}
+
+Tasks::Task DataCommunicationCenter::generateTaskReservation(Users::jobs job_id, Users::taskdata type, const std::string &employee_name, Reservation &reservation)
+{
+    std::string current_id = "";
+    current_id = generateTaskId(job_id, type);
+    //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
+    auto builder = new Tasks::Task::TaskBuilder(current_id);
+    auto task = builder->withEmployee(employee_name)
+            .withStatus(false)
+            .withReservation(reservation)
+            .build();
+
+    task_list.insert({task->getTaskId(), employee_name});
     //delete nem biztos, hogy ide kell
     return *task;
     //delete task;

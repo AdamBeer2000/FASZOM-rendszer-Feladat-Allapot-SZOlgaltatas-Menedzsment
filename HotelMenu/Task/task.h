@@ -9,6 +9,7 @@
 #include "Log/logreplace.h"
 #include "Log/logreservation.h"
 #include "Log/logfix.h"
+#include "Reservation/reservation.h"
 
 namespace Tasks
 {
@@ -23,6 +24,7 @@ namespace Tasks
         std::string todo;
         bool status;
         Logs::Log* log;
+        Reservation res;
 
 
     public:
@@ -51,6 +53,7 @@ namespace Tasks
             std::string todo = "";
             bool status = false;
             Logs::Log* log = nullptr;
+            Reservation res = Reservation();
 
             friend class Task;
 
@@ -115,6 +118,12 @@ namespace Tasks
             {
                 this->log = log;
                 return *this;
+            }
+
+            TaskBuilder& withReservation(Reservation& res)
+            {
+                this->res = res;
+                return * this;
             }
 
             //BUILD
