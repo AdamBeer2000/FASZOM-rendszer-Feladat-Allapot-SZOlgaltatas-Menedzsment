@@ -224,6 +224,8 @@ void DataCommunicationCenter::addTask(Tasks::Task task)
 void DataCommunicationCenter::deleteTask(std::string task_id)
 {
     user_man.deleteTask(task_id);
+    auto it = task_list.find(task_id);
+    task_list.erase(task_id);
 }
 
 std::map<std::string, std::string> DataCommunicationCenter::showTasks()

@@ -109,9 +109,55 @@ void CommandPanel::createTask()
 
 void CommandPanel::deleteTask()
 {
-    //std::map<std::string, std::string> temp = data_com->showTasks();
-    //showtasks módosítása megfelelő típusú mapra
-    //std::cout<<"Delete task:"<<std::endl;
+    bool wrong_data = false;
+    std::string task_id, confirm, sure;
+    do
+    {
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout << "Feladat torlese:\n" << std::endl;
+        std::cout << "Mielott megadna a torlendo feladat azonositojat, nezze meg es " << std::endl;
+        std::cout << "gyozodjon meg rola, hogy a feladat letezik!" << std::endl;
+        std::cout << "[Osszes feladat listazasa -> olvassa le az azonositot]! " << std::endl;
+        std::cout << "Folytatni akarja?\n[igen/nem]: " << std::flush;
+        std::cin >> confirm;
+
+        if(confirm == "igen")
+        {
+            wrong_data = false;
+            std::cout << "Adja meg a feladat azonositojat: " << std::endl;
+            std::cout << "Biztos torolni kivanja?\n[igen/nem]: " << std::flush;
+            std::cin >> sure;
+
+            if(sure == "igen")
+            {
+                wrong_data = false;
+                data_com->deleteTask(task_id);
+                std::cout << "Feladat sikeresen torolve!" << std::endl;
+            }
+            else if(sure == "nem")
+            {
+                wrong_data = false;
+                std::cout << "Torles megszakitva!" << std::endl;
+            }
+            else
+            {
+                wrong_data = true;
+                std::cout << "Helytelen parancs, probalja ujra!" << std::endl;
+            }
+        }
+        else if(confirm == "nem")
+        {
+            wrong_data = false;
+            std::cout << "Torles megszakitva!" << std::endl;
+        }
+        else
+        {
+            wrong_data = true;
+            std::cout << "Helytelen parancs, probalja ujra!" << std::endl;
+        }
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+    }while(wrong_data);
+
 }
 
 void CommandPanel::createEmployee()
@@ -125,8 +171,7 @@ void CommandPanel::createEmployee()
     do
     {
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        std::cout<<"Alkalmazott hozzáadása: "<<std::endl;
-
+        std::cout << "Alkalmazott hozzáadása:\n" << std::endl;
         std::cout << "Adja meg az alkalmazottnak szant felhasznalonevet: " << std::flush;
         std::cin >> username;
         std::cout << "Adja meg a beosztasat: " << std::flush;
@@ -173,7 +218,7 @@ void CommandPanel::emploYeet()
     {
         std::string username, confirm;
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        std::cout<< "Alkalmazott eltávolítása: " << std::endl;
+        std::cout<< "Alkalmazott eltavolítasa:\n" << std::endl;
         std::cout << "Adja meg az eltavolitando szemely felhasznalonevet: " << std::flush;
         std::cin >> username;
         std::cout << "Biztos torolni akarja?\n[igen/nem]: " << std::flush;
@@ -202,7 +247,7 @@ void CommandPanel::emploYeet()
 void CommandPanel::printAllTasks()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout << "Osszes Feladat:" << std::endl;
+    std::cout << "Osszes feladat:\n" << std::endl;
     data_com->printAllTask();
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
@@ -210,7 +255,7 @@ void CommandPanel::printAllTasks()
 void CommandPanel::printAllLogs()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"Osszes log: "<<std::endl;
+    std::cout<<"Osszes log:\n"<<std::endl;
     data_com->printAllLog();
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
