@@ -91,7 +91,7 @@ public:
     void cleanRoom(std::string username,std::string task_id,Logs::Log * one_log);
 
 
-    void fixItemReqest(Tasks::Task rep_task);//todo
+    void fixItemReqest(int szobaID , std::string item);
     void reservacionReq(Tasks::Task resTask);//todo
 
 };
