@@ -225,8 +225,6 @@ void RoomContainer::loadContent(std::string file_name)
                     serving=Serving::stringToServing(temp);
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
-                    ;
-
                     hotelRooms.insert({roomid,Room(apartment,roomid,cleaned,userename,apartment,startTime,endTime,serving)});
                     std::cout<<Suit::suitToString(apartment)<<","
                             <<used<<","<<roomid<<","<<cleaned<<","<<userename<<","<<apartment<<","
@@ -241,3 +239,41 @@ void RoomContainer::loadContent(std::string file_name)
         }
     }
 }
+void RoomContainer::saveContent(std::string file_name)
+{
+    /*
+    Suit::suitTypes apartment;
+    bool used=false;
+    int roomid;
+    bool cleaned;
+    Reservation activeReservation;
+    */
+    std::ofstream save;
+    save.open(file_name);
+    for(auto room:hotelRooms)
+    {
+        save<<room.second.getApartmentInString()<<","
+            <<room.second.getUsed()<<","
+            <<room.second.getCleaned()<<","
+            <<room.second.getCleaned();
+
+        if(room.second.getUsed())
+        {
+            auto res=room.second.getActiveReservation();
+
+            save<<","<<res.getUserename()<<","
+                <<res.getApartmentInString()<<","
+                <<res.getStartTime().calendarMode()<<","
+                <<res.getEndTime().calendarMode()<<","
+                <<res.getServingInString()
+                <<"\n";
+        }
+        else
+        {
+            save<<"\n";
+        }
+    }
+    save.close();
+}
+
+
