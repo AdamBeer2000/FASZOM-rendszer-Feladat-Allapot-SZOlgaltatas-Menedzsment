@@ -42,14 +42,9 @@ std::string Logs::LogFix::toString() const
 
 void Logs::LogFix::saveStream(std::ofstream &stream) const
 {
-    stream << "-----------------------------------" << std::endl;
-    stream << "FIX: "<< std::endl;
-    stream << "Room: " << getRoomID() << std::endl;
-    stream << "Item: " << getItem() << std::endl;
-    stream << "Failure: " << getCauseOfFailure() << std::endl;
-    stream << "Repair cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
-    stream << "Date:" << std::endl;
-    stream << ""<<  getStartDate().calendarMode() << "\t[" << getStartDate().clockMode() << "]"  << std::endl << getEndDate().calendarMode() << "\t[" << getEndDate().clockMode() << "]" << std::endl;
+    stream << "FIX#" << getRoomID() << "#" << getItem() << "#" << getCauseOfFailure() << "#";
+    stream << getStartDate().calendarMode() << "#" << getStartDate().clockMode() << "#"  << std::endl << getEndDate().calendarMode() << "#" << getEndDate().clockMode() << "#";
+    stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 
 //GETTERS

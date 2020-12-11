@@ -23,6 +23,7 @@ public:
     void setLog(std::string task_id_l, Logs::Log* one_log);
     void setStatusDone(std::string task_id_st);
     bool taskExists(std::string task_id_e);
+    int getActiveTasksNumber() const;
 
     //+FUNCTIONS
     bool ContainerIsEmpty();

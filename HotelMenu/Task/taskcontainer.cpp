@@ -61,6 +61,21 @@ bool TaskContainer::taskExists(std::string task_id_e)
     return it != task_list.end() ? true : false;
 }
 
+int TaskContainer::getActiveTasksNumber() const
+{
+    int result = 0;
+
+    for(auto it = task_list.begin(); it != task_list.end(); it++)
+    {
+        if(!(it->second.getStatus()))
+        {
+            result++;
+        }
+    }
+
+    return result;
+}
+
 void TaskContainer::setStatusDone(std::string task_id_st)
 {
     auto it = task_list.find(task_id_st);
