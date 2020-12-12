@@ -105,21 +105,60 @@ void CommandPanel::fix()
     std::string task_id;
     bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    do
-    {
-        std::cout << "Javitas:\nAdja meg a feladat azonositot: " << std::flush;
-        std::cin >> task_id;
-        if(task_id.substr(4,7) != "FIX")
-        {
-            invalid = true;
-            std::cout << "Nem megfelelo feladat azonosito" << std::endl;
-        }
-        else
-        {
-            invalid = false;
-        }
-    }while(invalid);
-    Logs::Log *log;
+    std::cout << "Javitas:\nAdja meg a feladat azonositot: " << std::flush;
+    std::cin >> task_id;
+    std::string item, failure;
+    std::cout << "Adja meg a javitando targy nevet: " << std::flush;
+    std::cin >> item;
+    std::cout << "Adja meg a hiba okat: " << std::flush;
+    std::cin >> failure;
+    double cost;
+    std::cout << "Adja meg a muvelet arat[csak szam]:" << std::flush;
+    std::cin >> cost;
+
+    date date1;
+    DateBuilder builder = DateBuilder();
+    int year, month, day, hour, min, sec;
+    std::cout << "Adja meg az kezdo evet (pl.: 1980): " << std::flush;
+    std::cin >> year;
+    std::cout << "Adja meg a kezdo honapot (pl.: 9): " << std::flush;
+    std::cin >> month;
+    std::cout << "Adja meg a kezdo napot (pl.: 15): " << std::flush;
+    std::cin >> day;
+    std::cout << "Adja meg az kezdo orat (pl.: 13): " << std::flush;
+    std::cin >> hour;
+    std::cout << "Adja meg a kezdo percet (pl.: 25): " << std::flush;
+    std::cin >> min;
+    std::cout << "Adja meg a kezdo masodpercet (pl.: 1): " << std::flush;
+    std::cin >> sec;
+
+    date1 = builder.build(year, month, day);
+    date1.hour = hour;
+    date1.min = min;
+    date1.sec = sec;
+
+    date date2;
+    DateBuilder builder2 = DateBuilder();
+    int year2, month2, day2, hour2, min2, sec2;
+    std::cout << "Adja meg az befejezo evet (pl.: 1980): " << std::flush;
+    std::cin >> year2;
+    std::cout << "Adja meg a befejezo honapot (pl.: 9): " << std::flush;
+    std::cin >> month2;
+    std::cout << "Adja meg a befejezo napot (pl.: 15): " << std::flush;
+    std::cin >> day2;
+    std::cout << "Adja meg az befejezo orat (pl.: 13): " << std::flush;
+    std::cin >> hour2;
+    std::cout << "Adja meg a befejezo percet (pl.: 25): " << std::flush;
+    std::cin >> min2;
+    std::cout << "Adja meg a befejezo masodpercet (pl.: 1): " << std::flush;
+    std::cin >> sec2;
+
+    date2 = builder2.build(year2, month2, day2);
+    date2.hour = hour2;
+    date2.min = min2;
+    date2.sec = sec2;
+
+    Logs::Log *log = new Logs::LogFix(item,failure,cost,date1,date2);
     data_com->logTask(task_id, log);
 
     std::cout<<"Javitas sikeresen befejezodott!"<<std::endl;
@@ -129,29 +168,45 @@ void CommandPanel::fix()
 void CommandPanel::replace()
 {
     std::string task_id;
-    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    do
-    {
-        std::cout << "Csere:\nAdja meg a feladat azonositot: " << std::flush;
-        std::cin >> task_id;
-        if(task_id.substr(4,7) != "REP")
-        {
-            invalid = true;
-            std::cout << "Nem megfelelo feladat azonosito" << std::endl;
-        }
-        else
-        {
-            invalid = false;
-        }
-    }while(invalid);
-    Logs::Log *log;
+    std::cout << "Csere:\nAdja meg a feladat azonositot: " << std::flush;
+    std::cin >> task_id;
+    std::string item, failure;
+    std::cout << "Adja meg a cserelendo targy nevet: " << std::flush;
+    std::cin >> item;
+    std::cout << "Adja meg a hiba okat: " << std::flush;
+    std::cin >> failure;
+    double cost;
+    std::cout << "Adja meg a muvelet arat[csak szam]:" << std::flush;
+    std::cin >> cost;
+
+    date date;
+    DateBuilder builder = DateBuilder();
+    int year, month, day, hour, min, sec;
+    std::cout << "Adja meg az evet (pl.: 1980): " << std::flush;
+    std::cin >> year;
+    std::cout << "Adja meg a honapot (pl.: 9): " << std::flush;
+    std::cin >> month;
+    std::cout << "Adja meg a napot (pl.: 15): " << std::flush;
+    std::cin >> day;
+    std::cout << "Adja meg az orat (pl.: 13): " << std::flush;
+    std::cin >> hour;
+    std::cout << "Adja meg a percet (pl.: 25): " << std::flush;
+    std::cin >> min;
+    std::cout << "Adja meg a masodpercet (pl.: 1): " << std::flush;
+    std::cin >> sec;
+
+    date = builder.build(year, month, day);
+    date.hour = hour;
+    date.min = min;
+    date.sec = sec;
+
+    Logs::Log *log = new Logs::LogReplace(item,failure,cost,date);
     data_com->logTask(task_id, log);
 
     std::cout<<"Csere sikeresen befejezodott!"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
-
 void CommandPanel::takeCleanroom()
 {
     std::string task_id;
@@ -212,6 +267,7 @@ void CommandPanel::printLostItems()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout << "Talalt targyak:\n" << std::endl;
+    data_com->printLostItem();
     std::cout << std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
