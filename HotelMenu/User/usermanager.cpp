@@ -166,15 +166,15 @@ void UserManager::printMyTask() const
 }
 
 void UserManager::logTask(std::string task_id, Logs::Log *onelog)
-{
-    users.find(loggedUser->getUsername())->second->setLog(task_id,onelog);
+{    
     users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
+    users.find(loggedUser->getUsername())->second->setLog(task_id,onelog);
 }
 
 void UserManager::logTask(std::string username, std::string task_id, Logs::Log *onelog)
-{
-    users.find(username)->second->setLog(task_id,onelog);
+{  
     users.find(username)->second->setTaskStatus(task_id);
+    users.find(username)->second->setLog(task_id,onelog);
 }
 
 void UserManager::printAllTask() const
@@ -192,10 +192,18 @@ void UserManager::printAllTask() const
 
 void UserManager::printLogs() const
 {
+    /*
     for(auto cit = users.cbegin(); cit != users.cend(); ++cit)
     {
         std::cout << cit->first <<"\'s logs:" <<std::endl;
         cit->second->printLogs();
+        std::cout << std::endl;
+    }*/
+
+    for(auto cit:users)
+    {
+        std::cout << cit.first <<"\'s logs:" <<std::endl;
+        cit.second->printLogs();
         std::cout << std::endl;
     }
 }

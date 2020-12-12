@@ -312,23 +312,18 @@ void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_da
 {
     room_cont.cleanRoom(user_man.getRoomId(user_man.getLoggedUser()->getUsername(),task_id));
 
-    Logs::LogCleaning temp(clean_date);
+    Logs::Log * temp=new Logs::LogCleaning(clean_date);
 
-    user_man.logTask(task_id,&temp);
-
-    user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
+    user_man.logTask(task_id,temp);
 }
 
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, std::string item, date clean_date)
 {
     room_cont.cleanRoom(user_man.getRoomId(user_man.getLoggedUser()->getUsername(),task_id));
 
-    Logs::LogCleaning temp(item,clean_date);
+    Logs::Log * temp=new Logs::LogCleaning(item,clean_date);
 
-    user_man.logTask(task_id,&temp);
-
-    user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
-
+    user_man.logTask(task_id,temp);
 }
 
 void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)

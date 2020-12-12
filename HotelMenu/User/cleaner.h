@@ -15,9 +15,9 @@ namespace Users
         void setTaskStatus(std::string taskID);
 
         void printTasks() const;
-        /*
+
         void printLogs() const;
-        */
+
         ~Cleaner();
     };
 }

@@ -53,7 +53,7 @@ int Users::User::getNumberOfTasks() const
 //ezt eddig miért nem jelezte hibának hogy nem voltak itt?
 void Users::User::setLog(const std::string &task_id, Logs::Log *onelog)
 {
-
+    taskCont.setLog(task_id,onelog);
 }
 
 void Users::User::addTask(Tasks::Task oneTask)

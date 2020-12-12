@@ -5,6 +5,6 @@ Logs::Log::Log(){}
 
 Logs::Log::~Log()
 {
-    std::cout<<"dest\n";
+    std::cout<<"DESTDESTDESTDESTDESTDESTDESTDEST\n";
 }
 

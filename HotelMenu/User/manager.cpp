@@ -28,8 +28,8 @@ void Users::Manager::printTasks() const
     //NE LEGYEN ABSZTRAKT
 }
 
-//void Users::Manager::printLogs() const
-//{
-//    //NE LEGYEN ABSZTRAKT
-//}
+void Users::Manager::printLogs() const
+{
+    //NE LEGYEN ABSZTRAKT
+}
 

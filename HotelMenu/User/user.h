@@ -94,10 +94,8 @@ namespace  Users
 
         //virtual void printLogs()const = 0;
 
-        void printLogs() const
-        {
-            taskCont.printAllLog();
-        }
+        virtual void printLogs() const=0;
+
         virtual ~User();
 
 
