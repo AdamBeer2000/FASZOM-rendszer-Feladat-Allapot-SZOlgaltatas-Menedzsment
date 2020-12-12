@@ -1,5 +1,10 @@
 #include "usermanager.h"
 
+Users::User *UserManager::getLoggedUser() const
+{
+    return loggedUser;
+}
+
 UserManager::UserManager(std::list<Users::User *>_users)
 {
     for(auto user : _users)

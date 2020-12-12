@@ -51,6 +51,7 @@ public:
 
     void logTask(std::string task_id, Logs::Log * onelog);
     void logTask(std::string username,std::string task_id, Logs::Log * onelog);
+
     void setTaskStatusDone(std::string username, std::string task_id);
     std::string getLeastBusyWorker(Users::jobs jobID);
 
@@ -87,6 +88,7 @@ public:
             }
         };
 
+        Users::User *getLoggedUser() const;
 };
 
 #endif // USERMANAGER_H

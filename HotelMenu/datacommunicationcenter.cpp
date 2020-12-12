@@ -286,6 +286,16 @@ void DataCommunicationCenter::cleanRoom(std::string username, std::string task_i
 
 }
 
+void DataCommunicationCenter::takeCleaningTask(int roomID)
+{
+    std::stringstream ss;
+    ss<<"Takarizsd ki a "<<roomID<<"-szobat";
+    std::string todo=ss.str();
+    Tasks::Task cTask(user_man.getLoggedUser()->getUsername(),generateTaskId(returnLoggedJob(),Users::taskdata::CLN),todo,false);
+    cTask.setRoomid(roomID);
+    user_man.addTask(user_man.getLoggedUser()->getUsername(),cTask);
+}
+
 void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
 {
     std::stringstream fortodo;

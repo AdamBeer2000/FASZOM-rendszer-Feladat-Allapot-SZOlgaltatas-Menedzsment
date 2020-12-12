@@ -114,10 +114,53 @@ void CommandPanel::replace()
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
-void CommandPanel::cleanroom()
+void CommandPanel::takeCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"cleanroom"<<std::endl;
+    int roomId;
+    std::cout<<"Melyikt szobat takaritanad ki??";
+    std::cin>>roomId;//lehet nem igenyel takaritast
+    data_com->takeCleaningTask(roomId);
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+}
+
+void CommandPanel::logCleanroom()
+{
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::string tasId;
+    std::cout<<"Melyikt munkad vegezted el??";
+    std::cin>>tasId;//lehet invalid a task
+    date d;
+    DateBuilder db;
+    std::string date;
+
+    std::cout<<"Mikor? :";
+    std::cin>>date;
+    d=db.build(date);
+
+    std::string talat;
+    std::cout<<"Volt talalt targy? (I/N) :";
+    std::cin>>talat;
+
+    if(talat=="I"||talat=="i")
+    {
+        std::cout<<"Micsoda? :";
+        std::cin>>talat;
+
+        /*
+        Logs::LogCleaning tempLog(roomID,talat,d);
+        temp.setLog(&tempLog);
+        addTask(employee,temp);
+        */
+    }
+    if(talat=="N"||talat=="n")
+    {
+
+    }
+
+
+
+    //data_com->logTask(tasId,)
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -139,7 +182,6 @@ void CommandPanel::printLostItems()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout << "Talalt targyak:\n" << std::endl;
-    data_com->printLostItem();
     std::cout << std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
@@ -150,6 +192,8 @@ void CommandPanel::changeRoomStatus()
     std::cout<<"changeRoomStatus"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
+
+
 
 void CommandPanel::createTask()
 {
@@ -436,7 +480,8 @@ void CommandPanel::seudoMain()
                     case cPrintAllLogs:printAllLogs();break;
                     case cFix:fix();break;
                     case cReplace:replace();break;
-                    case cClean:cleanroom();break;
+                    case cTakeClean:takeCleanroom();break;
+                    case cLogClean:logCleanroom();break;
                     case cAcceptRes:acceptReservation();break;
                     case cDenyRes:denyReservation();break;
                     case cPrintLostItems:printLostItems();break;

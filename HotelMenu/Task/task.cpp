@@ -4,6 +4,16 @@ using namespace Tasks;
 
 //CONSTRUCTORS
 
+int Task::getRoomid() const
+{
+    return roomid;
+}
+
+void Task::setRoomid(int value)
+{
+    roomid = value;
+}
+
 Task::Task(std::string _employee, std::string _task_id, std::string _todo, bool _status)
 {
     employee=_employee;

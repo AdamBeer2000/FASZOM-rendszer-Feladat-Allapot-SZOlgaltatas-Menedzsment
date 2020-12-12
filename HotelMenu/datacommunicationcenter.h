@@ -94,11 +94,12 @@ public:
     void printRes();
 
     //jobs
-    void logTask(std::string task_id,Logs::Log * one_log);//bejelentkezet felhasznál    TODO
-    void logTask(std::string username,std::string task_id,Logs::Log * one_log);//bármijen felhasznél TODO
+    void logTask(std::string task_id,Logs::Log * one_log);
+    void logTask(std::string username,std::string task_id,Logs::Log * one_log);
 
     //egy munkát adnak a legkevésbbé terhelt munkásnak
     void cleanRoom(std::string username,std::string task_id,Logs::Log * one_log);
+    void takeCleaningTask(int roomID);
 
 
     void fixItemReqest(int szobaID , std::string item);

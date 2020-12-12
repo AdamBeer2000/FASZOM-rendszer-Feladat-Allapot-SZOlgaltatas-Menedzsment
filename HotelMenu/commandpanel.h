@@ -27,7 +27,8 @@ private:
         cPrintAllLogs,      //print all log         print al
         cFix,               //fix
         cReplace,           //replace
-        cClean,             //clean
+        cTakeClean,         //take clean            take c
+        cLogClean,          //log clean             log c
         cAcceptRes,         //accept reservation    accept r
         cDenyRes,           //deny reservation      deny r
         cPrintLostItems,    //print lost            print l
@@ -64,8 +65,9 @@ private:
     void fix();
     void replace();
 
-    //cleaner
-    void cleanroom();
+    //cleaner  
+    void takeCleanroom();
+    void logCleanroom();
 
     //recepcionist
     void acceptReservation();
@@ -169,7 +171,8 @@ public:
                 case cPrintAllLogs:ss<< "placeholder";break;
                 case cFix:ss<< "placeholder";break;
                 case cReplace:ss<< "placeholder";break;
-                case cClean:ss<< "placeholder";break;
+                case cTakeClean:ss<< "placeholder";break;
+                case cLogClean:ss<< "placeholder";break;
                 case cAcceptRes:ss<< "placeholder";break;
                 case cDenyRes:ss<< "placeholder";break;
                 case cPrintLostItems:ss<< "placeholder";break;
@@ -211,12 +214,37 @@ public:
         if( inputs[0] == "report" ) return cReport;
         if( inputs[0] == "fix" ) return cFix;
         if( inputs[0] == "replace" ) return cReplace;
-        if( inputs[0] == "clean" ) return cClean;
         if( inputs[0] == "registrate" ) return cReg;
         if( inputs[0] == "book" ) return cBook;
         if( inputs[0] == "rate" ) return cRate;
         if( inputs[0] == "exit" ) return cRate;
 
+        if(inputs[0]=="take")
+        {
+            if( inputs[1] == "clean" )return cTakeClean;
+            if( inputs[1] == "c")return cTakeClean;
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
+        }
+        if(inputs[0]=="log")
+        {
+            if( inputs[1] == "clean" )return cLogClean;
+            if( inputs[1] == "c")return cLogClean;
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                throw CommandNotFoundException(originalinput);
+            }
+        }
         if(inputs[0]=="print")
         {
             if( inputs[1] == "tasks" )return cPrintMyTask;

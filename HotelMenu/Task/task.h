@@ -25,7 +25,7 @@ namespace Tasks
         bool status;
         Logs::Log* log;
         Reservation res;
-
+        int roomid;
 
     public:
         //EXCEPTION CLASS
@@ -72,6 +72,8 @@ namespace Tasks
         //SETTERS
         void setStatus(bool value);
         void setLog(Logs::Log* log);
+        int getRoomid() const;
+        void setRoomid(int value);
     };
 } // eof Tasks
 #endif // TASK_H
