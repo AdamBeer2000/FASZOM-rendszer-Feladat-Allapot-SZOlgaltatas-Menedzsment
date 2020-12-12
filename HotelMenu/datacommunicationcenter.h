@@ -86,6 +86,7 @@ public:
     void addTask(Tasks::Task task);
     void deleteTask(std::string task_id);
     std::map<std::string, std::string> showTasks();
+    void setTaskStatus(std::string user, std::string task_id);
 
     void bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
 

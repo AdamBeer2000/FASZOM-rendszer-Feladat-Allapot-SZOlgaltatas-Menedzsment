@@ -102,20 +102,60 @@ void CommandPanel::rating()
 
 void CommandPanel::fix()
 {
+    std::string task_id;
+    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"fix"<<std::endl;
+    do
+    {
+        std::cout << "Javitas:\nAdja meg a feladat azonositot: " << std::flush;
+        std::cin >> task_id;
+        if(task_id.substr(4,7) != "FIX")
+        {
+            invalid = true;
+            std::cout << "Nem megfelelo feladat azonosito" << std::endl;
+        }
+        else
+        {
+            invalid = false;
+        }
+    }while(invalid);
+    Logs::Log *log;
+    data_com->logTask(task_id, log);
+
+    std::cout<<"Javitas sikeresen befejezodott!"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::replace()
 {
+    std::string task_id;
+    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"replace"<<std::endl;
+    do
+    {
+        std::cout << "Csere:\nAdja meg a feladat azonositot: " << std::flush;
+        std::cin >> task_id;
+        if(task_id.substr(4,7) != "REP")
+        {
+            invalid = true;
+            std::cout << "Nem megfelelo feladat azonosito" << std::endl;
+        }
+        else
+        {
+            invalid = false;
+        }
+    }while(invalid);
+    Logs::Log *log;
+    data_com->logTask(task_id, log);
+
+    std::cout<<"Csere sikeresen befejezodott!"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::takeCleanroom()
 {
+    std::string task_id;
+    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
     std::cout<<"Melyikt szobat takaritanad ki??";
@@ -146,13 +186,17 @@ void CommandPanel::logCleanroom()
     {
         std::cout<<"Micsoda? :";
         std::cin>>talat;
+
+        /*
+        Logs::LogCleaning tempLog(roomID,talat,d);
+        temp.setLog(&tempLog);
+        addTask(employee,temp);
+        */
     }
     if(talat=="N"||talat=="n")
     {
 
     }
-    //data_com->logTask(tasId,)
-    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::acceptReservation()
@@ -192,6 +236,7 @@ void CommandPanel::createTask()
     std::string username, todo, job_id_raw, task_type_raw, room;
     Users::jobs job_id;
     Users::taskdata task_type;
+    int roomid;
     bool wrong_data = false;
     do
     {
@@ -252,6 +297,9 @@ void CommandPanel::createTask()
     }while(wrong_data);
 
     Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);
+    std::stringstream s(room);
+    s >> roomid;
+    task.setRoomid(roomid);
     data_com->addTask(task);
     task.printTask();
 }
