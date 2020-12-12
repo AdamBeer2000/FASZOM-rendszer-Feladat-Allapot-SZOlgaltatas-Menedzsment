@@ -56,20 +56,24 @@ void CommandPanel::registration()
 }
 
 void CommandPanel::bookRoom()
-{    std::string name,suitType, startDate, endDate, serving;
-     std::cout << "-------------------------------------------------------------------" << std::endl;
-     std::cout <<"Szobafoglalas" << std::endl;
-     std::cout << "Adja meg a nevet: " << std::flush;
-     std::cin >> name;
-     std::cout << "Adja meg a szobaosztalyt: " << std::flush;
-     std::cin >> suitType;
-     std::cout << "Adja meg mikortol szeretne itt tartozkodni: " << std::flush;
-     std::cin >> startDate;
-     std::cout << "Adja meg meddig szeretne itt tartozkodni: " << std::flush;
-     std::cin >> endDate;
-      std::cout << "Adja meg milyen kiszolgalast szeretne: " << std::flush;
-      std::cin >> serving;
-     std::cout << "-------------------------------------------------------------------" << std::endl;
+{
+    std::string name,suitType, startDate, endDate, serving;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Szobafoglalas" << std::endl;
+    std::cout << "Adja meg a nevet: " << std::flush;
+    std::cin >> name;
+    std::cout << "Adja megs a szobaosztalyt: " << std::flush;
+    std::cin >> suitType;
+    std::cout << "Adja meg mikortol szeretne itt tartozkodni: " << std::flush;
+    std::cin >> startDate;
+    std::cout << "Adja meg meddig szeretne itt tartozkodni: " << std::flush;
+    std::cin >> endDate;
+    std::cout << "Adja meg milyen kiszolgalast szeretne: " << std::flush;
+    std::cin >> serving;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    DateBuilder db;
+
+    data_com->bookRoom(name,Suit::stringToSuit(suitType),db.build(startDate),db.build(endDate),Serving::stringToServing(serving));
 
     std::cout<<"bookRoom"<<std::endl;
 }
@@ -362,7 +366,7 @@ void CommandPanel::printAllLogs()
 bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 {
     Users::jobs userPermisson=data_com->returnLoggedJob();
-
+/*
     switch (reqvestedCommand)
     {
         case cLogin:;return true;
@@ -382,9 +386,9 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
         case Users::jobs::REC: if(reqvestedCommand==cPrintMyTask||reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
         default:throw  NoPermissonException(reqvestedCommand);break;
     }
-
-    //return true;
-    return false;
+    */
+    return true;
+    //return false;
 }
 
 
@@ -410,7 +414,7 @@ void CommandPanel::seudoMain()
                     case cReport:reportLostItem();break;
                     case cPrintMyTask:printMyTasks();break;
                     case cReg:registration();break;
-                    case cBook:bookRoom();break;
+                    case cBook:bookRoom();data_com->printRes();break;
                     case cRate:rating();break;
                     case cCreateTask:createTask();break;
                     case cDeleteTask:deleteTask();break;

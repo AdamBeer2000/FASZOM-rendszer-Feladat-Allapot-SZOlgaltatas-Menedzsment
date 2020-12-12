@@ -260,6 +260,17 @@ std::map<std::string, std::string> DataCommunicationCenter::showTasks()
     return this->task_list;
 }
 
+void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
+{
+    reservation_cont.bookRoom(_userename,_apartment,_startTime,_endTime,_serving);
+    std::string worker =user_man.getLeastBusyWorker(Users::jobs::REC);
+    std::string todo="placeholder :/";
+    Tasks::Task task =generateTask(Users::REC,Users::taskdata::RES,worker,todo);
+    user_man.addTask(worker,task);
+}
+
+
+
 void DataCommunicationCenter::printMyTasks()
 {
     user_man.printTasksLogged();
