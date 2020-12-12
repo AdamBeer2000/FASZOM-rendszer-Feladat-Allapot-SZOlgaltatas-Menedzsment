@@ -260,6 +260,11 @@ std::map<std::string, std::string> DataCommunicationCenter::showTasks()
     return this->task_list;
 }
 
+void DataCommunicationCenter::setTaskStatus(std::string user, std::string task_id)
+{
+    user_man.setTaskStatusDone(user, task_id);
+}
+
 void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
 {
     reservation_cont.bookRoom(_userename,_apartment,_startTime,_endTime,_serving);
@@ -279,6 +284,16 @@ void DataCommunicationCenter::printMyTasks()
 void DataCommunicationCenter::printRes()
 {
     reservation_cont.printall();
+}
+
+void DataCommunicationCenter::logTask(std::string task_id, Logs::Log *one_log)
+{
+    user_man.logTask(task_id, one_log);
+}
+
+void DataCommunicationCenter::logTask(std::string username, std::string task_id, Logs::Log *one_log)
+{
+    user_man.logTask(username, task_id, one_log);
 }
 
 void DataCommunicationCenter::cleanRoom(std::string username, std::string task_id, Logs::Log *one_log)
