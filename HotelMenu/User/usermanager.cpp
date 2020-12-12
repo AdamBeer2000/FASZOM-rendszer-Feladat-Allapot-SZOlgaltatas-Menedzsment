@@ -96,7 +96,8 @@ void UserManager::loginWith(std::string username, std::string password)
 
 void UserManager::deleteUser(std::string username)
 {
-    users.find(username);
+    auto it = users.find(username);
+    users.erase(username);
 }
 
 
