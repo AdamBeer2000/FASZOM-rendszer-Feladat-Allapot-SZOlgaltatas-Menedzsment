@@ -42,7 +42,7 @@ int Users::User::getRoomId(std::string taskid)
 
 Tasks::Task Users::User::getTask(std::string taskId)
 {
-    return taskCont.getTassk(taskId);
+    return taskCont.getTask(taskId);
 }
 
 int Users::User::getNumberOfTasks() const

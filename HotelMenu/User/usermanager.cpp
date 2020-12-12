@@ -63,6 +63,8 @@ void UserManager::addUser(std::string username, std::string first_name, std::str
         case Users::jobs::MAN:
             added_user =new Users::Manager(first_name, last_name, username, birth_date, position,card_id, password);
             break;
+        default:
+            std::cout << "ERROR" << std::endl; //Error
     }
     users.insert({username, added_user});
 }
@@ -76,7 +78,7 @@ void UserManager::loginWith(std::string username, std::string password)
 {
         if(isLoggedIn())
         {
-            throw AlrreadyLoged();
+            throw AlreadyLoged();
         }
 
         std::map<std::string,Users::User *>::iterator finduser;
@@ -109,6 +111,11 @@ void UserManager::deleteUser(std::string username)
 }
 
 void UserManager::setTaskStatusDone(std::string username, std::string task_id)
+{
+    users.find(username)->second->setTaskStatus(task_id);
+}
+
+void UserManager::setTaskStatusDone(std::string task_id)
 {
     users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
 }

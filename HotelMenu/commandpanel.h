@@ -83,7 +83,7 @@ public:
     {
     }
     CommandPanel(std::list<Users::User*> users);
-    void seudoMain();//gyakorlatilag egy main
+    void pseudoMain();//gyakorlatilag egy main
 
     void TEST()
     {
@@ -177,13 +177,13 @@ public:
                 case cDenyRes:ss<< "placeholder";break;
                 case cPrintLostItems:ss<< "placeholder";break;
                 case cChangeRoomStatus:ss<< "placeholder";break;
-                //default:ss<<"error";break;
+                default:ss<<"error";break;
             }
             massage=ss.str();
         }
         NoPermissonException()
         {
-            massage="no perrmisson";
+            massage="no permisson";
         }
         virtual const char * what() const throw()
         {

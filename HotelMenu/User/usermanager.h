@@ -53,6 +53,7 @@ public:
     void logTask(std::string username,std::string task_id, Logs::Log * onelog);
 
     void setTaskStatusDone(std::string username, std::string task_id);
+    void setTaskStatusDone(std::string task_id);
     std::string getLeastBusyWorker(Users::jobs jobID);
 
     Tasks::Task getTask(std::string user,std::string task_id);
@@ -81,7 +82,7 @@ public:
             }
         };
 
-        class AlrreadyLoged:public std::exception
+        class AlreadyLoged:public std::exception
         {
             virtual const char * what() const throw()
             {

@@ -251,7 +251,7 @@ void DataCommunicationCenter::addTask(Tasks::Task task)
 void DataCommunicationCenter::deleteTask(std::string task_id)
 {
     user_man.deleteTask(task_id);
-    auto it = task_list.find(task_id);
+    auto it = task_list.find(task_id); //majd lesz
     task_list.erase(task_id);
 }
 
@@ -298,7 +298,7 @@ void DataCommunicationCenter::logTask(std::string username, std::string task_id,
 void DataCommunicationCenter::takeCleaningTask(int roomID)
 {
     std::stringstream ss;
-    ss<<"Takarizsd ki a "<<roomID<<"-szobat";
+    ss<<"Takaritsd ki a "<<roomID<<"-szobat";
     std::string todo=ss.str();
     Tasks::Task cTask(user_man.getLoggedUser()->getUsername(),generateTaskId(returnLoggedJob(),Users::taskdata::CLN),todo,false);
     cTask.setRoomid(roomID);

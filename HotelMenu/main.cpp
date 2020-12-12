@@ -28,7 +28,7 @@ using namespace Users;
 int main()
 {
     CommandPanel a=CommandPanel();
-    a.seudoMain();
+    a.pseudoMain();
 
     //datacom->printRes();
 

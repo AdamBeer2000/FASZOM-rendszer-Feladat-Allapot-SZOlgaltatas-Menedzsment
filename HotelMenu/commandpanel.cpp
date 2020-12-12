@@ -213,7 +213,7 @@ void CommandPanel::takeCleanroom()
     bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
-    std::cout<<"Melyikt szobat takaritanad ki??";
+    std::cout<<"Melyik szobat takaritanad ki?";
     std::cin>>roomId;//lehet nem igenyel takaritast
     data_com->takeCleaningTask(roomId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -223,7 +223,7 @@ void CommandPanel::logCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::string tasId;
-    std::cout<<"Melyikt munkad vegezted el??";
+    std::cout<<"Melyik munkad vegezted el?";
     std::cin>>tasId;//lehet invalid a task
     date d;
     DateBuilder db;
@@ -425,7 +425,7 @@ void CommandPanel::createEmployee()
         std::cin >> username;
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
-        std::cout << "Adja meg a belepo kartya számat: " << std::flush;
+        std::cout << "Adja meg a belepo kartya szamat: " << std::flush;
         std::cin >> card_id;
         std::cout << "Adja meg a szuletesi evet (pl.: 1980): " << std::flush;
         std::cin >> year;
@@ -509,11 +509,11 @@ void CommandPanel::printAllLogs()
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
-bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
+bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
 {
     Users::jobs userPermisson=data_com->returnLoggedJob();
 /*
-    switch (reqvestedCommand)
+    switch (requestedCommand)
     {
         case cLogin:;return true;
         case cLogout:;return true;
@@ -525,12 +525,12 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 
     switch (userPermisson)
     {
-        case Users::jobs::CLE: if(reqvestedCommand==cClean||reqvestedCommand==cPrintMyTask)return true;break;
-        case Users::jobs::GUE: if(reqvestedCommand==cBook||reqvestedCommand==cRate)return true;break;
-        case Users::jobs::JAN: if(reqvestedCommand==cFix||reqvestedCommand==cReplace||reqvestedCommand==cPrintMyTask)return true;break;
-        case Users::jobs::MAN: if(reqvestedCommand==cCreateTask||reqvestedCommand==cDeleteTask||reqvestedCommand==cCreateEmployee||reqvestedCommand==cEmploYeet||reqvestedCommand==cPrintAllLogs||reqvestedCommand==cPrintAllTask)return true;break;
-        case Users::jobs::REC: if(reqvestedCommand==cPrintMyTask||reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
-        default:throw  NoPermissonException(reqvestedCommand);break;
+        case Users::jobs::CLE: if(reqvestedCommand==cClean||requestedCommand==cPrintMyTask)return true;break;
+        case Users::jobs::GUE: if(reqvestedCommand==cBook||requestedCommand==cRate)return true;break;
+        case Users::jobs::JAN: if(reqvestedCommand==cFix||requestedCommand==cReplace||reqvestedCommand==cPrintMyTask)return true;break;
+        case Users::jobs::MAN: if(reqvestedCommand==cCreateTask||requestedCommand==cDeleteTask||reqvestedCommand==cCreateEmployee||reqvestedCommand==cEmploYeet||reqvestedCommand==cPrintAllLogs||reqvestedCommand==cPrintAllTask)return true;break;
+        case Users::jobs::REC: if(reqvestedCommand==cPrintMyTask||requestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
+        default:throw  NoPermissonException(requestedCommand);break;
     }
     */
     return true;
@@ -538,7 +538,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 }
 
 
-void CommandPanel::seudoMain()
+void CommandPanel::pseudoMain()
 {
 
     std::string command;

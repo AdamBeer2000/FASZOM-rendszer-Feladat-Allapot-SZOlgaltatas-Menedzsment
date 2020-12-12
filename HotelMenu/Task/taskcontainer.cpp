@@ -45,7 +45,7 @@ void TaskContainer::setLog(std::string task_id_l, Logs::Log *one_log)
         }
         else
         {
-            Tasks::Task::InvalidTaskException("[TASK DOES NOT EXISTS]: Task could not find!\n[ID: "+ task_id_l + "]");
+            Tasks::Task::InvalidTaskException("[TASK DOES NOT EXISTS]: Task could not be found!\n[ID: "+ task_id_l + "]");
         }
     }
     catch (Tasks::Task::InvalidTaskException& e)
@@ -75,7 +75,7 @@ int TaskContainer::getActiveTasksNumber() const
     return result;
 }
 
-Tasks::Task TaskContainer::getTassk(std::string task_id)
+Tasks::Task TaskContainer::getTask(std::string task_id)
 {
     return task_list.find(task_id)->second;
 }
@@ -96,7 +96,7 @@ void TaskContainer::setStatusDone(std::string task_id_st)
         }
         else
         {
-            Tasks::Task::InvalidTaskException("[TASK DOES NOT EXISTS]: Task could not find!\n[ID: "+ task_id_st + "]");
+            Tasks::Task::InvalidTaskException("[TASK DOES NOT EXISTS]: Task could not be found!\n[ID: "+ task_id_st + "]");
         }
     }
     catch (Tasks::Task::InvalidTaskException& e)
