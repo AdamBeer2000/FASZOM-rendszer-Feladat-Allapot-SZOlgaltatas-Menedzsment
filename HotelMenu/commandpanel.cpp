@@ -157,7 +157,6 @@ void CommandPanel::takeCleanroom()
     std::string task_id;
     bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-<<<<<<< Updated upstream
     int roomId;
     std::cout<<"Melyikt szobat takaritanad ki??";
     std::cin>>roomId;//lehet nem igenyel takaritast
@@ -198,31 +197,6 @@ void CommandPanel::logCleanroom()
     {
 
     }
-
-
-
-    //data_com->logTask(tasId,)
-=======
-    do
-    {
-        std::cout << "Takaritas:\nAdja meg a feladat azonositot: " << std::flush;
-        std::cin >> task_id;
-        if(task_id.substr(4,7) != "CLN" || task_id.substr(4,7) != "CLF")
-        {
-            invalid = true;
-            std::cout << "Nem megfelelo feladat azonosito" << std::endl;
-        }
-        else
-        {
-            invalid = false;
-        }
-    }while(invalid);
-    Logs::Log *log = new Logs::LogCleaning();
-    data_com->logTask(task_id, log);
-
-    std::cout<<"Takaritas sikeresen befejezodott!"<<std::endl;
->>>>>>> Stashed changes
-    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::acceptReservation()
