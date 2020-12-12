@@ -102,27 +102,37 @@ void CommandPanel::rating()
 
 void CommandPanel::fix()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"fix"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::replace()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"replace"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::cleanroom()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"cleanroom"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::acceptReservation()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"acceptReservation"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::denyReservation()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"denyReservation"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::printLostItems()
@@ -136,7 +146,9 @@ void CommandPanel::printLostItems()
 
 void CommandPanel::changeRoomStatus()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"changeRoomStatus"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::createTask()
