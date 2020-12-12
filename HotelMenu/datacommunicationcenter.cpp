@@ -275,7 +275,6 @@ void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _
 }
 
 
-
 void DataCommunicationCenter::printMyTasks()
 {
     user_man.printTasksLogged();
