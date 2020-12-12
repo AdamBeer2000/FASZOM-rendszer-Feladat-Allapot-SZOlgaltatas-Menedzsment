@@ -296,11 +296,6 @@ void DataCommunicationCenter::logTask(std::string username, std::string task_id,
     user_man.logTask(username, task_id, one_log);
 }
 
-void DataCommunicationCenter::cleanRoom(std::string username, std::string task_id, Logs::Log *one_log)
-{
-
-}
-
 void DataCommunicationCenter::takeCleaningTask(int roomID)
 {
     std::stringstream ss;
@@ -311,6 +306,23 @@ void DataCommunicationCenter::takeCleaningTask(int roomID)
     user_man.addTask(user_man.getLoggedUser()->getUsername(),cTask);
 }
 
+void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_date)
+{
+    room_cont.cleanRoom(getTask(task_id).getRoomid());
+    Logs::LogCleaning temp(getTask(task_id).getRoomid(),clean_date);
+    user_man.logTask(task_id,&temp);
+    user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
+}
+
+void DataCommunicationCenter::LogCleaningTask(std::string task_id, std::string item, date clean_date)
+{
+    room_cont.cleanRoom(getTask(task_id).getRoomid());
+    Logs::LogCleaning temp(getTask(task_id).getRoomid(),item,clean_date);
+    user_man.logTask(task_id,&temp);
+    user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
+
+}
+
 void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
 {
     std::stringstream fortodo;
@@ -319,6 +331,16 @@ void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
     std::string username = user_man.getLeastBusyWorker(Users::jobs::JAN);
     Tasks::Task task = generateTask(Users::jobs::JAN , Users::taskdata::FIX , username , mytodo);
     user_man.addTask(username , task);
+}
+
+Tasks::Task DataCommunicationCenter::getTask(std::string username, std::string taskId)
+{
+    return user_man.getTask(username,taskId);
+}
+
+Tasks::Task DataCommunicationCenter::getTask(std::string taskId)
+{
+    return user_man.getTask(user_man.getLoggedUser()->getPassword(),taskId);
 }
 
 

@@ -74,6 +74,7 @@ namespace Tasks
         void setLog(Logs::Log* log);
         int getRoomid() const;
         void setRoomid(int value);
+
     };
 } // eof Tasks
 #endif // TASK_H

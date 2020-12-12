@@ -104,6 +104,9 @@ public:
     //egy munkát adnak a legkevésbbé terhelt munkásnak
     void cleanRoom(std::string username,std::string task_id,Logs::Log * one_log);
     void takeCleaningTask(int roomID);
+    void LogCleaningTask(std::string task_id,date clean_date);
+    void LogCleaningTask(std::string task_id,std::string item,date clean_date);
+
 
 
     void fixItemReqest(int szobaID , std::string item);

@@ -73,7 +73,6 @@ int TaskContainer::getActiveTasksNumber() const
             result++;
         }
     }
-
     return result;
 }
 
