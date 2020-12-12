@@ -1,10 +1,10 @@
-Gyuriba#JANFIX55555#Nyeljen havat#1#FIX#lampabura#1406#eltort#0.046669#2020.10.4#2020.10.05
-Gyuriba#JANREP34344#Egyen sot#0
-Gyuriba#JANFIX89988#Sajt#0
-Romania#JANREP12345#Adjon penzt#1#REP#ajto#1405#valaki belevagott egy fejszet#2020.11.13#2020.11.13
-O1G#CLECLF34344#Piros szar a kek lofasz mellett#1#CLF#1403#Luger pisztoly#2020.11.17
-U#CLECLN81968#1#CLN#1400#2020.12.07
-having#RECRES34969#Its treason then#1#RES#true#imi#Notbad#Allinclusive#2020.12.19#2020.12.20#4.6669
-Romania#JANFIX11555#Kerd el a jegyzetet a Toth Lacitol#0
-O1G#CLECLF34388#Robot Santa#0
-having#RECRES21269#My muscles, my muscles#1#RES#true#yes#Medium#Premium#2022.01.09#2024.01.09#3406.837
+Gyuriba#JANFIX55555#Nyeljen havat#1406#1#FIX#lampabura#eltort#0.046669#2020.10.4#2020.10.05
+Gyuriba#JANREP34344#1400#Egyen sot#0
+Gyuriba#JANFIX89988#Sajt#1401#0
+Romania#JANREP12345#Adjon penzt#1405#1#REP#ajto#valaki belevagott egy fejszet#2020.11.13#2020.11.13
+O1G#CLECLF34344#Piros szar a kek lofasz mellett#1403#1#CLF#Luger pisztoly#2020.11.17
+U#CLECLN81968#Asd#1400#1#CLN#2020.12.07
+having#RECRES34969#Its treason then#1398#1#RES#true#imi#Notbad#Allinclusive#2020.12.19#2020.12.20#4.6669
+Romania#JANFIX11555#Kerd el a jegyzetet a Toth Lacitol#1393#0
+O1G#CLECLF34388#Robot Santa#1395#0
+having#RECRES21269#My muscles, my muscles#1394#1#RES#true#yes#Medium#Premium#2022.01.09#2024.01.09#3406.837
