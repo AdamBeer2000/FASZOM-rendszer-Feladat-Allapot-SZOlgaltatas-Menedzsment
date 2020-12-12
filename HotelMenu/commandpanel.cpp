@@ -33,7 +33,7 @@ void CommandPanel::reportLostItem()
 void CommandPanel::printMyTasks()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"Your unfinished tasks:"<<std::endl;
+    std::cout<<"Folyamatban levo feladataid:"<<std::endl;
     data_com->printMyTasks();
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
@@ -274,7 +274,7 @@ void CommandPanel::createEmployee()
     do
     {
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        std::cout << "Alkalmazott hozzáadása:\n" << std::endl;
+        std::cout << "Alkalmazott hozzaadasa:\n" << std::endl;
         std::cout << "Adja meg az alkalmazottnak szant felhasznalonevet: " << std::flush;
         std::cin >> username;
         std::cout << "Adja meg a beosztasat: " << std::flush;
@@ -321,7 +321,7 @@ void CommandPanel::emploYeet()
     {
         std::string username, confirm;
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        std::cout<< "Alkalmazott eltavolítasa:\n" << std::endl;
+        std::cout<< "Alkalmazott eltavolitasa:\n" << std::endl;
         std::cout << "Adja meg az eltavolitando szemely felhasznalonevet: " << std::flush;
         std::cin >> username;
         std::cout << "Biztos torolni akarja?\n[igen/nem]: " << std::flush;

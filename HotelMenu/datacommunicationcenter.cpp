@@ -57,7 +57,7 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
 void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
 {
     reservation_cont.deleteReservation(username);
-    user_man.setTaskStatusDone(findTask(taskid),taskid);
+    user_man.setTaskStatusDone(findTask(taskid), taskid);
 }
 
 void DataCommunicationCenter::registration(std::string username, std::string first_name, std::string last_name, std::string password)
