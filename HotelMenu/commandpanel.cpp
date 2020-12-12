@@ -1,8 +1,16 @@
 #include "commandpanel.h"
 
+
 void CommandPanel::login()
 {
-
+    std::string username,password;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Bejelentkezes" << std::endl;
+    std::cout << "Adja meg a felhasznalonevet: " << std::flush;
+    std::cin >> username;
+    std::cout << "Adja meg a jelszavat: " << std::flush;
+    std::cin >> password;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"login"<<std::endl;
 }
 
@@ -14,6 +22,14 @@ void CommandPanel::logout()
 
 void CommandPanel::reportLostItem()
 {
+    std::string name,description;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Talalt targy bejelentese" << std::endl;
+    std::cout << "Adja meg a targy nevet: " << std::flush;
+    std::cin >> name;
+    std::cout << "Adja meg a leirasat: " << std::flush;
+    std::cin >> description;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"reportLostItem"<<std::endl;
 }
 
@@ -24,17 +40,186 @@ void CommandPanel::printMyTasks()
 
 void CommandPanel::registration()
 {
+    std::string firstname,lastname,username,password;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Regisztracio" << std::endl;
+    std::cout << "Adja meg keresztnevet: " << std::flush;
+    std::cin >> firstname;
+    std::cout << "Adja meg csaladnevet: " << std::flush;
+    std::cin >> lastname;
+    std::cout << "Adja meg felhasznalonevet: " << std::flush;
+    std::cin >> username;
+    std::cout << "Adja meg jelszavat: " << std::flush;
+    std::cin >> password;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+
     std::cout<<"registration"<<std::endl;
 }
 
 void CommandPanel::bookRoom()
-{
+{    std::string name,suitType, startDate, endDate, serving;
+     std::cout << "-------------------------------------------------------------------" << std::endl;
+     std::cout <<"Szobafoglalas" << std::endl;
+     std::cout << "Adja meg a nevet: " << std::flush;
+     std::cin >> name;
+     std::cout << "Adja meg a szobaosztalyt: " << std::flush;
+     std::cin >> suitType;
+     std::cout << "Adja meg mikortol szeretne itt tartozkodni: " << std::flush;
+     std::cin >> startDate;
+     std::cout << "Adja meg meddig szeretne itt tartozkodni: " << std::flush;
+     std::cin >> endDate;
+      std::cout << "Adja meg milyen kiszolgalast szeretne: " << std::flush;
+      std::cin >> serving;
+     std::cout << "-------------------------------------------------------------------" << std::endl;
+
     std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
 {
+    std::string rate;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Ertekeles" << std::endl;
+    std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
+    std::cin >>  rate;
     std::cout<<"rating"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+
+}
+
+void CommandPanel::createTask()
+{
+
+    std::string username, todo, job_id_raw, task_type_raw, room;
+    Users::jobs job_id;
+    Users::taskdata task_type;
+    bool wrong_data = false;
+    do
+    {
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout << "Feladat kiadasa:\n" << std::endl;
+        std::cout << "Adja meg az alkalmazott felhasznalonevet: " << std::flush;
+        std::cin >> username;
+        std::cout << "Adja meg a beosztasat: " << std::flush;
+        std::cin >> job_id_raw;
+        std::cout << "Adja meg a feladat tipusat: " << std::flush;
+        std::cin >> task_type_raw;
+        std::cout << "Adja meg melyik szobaban: " << std::flush;
+        std::cin >> room;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+
+        todo = "Szoba: " + room + " [" + task_type_raw + "]";
+
+        if(job_id_raw == "Takarito")
+        {
+            job_id = Users::jobs::CLE;
+        }
+        else if(job_id_raw == "Karbantarto")
+        {
+            job_id = Users::jobs::JAN;
+        }
+        else if(job_id_raw == "Recepcios")
+        {
+            job_id = Users::jobs::REC;
+        }
+        else
+        {
+            wrong_data = true;
+            job_id = Users::jobs::ERR;
+        }
+
+        if(task_type_raw == "Takaritas")
+        {
+            task_type = Users::taskdata::CLN;
+        }
+        else if(task_type_raw == "Csere")
+        {
+            task_type = Users::taskdata::REP;
+        }
+        else if(task_type_raw == "Javitas")
+        {
+            task_type = Users::taskdata::FIX;
+        }
+        else if(task_type_raw == "Kiadas")
+        {
+            task_type = Users::taskdata::RES;
+        }
+        else
+        {
+            wrong_data = true;
+            task_type = Users::taskdata::ER2;
+        }
+
+    }while(wrong_data);
+
+    Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);
+    data_com->addTask(task);
+    task.printTask();
+}
+
+void CommandPanel::deleteTask()
+{
+    std::cout<<"deleteTask"<<std::endl;
+}
+
+void CommandPanel::createEmployee()
+{
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout << "Alkalmazott felvetele" << std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout<<"createEmployee"<<std::endl;
+}
+
+void CommandPanel::emploYeet()
+{
+    std::cout<<"emploYeet"<<std::endl;
+}
+
+void CommandPanel::printAllTasks()
+{
+    std::cout<<"printAllTasks"<<std::endl;
+}
+
+void CommandPanel::printAllLogs()
+{
+    std::cout<<"printAllLogs"<<std::endl;
+}
+
+void CommandPanel::fix()
+{
+    std::cout<<"fix"<<std::endl;
+}
+
+void CommandPanel::replace()
+{
+    std::cout<<"replace"<<std::endl;
+}
+
+void CommandPanel::cleanroom()
+{
+    std::cout<<"cleanroom"<<std::endl;
+}
+
+void CommandPanel::acceptReservation()
+{
+    std::cout<<"acceptReservation"<<std::endl;
+}
+
+void CommandPanel::denyReservation()
+{
+    std::cout<<"denyReservation"<<std::endl;
+}
+
+void CommandPanel::printLostItems()
+{
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout<<"printLostItems"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+}
+
+void CommandPanel::changeRoomStatus()
+{
+    std::cout<<"changeRoomStatus"<<std::endl;
 }
 
 void CommandPanel::createTask()
