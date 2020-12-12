@@ -32,6 +32,16 @@ Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _
     log=nullptr;
 }
 
+Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _status, int _roomid)
+{
+    employee=_employee;
+    task_id=_task_id;
+    this->res=res;
+    status=_status;
+    log=nullptr;
+    roomid=_roomid;
+}
+
 //DESTRUCTOR
 Task::~Task()
 {

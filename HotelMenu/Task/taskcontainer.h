@@ -27,6 +27,7 @@ public:
     int getActiveTasksNumber() const;
 
     Tasks::Task getTassk(std::string task_id);
+    int getRoomId(std::string taskid);
 
     //+FUNCTIONS
     bool ContainerIsEmpty();

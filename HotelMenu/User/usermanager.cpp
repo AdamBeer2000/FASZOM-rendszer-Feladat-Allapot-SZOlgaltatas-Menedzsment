@@ -137,6 +137,11 @@ Tasks::Task UserManager::getTask(std::string user, std::string task_id)
     return users.find(user)->second->getTask(task_id);
 }
 
+int UserManager::getRoomId(std::string username,std::string taskid)
+{
+    return users.find(username)->second->getRoomId(taskid);
+}
+
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);
@@ -278,6 +283,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
     std::string task_id;
     std::string todo;
     bool status;
+    int roomid;
 
     while(getline (readtask, oneline))
     {
@@ -296,6 +302,11 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
             temp=oneline.substr(0,oneline.find('#'));
+            std::stringstream strm2(temp);
+            strm2 >>roomid;
+            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+            temp=oneline.substr(0,oneline.find('#'));
             if(temp=="0")
             {
                 status=false;
@@ -305,7 +316,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                 status=true;
             }
             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
+            //std::cout<<"Corr:"<<oneline<<std::endl;
             if(status)
             {
                 using namespace Users;

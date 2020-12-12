@@ -1,6 +1,0 @@
-Gyuriba#JANFIX55555#Nyeljen havat#1#FIX#lampabura#eltort#0.046669#2020.10.4#2020.10.05
-Romania#JANREP12345#Adjon penzt#1#REP#ajto#valaki belevagott egy fejszet#2020.11.13#2020.11.13
-O1G#CLECLF34344#Piros szar a kek lofasz mellett#1#CLF#Luger pisztoly#2020.11.17
-U#CLECLN81968#1#CLN#2020.12.07
-having#RECRES34969#Its treason then#1#RES#true#imi#Notbad#Allinclusive#2020.12.19#2020.12.20#4.6669
-having#RECRES21269#My muscles, my muscles#1#RES#true#yes#Medium#Premium#2022.01.09#2024.01.09#3406.837

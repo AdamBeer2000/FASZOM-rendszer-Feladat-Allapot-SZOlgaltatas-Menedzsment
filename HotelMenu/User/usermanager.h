@@ -56,6 +56,7 @@ public:
     std::string getLeastBusyWorker(Users::jobs jobID);
 
     Tasks::Task getTask(std::string user,std::string task_id);
+    int getRoomId(std::string username,std::string taskid);
 
     class WrongUsernameException:public std::exception
         {

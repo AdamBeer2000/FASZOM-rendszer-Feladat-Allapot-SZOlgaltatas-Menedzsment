@@ -75,6 +75,7 @@ namespace  Users
         jobs getJobID() const;
         int getCardID() const;
         std::string getPassword() const;
+        int getRoomId(std::string taskid);
 
         Tasks::Task getTask(std::string taskId);
 

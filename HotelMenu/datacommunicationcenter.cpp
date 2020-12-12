@@ -17,7 +17,7 @@ DataCommunicationCenter::DataCommunicationCenter()
     user_man.printAllTask();
 
     std::cout<<"LOGS  LOADING:"<<std::endl;
-    user_man.printLogs();
+    //user_man.printLogs();
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
@@ -302,22 +302,31 @@ void DataCommunicationCenter::takeCleaningTask(int roomID)
     std::string todo=ss.str();
     Tasks::Task cTask(user_man.getLoggedUser()->getUsername(),generateTaskId(returnLoggedJob(),Users::taskdata::CLN),todo,false);
     cTask.setRoomid(roomID);
+
+    std::cout<<cTask.getRoomid()<<std::endl;
+
     user_man.addTask(user_man.getLoggedUser()->getUsername(),cTask);
 }
 
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_date)
 {
-    room_cont.cleanRoom(getTask(task_id).getRoomid());
+    room_cont.cleanRoom(user_man.getRoomId(user_man.getLoggedUser()->getUsername(),task_id));
+
     Logs::LogCleaning temp(clean_date);
+
     user_man.logTask(task_id,&temp);
+
     user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
 }
 
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, std::string item, date clean_date)
 {
-    room_cont.cleanRoom(getTask(task_id).getRoomid());
+    room_cont.cleanRoom(user_man.getRoomId(user_man.getLoggedUser()->getUsername(),task_id));
+
     Logs::LogCleaning temp(item,clean_date);
+
     user_man.logTask(task_id,&temp);
+
     user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
 
 }

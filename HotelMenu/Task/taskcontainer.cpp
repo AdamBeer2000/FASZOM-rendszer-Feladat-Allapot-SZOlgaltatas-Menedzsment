@@ -81,6 +81,11 @@ Tasks::Task TaskContainer::getTassk(std::string task_id)
     return task_list.find(task_id)->second;
 }
 
+int TaskContainer::getRoomId(std::string taskid)
+{
+    return task_list.find(taskid)->second.getRoomid();
+}
+
 void TaskContainer::setStatusDone(std::string task_id_st)
 {
     auto it = task_list.find(task_id_st);
