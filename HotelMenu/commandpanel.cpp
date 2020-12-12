@@ -74,6 +74,8 @@ void CommandPanel::bookRoom()
     DateBuilder db;
 
     data_com->bookRoom(name,Suit::stringToSuit(suitType),db.build(startDate),db.build(endDate),Serving::stringToServing(serving));
+
+    std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
@@ -81,7 +83,7 @@ void CommandPanel::rating()
     std::string rate;
     int stars;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout <<"Ertekeles:" << std::endl;
+    std::cout <<"Ertekeles" << std::endl;
     do
     {
         std::cout << "Hany csillagra ertekeli az ellatast [1-5]: " << std::flush;
@@ -277,8 +279,11 @@ void CommandPanel::changeRoomStatus()
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
+
+
 void CommandPanel::createTask()
 {
+
     std::string username, todo, job_id_raw, task_type_raw, room;
     Users::jobs job_id;
     Users::taskdata task_type;
@@ -354,7 +359,6 @@ void CommandPanel::deleteTask()
 {
     bool wrong_data = false;
     std::string task_id, confirm, sure;
-
     do
     {
         std::cout << "-------------------------------------------------------------------" << std::endl;
