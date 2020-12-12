@@ -153,6 +153,12 @@ void UserManager::logTask(std::string task_id, Logs::Log *onelog)
     users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
 }
 
+void UserManager::logTask(std::string username, std::string task_id, Logs::Log *onelog)
+{
+    users.find(username)->second->setLog(task_id,onelog);
+    users.find(username)->second->setTaskStatus(task_id);
+}
+
 void UserManager::printAllTask() const
 {
     for(auto cit = users.cbegin(); cit != users.cend(); ++cit)

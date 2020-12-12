@@ -93,7 +93,6 @@ void CommandPanel::rating()
     data_com->addRating(stars, rate);
     std::cout << "Koszonjuk az ertekelest" << std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-
 }
 
 void CommandPanel::fix()

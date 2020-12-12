@@ -271,6 +271,16 @@ void DataCommunicationCenter::printRes()
     reservation_cont.printall();
 }
 
+void DataCommunicationCenter::logTask(std::string task_id, Logs::Log *one_log)
+{
+    user_man.logTask(task_id,one_log);
+}
+
+void DataCommunicationCenter::logTask(std::string username, std::string task_id, Logs::Log *one_log)
+{
+    user_man.logTask(username,task_id,one_log);
+}
+
 void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
 {
     std::stringstream fortodo;
