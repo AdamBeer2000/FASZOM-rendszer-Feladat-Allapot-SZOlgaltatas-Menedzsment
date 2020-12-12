@@ -197,7 +197,6 @@ void UserManager::printLogs() const
         std::cout << cit->first <<"\'s logs:" <<std::endl;
         cit->second->printLogs();
         std::cout << std::endl;
-
     }
 }
 
@@ -333,19 +332,13 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
                             std::string fail=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
                             std::stringstream strm2(temp);
                             double cost;
-                            strm >>cost;
+                            strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
@@ -369,19 +362,13 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
                             std::string fail=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
                             std::stringstream strm2(temp);
                             double cost;
-                            strm >>cost;
+                            strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
@@ -409,12 +396,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
-                            temp=oneline.substr(0,oneline.find('#'));
                             std::string guestname=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
@@ -437,7 +418,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             temp=oneline.substr(0,oneline.find('#'));
                             std::stringstream strm2(temp);
                             double cost;
-                            strm >>cost;
+                            strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
@@ -450,12 +431,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                     break;
                     case CLF:
                         {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
                             temp=oneline.substr(0,oneline.find('#'));
                             std::string item=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
@@ -473,12 +448,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                     break;
                     case CLN:
                         {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm(temp);
-                            int roomID;
-                            strm >> roomID;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
                             temp=oneline.substr(0,oneline.find('#'));
                             date datE=DateBuilder::build(temp);
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());

@@ -31,7 +31,10 @@ void TaskContainer::printAllLog() const
 {
     for(auto it = task_list.begin(); it != task_list.end(); it++)
     {
-        (*it).second.printLog();
+        if(!it->second.isActive())
+        {
+            (*it).second.printLog();
+        }
     }
 }
 
