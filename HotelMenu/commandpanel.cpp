@@ -236,6 +236,7 @@ void CommandPanel::createTask()
     std::string username, todo, job_id_raw, task_type_raw, room;
     Users::jobs job_id;
     Users::taskdata task_type;
+    int roomid;
     bool wrong_data = false;
     do
     {
@@ -296,6 +297,9 @@ void CommandPanel::createTask()
     }while(wrong_data);
 
     Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);
+    std::stringstream s(room);
+    s >> roomid;
+    task.setRoomid(roomid);
     data_com->addTask(task);
     task.printTask();
 }
