@@ -211,7 +211,7 @@ void CommandPanel::takeCleanroom()
     bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
-    std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
+    std::cout<<"Melyik szobat takaritanad ki?";
     std::cin>>roomId;//lehet nem igenyel takaritast
     data_com->takeCleaningTask(roomId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -221,23 +221,23 @@ void CommandPanel::logCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::string tasId;
-    std::cout<<"Melyik munkad vegezted el? " << std::flush;
+    std::cout<<"Melyik munkad vegezted el?";
     std::cin>>tasId;//lehet invalid a task
     date d;
     DateBuilder db;
     std::string date;
 
-    std::cout<<"Mikor? :" << std::flush;
+    std::cout<<"Mikor? :";
     std::cin>>date;
     d=db.build(date);
 
     std::string talat;
-    std::cout<<"Volt talalt targy? (I/N): " << std::flush;
+    std::cout<<"Volt talalt targy? (I/N) :";
     std::cin>>talat;
 
     if(talat=="I"||talat=="i")
     {
-        std::cout<<"Micsoda?: " << std::flush;
+        std::cout<<"Micsoda? :";
         std::cin>>talat;
         data_com->LogCleaningTask(tasId,talat,d);
     }
