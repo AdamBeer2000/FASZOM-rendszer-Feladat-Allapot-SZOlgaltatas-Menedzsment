@@ -76,6 +76,8 @@ namespace  Users
         int getCardID() const;
         std::string getPassword() const;
 
+        Tasks::Task getTask(std::string taskId);
+
         int getNumberOfTasks() const;
 
         void setLog(const std::string& task_id , Logs::Log* onelog);

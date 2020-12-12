@@ -146,20 +146,11 @@ void CommandPanel::logCleanroom()
     {
         std::cout<<"Micsoda? :";
         std::cin>>talat;
-
-        /*
-        Logs::LogCleaning tempLog(roomID,talat,d);
-        temp.setLog(&tempLog);
-        addTask(employee,temp);
-        */
     }
     if(talat=="N"||talat=="n")
     {
 
     }
-
-
-
     //data_com->logTask(tasId,)
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }

@@ -55,7 +55,7 @@ public:
     void setTaskStatusDone(std::string username, std::string task_id);
     std::string getLeastBusyWorker(Users::jobs jobID);
 
-
+    Tasks::Task getTask(std::string user,std::string task_id);
 
     class WrongUsernameException:public std::exception
         {

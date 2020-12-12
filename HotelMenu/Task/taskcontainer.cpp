@@ -77,6 +77,11 @@ int TaskContainer::getActiveTasksNumber() const
     return result;
 }
 
+Tasks::Task TaskContainer::getTassk(std::string task_id)
+{
+    return task_list.find(task_id)->second;
+}
+
 void TaskContainer::setStatusDone(std::string task_id_st)
 {
     auto it = task_list.find(task_id_st);

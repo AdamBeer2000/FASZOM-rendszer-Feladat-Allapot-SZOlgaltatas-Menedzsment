@@ -35,6 +35,11 @@ std::string Users::User::getPassword() const
     return password;
 }
 
+Tasks::Task Users::User::getTask(std::string taskId)
+{
+    return taskCont.getTassk(taskId);
+}
+
 int Users::User::getNumberOfTasks() const
 {
     return taskCont.getActiveTasksNumber();;

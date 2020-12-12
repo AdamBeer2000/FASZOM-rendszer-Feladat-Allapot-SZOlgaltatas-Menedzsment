@@ -131,6 +131,12 @@ std::string UserManager::getLeastBusyWorker(Users::jobs jobID)
     }
     return min->first;
 }
+
+Tasks::Task UserManager::getTask(std::string user, std::string task_id)
+{
+    return users.find(user)->second->getTask(task_id);
+}
+
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);

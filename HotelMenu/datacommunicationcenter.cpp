@@ -281,10 +281,14 @@ void DataCommunicationCenter::printRes()
     reservation_cont.printall();
 }
 
-void DataCommunicationCenter::cleanRoom(std::string username, std::string task_id, Logs::Log *one_log)
+void DataCommunicationCenter::addCleaningLog(std::string task_id,date date_of_cleaning)
 {
-
+    /*user_man.
+    Logs::LogCleaning tempLog(room_id_c,date_of_cleaning);
+    temp.setLog(&tempLog);
+    addTask(employee,temp);*/
 }
+
 
 void DataCommunicationCenter::takeCleaningTask(int roomID)
 {
@@ -304,6 +308,16 @@ void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
     std::string username = user_man.getLeastBusyWorker(Users::jobs::JAN);
     Tasks::Task task = generateTask(Users::jobs::JAN , Users::taskdata::FIX , username , mytodo);
     user_man.addTask(username , task);
+}
+
+Tasks::Task DataCommunicationCenter::getTask(std::string username, std::string taskId)
+{
+    return user_man.getTask(username,taskId);
+}
+
+Tasks::Task DataCommunicationCenter::getTask(std::string taskId)
+{
+    return  user_man.getTask(user_man.getLoggedUser()->getUsername(),taskId);
 }
 
 

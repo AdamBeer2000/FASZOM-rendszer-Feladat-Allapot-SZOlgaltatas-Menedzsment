@@ -96,6 +96,9 @@ public:
     //jobs
     void logTask(std::string task_id,Logs::Log * one_log);
     void logTask(std::string username,std::string task_id,Logs::Log * one_log);
+    void addCleaningLog(std::string task_id,date date_of_cleaning);//talalt targyal
+    void addCleaningLog(std::string task_id, std::string item_c, date date_of_cleaning);//talalt targy nelkul
+
 
     //egy munkát adnak a legkevésbbé terhelt munkásnak
     void cleanRoom(std::string username,std::string task_id,Logs::Log * one_log);
@@ -104,6 +107,9 @@ public:
 
     void fixItemReqest(int szobaID , std::string item);
     void reservacionReq(Tasks::Task resTask);//todo
+
+    Tasks::Task getTask(std::string username,std::string taskId);
+    Tasks::Task getTask(std::string taskId);
 
 };
 

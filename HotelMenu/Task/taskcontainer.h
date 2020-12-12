@@ -26,6 +26,8 @@ public:
     bool taskExists(std::string task_id_e);
     int getActiveTasksNumber() const;
 
+    Tasks::Task getTassk(std::string task_id);
+
     //+FUNCTIONS
     bool ContainerIsEmpty();
     int containerSize();
