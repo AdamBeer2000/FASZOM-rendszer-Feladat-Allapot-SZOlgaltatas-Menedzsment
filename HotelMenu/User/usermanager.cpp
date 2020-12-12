@@ -20,7 +20,7 @@ bool UserManager::isLoggedIn() const
 
 bool UserManager::isLoggedOut() const
 {
-    return loggedUser;
+    return !loggedUser;
 }
 
 Users::jobs UserManager::getLoggedJob() const
@@ -82,7 +82,6 @@ void UserManager::loginWith(std::string username, std::string password)
             if(finduser->second->getPassword()==password)
             {
                 loggedUser=finduser->second;
-                std::cout<<"\nLogged in"<<std::endl;
             }
             else
             {
@@ -183,7 +182,6 @@ void UserManager::logout()
     if(isLoggedIn())
     {
         loggedUser=nullptr;
-        std::cout<<"\nLogged out"<<std::endl;
     }
 }
 

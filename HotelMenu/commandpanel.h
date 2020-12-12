@@ -174,7 +174,7 @@ public:
                 case cDenyRes:ss<< "placeholder";break;
                 case cPrintLostItems:ss<< "placeholder";break;
                 case cChangeRoomStatus:ss<< "placeholder";break;
-                default:ss<<"error";break;
+                //default:ss<<"error";break;
             }
             massage=ss.str();
         }
@@ -330,7 +330,10 @@ public:
                 throw CommandNotFoundException(originalinput);
             }
         }
-        throw CommandNotFoundException(originalinput);
+        if(originalinput!="")
+        {
+            throw CommandNotFoundException(originalinput);
+        }
         return Invalid;
      }
 };

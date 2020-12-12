@@ -169,11 +169,24 @@ std::string DataCommunicationCenter::generateTaskId(Users::jobs job_id, Users::t
 void DataCommunicationCenter::login(std::string username, std::string password)
 {
     user_man.loginWith(username,password);
+    if(user_man.isLoggedIn())
+    {
+        std::cout<<"logged in"<<std::endl;
+    }
 }
 
 void DataCommunicationCenter::logOut()
 {
-    user_man.logout();
+    if(user_man.isLoggedIn())
+    {
+        user_man.logout();
+        std::cout<<"logged out"<<std::endl;
+    }
+    else
+    {
+        std::cout<<"nem leptel meg be"<<std::endl;
+    }
+
 }
 
 void DataCommunicationCenter::createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)

@@ -10,14 +10,13 @@ void CommandPanel::login()
     std::cin >> username;
     std::cout << "Adja meg a jelszavat: " << std::flush;
     std::cin >> password;
+    data_com->login(username,password);
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"login"<<std::endl;
 }
 
 void CommandPanel::logout()
 {
-
-    std::cout<<"logout"<<std::endl;
+    data_com->logOut();
 }
 
 void CommandPanel::reportLostItem()
