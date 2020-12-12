@@ -97,11 +97,13 @@ void UserManager::loginWith(std::string username, std::string password)
 void UserManager::deleteUser(std::string username)
 {
     auto it = users.find(username);
-    users.erase(username);
+    if(it != users.end())
+    {
+        users.erase(username);
+    }
 }
 
-
-void UserManager::setTaskStatusDone(std::string username,std::string task_id)
+void UserManager::setTaskStatusDone(std::string username, std::string task_id)
 {
     users.find(loggedUser->getUsername())->second->setTaskStatus(task_id);
 }
