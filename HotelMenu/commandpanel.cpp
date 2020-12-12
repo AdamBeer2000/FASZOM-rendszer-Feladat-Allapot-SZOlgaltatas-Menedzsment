@@ -28,13 +28,14 @@ void CommandPanel::reportLostItem()
     std::cin >> name;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     data_com->addLostItem(name);
-    std::cout<<"reportLostItem"<<std::endl;
 }
 
 void CommandPanel::printMyTasks()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout<<"Your unfinished tasks:"<<std::endl;
     data_com->printMyTasks();
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::registration()
@@ -83,11 +84,11 @@ void CommandPanel::rating()
     {
         std::cout << "Hany csillagra ertekeli az ellatast [1-5]: " << std::flush;
         std::cin >> stars;
-        if(stars < 1 && stars > 5)
+        if(stars < 1 || stars > 5)
         {
-            std::cout << "1-5-ig terjedo skalan lehet csak ertekelni!";
+            std::cout << "1-5-ig terjedo skalan lehet csak ertekelni!" << std::endl;
         }
-    }while(stars < 1 && stars > 5);
+    }while(stars < 1 || stars > 5);
     std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
     std::cin >>  rate;
     data_com->addRating(stars, rate);

@@ -22,7 +22,6 @@ DataCommunicationCenter::DataCommunicationCenter()
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
 {
-
 }
 
 std::shared_ptr<DataCommunicationCenter> DataCommunicationCenter::getInstance()
@@ -269,6 +268,11 @@ void DataCommunicationCenter::printMyTasks()
 void DataCommunicationCenter::printRes()
 {
     reservation_cont.printall();
+}
+
+void DataCommunicationCenter::cleanRoom(std::string username, std::string task_id, Logs::Log *one_log)
+{
+
 }
 
 void DataCommunicationCenter::fixItemReqest(int szobaID, std::string item)
