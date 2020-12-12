@@ -37,12 +37,12 @@ void Users::Janitor::printTasks() const
     taskCont.printAllTask();
 }
 
-void Users::Janitor::printLogs() const
-{
-    taskCont.printAllLog();
-}
+//void Users::Janitor::printLogs() const
+//{
+//    taskCont.printAllLog();
+//}
 
 Users::Janitor::~Janitor()
 {
-
+    std::cout<<"dest4\n";
 }

@@ -2,10 +2,13 @@
 
 //CONSTRUCTOR
 Logs::LogFix::LogFix(std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end):
-    Log(), item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), start_date(start), end_date(end){}
+    item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), start_date(start), end_date(end){}
 
 //DESTRUCTOR
-Logs::LogFix::~LogFix() {}
+Logs::LogFix::~LogFix()
+{
+    std::cout<<"dest2\n";
+}
 
 //FUNCTIONS
 void Logs::LogFix::printLog() const

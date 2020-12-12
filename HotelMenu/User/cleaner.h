@@ -13,8 +13,11 @@ namespace Users
         void logCleanedRoom(std::string& taskID , int roomid , date date);
         void logCleanedRoomWithLostItem(std::string& taskID , int roomID , std::string& item , date date);
         void setTaskStatus(std::string taskID);
+
         void printTasks() const;
+        /*
         void printLogs() const;
+        */
         ~Cleaner();
     };
 }

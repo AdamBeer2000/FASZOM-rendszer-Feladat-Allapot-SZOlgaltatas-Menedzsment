@@ -26,15 +26,11 @@ void TaskContainer::printAllTask() const
     }
 }
 
-
 void TaskContainer::printAllLog() const
 {
     for(auto it = task_list.begin(); it != task_list.end(); it++)
     {
-        if(!it->second.isActive())
-        {
-            (*it).second.printLog();
-        }
+        (*it).second.printLog();
     }
 }
 

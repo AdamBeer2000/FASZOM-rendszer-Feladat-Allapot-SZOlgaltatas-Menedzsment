@@ -85,4 +85,5 @@ Users::User::User(const std::string &_firstName, const std::string &_lastName, c
 
 Users::User::~User()
 {
+    std::cout<<"dest3\n";
 }

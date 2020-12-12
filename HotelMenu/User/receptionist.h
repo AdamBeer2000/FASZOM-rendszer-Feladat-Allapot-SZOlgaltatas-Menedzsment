@@ -17,7 +17,7 @@ namespace Users
 
         void printTasks() const;
 
-        void printLogs() const;
+        //void printLogs() const;
 
         ~Receptionist();
     };

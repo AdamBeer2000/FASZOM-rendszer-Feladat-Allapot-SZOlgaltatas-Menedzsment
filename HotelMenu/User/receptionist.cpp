@@ -30,10 +30,10 @@ void Users::Receptionist::printTasks() const
     taskCont.printAllTask();
 }
 
-void Users::Receptionist::printLogs() const
-{
-    taskCont.printAllLog();
-}
+//void Users::Receptionist::printLogs() const
+//{
+//    taskCont.printAllLog();
+//}
 
 Users::Receptionist::~Receptionist()
 {

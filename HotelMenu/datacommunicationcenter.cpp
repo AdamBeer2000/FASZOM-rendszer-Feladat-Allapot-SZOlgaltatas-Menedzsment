@@ -10,11 +10,11 @@ DataCommunicationCenter::DataCommunicationCenter()
 
     std::cout<<"ROOMS LOADED:"<<std::endl;
     room_cont.loadContent("Room_Data.txt");
-    room_cont.printAllRoom();
+    //room_cont.printAllRoom();
 
     std::cout<<"TASKS LOADED:"<<std::endl;
     user_man.loadContent("User_Data.txt","Task_Data.txt");
-    user_man.printAllTask();
+    //user_man.printAllTask();
 
     std::cout<<"LOGS  LOADING:"<<std::endl;
     //user_man.printLogs();
@@ -50,7 +50,7 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
     room_cont.setReservation(room_id,res);
     reservation_cont.deleteReservation(res.getUserename());
 
-    Logs::LogReservation temp(res,room_id);
+    Logs::LogReservation temp(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
     user_man.logTask(taskid,&temp);
 }
 

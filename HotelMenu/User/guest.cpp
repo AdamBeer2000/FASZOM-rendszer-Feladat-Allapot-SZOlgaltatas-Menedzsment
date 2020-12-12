@@ -24,10 +24,10 @@ void Users::Guest::printTasks() const
     //NE LEGYEN ABSZTRAKT
 }
 
-void Users::Guest::printLogs() const
-{
-    //NE LEGYEN ABSZTRAKT
-}
+//void Users::Guest::printLogs() const
+//{
+//    //NE LEGYEN ABSZTRAKT
+//}
 
 Users::Guest::~Guest()
 {

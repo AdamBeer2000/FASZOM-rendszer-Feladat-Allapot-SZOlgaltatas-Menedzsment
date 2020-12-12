@@ -2,7 +2,7 @@
 
 //CONSTRUCTORS
 Logs::LogReplace::LogReplace(std::string item_c, std::string cause_of_failure_c, double cost_c, date replace_date_c):
-    Log(), item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), replace_date(replace_date_c) {}
+    item(item_c), cause_of_failure(cause_of_failure_c), cost(cost_c), replace_date(replace_date_c) {}
 
 //DESTRUCTOR
 Logs::LogReplace::~LogReplace() {}

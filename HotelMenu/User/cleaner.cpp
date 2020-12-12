@@ -36,10 +36,10 @@ void Users::Cleaner::printTasks() const
     taskCont.printAllTask();
 }
 
-void Users::Cleaner::printLogs() const
-{
-    taskCont.printAllLog();
-}
+//void Users::Cleaner::printLogs() const
+//{
+//    taskCont.printAllLog();
+//}
 
 Users::Cleaner::~Cleaner()
 {

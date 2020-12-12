@@ -19,7 +19,7 @@ namespace Users
 
         void printTasks() const;
 
-        void printLogs() const;
+        // printLogs() const;
 
         ~Janitor();
     };

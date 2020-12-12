@@ -3,4 +3,8 @@
 //CONSTRUCTOR
 Logs::Log::Log(){}
 
-Logs::Log::~Log() {}
+Logs::Log::~Log()
+{
+    std::cout<<"dest\n";
+}
+

@@ -92,8 +92,12 @@ namespace  Users
 
         virtual void printTasks()const = 0;
 
-        virtual void printLogs()const = 0;
+        //virtual void printLogs()const = 0;
 
+        void printLogs() const
+        {
+            taskCont.printAllLog();
+        }
         virtual ~User();
 
 

@@ -19,6 +19,7 @@ namespace Logs
         double cost = 0.0;
         Suit::suitTypes apartment;
         Serving::servingTypes serving;
+        Reservation res;
 
     public:
         //CONSTRUCTOR
