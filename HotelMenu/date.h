@@ -55,6 +55,7 @@ struct date
     std::string calendarMode()
     {
         std::string converted = "";
+
         converted += std::to_string(year) + "/";
 
         if(month < 10)
@@ -75,14 +76,6 @@ struct date
         {
             converted += std::to_string(day);
         }
-
-        //EASTER EGG----------------------------
-        if(year == 2020, month == 11, day == 16)
-        {
-            Rogie();
-        }
-        //--------------------------------------
-
         return converted;
     }
 
@@ -111,13 +104,6 @@ struct date
         min = _min;
         sec = _sec;
     }   
-
-    void Rogie()
-    {
-        std::cout << "----------------------------------------------" << std::endl;
-        std::cout << "Jo kutya voltal, Roger, baratom.. [2020/11/16]" << std::endl;
-        std::cout << "----------------------------------------------" << std::endl;
-    }
 };
 
 #endif // DATE_H
