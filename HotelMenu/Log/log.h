@@ -12,11 +12,9 @@ namespace Logs
     class Log
     {
     protected:
-        int room_id;
-
     public:
         //CONSTRUCTORS
-        Log(int room_id_c);
+        Log();
 
         //DESTRUCTOR
         virtual ~Log();

@@ -1,10 +1,10 @@
 #include "logreservation.h"
 
 //CONSTRUCTOR
-Logs::LogReservation::LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end)
-    :Log(room_id_c), guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end) {}
+Logs::LogReservation::LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end)
+    :Log(), guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end) {}
 
-Logs::LogReservation::LogReservation(Reservation &res, int room_id_c): Log(room_id)
+Logs::LogReservation::LogReservation(Reservation &res, int room_id_c): Log()
 {
 
 }
@@ -17,7 +17,6 @@ void Logs::LogReservation::printLog() const
 {
     std::cout << "-----------------------------------" << std::endl;
     std::cout << "RESERVATION: "<< std::endl;
-    std::cout << "Room: " << getRoomID() << std::endl;
     std::cout << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     std::cout << "Guest: " << getGuestName() << std::endl;
     std::cout << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
@@ -35,7 +34,6 @@ std::string Logs::LogReservation::toString() const
 
     stream << "-----------------------------------" << std::endl;
     stream << "RESERVATION: "<< std::endl;
-    stream << "Room: " << getRoomID() << std::endl;
     stream << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
     stream << "Guest: " << getGuestName() << std::endl;
     stream << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
@@ -51,17 +49,12 @@ std::string Logs::LogReservation::toString() const
 
 void Logs::LogReservation::saveStream(std::ofstream &stream) const
 {
-    stream << "RES#"<< getRoomID() << "#" << getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
+    stream << "RES#"<< getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
     stream <<  getStartDate().calendarMode() << "#" << getEndDate().calendarMode() << "#";
     stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 
 //GETTERS
-int Logs::LogReservation::getRoomID() const
-{
-    return room_id;
-}
-
 std::string Logs::LogReservation::getGuestName() const
 {
     return guest_name;

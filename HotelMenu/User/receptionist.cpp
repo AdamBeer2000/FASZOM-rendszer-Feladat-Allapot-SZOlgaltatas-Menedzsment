@@ -15,7 +15,7 @@ Users::Receptionist::Receptionist(const std::string& _firstName , const std::str
 
 void Users::Receptionist::logReservation(std::string& taskID , int roomID , std::string& name , Suit::suitTypes apartment , Serving::servingTypes serving , double cost , date startTime , date endTime)
 {
-    Logs::LogReservation l = Logs::LogReservation(roomID , name , apartment , serving , cost , startTime, endTime);
+    Logs::LogReservation l = Logs::LogReservation(name , apartment , serving , cost , startTime, endTime);
     taskCont.setLog(taskID , &l);
     taskCont.setStatusDone(taskID);
 }

@@ -22,7 +22,7 @@ namespace Logs
 
     public:
         //CONSTRUCTOR
-        LogReservation(int room_id_c, std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end);
+        LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end);
         LogReservation(Reservation& res, int room_id_c);
 
         //DESTRUCTOR

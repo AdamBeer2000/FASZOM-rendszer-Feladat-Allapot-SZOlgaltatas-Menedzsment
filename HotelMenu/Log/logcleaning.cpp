@@ -1,9 +1,9 @@
 #include "logcleaning.h"
 
 //CONSTRUCTORS
-Logs::LogCleaning::LogCleaning(int room_id_c, date date_of_cleaning): Log(room_id_c), cleaning_date(date_of_cleaning) {}
+Logs::LogCleaning::LogCleaning(date date_of_cleaning): Log(), cleaning_date(date_of_cleaning) {}
 
-Logs::LogCleaning::LogCleaning(int room_id_c, std::string item_c, date date_of_cleaning): Log(room_id_c), lost_item(item_c), cleaning_date(date_of_cleaning)
+Logs::LogCleaning::LogCleaning(std::string item_c, date date_of_cleaning): Log(), lost_item(item_c), cleaning_date(date_of_cleaning)
 {
     setLostItemExists(true);
 }
@@ -22,7 +22,6 @@ void Logs::LogCleaning::printLog() const
 {
     std::cout << "-----------------------------------" << std::endl;
     std::cout << "CLEANING: "<< std::endl;
-    std::cout << "Room: " << getRoomID() << std::endl;
 
     if(getLostItemExists())
     {
@@ -41,7 +40,6 @@ std::string Logs::LogCleaning::toString() const
 
     stream << "-----------------------------------" << std::endl;
     stream << "CLEANING: "<< std::endl;
-    stream << "Room: " << getRoomID() << std::endl;
 
     if(getLostItemExists())
     {
@@ -66,7 +64,7 @@ void Logs::LogCleaning::saveStream(std::ofstream &stream) const
     {
         stream << "CLN#";
     }
-    stream << getRoomID() << "#" << getCleaningDate().calendarMode() << "#" << getCleaningDate().clockMode();
+    stream << getCleaningDate().calendarMode() << "#" << getCleaningDate().clockMode();
     if(getLostItemExists())
     {
         stream << "#" << getLostItem();
@@ -75,11 +73,6 @@ void Logs::LogCleaning::saveStream(std::ofstream &stream) const
 }
 
 //GETTERS
-int Logs::LogCleaning::getRoomID() const
-{
-    return room_id;
-}
-
 std::string Logs::LogCleaning::getLostItem() const
 {
     return lost_item;

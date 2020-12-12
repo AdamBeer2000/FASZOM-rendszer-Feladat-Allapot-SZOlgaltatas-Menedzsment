@@ -14,7 +14,7 @@ namespace Logs
 
     public:
         //CONSTRUCTORS
-        LogReplace(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, date replace_date_c);
+        LogReplace(std::string item_c, std::string cause_of_failure_c, double cost_c, date replace_date_c);
 
         //DESTRUCTOR
         ~LogReplace();

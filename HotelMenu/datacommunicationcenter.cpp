@@ -308,7 +308,7 @@ void DataCommunicationCenter::takeCleaningTask(int roomID)
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_date)
 {
     room_cont.cleanRoom(getTask(task_id).getRoomid());
-    Logs::LogCleaning temp(getTask(task_id).getRoomid(),clean_date);
+    Logs::LogCleaning temp(clean_date);
     user_man.logTask(task_id,&temp);
     user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
 }
@@ -316,7 +316,7 @@ void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_da
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, std::string item, date clean_date)
 {
     room_cont.cleanRoom(getTask(task_id).getRoomid());
-    Logs::LogCleaning temp(getTask(task_id).getRoomid(),item,clean_date);
+    Logs::LogCleaning temp(item,clean_date);
     user_man.logTask(task_id,&temp);
     user_man.setTaskStatusDone(user_man.getLoggedUser()->getUsername(),task_id);
 

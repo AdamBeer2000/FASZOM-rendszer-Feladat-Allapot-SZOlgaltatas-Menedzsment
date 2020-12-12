@@ -346,7 +346,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-                            Logs::LogFix tempLog(roomID,item,fail,cost,dateStart,dateEnd);
+                            Logs::LogFix tempLog(item,fail,cost,dateStart,dateEnd);
                             temp.setLog(&tempLog);
                             addTask(employee,temp);
                         }
@@ -378,7 +378,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
-                            Logs::LogReplace tempLog(roomID,item,fail,cost,dateStart);
+                            Logs::LogReplace tempLog(item,fail,cost,dateStart);
                             temp.setLog(&tempLog);
                             addTask(employee,temp);
                         }
@@ -431,7 +431,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
 
-                            Logs::LogReservation tempLog(roomID,guestname,apartment,serving,cost,startTime,endTime);
+                            Logs::LogReservation tempLog(guestname,apartment,serving,cost,startTime,endTime);
                             temp.setLog(&tempLog);
                             addTask(employee,temp);
 
@@ -455,7 +455,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
 
-                            Logs::LogCleaning tempLog(roomID,item,datE);
+                            Logs::LogCleaning tempLog(item,datE);
                             temp.setLog(&tempLog);
                             addTask(employee,temp);
                         }
@@ -474,7 +474,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
 
-                            Logs::LogCleaning tempLog(roomID,datE);
+                            Logs::LogCleaning tempLog(datE);
                             temp.setLog(&tempLog);
                             addTask(employee,temp);
                         }

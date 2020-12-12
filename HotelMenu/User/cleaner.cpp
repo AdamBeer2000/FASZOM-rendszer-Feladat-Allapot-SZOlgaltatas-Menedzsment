@@ -15,14 +15,14 @@ Users::Cleaner::Cleaner(const std::string& _firstName , const std::string& _last
 
 void Users::Cleaner::logCleanedRoom(std::string &taskID, int roomid , date date)
 {
-    Logs::LogCleaning l = Logs::LogCleaning(roomid , date);
+    Logs::LogCleaning l = Logs::LogCleaning(date);
     taskCont.setLog(taskID , &l);
     taskCont.setStatusDone(taskID);
 }
 
 void Users::Cleaner::logCleanedRoomWithLostItem(std::string& taskID , int roomID, std::string &item, date date)
 {
-    Logs::LogCleaning l = Logs::LogCleaning(roomID , item , date);
+    Logs::LogCleaning l = Logs::LogCleaning(item , date);
     taskCont.setLog(taskID , &l);
 }
 

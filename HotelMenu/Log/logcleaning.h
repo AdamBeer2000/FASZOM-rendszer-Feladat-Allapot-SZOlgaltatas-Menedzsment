@@ -18,8 +18,8 @@ namespace Logs
 
     public:
         //CONSTRUCTORS
-        LogCleaning(int room_id_c, date date_of_cleaning);
-        LogCleaning(int room_id_c, std::string item_c, date date_of_cleaning);
+        LogCleaning(date date_of_cleaning);
+        LogCleaning(std::string item_c, date date_of_cleaning);
 
         //DESTRUCTOR
         ~LogCleaning();

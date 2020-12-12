@@ -15,14 +15,14 @@ Users::Janitor::Janitor(const std::string& _firstName , const std::string& _last
 
 void Users::Janitor::logFixStuff(std::string& taskID , std::string &item, int roomId, std::string &reason, double cost, struct date startTime, struct date endTime)
 {
-    Logs::LogFix l = Logs::LogFix(roomId , item , reason, cost, startTime , endTime);
+    Logs::LogFix l = Logs::LogFix( item , reason, cost, startTime , endTime);
     taskCont.setLog(taskID , &l);
     taskCont.setStatusDone(taskID);
 }
 
 void Users::Janitor::logReplaceStuff(std::string& taskID , std::string &item, int roomId, std::string &reason, double cost, date date)
 {
-    Logs::LogReplace l = Logs::LogReplace(roomId , item , reason, cost, date);
+    Logs::LogReplace l = Logs::LogReplace(item , reason, cost, date);
     taskCont.setLog(taskID , &l);
     taskCont.setStatusDone(taskID);
 }

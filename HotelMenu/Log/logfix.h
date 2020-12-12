@@ -16,7 +16,7 @@ namespace Logs
 
     public:
         //CONSTRUCTOR
-        LogFix(int room_id_c, std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end);
+        LogFix(std::string item_c, std::string cause_of_failure_c, double cost_c, date start, date end);
 
         //DESTRUCTOR
         ~LogFix();
