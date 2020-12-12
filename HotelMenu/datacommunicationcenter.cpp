@@ -211,12 +211,10 @@ void DataCommunicationCenter::addLostItem(std::string desc)
 
 void DataCommunicationCenter::printLostItem() const
 {
-    std::cout << "Lost items: " << std::endl;
     for(auto cit : lost_items)
     {
         std::cout << cit << std::endl;
     }
-    std::cout << std::endl;
 }
 
 void DataCommunicationCenter::printAllTask()

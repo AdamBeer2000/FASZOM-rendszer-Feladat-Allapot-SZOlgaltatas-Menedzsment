@@ -77,11 +77,22 @@ void CommandPanel::bookRoom()
 void CommandPanel::rating()
 {
     std::string rate;
+    int stars;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout <<"Ertekeles" << std::endl;
+    do
+    {
+        std::cout << "Hany csillagra ertekeli az ellatast [1-5]: " << std::flush;
+        std::cin >> stars;
+        if(stars < 1 && stars > 5)
+        {
+            std::cout << "1-5-ig terjedo skalan lehet csak ertekelni!";
+        }
+    }while(stars < 1 && stars > 5);
     std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
     std::cin >>  rate;
-    std::cout<<"rating"<<std::endl;
+    data_com->addRating(stars, rate);
+    std::cout << "Koszonjuk az ertekelest" << std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 
 }
@@ -114,7 +125,9 @@ void CommandPanel::denyReservation()
 void CommandPanel::printLostItems()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"printLostItems"<<std::endl;
+    std::cout << "Talalt targyak:\n" << std::endl;
+    data_com->printLostItem();
+    std::cout << std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -211,6 +224,7 @@ void CommandPanel::deleteTask()
         {
             wrong_data = false;
             std::cout << "Adja meg a feladat azonositojat: " << std::endl;
+            std::cin >> task_id;
             std::cout << "Biztos torolni kivanja?\n[igen/nem]: " << std::flush;
             std::cin >> sure;
 

@@ -53,7 +53,7 @@ void Users::User::addTask(Tasks::Task oneTask)
 
 void Users::User::deleteTask(std::string &TaskId)
 {
-
+    taskCont.deleteTask(TaskId);
 }
 
 Users::User::User()
