@@ -363,7 +363,7 @@ void CommandPanel::printAllLogs()
 bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 {
     Users::jobs userPermisson=data_com->returnLoggedJob();
-
+    /*
     switch (reqvestedCommand)
     {
         case cLogin:;return true;
@@ -383,7 +383,9 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
         case Users::jobs::REC: if(reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
         default:throw  NoPermissonException(reqvestedCommand);break;
     }
-    return false;
+    */
+    return true;
+    //return false;
 }
 
 

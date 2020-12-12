@@ -219,14 +219,14 @@ public:
 
         if(inputs[0]=="print")
         {
-            if( inputs[1] == "tasks" ) return cPrintMyTask;
+            if( inputs[1] == "tasks" )return cPrintMyTask;
             if( inputs[1] == "t" ) return cPrintMyTask;
             if( inputs[1] == "at" ) return cPrintAllTask;
             if( inputs[1]  == "al" ) return cPrintAllLogs;
 
             if(inputs[1]=="all")
             {
-                if( inputs[2] == "task" ) return cPrintAllTask;
+                if( inputs[2] == "task" )return cPrintAllTask;
                 if( inputs[2] == "log" ) return cPrintAllLogs;
                 if(inputs[2]==inputs[1])
                 {
