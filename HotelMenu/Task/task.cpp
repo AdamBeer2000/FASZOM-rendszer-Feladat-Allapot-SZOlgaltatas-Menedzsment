@@ -62,6 +62,11 @@ std::string Task::getTodo() const
 //FUNCTIONS
 bool Task::isActive()
 {
+    return !getStatus();
+}
+
+bool Task::isFinished() const
+{
     return getStatus();
 }
 

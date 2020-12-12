@@ -158,6 +158,7 @@ namespace Tasks
         std::string statusToString(bool stat) const;
         bool isActive() const;
         bool isActive();
+        bool isFinished() const;
         void printLog() const;
         void backupSaveStream(std::ofstream& stream);
 
