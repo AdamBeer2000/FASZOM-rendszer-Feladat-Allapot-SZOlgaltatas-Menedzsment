@@ -209,8 +209,6 @@ void CommandPanel::replace()
 }
 void CommandPanel::takeCleanroom()
 {
-    std::string task_id;
-    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
     std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
