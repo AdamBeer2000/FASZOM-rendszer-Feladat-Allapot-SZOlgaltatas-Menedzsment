@@ -43,13 +43,18 @@ public:
     void deleteUser(std::string username);
     void addTask(std::string username, Tasks::Task one_task);
     void deleteTask(std::string task_id_del);
+
     void printMyTask() const;
     void printAllTask() const;
     void printLogs() const;
+    void printTasksLogged() const;
+
     void logTask(std::string task_id, Logs::Log * onelog);
     void logTask(std::string username,std::string task_id, Logs::Log * onelog);
     void setTaskStatusDone(std::string username,std::string task_id);
     std::string getLeastBusyWorker(Users::jobs jobID);
+
+
 
     class WrongUsernameException:public std::exception
         {

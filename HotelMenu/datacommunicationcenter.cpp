@@ -61,6 +61,12 @@ void DataCommunicationCenter::denyReservation(std::string taskid, std::string us
     user_man.setTaskStatusDone(findTask(taskid),taskid);
 }
 
+void DataCommunicationCenter::registration(std::string username, std::string first_name, std::string last_name, std::string password)
+{
+    DateBuilder db;
+    user_man.addUser(username,first_name,last_name,db.build(0,0,0),Users::jobs::GUE,0,password);
+}
+
 void DataCommunicationCenter::addRating(int rate, std::string comment)
 {
     ratings.push_back(std::pair<int,std::string>(rate,comment));
@@ -255,6 +261,11 @@ void DataCommunicationCenter::deleteTask(std::string task_id)
 std::map<std::string, std::string> DataCommunicationCenter::showTasks()
 {
     return this->task_list;
+}
+
+void DataCommunicationCenter::printMyTasks()
+{
+    user_man.printTasksLogged();
 }
 
 void DataCommunicationCenter::printRes()

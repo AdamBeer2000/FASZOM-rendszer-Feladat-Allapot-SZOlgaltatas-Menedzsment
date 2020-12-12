@@ -26,15 +26,15 @@ void CommandPanel::reportLostItem()
     std::cout <<"Talalt targy bejelentese" << std::endl;
     std::cout << "Adja meg a targy nevet: " << std::flush;
     std::cin >> name;
-    std::cout << "Adja meg a leirasat: " << std::flush;
-    std::cin >> description;
     std::cout << "-------------------------------------------------------------------" << std::endl;
+    data_com->addLostItem(name);
     std::cout<<"reportLostItem"<<std::endl;
 }
 
 void CommandPanel::printMyTasks()
 {
-    std::cout<<"printMyTasks"<<std::endl;
+    std::cout<<"Your unfinished tasks:"<<std::endl;
+    data_com->printMyTasks();
 }
 
 void CommandPanel::registration()
@@ -51,8 +51,7 @@ void CommandPanel::registration()
     std::cout << "Adja meg jelszavat: " << std::flush;
     std::cin >> password;
     std::cout << "-------------------------------------------------------------------" << std::endl;
-
-    std::cout<<"registration"<<std::endl;
+    data_com->registration(username,firstname,lastname,password);
 }
 
 void CommandPanel::bookRoom()
@@ -349,7 +348,7 @@ void CommandPanel::printAllLogs()
 bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 {
     Users::jobs userPermisson=data_com->returnLoggedJob();
-    /*
+
     switch (reqvestedCommand)
     {
         case cLogin:;return true;
@@ -362,16 +361,16 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands reqvestedCommand)
 
     switch (userPermisson)
     {
-        case Users::jobs::CLE: if(reqvestedCommand==cClean)return true;break;
+        case Users::jobs::CLE: if(reqvestedCommand==cClean||reqvestedCommand==cPrintMyTask)return true;break;
         case Users::jobs::GUE: if(reqvestedCommand==cBook||reqvestedCommand==cRate)return true;break;
-        case Users::jobs::JAN: if(reqvestedCommand==cFix||reqvestedCommand==cReplace)return true;break;
+        case Users::jobs::JAN: if(reqvestedCommand==cFix||reqvestedCommand==cReplace||reqvestedCommand==cPrintMyTask)return true;break;
         case Users::jobs::MAN: if(reqvestedCommand==cCreateTask||reqvestedCommand==cDeleteTask||reqvestedCommand==cCreateEmployee||reqvestedCommand==cEmploYeet||reqvestedCommand==cPrintAllLogs||reqvestedCommand==cPrintAllTask)return true;break;
-        case Users::jobs::REC: if(reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
+        case Users::jobs::REC: if(reqvestedCommand==cPrintMyTask||reqvestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
         default:throw  NoPermissonException(reqvestedCommand);break;
     }
-    */
-    return true;
-    //return false;
+
+    //return true;
+    return false;
 }
 
 

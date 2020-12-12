@@ -65,7 +65,7 @@ public:
 
     void accepptReservation(std::string taskid, int room_id, Reservation res);
     void denyReservation(std::string taskid, std::string username);
-    void registration(std::string username, std::string password);
+    void registration(std::string username,std::string first_name,std::string last_name, std::string password);
     void addRating(int rate, std::string comment);
     Tasks::Task generateTask(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, const std::string& todo);
     Tasks::Task generateTaskReservation(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, Reservation& reservation);
@@ -87,6 +87,7 @@ public:
     void deleteTask(std::string task_id);
     std::map<std::string, std::string> showTasks();
 
+    void printMyTasks();
     //test
     void printRes();
 

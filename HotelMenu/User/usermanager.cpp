@@ -76,7 +76,6 @@ void UserManager::loginWith(std::string username, std::string password)
 
         std::map<std::string,Users::User *>::iterator finduser;
         finduser=users.find(username);
-
         if(finduser!=users.end())
         {
             if(finduser->second->getPassword()==password)
@@ -175,6 +174,11 @@ void UserManager::printLogs() const
         std::cout << std::endl;
 
     }
+}
+
+void UserManager::printTasksLogged() const
+{
+    loggedUser->printTasks();
 }
 
 void UserManager::logout()
