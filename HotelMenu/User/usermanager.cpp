@@ -252,7 +252,8 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
     date birthdate;
     int cardid;
     Users::jobs jobID;
-
+    DateBuilder dba;
+    addUser("admin","Kave","Energiaital",dba.build(2001,9,11),Users::jobs::ADM,69420,"admin");
     while(getline (readuser, oneline))
     {
         try

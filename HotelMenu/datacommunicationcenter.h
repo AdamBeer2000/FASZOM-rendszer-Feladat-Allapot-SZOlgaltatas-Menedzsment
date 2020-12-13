@@ -118,6 +118,8 @@ public:
     void checkhOut();
     void reportDeartyRoom();
 
+    bool isLoggedIn();
+
 
 };
 

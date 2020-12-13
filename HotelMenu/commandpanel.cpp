@@ -613,30 +613,79 @@ void CommandPanel::reportDeartyRoom()
 }
 bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
 {
-    Users::jobs userPermisson=data_com->returnLoggedJob();
-/*
-    switch (requestedCommand)
+    if(data_com->isLoggedIn())
     {
-        case cLogin:;return true;
-        case cLogout:;return true;
-        case cReport:;return true;
-        case cExit:;return true;
-        case cReg:;return true;
-        default:;
+        Users::jobs userPermisson=data_com->returnLoggedJob();
+        if(userPermisson!=Users::jobs::ADM)
+        {
+            return true;
+        }
+        if(userPermisson!=Users::jobs::GUE&&requestedCommand==cPrintMyTask)
+        {
+            return true;
+        }
+        switch (requestedCommand)
+        {
+            case cLogin:return true;
+            case cLogout:return true;
+            case cExit:return true;
+        }
+        if(userPermisson==Users::jobs::GUE)
+        {
+            switch (requestedCommand)
+            {
+                case cBook:return true;
+                case cRate:return true;
+                case cReportDirtyRoom:return true;
+                case cCheckhOut:return false;
+                default:return false;
+            }
+        }
+        if(userPermisson==Users::jobs::JAN)
+        {
+            switch (requestedCommand)
+            {
+                case cFix:return true;
+                case cReplace:return true;
+                default:return false;
+            }
+        }
+        if(userPermisson==Users::jobs::MAN)
+        {
+            switch (requestedCommand)
+            {
+                case cCreateEmployee:return true;
+                case cCreateTask:return true;
+                case cDeleteTask:return true;
+                case cEmploYeet:return true;
+                case cPrintAllLogs:return true;
+                case cPrintAllTask:return true;
+                default:return false;
+            }
+        }
+        if(userPermisson==Users::jobs::REC)
+        {
+            switch (requestedCommand)
+            {
+                case cAcceptRes:return true;
+                case cDenyRes:return true;
+                case cPrintLostItems:return true;
+                default:return false;
+            }
+        }
     }
-
-    switch (userPermisson)
+    else
     {
-        case Users::jobs::CLE: if(reqvestedCommand==cClean||requestedCommand==cPrintMyTask)return true;break;
-        case Users::jobs::GUE: if(reqvestedCommand==cBook||requestedCommand==cRate)return true;break;
-        case Users::jobs::JAN: if(reqvestedCommand==cFix||requestedCommand==cReplace||reqvestedCommand==cPrintMyTask)return true;break;
-        case Users::jobs::MAN: if(reqvestedCommand==cCreateTask||requestedCommand==cDeleteTask||reqvestedCommand==cCreateEmployee||reqvestedCommand==cEmploYeet||reqvestedCommand==cPrintAllLogs||reqvestedCommand==cPrintAllTask)return true;break;
-        case Users::jobs::REC: if(reqvestedCommand==cPrintMyTask||requestedCommand==cAcceptRes||reqvestedCommand==cDenyRes||reqvestedCommand==cPrintLostItems||reqvestedCommand==cChangeRoomStatus)return true;break;
-        default:throw  NoPermissonException(requestedCommand);break;
+        switch (requestedCommand)
+        {
+            case cReg:return true;
+            case cLogin:return true;
+            case cLogout:return true;
+            case cExit:return true;
+            default:return false;
+        }
     }
-    */
-    return true;
-    //return false;
+    return false;
 }
 void checkhOut()
 {
@@ -663,7 +712,8 @@ void CommandPanel::pseudoMain()
                     case cLogin:login();break;
                     case cLogout:logout();break;
                     case cExit:;break;
-                    case cReport:reportLostItem();break;
+                    case cReportLostItem:reportLostItem();break;
+                    case cReportDirtyRoom:reportDeartyRoom();break;
                     case cPrintMyTask:printMyTasks();break;
                     case cReg:registration();break;
                     case cBook:bookRoom();data_com->printRes();break;

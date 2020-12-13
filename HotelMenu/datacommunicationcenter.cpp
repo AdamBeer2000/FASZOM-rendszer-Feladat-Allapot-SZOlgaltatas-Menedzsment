@@ -370,8 +370,12 @@ void DataCommunicationCenter::checkhOut()
 {
 
 }
-
+bool DataCommunicationCenter::isLoggedIn()
+{
+     return user_man.isLoggedIn();
+}
 void DataCommunicationCenter::reportDeartyRoom()
 {
     room_cont.reportDirtyRoom(user_man.getLoggedUser()->getUsername());
 }
+

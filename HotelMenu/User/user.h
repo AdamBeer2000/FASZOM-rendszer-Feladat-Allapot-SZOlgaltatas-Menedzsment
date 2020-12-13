@@ -15,6 +15,7 @@ namespace  Users
         REC,
         GUE,
         ERR,
+        ADM,
         Unlogged,
     };
 
