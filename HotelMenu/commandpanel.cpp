@@ -414,7 +414,7 @@ void CommandPanel::createTask()
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
 
-        if(job_id_raw != "Takarito" || job_id_raw != "Karbantarto" || job_id_raw != "Recepcios" || job_id_raw != "takarito" || job_id_raw != "karbantarto" || job_id_raw != "recepcios")
+        if(job_id_raw != "Takarito" && job_id_raw != "Karbantarto" && job_id_raw != "Recepcios" && job_id_raw != "takarito" && job_id_raw != "karbantarto" && job_id_raw != "recepcios")
         {
             std::cout << "Feladatkor nem letezik!\nFolyamat megszakitva" << std::endl;
             std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -424,7 +424,7 @@ void CommandPanel::createTask()
         std::cout << "Adja meg a feladat tipusat: " << std::flush;
         std::cin >> task_type_raw;
 
-        if(task_type_raw != "Takaritas" || task_type_raw != "takaritas" || task_type_raw != "Csere" || task_type_raw != "csere" || task_type_raw != "Javitas" || task_type_raw != "javitas" || task_type_raw != "Kiadas" || task_type_raw != "kiadas")
+        if(task_type_raw != "Takaritas"  && task_type_raw != "takaritas" && task_type_raw != "Csere" && task_type_raw != "csere" && task_type_raw != "Javitas" && task_type_raw != "javitas" && task_type_raw != "Kiadas" && task_type_raw != "kiadas")
         {
             std::cout << "Feladat tipus nem letezik!\nFolyamat megszakitva" << std::endl;
             std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -446,7 +446,7 @@ void CommandPanel::createTask()
 
         std::cout << "-------------------------------------------------------------------" << std::endl;
 
-        todo = "Szoba: " + room + " [" + task_type_raw + "]";
+        todo = "[" + task_type_raw + "]";
 
         if(job_id_raw == "Takarito" || job_id_raw == "takarito")
         {
@@ -575,7 +575,7 @@ void CommandPanel::createEmployee()
         std::cin >> username;//ITT NEM ELLENORZUNK
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
-        if(job_id_raw != "Takarito" || job_id_raw != "Karbantarto" || job_id_raw != "Recepcios" || job_id_raw != "takarito" || job_id_raw != "karbantarto" || job_id_raw != "recepcios")
+        if(job_id_raw != "Takarito" && job_id_raw != "Karbantarto" && job_id_raw != "Recepcios" && job_id_raw != "takarito" && job_id_raw != "karbantarto" && job_id_raw != "recepcios")
         {
             std::cout << "Feladatkor nem letezik!\nFolyamat megszakitva" << std::endl;
             std::cout << "-------------------------------------------------------------------" << std::endl;
