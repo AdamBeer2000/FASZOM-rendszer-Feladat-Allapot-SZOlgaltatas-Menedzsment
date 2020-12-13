@@ -32,8 +32,12 @@ date DateBuilder::build(int _year, int _month, int _day, int _hour, int _min, in
 date DateBuilder::build(std::string sdate)
 {
     std::string temp;
+    std::string originalstring=sdate;
     date ret;
     std::stringstream stream;
+    ret.hour = 0;
+    ret.min = 0;
+    ret.sec = 0;
 
     temp=sdate.substr(0,sdate.find('.'));
     stream << temp;
@@ -41,23 +45,112 @@ date DateBuilder::build(std::string sdate)
     stream.clear();
 
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
-
     temp=sdate.substr(0,sdate.find('.'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
     stream << temp;
     stream >> ret.month;
+    if(ret.month>12||ret.month<1)
+        throw InvalidDate(originalstring,"honap");
     stream.clear();
 
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
-
     temp=sdate.substr(0,sdate.find('.'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+
     stream << temp;
     stream >> ret.day;
+    if(ret.month>31||ret.month<1)
+        throw InvalidDate(originalstring,"nap");
+
     stream.clear();
 
-    sdate=sdate.substr(sdate.find('.')+1,sdate.size());
-    ret.hour = 0;
-    ret.min = 0;
-    ret.sec = 0;
+    return ret;
+}
+date DateBuilder::buildWhithClock(std::string sdate)
+{
+    std::string temp;
+    std::string originalstring=sdate;
+
+    std::string datepart=sdate.substr(0,sdate.find(' '));
+
+    std::string timepart=sdate.substr(sdate.find(' ')+1,sdate.length());
+
+
+    date ret;
+    std::stringstream stream;
+
+    temp=datepart.substr(0,sdate.find('.'));
+    stream << temp;
+    stream >> ret.year;
+    stream.clear();
+
+    datepart=datepart.substr(datepart.find('.')+1,datepart.size());
+    temp=datepart.substr(0,datepart.find('.'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+    stream << temp;
+    stream >> ret.month;
+    if(ret.month>12||ret.month<1)
+        throw InvalidDate(originalstring,"honap");
+    stream.clear();
+
+    datepart=datepart.substr(datepart.find('.')+1,datepart.size());
+    temp=datepart.substr(0,datepart.find('.'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+
+    stream << temp;
+    stream >> ret.day;
+    if(ret.month>31||ret.month<1)
+        throw InvalidDate(originalstring,"nap");
+
+    stream.clear();
+
+
+    temp=timepart.substr(0,timepart.find(':'));
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+    stream << temp;
+    stream >> ret.hour;
+    if(ret.hour>12||ret.hour<1)
+        throw InvalidDate(originalstring,"ora");
+    stream.clear();
+
+    timepart=timepart.substr(timepart.find(':')+1,timepart.size());
+    temp=timepart.substr(0,timepart.find(':'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+    stream << temp;
+    stream >> ret.min;
+    if(ret.min>59||ret.min<0)
+        throw InvalidDate(originalstring,"perc");
+    stream.clear();
+
+    timepart=timepart.substr(timepart.find(':')+1,timepart.size());
+    temp=timepart.substr(0,timepart.find(':'));
+
+    if(temp.length()>2||temp.length()<1)
+        throw InvalidDateFormat(originalstring,originalstring.find(temp));
+
+    stream << temp;
+    stream >> ret.sec;
+    if(ret.sec>59||ret.sec<0)
+        throw InvalidDate(originalstring,"masodperc");
+
+    stream.clear();
+
+
+
+    return ret;
+
+
 
     return ret;
 }

@@ -78,7 +78,7 @@ struct date
         }
 
         //EASTER EGG----------------------------
-        if(year == 2020, month == 11, day == 16)
+        if(year == 2020 && month && 11&& day == 16)
         {
             Rogie();
         }

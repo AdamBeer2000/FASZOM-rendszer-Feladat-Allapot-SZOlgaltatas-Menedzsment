@@ -27,8 +27,58 @@ using namespace Users;
 
 int main()
 {
-    CommandPanel a=CommandPanel();
-    a.pseudoMain();
+    //CommandPanel a=CommandPanel();
+    //a.pseudoMain();
+    std::list<date>dates;
+    std::list<std::string>tests;
+    std::list<std::string>testsClock;
+    DateBuilder db;
+
+    tests.push_back("2000.01.11");
+    tests.push_back("2000.1.1");
+    tests.push_back("2000.010.111");
+    tests.push_back("2000.1.111");
+    tests.push_back("2000.01.110");
+    tests.push_back("2000.011.11");
+    tests.push_back("2000..121");
+    tests.push_back("2000.60.11");
+
+    testsClock.push_back("2000.1.11 11:1:1");
+    testsClock.push_back("2000.1.11 11:0:1");
+    testsClock.push_back("2000.1.11 11:1:0");
+    testsClock.push_back("2000.1.11 11:0:0");
+
+    testsClock.push_back("2000.1.11 10:11:11");
+    testsClock.push_back("2000.1.11 11:59:59");
+    testsClock.push_back("2000.1.11 11:60:60");
+    testsClock.push_back("2000.1.11 11:60:60");
+    testsClock.push_back("2000.1.11 13:60:60");
+    testsClock.push_back("2000.1.11 -1:60:60");
+    testsClock.push_back("2000.1.11 0:60:60");
+
+    for(auto dat:tests)
+    {
+        try
+        {
+            dates.push_back(db.build(dat));
+        }
+        catch (std::exception &e) {
+            std::cout<<e.what()<<std::endl;
+        }
+    }
+
+    for(auto dat:testsClock)
+    {
+        try
+        {
+            dates.push_back(db.buildWhithClock(dat));
+        }
+        catch (std::exception &e) {
+            std::cout<<e.what()<<std::endl;
+        }
+    }
+
+
 
     //datacom->printRes();
 

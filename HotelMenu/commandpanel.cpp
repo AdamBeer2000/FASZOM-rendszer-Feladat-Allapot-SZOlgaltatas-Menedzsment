@@ -225,7 +225,7 @@ void CommandPanel::takeCleanroom()
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
     std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
-    std::cin>>roomId;//lehet nem igenyel takaritast
+    std::cin>>roomId;//lehet nem igenyel takaritast,vagy nem letezik a szoba
     data_com->takeCleaningTask(roomId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
@@ -241,7 +241,7 @@ void CommandPanel::logCleanroom()
     {
         std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        return;
+        return;//todo excep
     }
 
     date d;
@@ -249,12 +249,12 @@ void CommandPanel::logCleanroom()
     std::string date;
 
     std::cout<<"Mikor? :" << std::flush;
-    std::cin>>date;
+    std::cin>>date;//invalid date
     d=db.build(date);
 
     std::string talat;
     std::cout<<"Volt talalt targy? (I/N): " << std::flush;
-    std::cin>>talat;
+    std::cin>>talat;//mast ad meg
 
     if(talat=="I"||talat=="i")
     {
@@ -279,7 +279,7 @@ void CommandPanel::acceptReservation()
     {
         std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        return;
+        return;//todo excep
     }
 
     int room_id;
@@ -289,7 +289,7 @@ void CommandPanel::acceptReservation()
     {
         std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;
-        return;
+        return;//todo excep
     }
 
     data_com->accepptReservation(task_id,room_id);
@@ -301,7 +301,10 @@ void CommandPanel::acceptReservation()
 void CommandPanel::denyReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"denyReservation"<<std::endl;
+    std::string tasId;
+    std::cout<<"Melyik foglalast utasitod el?";
+    std::cin>>tasId;//nem letezik a task(foglalas)
+    data_com->denyReservation(tasId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
