@@ -285,6 +285,12 @@ void CommandPanel::acceptReservation()
     int room_id;
     std::cout<<"Melyik szobába?";
     std::cin>>room_id;
+    if(room_id < 1 || room_id > 1408)//LENYEG, HOGY BE LEGYEN ALLITVA HOGY CSAK ABBOL A TARTOMANYBOL LEHESSEN SZOBAT VALASZTANI
+    {
+        std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
 
     data_com->accepptReservation(task_id,room_id);
 
@@ -323,7 +329,7 @@ void CommandPanel::createTask()
     std::string username, todo, job_id_raw, task_type_raw, room;
     Users::jobs job_id;
     Users::taskdata task_type;
-    int roomid;
+    int room_id;
     bool wrong_data = false;
     do
     {
@@ -337,6 +343,17 @@ void CommandPanel::createTask()
         std::cin >> task_type_raw;
         std::cout << "Adja meg melyik szobaban: " << std::flush;
         std::cin >> room;
+
+        std::stringstream s(room);
+        s >> room_id;
+
+        if(room_id < 1 || room_id > 1408)//LENYEG, HOGY BE LEGYEN ALLITVA HOGY CSAK ABBOL A TARTOMANYBOL LEHESSEN SZOBAT VALASZTANI
+        {
+            std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
+        }
+
         std::cout << "-------------------------------------------------------------------" << std::endl;
 
         todo = "Szoba: " + room + " [" + task_type_raw + "]";
@@ -384,9 +401,8 @@ void CommandPanel::createTask()
     }while(wrong_data);
 
     Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);
-    std::stringstream s(room);
-    s >> roomid;
-    task.setRoomid(roomid);
+
+    task.setRoomid(room_id);
     data_com->addTask(task);
     task.printTask();
 }
