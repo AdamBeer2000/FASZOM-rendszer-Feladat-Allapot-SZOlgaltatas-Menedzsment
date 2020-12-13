@@ -30,13 +30,23 @@ void Logs::LogReservation::printLog() const
 {
     std::cout << "-----------------------------------" << std::endl;
     std::cout << "RESERVATION: "<< std::endl;
-    std::cout << "Replace cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
-    std::cout << "Guest: " << getGuestName() << std::endl;
-    std::cout << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
-    std::cout << "Serving: "<< Serving::servingToString(getServing()) << std::endl;
-    std::cout << "Days: " << getStartDate().dateDiff(getEndDate()) << std::endl;
-    std::cout << "Date [from-to]:" << std::endl;
-    std::cout << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
+    std::cout << "Reservation id: "<<  res.getRes_id() << std::endl;
+    if(getStatus())
+    {
+        std::cout << "Status: [ACCEPTED]" << std::endl;
+        std::cout << "Cost: " << std::fixed <<std::setprecision(2) << getCost() << " [EUR]" << std::endl;
+        std::cout << "Guest: " << getGuestName() << std::endl;
+        std::cout << "Suit/Apartment: "<< Suit::suitToString(getApartment()) << std::endl;
+        std::cout << "Serving: "<< Serving::servingToString(getServing()) << std::endl;
+        std::cout << "Days: " << getStartDate().dateDiff(getEndDate()) << std::endl;
+        std::cout << "Date [from-to]:" << std::endl;
+        std::cout << ""<<  getStartDate().calendarMode() << std::endl << getEndDate().calendarMode() << std::endl;
+    }
+    else
+    {
+         std::cout << "Status: [DENIED]" << std::endl;
+    }
+
     std::cout << "-----------------------------------" << std::endl;
 }
 
