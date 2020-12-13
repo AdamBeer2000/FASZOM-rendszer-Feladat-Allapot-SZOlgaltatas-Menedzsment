@@ -52,6 +52,7 @@ private:
     //guest
     void bookRoom();
     void rating();
+    void reportDeartyRoom();
 
     //managger
     void createTask();
@@ -74,6 +75,8 @@ private:
     void denyReservation();
     void printLostItems();
     void changeRoomStatus();
+
+
 
     bool permissionCheck(Commands a);
     std::shared_ptr<DataCommunicationCenter> data_com;

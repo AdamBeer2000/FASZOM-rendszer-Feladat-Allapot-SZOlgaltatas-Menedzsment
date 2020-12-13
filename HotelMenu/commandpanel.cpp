@@ -125,7 +125,7 @@ void CommandPanel::fix()
     DateBuilder builder = DateBuilder();
     std::string datestring;
     std::cout << "Adja meg az kezdo datumot (pl 2000.1.1 11:20:20): " << std::flush;
-    std::cin >>datestring;
+    std::getline (std::cin, datestring);
     date1=builder.build(datestring);
 
     //int year, month, day, hour, min, sec;
@@ -151,7 +151,7 @@ void CommandPanel::fix()
     date date2;
     std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
     std::cin >>datestring;
-    date2=builder.build(datestring);
+    std::getline (std::cin, datestring);
     //int year2, month2, day2, hour2, min2, sec2;
     /*
     std::cout << "Adja meg az befejezo evet (pl.: 1980): " << std::flush;
@@ -227,7 +227,7 @@ void CommandPanel::replace()
     date.sec = sec;*/
 
     std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
-    std::cin >>datestring;
+    std::getline (std::cin, datestring);
     date=builder.build(datestring);
 
     Logs::Log *log = new Logs::LogReplace(item,failure,cost,date);
@@ -265,7 +265,7 @@ void CommandPanel::logCleanroom()
     std::string date;
 
     std::cout<<"Mikor? :" << std::flush;
-    std::cin>>date;//invalid date
+    std::getline (std::cin, date);//invalid date
     d=db.build(date);
 
     std::string talat;
@@ -588,6 +588,13 @@ void CommandPanel::printAllLogs()
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
+void CommandPanel::reportDeartyRoom()
+{
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    data_com->reportDeartyRoom();
+    std::cout <<"Koszos szoba jelentve:\n"<<std::endl;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+}
 bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
 {
     Users::jobs userPermisson=data_com->returnLoggedJob();
@@ -614,6 +621,10 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
     */
     return true;
     //return false;
+}
+void checkhOut()
+{
+
 }
 
 

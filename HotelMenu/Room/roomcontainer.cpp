@@ -63,6 +63,22 @@ void RoomContainer::cleanRoom(int roomId)
     }
 }
 
+void RoomContainer::reportDirtyRoom(std::string loggeduser)
+{
+    for(auto room:hotelRooms)
+    {
+        if(room.second.getUsed())
+        {
+            if(room.second.getActiveReservation().getUserename()==loggeduser)
+            {
+                room.second.setDirty();
+                return;
+            }
+        }
+    }
+    throw ReservationContainer::NoReservationFound(loggeduser);
+}
+
 void RoomContainer::setReservation(int roomId, Reservation oneres)
 {
     if(hotelRooms.find(roomId)!=hotelRooms.end())

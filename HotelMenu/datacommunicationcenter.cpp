@@ -362,4 +362,12 @@ Tasks::Task DataCommunicationCenter::getTask(std::string taskId)
     return user_man.getTask(user_man.getLoggedUser()->getPassword(),taskId);
 }
 
+void DataCommunicationCenter::checkhOut()
+{
 
+}
+
+void DataCommunicationCenter::reportDeartyRoom()
+{
+    room_cont.reportDirtyRoom(user_man.getLoggedUser()->getUsername());
+}

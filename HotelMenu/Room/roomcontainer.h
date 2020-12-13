@@ -8,6 +8,7 @@
 #include "list"
 #include <fstream>
 #include "datebuilder.h"
+#include "Reservation/reservationcontainer.h"
 class RoomContainer
 {
     std::map<int,Room>hotelRooms;
@@ -20,6 +21,7 @@ public:
     void setRoomFree(int roomId);
     void setRoomUsed(int roomId);
     void cleanRoom(int roomId);
+    void reportDirtyRoom(std::string loggeduser);
     void setReservation(int roomId,Reservation oneres);
     void deleteReservation(int roomId);
 

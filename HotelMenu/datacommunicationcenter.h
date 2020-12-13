@@ -109,13 +109,15 @@ public:
     void LogCleaningTask(std::string task_id,date clean_date);
     void LogCleaningTask(std::string task_id,std::string item,date clean_date);
 
-
-
     void fixItemReqest(int szobaID , std::string item);
     void reservacionReq(Tasks::Task resTask);//todo
 
     Tasks::Task getTask(std::string username,std::string taskId);
     Tasks::Task getTask(std::string taskId);
+
+    void checkhOut();
+    void reportDeartyRoom();
+
 
 };
 
