@@ -368,7 +368,7 @@ Tasks::Task DataCommunicationCenter::getTask(std::string taskId)
 
 void DataCommunicationCenter::checkhOut()
 {
-
+    room_cont.deleteReservation(user_man.getLoggedUser()->getUsername())
 }
 bool DataCommunicationCenter::isLoggedIn()
 {

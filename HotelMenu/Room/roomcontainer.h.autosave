@@ -77,6 +77,21 @@ public:
             return massage.c_str();
         }
     };
+    class YouHaveNoActiveRes:public std::exception
+    {
+        std::string massage;
+        public:
+        YouHaveNoActiveRes()
+        {
+            std::stringstream ss;
+            ss<<"You have no active reservacion";
+            massage=ss.str();
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
     class ThisRoomAlreadyClean:public std::exception
     {
         std::string massage;

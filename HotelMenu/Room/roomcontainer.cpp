@@ -95,16 +95,25 @@ void RoomContainer::setReservation(int roomId, Reservation oneres)
     }
 }
 
-void RoomContainer::deleteReservation(int roomId)
+void RoomContainer::deleteReservation(std::string username)
 {
-    if(hotelRooms.find(roomId)!=hotelRooms.end())
+    for(auto room:hotelRooms)
     {
-        hotelRooms.at(roomId).deleteReservation();
+        if(room.second.getActiveReservation().getUserename()==username)
+        {
+            hotelRooms.at(room.second.getRoomid()).deleteReservation();
+        }
+    }
+    throw  YouHaveNoActiveRes();
+    /*
+    if(.find(roomId)!=hotelRooms.end())
+    {
+
     }
     else
     {
         throw  NotExistingRoomExc(roomId);
-    }
+    }*/
 }
 
 bool RoomContainer::isFree(int roomId) const

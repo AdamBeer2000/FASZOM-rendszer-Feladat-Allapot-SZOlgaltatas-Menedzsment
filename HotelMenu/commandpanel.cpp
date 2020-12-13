@@ -611,6 +611,11 @@ void CommandPanel::reportDeartyRoom()
     std::cout <<"Koszos szoba jelentve:\n"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
+
+void CommandPanel::checkhOut()
+{
+    data_com->checkhOut();
+}
 bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
 {
     if(data_com->isLoggedIn())
@@ -687,10 +692,6 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
     }
     return false;
 }
-void checkhOut()
-{
-
-}
 
 
 void CommandPanel::pseudoMain()
@@ -732,6 +733,7 @@ void CommandPanel::pseudoMain()
                     case cDenyRes:denyReservation();break;
                     case cPrintLostItems:printLostItems();break;
                     case cChangeRoomStatus:changeRoomStatus();break;
+                    case cCheckhOut:checkhOut();break;
                 }
             }
         }
