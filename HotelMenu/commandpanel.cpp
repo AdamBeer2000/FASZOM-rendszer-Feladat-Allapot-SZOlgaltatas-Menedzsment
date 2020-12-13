@@ -74,8 +74,6 @@ void CommandPanel::bookRoom()
     DateBuilder db;
 
     data_com->bookRoom(name,Suit::stringToSuit(suitType),db.build(startDate),db.build(endDate),Serving::stringToServing(serving));
-
-    std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
@@ -209,8 +207,6 @@ void CommandPanel::replace()
 }
 void CommandPanel::takeCleanroom()
 {
-    std::string task_id;
-    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
     std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
