@@ -205,6 +205,8 @@ void CommandPanel::replace()
 
     date date;
     DateBuilder builder = DateBuilder();
+    std::string datestring;
+    /*
     int year, month, day, hour, min, sec;
     std::cout << "Adja meg az evet (pl.: 1980): " << std::flush;
     std::cin >> year;
@@ -222,7 +224,11 @@ void CommandPanel::replace()
     date = builder.build(year, month, day);
     date.hour = hour;
     date.min = min;
-    date.sec = sec;
+    date.sec = sec;*/
+
+    std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
+    std::cin >>datestring;
+    date=builder.build(datestring);
 
     Logs::Log *log = new Logs::LogReplace(item,failure,cost,date);
     data_com->logTask(task_id, log);
