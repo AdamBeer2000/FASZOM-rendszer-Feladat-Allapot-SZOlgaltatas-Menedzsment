@@ -27,13 +27,14 @@ using namespace Users;
 
 int main()
 {
-    CommandPanel a=CommandPanel();
-    a.pseudoMain();
+    //CommandPanel a=CommandPanel();
+    //a.pseudoMain();
     std::list<date>dates;
     std::list<std::string>tests;
     std::list<std::string>testsClock;
     DateBuilder db;
 
+    
     tests.push_back("2000.01.11");
     tests.push_back("2000.1.1");
     tests.push_back("2000.010.111");
