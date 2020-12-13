@@ -14,7 +14,7 @@ public:
 
     Room();
     Room(Suit::suitTypes _apartment,int _roomid,bool cleaned);//szoba aktív foglalás nélkül
-    Room(Suit::suitTypes _apartment,int _roomid,bool _cleaned,std::string _userename,Suit::suitTypes,date _startTime,date _endTime,Serving::servingTypes _serving);//szoba aktív foglalással
+    Room(Suit::suitTypes _apartment,int _roomid,bool _cleaned,std::string res_id,std::string _userename,Suit::suitTypes,date _startTime,date _endTime,Serving::servingTypes _serving);//szoba aktív foglalással
 
     int getRoomid() const;
     bool getUsed() const;//foglalva van
@@ -27,7 +27,7 @@ public:
     void setUsed();
 
      //egy foglalást add hozá adatok segítséggével
-    void setReservation(std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
+    void setReservation(std::string res_id,std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
 
     //egy db foglalást-t hozzátársít a szobához
     void setReservation(Reservation oneRes);

@@ -17,7 +17,7 @@ private:
     bool userlogged;
     Users::User* loggedUser;   
     std::map<std::string,Users::User*>users;
-
+    std::map<std::string, std::string>tasklink;
 public:
     //CONSTRUCTORS
     UserManager(std::list<Users::User *>_users);
@@ -59,6 +59,7 @@ public:
     Tasks::Task getTask(std::string user,std::string task_id);
     int getRoomId(std::string username,std::string taskid);
 
+
     class WrongUsernameException:public std::exception
         {
             virtual const char * what() const throw()
@@ -91,6 +92,7 @@ public:
         };
 
         Users::User *getLoggedUser() const;
+        std::map<std::string, std::string> getTasklink() const;
 };
 
 #endif // USERMANAGER_H

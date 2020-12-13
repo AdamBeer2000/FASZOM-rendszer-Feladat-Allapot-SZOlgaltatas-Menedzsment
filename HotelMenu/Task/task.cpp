@@ -14,6 +14,11 @@ void Task::setRoomid(int value)
     roomid = value;
 }
 
+Reservation Task::getRes() const
+{
+    return res;
+}
+
 Task::Task(std::string _employee, std::string _task_id, std::string _todo, bool _status)
 {
     employee=_employee;

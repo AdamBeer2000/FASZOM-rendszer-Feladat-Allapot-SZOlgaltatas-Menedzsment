@@ -229,6 +229,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -242,6 +243,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -262,6 +264,7 @@ public:
                 }
                 else
                 {
+                    if(originalinput!=""&&originalinput!=" ")
                     throw CommandNotFoundException(originalinput);
                 }
             }
@@ -275,6 +278,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -293,6 +297,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -311,6 +316,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -326,6 +332,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -341,6 +348,7 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
@@ -355,10 +363,11 @@ public:
             }
             else
             {
+                if(originalinput!=""&&originalinput!=" ")
                 throw CommandNotFoundException(originalinput);
             }
         }
-        if(originalinput!="")
+        if(originalinput!=""&&originalinput!=" ")
         {
             throw CommandNotFoundException(originalinput);
         }
