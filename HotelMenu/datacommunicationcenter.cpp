@@ -45,13 +45,16 @@ void DataCommunicationCenter::createReservationRequest(Reservation &newres)
     user_man.addTask(username , task);
 }
 
-void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id, Reservation res)
+void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id)
 {
+    Reservation res=reservation_cont.getRes(taskid);
+
     room_cont.setReservation(room_id,res);
     reservation_cont.deleteReservation(res.getUserename());
 
-    Logs::LogReservation temp(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
-    user_man.logTask(taskid,&temp);
+    Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
+    user_man.logTask(taskid,temp);
+
 }
 
 void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
@@ -86,6 +89,7 @@ Tasks::Task DataCommunicationCenter::generateTaskReservation(Users::jobs job_id,
     current_id = generateTaskId(job_id, type);
     //Lehet, hogy hasznosabb, ha itt validálom az employee nevet és a típust
     Tasks::Task task = Tasks::Task(employee_name, current_id, reservation, false);
+
 
     task_list.insert({task.getTaskId(), employee_name});
     return task;
@@ -267,11 +271,11 @@ void DataCommunicationCenter::setTaskStatus(std::string user, std::string task_i
 
 void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
 {
-    reservation_cont.bookRoom(_userename,_apartment,_startTime,_endTime,_serving);
+    std::string _task_id=generateTaskId(Users::REC,Users::taskdata::RES);
+    reservation_cont.bookRoom(_task_id,_userename,_apartment,_startTime,_endTime,_serving);
     std::string worker =user_man.getLeastBusyWorker(Users::jobs::REC);
-    std::string todo="placeholder :/";
-    Tasks::Task task =generateTask(Users::REC,Users::taskdata::RES,worker,todo);
-    user_man.addTask(worker,task);
+    Tasks::Task temp(worker,_task_id,Reservation(_userename,_apartment,_startTime,_endTime,_serving),false);
+    user_man.addTask(worker,temp);
 }
 
 

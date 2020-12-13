@@ -13,9 +13,14 @@ class Reservation
     date startTime;
     date endTime;
     Serving::servingTypes serving=Serving::NotSetServing;
+
+    std::string res_id;
+
 public:    
     Reservation();
     Reservation(std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
+    Reservation(std::string res_id,std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
+
     std::string getUserename() const;
     Suit::suitTypes getApartment() const;
     date getStartTime() const;
@@ -27,6 +32,7 @@ public:
     std::string getServingInString() const;
 
 
+    std::string getRes_id() const;
 };
 
 #endif // RESERVATION_H

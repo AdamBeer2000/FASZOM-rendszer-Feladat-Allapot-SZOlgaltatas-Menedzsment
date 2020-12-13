@@ -23,16 +23,21 @@ Task::Task(std::string _employee, std::string _task_id, std::string _todo, bool 
     log=nullptr;
 }
 
-Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _status)
+Task::Task(std::string _employee, std::string _task_id, Reservation res, bool _status)
 {
     employee=_employee;
     task_id=_task_id;
     this->res=res;
     status=_status;
+    std::stringstream ss;
+    ss<<res.getUserename()<<":\n"
+      <<"Apartment :"<<res.getApartmentInString()<<" Serving :"<<res.getServingInString()<<"\n"
+      <<"Staying: "<<res.getStartTime().calendarMode()<<" - "<<res.getEndTime().calendarMode()<<"\n";
+    todo=ss.str();
     log=nullptr;
 }
 
-Task::Task(std::string _employee, std::string _task_id, Reservation &res, bool _status, int _roomid)
+Task::Task(std::string _employee, std::string _task_id, Reservation res, bool _status, int _roomid)
 {
     employee=_employee;
     task_id=_task_id;

@@ -22,12 +22,15 @@ public:
     void addReservation(Reservation newRes);
     void deleteReservation(std::string guestName);
     void bookRoom(std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
+    void bookRoom(std::string res_id,std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
 
     void loadContent(std::string file_name);
     void saveContent(std::string file_name);
 
     Reservation getReservation(std::string guestName);//kikér egy foglalást
     Reservation popReservation(std::string guestName);//ki kér egy foglalást és asztán törli
+
+    Reservation getRes(std::string resid);
 
     class NoReservationFound:public std::exception
     {

@@ -252,6 +252,16 @@ void CommandPanel::logCleanroom()
 void CommandPanel::acceptReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::string tasId;
+    std::cout<<"Melyik foglalast tszed aktiva?";
+    std::cin>>tasId;
+
+    int room_id;
+    std::cout<<"Melyik szobába?";
+    std::cin>>room_id;
+
+    data_com->accepptReservation(tasId,room_id);
+
     std::cout<<"acceptReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }

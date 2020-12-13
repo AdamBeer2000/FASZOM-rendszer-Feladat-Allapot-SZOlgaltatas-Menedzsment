@@ -34,7 +34,10 @@ void ReservationContainer::bookRoom(std::string _userename, Suit::suitTypes _apa
 {
     reservations.insert(std::pair<std::string,Reservation>(_userename,Reservation(_userename,_apartment,_startTime,_endTime,_serving)));
 }
-
+void ReservationContainer::bookRoom(std::string res_id,std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
+{
+    reservations.insert({_userename,Reservation (res_id,_userename,_apartment,_startTime,_endTime,_serving)});
+}
 void ReservationContainer::loadContent(std::string file_name)
 {
     std::ifstream read(file_name);
@@ -122,6 +125,17 @@ Reservation ReservationContainer::popReservation(std::string guestName)
     else
     {
         throw NoReservationFound(guestName);
+    }
+}
+
+Reservation ReservationContainer::getRes(std::string resid)
+{
+    for(auto res:reservations)
+    {
+        if(res.second.getRes_id()==resid)
+        {
+            return res.second;
+        }
     }
 }
 

@@ -40,6 +40,11 @@ std::string Reservation::getServingInString() const
     return servingToString(serving);
 }
 
+std::string Reservation::getRes_id() const
+{
+    return res_id;
+}
+
 Reservation::Reservation()
 {
 
@@ -52,4 +57,13 @@ Reservation::Reservation(std::string _userename, Suit::suitTypes _apartment, dat
      startTime=_startTime;
      endTime=_endTime;
      serving=_serving;
+}
+Reservation::Reservation(std::string _res_id,std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime,Serving:: servingTypes _serving)
+{
+     userename=_userename;
+     apartment=_apartment;
+     startTime=_startTime;
+     endTime=_endTime;
+     serving=_serving;
+     res_id=_res_id;
 }

@@ -47,8 +47,8 @@ namespace Tasks
 
         //CONSTRUCTORS
         Task(std::string employee,std::string task_id,std::string todo,bool status);
-        Task(std::string _employee, std::string _task_id, Reservation& res, bool _status);
-        Task(std::string _employee, std::string _task_id, Reservation& res, bool _status,int roomid);
+        Task(std::string _employee, std::string _task_id, Reservation res, bool _status);
+        Task(std::string _employee, std::string _task_id, Reservation res, bool _status,int roomid);
 
         //DESTRUCTOR
         ~Task();
