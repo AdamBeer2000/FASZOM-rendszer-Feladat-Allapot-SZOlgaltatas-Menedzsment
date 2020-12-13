@@ -123,7 +123,13 @@ void CommandPanel::fix()
 
     date date1;
     DateBuilder builder = DateBuilder();
-    int year, month, day, hour, min, sec;
+    std::string datestring;
+    std::cout << "Adja meg az kezdo datumot (pl 2000.1.1 11:20:20): " << std::flush;
+    std::cin >>datestring;
+    date1=builder.build(datestring);
+
+    //int year, month, day, hour, min, sec;
+    /*
     std::cout << "Adja meg az kezdo evet (pl.: 1980): " << std::flush;
     std::cin >> year;
     std::cout << "Adja meg a kezdo honapot (pl.: 9): " << std::flush;
@@ -140,11 +146,14 @@ void CommandPanel::fix()
     date1 = builder.build(year, month, day);
     date1.hour = hour;
     date1.min = min;
-    date1.sec = sec;
+    date1.sec = sec;*/
 
     date date2;
-    DateBuilder builder2 = DateBuilder();
-    int year2, month2, day2, hour2, min2, sec2;
+    std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
+    std::cin >>datestring;
+    date2=builder.build(datestring);
+    //int year2, month2, day2, hour2, min2, sec2;
+    /*
     std::cout << "Adja meg az befejezo evet (pl.: 1980): " << std::flush;
     std::cin >> year2;
     std::cout << "Adja meg a befejezo honapot (pl.: 9): " << std::flush;
@@ -158,10 +167,11 @@ void CommandPanel::fix()
     std::cout << "Adja meg a befejezo masodpercet (pl.: 1): " << std::flush;
     std::cin >> sec2;
 
+
     date2 = builder2.build(year2, month2, day2);
     date2.hour = hour2;
     date2.min = min2;
-    date2.sec = sec2;
+    date2.sec = sec2;*/
 
     Logs::Log *log = new Logs::LogFix(item,failure,cost,date1,date2);
     data_com->logTask(task_id, log);
