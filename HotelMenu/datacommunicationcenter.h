@@ -81,6 +81,7 @@ public:
     void printLostItem() const;
     void printAllTask();
     void printAllLog();
+    bool isExistTask(std::string task_id);
     Users::jobs returnLoggedJob();
     std::string findTask(std::string task_id);
     void addTask(Tasks::Task task);

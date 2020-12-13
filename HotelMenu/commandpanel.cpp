@@ -101,10 +101,17 @@ void CommandPanel::rating()
 void CommandPanel::fix()
 {
     std::string task_id;
-    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout << "Javitas:\nAdja meg a feladat azonositot: " << std::flush;
     std::cin >> task_id;
+
+    if(!data_com->isExistTask(task_id))
+    {
+        std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
+
     std::string item, failure;
     std::cout << "Adja meg a javitando targy nevet: " << std::flush;
     std::cin >> item;
@@ -169,6 +176,14 @@ void CommandPanel::replace()
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::cout << "Csere:\nAdja meg a feladat azonositot: " << std::flush;
     std::cin >> task_id;
+
+    if(!data_com->isExistTask(task_id))
+    {
+        std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
+
     std::string item, failure;
     std::cout << "Adja meg a cserelendo targy nevet: " << std::flush;
     std::cin >> item;
@@ -218,9 +233,17 @@ void CommandPanel::takeCleanroom()
 void CommandPanel::logCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::string tasId;
+    std::string task_id;
     std::cout<<"Melyik munkad vegezted el? " << std::flush;
-    std::cin>>tasId;//lehet invalid a task
+    std::cin>>task_id;//lehet invalid a task
+
+    if(!data_com->isExistTask(task_id))
+    {
+        std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
+
     date d;
     DateBuilder db;
     std::string date;
@@ -237,26 +260,33 @@ void CommandPanel::logCleanroom()
     {
         std::cout<<"Micsoda?: " << std::flush;
         std::cin>>talat;
-        data_com->LogCleaningTask(tasId,talat,d);
+        data_com->LogCleaningTask(task_id,talat,d);
     }
     if(talat=="N"||talat=="n")
     {
-        data_com->LogCleaningTask(tasId,d);
+        data_com->LogCleaningTask(task_id,d);
     }
 }
 
 void CommandPanel::acceptReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::string tasId;
+    std::string task_id;
     std::cout<<"Melyik foglalast tszed aktiva?";
-    std::cin>>tasId;
+    std::cin>>task_id;
+
+    if(!data_com->isExistTask(task_id))
+    {
+        std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
 
     int room_id;
     std::cout<<"Melyik szobába?";
     std::cin>>room_id;
 
-    data_com->accepptReservation(tasId,room_id);
+    data_com->accepptReservation(task_id,room_id);
 
     std::cout<<"acceptReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -380,6 +410,14 @@ void CommandPanel::deleteTask()
             wrong_data = false;
             std::cout << "Adja meg a feladat azonositojat: " << std::endl;
             std::cin >> task_id;
+
+            if(!data_com->isExistTask(task_id))
+            {
+                std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+                std::cout << "-------------------------------------------------------------------" << std::endl;
+                return;
+            }
+
             std::cout << "Biztos torolni kivanja?\n[igen/nem]: " << std::flush;
             std::cin >> sure;
 

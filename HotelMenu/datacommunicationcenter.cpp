@@ -236,6 +236,16 @@ void DataCommunicationCenter::printAllLog()
     user_man.printLogs();
 }
 
+bool DataCommunicationCenter::isExistTask(std::string task_id)
+{
+    auto it = task_list.find(task_id);
+    if(it != task_list.end())
+    {
+        return true;
+    }
+    return false;
+}
+
 Users::jobs DataCommunicationCenter::returnLoggedJob()
 {
     return user_man.getLoggedJob();
