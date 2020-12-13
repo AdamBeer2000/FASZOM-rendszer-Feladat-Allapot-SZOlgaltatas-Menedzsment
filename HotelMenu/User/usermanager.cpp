@@ -362,13 +362,20 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateStart=DateBuilder::build(temp);
+                            std::string date1,date2;
+                            date1=oneline.substr(0,oneline.find('#'));
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+                            date2=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateEnd=DateBuilder::build(temp);
+                            date dateStart=DateBuilder::buildWhithClock(date1+" "+date2);
+
+                            date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+                            date2=oneline.substr(0,oneline.find('#'));
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+                            date dateEnd=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             Logs::Log * tempLog=new Logs::LogFix(item,fail,cost,dateStart,dateEnd);
@@ -392,9 +399,13 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date dateStart=DateBuilder::build(temp);
+                            std::string date1,date2;
+                            date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+                            date2=oneline.substr(0,oneline.find('#'));
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+                            date dateStart=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             Logs::Log * tempLog=new Logs::LogReplace(item,fail,cost,dateStart);
@@ -442,9 +453,9 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             strm2 >>cost;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
+                            Tasks::Task temp=Tasks::Task(employee,task_id,Reservation(task_id,guestname,apartment,startTime,endTime,serving),roomid);
 
-                            Logs::Log * tempLog = new Logs::LogReservation(guestname,apartment,serving,cost,startTime,endTime);
+                            Logs::Log * tempLog = new Logs::LogReservation(guestname,apartment,serving,cost,startTime,endTime,status);
                             temp.setLog(tempLog);
                             addTask(employee,temp);
 
@@ -456,9 +467,13 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             std::string item=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date datE=DateBuilder::build(temp);
+                            std::string date1,date2;
+                            date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+                            date2=oneline.substr(0,oneline.find('#'));
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+                            date datE=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
 
@@ -469,9 +484,13 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                     break;
                     case CLN:
                         {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            date datE=DateBuilder::build(temp);
+                            std::string date1,date2;
+                            date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+                            date2=oneline.substr(0,oneline.find('#'));
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
+                            date datE=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             Logs::Log * tempLog =new Logs::LogCleaning(datE);

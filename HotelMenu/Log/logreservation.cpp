@@ -1,8 +1,24 @@
 #include "logreservation.h"
 
 //CONSTRUCTOR
+bool LogReservation::getStatus() const
+{
+    return status;
+}
+
+void LogReservation::setStatus(bool value)
+{
+    status = value;
+}
+
 Logs::LogReservation::LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end)
     :guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end)
+{
+
+}
+
+Logs::LogReservation::LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c, date start, date end, bool stat)
+ :guest_name(guest_name_c), apartment(apartment_c), serving(serving_c), cost(cost_c), start_date(start), end_date(end),status(stat)
 {
 
 }
@@ -46,7 +62,7 @@ std::string Logs::LogReservation::toString() const
 
 void Logs::LogReservation::saveStream(std::ofstream &stream) const
 {
-    stream << "RES#"<< getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
+    stream << "RES#"<<status<< getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
     stream <<  getStartDate().calendarMode() << "#" << getEndDate().calendarMode() << "#";
     stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }

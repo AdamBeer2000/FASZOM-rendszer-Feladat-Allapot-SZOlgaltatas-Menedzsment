@@ -15,7 +15,7 @@ namespace Logs
         std::string guest_name;
         date start_date;
         date end_date;
-        bool status;
+        bool status=false;
         double cost = 0.0;
         Suit::suitTypes apartment;
         Serving::servingTypes serving;
@@ -24,6 +24,9 @@ namespace Logs
     public:
         //CONSTRUCTOR
         LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end);
+
+        LogReservation(std::string guest_name_c, Suit::suitTypes apartment_c, Serving::servingTypes serving_c, double cost_c ,date start, date end,bool stat);
+
         LogReservation(Reservation& res, int room_id_c);
 
         //DESTRUCTOR
@@ -42,6 +45,8 @@ namespace Logs
         Serving::servingTypes getServing() const;
         date getStartDate() const;
         date getEndDate() const;
+        bool getStatus() const;
+        void setStatus(bool value);
     };
 }// eof Logs
 #endif // LOGRESERVATION_H

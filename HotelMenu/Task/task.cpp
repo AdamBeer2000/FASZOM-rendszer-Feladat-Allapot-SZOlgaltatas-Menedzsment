@@ -42,12 +42,12 @@ Task::Task(std::string _employee, std::string _task_id, Reservation res, bool _s
     log=nullptr;
 }
 
-Task::Task(std::string _employee, std::string _task_id, Reservation res, bool _status, int _roomid)
+Task::Task(std::string _employee, std::string _task_id, Reservation res, int _roomid)
 {
     employee=_employee;
     task_id=_task_id;
     this->res=res;
-    status=_status;
+    todo="[Szobafoglalas]";
     log=nullptr;
     roomid=_roomid;
 }
@@ -110,14 +110,15 @@ void Task::printLog() const
 
 void Task::backupSaveStream(std::ofstream& stream)
 {
-    stream<<employee<<"#"<<task_id<<"#"<<todo<<"#"<<roomid<<"#";
+    stream<<employee<<"#"<<task_id<<"#"<<todo<<"#"<<roomid;
     if(log)
     {
+        stream<<"#1#";
         log->saveStream(stream);
     }
     else
     {
-        stream<<"\n";
+        stream<<"#0\n";
     }
 
 }
