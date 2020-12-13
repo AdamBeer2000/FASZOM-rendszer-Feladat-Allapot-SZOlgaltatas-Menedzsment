@@ -34,6 +34,7 @@ int main()
     std::list<std::string>testsClock;
     DateBuilder db;
 
+
     tests.push_back("2000.01.11");
     tests.push_back("2000.1.1");
     tests.push_back("2000.010.111");

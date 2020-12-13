@@ -343,7 +343,8 @@ release/roomcontainer.o: ../HotelMenu/Room/roomcontainer.cpp ../HotelMenu/Room/r
 		../HotelMenu/date.h \
 		../HotelMenu/enumSuit.h \
 		../HotelMenu/enumServing.h \
-		../HotelMenu/datebuilder.h
+		../HotelMenu/datebuilder.h \
+		../HotelMenu/Reservation/reservationcontainer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\roomcontainer.o ..\HotelMenu\Room\roomcontainer.cpp
 
 release/task.o: ../HotelMenu/Task/task.cpp ../HotelMenu/Task/task.h \
