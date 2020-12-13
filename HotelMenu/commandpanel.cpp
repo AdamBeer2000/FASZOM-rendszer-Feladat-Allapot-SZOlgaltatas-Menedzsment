@@ -131,7 +131,7 @@ void CommandPanel::fix()
     std::cin>>d2;
 
     datestring=d1+" "+d2;
-    date1=builder.build(datestring);
+    date1=builder.buildWhithClock(datestring);
 
     //int year, month, day, hour, min, sec;
     /*
@@ -160,7 +160,7 @@ void CommandPanel::fix()
     std::cin>>d1;
     std::cin>>d2;
     datestring=d1+" "+d2;
-    date1=builder.build(datestring);
+    date1=builder.buildWhithClock(datestring);
     //int year2, month2, day2, hour2, min2, sec2;
     /*
     std::cout << "Adja meg az befejezo evet (pl.: 1980): " << std::flush;
@@ -241,7 +241,7 @@ void CommandPanel::replace()
     std::cin>>d2;
 
     datestring=d1+" "+d2;
-    date=builder.build(datestring);
+    date=builder.buildWhithClock(datestring);
 
     Logs::Log *log = new Logs::LogReplace(item,failure,cost,date);
     data_com->logTask(task_id, log);
@@ -282,7 +282,7 @@ void CommandPanel::logCleanroom()
     std::cin>>d1;
     std::cin>>d2;
     date=d1+" "+d2;
-    d=db.build(date);
+    d=db.buildWhithClock(date);
 
     std::string talat;
     std::cout<<"Volt talalt targy? (I/N): " << std::flush;
