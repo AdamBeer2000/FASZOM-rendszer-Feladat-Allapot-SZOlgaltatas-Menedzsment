@@ -56,7 +56,7 @@ struct date
     {
         std::string converted = "";
 
-        converted += std::to_string(year) + "/";
+        converted += std::to_string(year) + ".";
 
         if(month < 10)
         {
@@ -66,7 +66,7 @@ struct date
         {
             converted += std::to_string(month);
         }
-        converted += "/";
+        converted += ".";
 
         if(day < 10)
         {

@@ -117,6 +117,14 @@ Reservation TaskContainer::getReserv(std::string task_id)
     return task_list.find(task_id)->second.getRes();
 }
 
+void TaskContainer::saveStuff(std::ofstream & myesfile)
+{
+    for(auto task:task_list)
+    {
+        task.second.backupSaveStream(myesfile);
+    }
+}
+
 bool TaskContainer::ContainerIsEmpty()
 {
     return this->containerSize() == 0 ? true : false;

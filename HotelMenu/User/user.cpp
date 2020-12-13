@@ -92,3 +92,8 @@ Users::User::~User()
 {
     std::cout<<"dest3\n";
 }
+
+void Users::User::saveAlltask(std::ofstream & myesfile)
+{
+    taskCont.saveStuff(myesfile);
+}

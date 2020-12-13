@@ -110,7 +110,16 @@ void Task::printLog() const
 
 void Task::backupSaveStream(std::ofstream& stream)
 {
-    log->saveStream(stream);
+    stream<<employee<<"#"<<task_id<<"#"<<todo<<"#"<<roomid<<"#";
+    if(log)
+    {
+        log->saveStream(stream);
+    }
+    else
+    {
+        stream<<"\n";
+    }
+
 }
 
 bool Task::isValid(const std::string& data)

@@ -715,7 +715,7 @@ void CommandPanel::pseudoMain()
                     case Invalid:throw CommandNotFoundException(command.c_str());break;
                     case cLogin:login();break;
                     case cLogout:logout();break;
-                    case cExit:;break;
+                    case cExit:data_com->saveData();break;
                     case cReportLostItem:reportLostItem();break;
                     case cReportDirtyRoom:reportDeartyRoom();break;
                     case cPrintMyTask:printMyTasks();break;

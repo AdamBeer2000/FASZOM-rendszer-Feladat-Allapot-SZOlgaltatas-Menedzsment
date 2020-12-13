@@ -117,6 +117,8 @@ namespace  Users
 
         virtual ~User();
 
+        void saveAlltask(std::ofstream & myesfile);
+
 
     };
 } // eof Users

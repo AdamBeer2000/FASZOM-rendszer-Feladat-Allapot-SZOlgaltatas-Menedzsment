@@ -34,6 +34,8 @@ public:
     int containerSize();
     Reservation getReserv(std::string task_id);
 
+    void saveStuff(std::ofstream & myesfile);
+
 };
 
 #endif // TASKCONTAINER_H

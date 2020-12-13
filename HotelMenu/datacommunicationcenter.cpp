@@ -278,7 +278,7 @@ void DataCommunicationCenter::addTask(Tasks::Task task)
 void DataCommunicationCenter::deleteTask(std::string task_id)
 {
     user_man.deleteTask(task_id);
-    auto it = task_list.find(task_id); //majd lesz
+    //auto it = task_list.find(task_id); //majd lesz
     task_list.erase(task_id);
 }
 

@@ -506,6 +506,7 @@ void UserManager::saveContent(std::string user_file_name,std::string task_file_n
         {
             myfile<<user.second->getFirstName()
                   <<','<<user.second->getLastName()
+                  <<","<<user.second->getUsername()
                   <<","<<user.second->getBirthDate().calendarMode()
                   <<","<<Users::JobIDToString(user.second->getJobID())
                   <<","<<user.second->getCardID()
@@ -516,6 +517,17 @@ void UserManager::saveContent(std::string user_file_name,std::string task_file_n
     }
     else std::cout << "Savingerr";
 
+    std::ofstream myesfile (task_file_name);
+    if (myesfile.is_open())
+    {
+        //Teszt,Elek,TesztElek,1996.04.20,JAN,0001,debug
+        for(auto user:users)
+        {
+            user.second->saveAlltask(myesfile);
+        }
+        myfile.close();
+    }
+    else std::cout << "Savingerr2";
 
 }
 

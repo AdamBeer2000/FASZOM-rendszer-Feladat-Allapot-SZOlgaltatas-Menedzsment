@@ -282,17 +282,18 @@ void RoomContainer::saveContent(std::string file_name)
     {
         save<<room.second.getApartmentInString()<<","
             <<room.second.getUsed()<<","
-            <<room.second.getCleaned()<<","
+            <<room.second.getRoomid()<<","
             <<room.second.getCleaned();
 
         if(room.second.getUsed())
         {
             auto res=room.second.getActiveReservation();
 
-            save<<","<<res.getUserename()<<","
-                <<res.getStartTime().calendarMode()<<","
-                <<res.getEndTime().calendarMode()<<","
-                <<res.getServingInString()
+            save<<","<<res.getRes_id()
+                <<","<<res.getUserename()
+                <<","<<res.getStartTime().calendarMode()
+                <<","<<res.getEndTime().calendarMode()
+                <<","<<res.getServingInString()
                 <<"\n";
         }
         else
