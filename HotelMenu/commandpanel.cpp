@@ -74,8 +74,6 @@ void CommandPanel::bookRoom()
     DateBuilder db;
 
     data_com->bookRoom(name,Suit::stringToSuit(suitType),db.build(startDate),db.build(endDate),Serving::stringToServing(serving));
-
-    std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
