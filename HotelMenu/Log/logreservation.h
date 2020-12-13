@@ -45,6 +45,7 @@ namespace Logs
         Serving::servingTypes getServing() const;
         date getStartDate() const;
         date getEndDate() const;
+
         bool getStatus() const;
         void setStatus(bool value);
     };

@@ -1,12 +1,12 @@
 #include "logreservation.h"
 
 //CONSTRUCTOR
-bool LogReservation::getStatus() const
+bool Logs::LogReservation::getStatus() const
 {
     return status;
 }
 
-void LogReservation::setStatus(bool value)
+void Logs::LogReservation::setStatus(bool value)
 {
     status = value;
 }
