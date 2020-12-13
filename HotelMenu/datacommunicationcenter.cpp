@@ -20,6 +20,10 @@ DataCommunicationCenter::DataCommunicationCenter()
     //user_man.printLogs();
 
     task_list=user_man.getTasklink();
+    for(auto task:task_list)
+    {
+        std::cout<<task.first<<" "<<task.second<<std::endl;
+    }
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)

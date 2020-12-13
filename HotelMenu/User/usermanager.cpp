@@ -335,7 +335,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                 status=true;
             }
             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-            tasklink.insert({employee,task_id});
+            tasklink.insert({task_id,employee});
             //std::cout<<"Corr:"<<oneline<<std::endl;
             if(status)
             {
