@@ -14,7 +14,8 @@ private:
         cLogin,             //login
         cLogout,            //logout
         cExit,              //exit
-        cReport,            //report
+        cReportLostItem,    //report lost          report l
+        cReportDirtyRoom,   //report dirty         report d
         cPrintMyTask,       //print task            print t
         cReg,               //registrate
         cBook,              //book
@@ -32,7 +33,8 @@ private:
         cAcceptRes,         //accept reservation    accept r
         cDenyRes,           //deny reservation      deny r
         cPrintLostItems,    //print lost            print l
-        cChangeRoomStatus   //change room
+        cChangeRoomStatus,  //change room
+        cCheckhOut,         //checkout
     };
     //std::map<std::string, Tasks::Task> rename_this_please;
 
@@ -53,6 +55,7 @@ private:
     void bookRoom();
     void rating();
     void reportDeartyRoom();
+    void checkhOut();
 
     //managger
     void createTask();
@@ -214,13 +217,30 @@ public:
 
         if( inputs[0] == "login" ) return cLogin;
         if( inputs[0] == "logout" ) return cLogout;
-        if( inputs[0] == "report" ) return cReport;
+
         if( inputs[0] == "fix" ) return cFix;
         if( inputs[0] == "replace" ) return cReplace;
         if( inputs[0] == "registrate" ) return cReg;
         if( inputs[0] == "book" ) return cBook;
         if( inputs[0] == "rate" ) return cRate;
         if( inputs[0] == "exit" ) return cRate;
+
+        if( inputs[0] == "report" )
+        {
+            if( inputs[1]=="lost")return cReportLostItem;
+            if( inputs[1]=="l")return cReportLostItem;
+            if( inputs[1]=="dirty")return cReportDirtyRoom;
+            if( inputs[1]=="d")return cReportDirtyRoom;
+            if(inputs[1]==inputs[0])
+            {
+                throw IncompleteCommandException(originalinput);
+            }
+            else
+            {
+                if(originalinput!=""&&originalinput!=" ")
+                throw CommandNotFoundException(originalinput);
+            }
+        }
 
         if(inputs[0]=="take")
         {

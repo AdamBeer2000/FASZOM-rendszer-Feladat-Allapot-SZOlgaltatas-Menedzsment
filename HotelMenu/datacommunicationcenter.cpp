@@ -378,10 +378,14 @@ Tasks::Task DataCommunicationCenter::getTask(std::string taskId)
 
 void DataCommunicationCenter::checkhOut()
 {
-
+    room_cont.deleteReservation(user_man.getLoggedUser()->getUsername());
 }
-
+bool DataCommunicationCenter::isLoggedIn()
+{
+     return user_man.isLoggedIn();
+}
 void DataCommunicationCenter::reportDeartyRoom()
 {
     room_cont.reportDirtyRoom(user_man.getLoggedUser()->getUsername());
 }
+

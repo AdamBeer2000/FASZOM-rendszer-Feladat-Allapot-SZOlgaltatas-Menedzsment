@@ -22,8 +22,10 @@ public:
     void setRoomUsed(int roomId);
     void cleanRoom(int roomId);
     void reportDirtyRoom(std::string loggeduser);
+
     void setReservation(int roomId,Reservation oneres);
-    void deleteReservation(int roomId);
+
+    void deleteReservation(std::string username);
 
     void loadContent(std::string filename);
     void saveContent(std::string file_name);
@@ -68,6 +70,21 @@ public:
         {
             std::stringstream ss;
             ss<<roomid<<"'-room already has Active reservacion id";
+            massage=ss.str();
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
+    class YouHaveNoActiveRes:public std::exception
+    {
+        std::string massage;
+        public:
+        YouHaveNoActiveRes()
+        {
+            std::stringstream ss;
+            ss<<"You have no active reservacion";
             massage=ss.str();
         }
         virtual const char * what() const throw()
