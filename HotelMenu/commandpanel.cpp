@@ -606,8 +606,15 @@ void CommandPanel::createEmployee()
     {
         std::cout << "-------------------------------------------------------------------" << std::endl;
         std::cout << "Alkalmazott hozzaadasa:\n" << std::endl;
+
+        std::cout << "Adja meg a vezetek nevet: " << std::flush;
+        std::cin >> last_name;
+        std::cout << "Adja meg a keresztnevet: " << std::flush;
+        std::cin >> first_name;
         std::cout << "Adja meg az alkalmazottnak szant felhasznalonevet: " << std::flush;
         std::cin >> username;//ITT NEM ELLENORZUNK
+        std::cout << "Adja meg a jelszot: " << std::flush;
+        std::cin >> password;
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
         if(job_id_raw != "Takarito" && job_id_raw != "Karbantarto" && job_id_raw != "Recepcios" && job_id_raw != "takarito" && job_id_raw != "karbantarto" && job_id_raw != "recepcios")

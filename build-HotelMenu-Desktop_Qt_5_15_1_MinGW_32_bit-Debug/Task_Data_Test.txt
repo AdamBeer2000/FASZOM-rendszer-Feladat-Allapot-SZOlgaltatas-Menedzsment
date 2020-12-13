@@ -1,4 +1,3 @@
-TesztElek#JANFIX00041#[javitas]#404#0
 TesztElek#JANFIX55555#[Javitas]#1406#1#FIX#lampabura#eltort#2020.10.04#12:12:12#2020.10.05#12:12:12#0.05
 TesztElek#JANFIX89988#[Javitas]#1401#0
 TesztElek#JANREP34344#[Csere]#1400#0
