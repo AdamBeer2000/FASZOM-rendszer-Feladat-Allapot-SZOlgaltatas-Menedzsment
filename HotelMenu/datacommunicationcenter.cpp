@@ -309,6 +309,11 @@ bool DataCommunicationCenter::isExistUser(std::string username)
     return user_man.existUser(username);
 }
 
+Users::jobs DataCommunicationCenter::getJobIdFrom(std::string username)
+{
+    return user_man.getJobIdOf(username);
+}
+
 void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
 {
     std::string _task_id=generateTaskId(Users::REC,Users::taskdata::RES);

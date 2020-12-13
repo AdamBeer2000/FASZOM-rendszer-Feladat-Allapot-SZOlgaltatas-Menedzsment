@@ -36,8 +36,6 @@ private:
         cChangeRoomStatus,  //change room
         cCheckhOut,         //checkout
     };
-    //std::map<std::string, Tasks::Task> rename_this_please;
-
     //Egy felhasználó bejelentkezését valósítja meg
     //Login logger;
 

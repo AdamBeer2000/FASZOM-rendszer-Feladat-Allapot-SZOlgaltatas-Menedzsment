@@ -59,6 +59,7 @@ public:
 
     Tasks::Task getTask(std::string user,std::string task_id);
     int getRoomId(std::string username,std::string taskid);
+    Users::jobs getJobIdOf(std::string username);
 
     bool existUser(std::string username);
 
