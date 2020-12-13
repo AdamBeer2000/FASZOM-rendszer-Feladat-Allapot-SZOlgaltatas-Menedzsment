@@ -154,6 +154,16 @@ int UserManager::getRoomId(std::string username,std::string taskid)
     return users.find(username)->second->getRoomId(taskid);
 }
 
+bool UserManager::existUser(std::string username)
+{
+    auto it = users.find(username);
+    if(it != users.end())
+    {
+        return true;
+    }
+    return false;
+}
+
 void UserManager::addTask(std::string username, Tasks::Task one_task)
 {
     auto it = users.find(username);    

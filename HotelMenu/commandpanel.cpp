@@ -121,9 +121,21 @@ void CommandPanel::fix()
     std::cout << "Adja meg a hiba okat: " << std::flush;
     std::cin >> failure;
     double cost;
+    std::string cost_str = "";
     std::cout << "Adja meg a muvelet arat[csak szam]:" << std::flush;
-    std::cin >> cost;
-
+    std::cin >> cost_str;
+    bool is_num = cost_str.find_first_not_of("0123456789") == std::string::npos;
+    if(!is_num)
+    {
+        std::cout << "Csak szam engedelyezett!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
+    else
+    {
+        std::stringstream co(cost_str);
+        co >> cost;
+    }
     date date1;
     DateBuilder builder = DateBuilder();
     std::string datestring;
@@ -209,10 +221,22 @@ void CommandPanel::replace()
     std::cin >> item;
     std::cout << "Adja meg a hiba okat: " << std::flush;
     std::cin >> failure;
+    std::string cost_str;
     double cost;
     std::cout << "Adja meg a muvelet arat[csak szam]:" << std::flush;
-    std::cin >> cost;
-
+    std::cin >> cost_str;
+    bool is_num = cost_str.find_first_not_of("0123456789") == std::string::npos;
+    if(!is_num)
+    {
+        std::cout << "Csak szam engedelyezett!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
+    else
+    {
+        std::stringstream co(cost_str);
+        co >> cost;
+    }
     date date;
     DateBuilder builder = DateBuilder();
     std::string datestring;
@@ -253,10 +277,16 @@ void CommandPanel::replace()
 void CommandPanel::takeCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    int roomId;
+    int room_id;
     std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
-    std::cin>>roomId;//lehet nem igenyel takaritast,vagy nem letezik a szoba
-    data_com->takeCleaningTask(roomId);
+    std::cin>>room_id;//lehet nem igenyel takaritast,vagy nem letezik a szoba
+    if(room_id < 1 || room_id > 1408)
+    {
+        std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;//todo excep
+    }
+    data_com->takeCleaningTask(room_id);
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -286,16 +316,16 @@ void CommandPanel::logCleanroom()
     d=db.buildWhithClock(date);
 
     std::string talat;
-    std::cout<<"Volt talalt targy? (I/N): " << std::flush;
+    std::cout<<"Volt talalt targy?\n[igen/nem]: " << std::flush;
     std::cin>>talat;//mast ad meg
 
-    if(talat=="I"||talat=="i")
+    if(talat == "igen" || talat == "i" || talat == "Igen" || talat == "I" || talat == "IGEN")
     {
         std::cout<<"Micsoda?: " << std::flush;
         std::cin>>talat;
         data_com->LogCleaningTask(task_id,talat,d);
     }
-    if(talat=="N"||talat=="n")
+    if(talat == "nem" || talat == "n" || talat == "Nem" || talat == "N" || talat == "NEM")
     {
         data_com->LogCleaningTask(task_id,d);
     }
@@ -318,7 +348,7 @@ void CommandPanel::acceptReservation()
     int room_id;
     std::cout<<"Melyik szobába?";
     std::cin>>room_id;
-    if(room_id < 1 || room_id > 1408)//LENYEG, HOGY BE LEGYEN ALLITVA HOGY CSAK ABBOL A TARTOMANYBOL LEHESSEN SZOBAT VALASZTANI
+    if(room_id < 1 || room_id > 1408)
     {
         std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -327,17 +357,22 @@ void CommandPanel::acceptReservation()
 
     data_com->accepptReservation(task_id,room_id);
 
-    std::cout<<"acceptReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::denyReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::string tasId;
+    std::string task_id;
     std::cout<<"Melyik foglalast utasitod el?";
-    std::cin>>tasId;//nem letezik a task(foglalas)
-    data_com->denyReservation(tasId);
+    std::cin>>task_id;
+    if(!data_com->isExistTask(task_id))
+    {
+        std::cout << "Feladat nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;//todo excep
+    }
+    data_com->denyReservation(task_id);
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -352,9 +387,6 @@ void CommandPanel::printLostItems()
 
 void CommandPanel::changeRoomStatus()
 {
-    std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"changeRoomStatus"<<std::endl;
-    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 
@@ -373,17 +405,39 @@ void CommandPanel::createTask()
         std::cout << "Feladat kiadasa:\n" << std::endl;
         std::cout << "Adja meg az alkalmazott felhasznalonevet: " << std::flush;
         std::cin >> username;
+        if(!data_com->isExistUser(username))
+        {
+            std::cout << "Felhasznalo nem letezik!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
+        }
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
+
+        if(job_id_raw != "Takarito" || job_id_raw != "Karbantarto" || job_id_raw != "Recepcios" || job_id_raw != "takarito" || job_id_raw != "karbantarto" || job_id_raw != "recepcios")
+        {
+            std::cout << "Feladatkor nem letezik!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
+        }
+
         std::cout << "Adja meg a feladat tipusat: " << std::flush;
         std::cin >> task_type_raw;
+
+        if(task_type_raw != "Takaritas" || task_type_raw != "takaritas" || task_type_raw != "Csere" || task_type_raw != "csere" || task_type_raw != "Javitas" || task_type_raw != "javitas" || task_type_raw != "Kiadas" || task_type_raw != "kiadas")
+        {
+            std::cout << "Feladat tipus nem letezik!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
+        }
+
         std::cout << "Adja meg melyik szobaban: " << std::flush;
         std::cin >> room;
 
         std::stringstream s(room);
         s >> room_id;
 
-        if(room_id < 1 || room_id > 1408)//LENYEG, HOGY BE LEGYEN ALLITVA HOGY CSAK ABBOL A TARTOMANYBOL LEHESSEN SZOBAT VALASZTANI
+        if(room_id < 1 || room_id > 1408)
         {
             std::cout << "Szoba nem letezik!\nFolyamat megszakitva" << std::endl;
             std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -394,15 +448,15 @@ void CommandPanel::createTask()
 
         todo = "Szoba: " + room + " [" + task_type_raw + "]";
 
-        if(job_id_raw == "Takarito")
+        if(job_id_raw == "Takarito" || job_id_raw == "takarito")
         {
             job_id = Users::jobs::CLE;
         }
-        else if(job_id_raw == "Karbantarto")
+        else if(job_id_raw == "Karbantarto" || job_id_raw == "karbantarto")
         {
             job_id = Users::jobs::JAN;
         }
-        else if(job_id_raw == "Recepcios")
+        else if(job_id_raw == "Recepcios" || job_id_raw == "recepcios")
         {
             job_id = Users::jobs::REC;
         }
@@ -412,19 +466,19 @@ void CommandPanel::createTask()
             job_id = Users::jobs::ERR;
         }
 
-        if(task_type_raw == "Takaritas")
+        if(task_type_raw == "Takaritas" || task_type_raw == "takaritas")
         {
             task_type = Users::taskdata::CLN;
         }
-        else if(task_type_raw == "Csere")
+        else if(task_type_raw == "Csere" || task_type_raw == "csere")
         {
             task_type = Users::taskdata::REP;
         }
-        else if(task_type_raw == "Javitas")
+        else if(task_type_raw == "Javitas" || task_type_raw == "javitas")
         {
             task_type = Users::taskdata::FIX;
         }
-        else if(task_type_raw == "Kiadas")
+        else if(task_type_raw == "Kiadas" || task_type_raw == "kiadas")
         {
             task_type = Users::taskdata::RES;
         }
@@ -457,7 +511,7 @@ void CommandPanel::deleteTask()
         std::cout << "Folytatni akarja?\n[igen/nem]: " << std::flush;
         std::cin >> confirm;
 
-        if(confirm == "igen")
+        if(confirm == "igen" || confirm == "i" || confirm == "Igen" || confirm == "I" || confirm == "IGEN")
         {
             wrong_data = false;
             std::cout << "Adja meg a feladat azonositojat: " << std::endl;
@@ -473,13 +527,13 @@ void CommandPanel::deleteTask()
             std::cout << "Biztos torolni kivanja?\n[igen/nem]: " << std::flush;
             std::cin >> sure;
 
-            if(sure == "igen")
+            if(sure == "igen" || sure == "i" || sure == "Igen" || sure == "I" || sure == "IGEN")
             {
                 wrong_data = false;
                 data_com->deleteTask(task_id);
                 std::cout << "Feladat sikeresen torolve!" << std::endl;
             }
-            else if(sure == "nem")
+            else if(sure == "nem" || sure == "n" || sure == "Nem" || sure == "N" || sure == "NEM")
             {
                 wrong_data = false;
                 std::cout << "Torles megszakitva!" << std::endl;
@@ -490,7 +544,7 @@ void CommandPanel::deleteTask()
                 std::cout << "Helytelen parancs, probalja ujra!" << std::endl;
             }
         }
-        else if(confirm == "nem")
+        else if(confirm == "nem" || confirm == "n" || confirm == "Nem" || confirm == "N" || confirm == "NEM")
         {
             wrong_data = false;
             std::cout << "Torles megszakitva!" << std::endl;
@@ -518,9 +572,15 @@ void CommandPanel::createEmployee()
         std::cout << "-------------------------------------------------------------------" << std::endl;
         std::cout << "Alkalmazott hozzaadasa:\n" << std::endl;
         std::cout << "Adja meg az alkalmazottnak szant felhasznalonevet: " << std::flush;
-        std::cin >> username;
+        std::cin >> username;//ITT NEM ELLENORZUNK
         std::cout << "Adja meg a beosztasat: " << std::flush;
         std::cin >> job_id_raw;
+        if(job_id_raw != "Takarito" || job_id_raw != "Karbantarto" || job_id_raw != "Recepcios" || job_id_raw != "takarito" || job_id_raw != "karbantarto" || job_id_raw != "recepcios")
+        {
+            std::cout << "Feladatkor nem letezik!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
+        }
         std::cout << "Adja meg a belepo kartya szamat: " << std::flush;
         std::cin >> card_id;
         std::cout << "Adja meg a szuletesi evet (pl.: 1980): " << std::flush;
@@ -531,15 +591,15 @@ void CommandPanel::createEmployee()
         std::cin >> day;
         birth = builder.build(year, month, day);
 
-        if(job_id_raw == "Takarito")
+        if(job_id_raw == "Takarito" || job_id_raw == "takarito")
         {
             job_id = Users::jobs::CLE;
         }
-        else if(job_id_raw == "Karbantarto")
+        else if(job_id_raw == "Karbantarto" || job_id_raw == "karbantarto")
         {
             job_id = Users::jobs::JAN;
         }
-        else if(job_id_raw == "Recepcios")
+        else if(job_id_raw == "Recepcios" || job_id_raw == "recepcios")
         {
             job_id = Users::jobs::REC;
         }
@@ -559,22 +619,31 @@ void CommandPanel::emploYeet()
 {
     bool wrong_data = false;
 
+
+    std::string username, confirm;
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout<< "Alkalmazott eltavolitasa:\n" << std::endl;
+    std::cout << "Adja meg az eltavolitando szemely felhasznalonevet: " << std::flush;
+    std::cin >> username;
+
+    if(!data_com->isExistUser(username))
+    {
+        std::cout << "Felhasznalo nem letezik!\nFolyamat megszakitva" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        return;
+    }
     do
     {
-        std::string username, confirm;
-        std::cout << "-------------------------------------------------------------------" << std::endl;
-        std::cout<< "Alkalmazott eltavolitasa:\n" << std::endl;
-        std::cout << "Adja meg az eltavolitando szemely felhasznalonevet: " << std::flush;
-        std::cin >> username;
         std::cout << "Biztos torolni akarja?\n[igen/nem]: " << std::flush;
         std::cin >> confirm;
-        if(confirm == "igen")
+
+        if(confirm == "igen" || confirm == "i" || confirm == "Igen" || confirm == "I" || confirm == "IGEN")
         {
             wrong_data = false;
             data_com->deleteUser(username);
             std::cout << "Felhasznalo sikeresen torolve!" << std::endl;
         }
-        else if(confirm == "nem")
+        else if(confirm == "nem" || confirm == "n" || confirm == "Nem" || confirm == "N" || confirm == "NEM")
         {
             wrong_data = false;
             std::cout << "Torles megszakitva!" << std::endl;
