@@ -44,7 +44,7 @@ std::string Logs::LogFix::toString() const
 void Logs::LogFix::saveStream(std::ofstream &stream) const
 {
     stream << "FIX#" << getItem() << "#" << getCauseOfFailure() << "#"
-    << getStartDate().calendarMode() << "#" << getStartDate().clockMode() << "#"  << std::endl << getEndDate().calendarMode() << "#" << getEndDate().clockMode() << "#"
+    << getStartDate().calendarMode() << "#" << getStartDate().clockMode() << "#" << getEndDate().calendarMode() << "#" << getEndDate().clockMode() << "#"
     << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 

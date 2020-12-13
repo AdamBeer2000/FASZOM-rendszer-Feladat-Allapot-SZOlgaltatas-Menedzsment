@@ -1,5 +1,4 @@
-TesztElek#JANFIX55555#[Javitas]#0#FIX#lampabura#eltort#2020.10.04#00:00:00#
-2020.10.05#00:00:00#0.05
+TesztElek#JANFIX55555#[Javitas]#0#FIX#lampabura#eltort#2020.10.04#00:00:00#2020.10.05#00:00:00#0.05
 TesztElek#JANFIX89988#[Javitas]#0#
 TesztElek#JANREP34344#[Csere]#0#
 makkos#RECRES11645#[Szobafoglalas]#0#
