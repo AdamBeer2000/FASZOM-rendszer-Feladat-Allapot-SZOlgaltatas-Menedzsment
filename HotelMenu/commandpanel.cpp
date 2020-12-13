@@ -257,15 +257,16 @@ void CommandPanel::acceptReservation()
     std::cin>>room_id;
 
     data_com->accepptReservation(tasId,room_id);
-
-    std::cout<<"acceptReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::denyReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout<<"denyReservation"<<std::endl;
+    std::string tasId;
+    std::cout<<"Melyik foglalast utasitod el?";
+    std::cin>>tasId;
+    data_com->denyReservation(tasId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -284,7 +285,6 @@ void CommandPanel::changeRoomStatus()
     std::cout<<"changeRoomStatus"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
-
 
 
 void CommandPanel::createTask()

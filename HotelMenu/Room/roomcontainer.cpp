@@ -205,6 +205,10 @@ void RoomContainer::loadContent(std::string file_name)
                 else
                 {
                     temp=oneline.substr(0,oneline.find(','));
+                    std::string resid=temp;
+                    oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
+                    temp=oneline.substr(0,oneline.find(','));
                     std::string userename=temp;
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
@@ -220,7 +224,7 @@ void RoomContainer::loadContent(std::string file_name)
                     serving=Serving::stringToServing(temp);
                     oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
-                    hotelRooms.insert({roomid,Room(apartment,roomid,cleaned,userename,apartment,startTime,endTime,serving)});
+                    hotelRooms.insert({roomid,Room(apartment,roomid,cleaned,resid,userename,apartment,startTime,endTime,serving)});
                 }
             }
             catch(std::exception &e)

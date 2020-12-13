@@ -29,15 +29,17 @@ void ReservationContainer::deleteReservation(std::string guestName)
         throw NoReservationFound(guestName);
     }
 }
-
+/*
 void ReservationContainer::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
 {
     reservations.insert(std::pair<std::string,Reservation>(_userename,Reservation(_userename,_apartment,_startTime,_endTime,_serving)));
 }
+*/
 void ReservationContainer::bookRoom(std::string res_id,std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
 {
-    reservations.insert({_userename,Reservation (res_id,_userename,_apartment,_startTime,_endTime,_serving)});
+    reservations.insert({res_id,Reservation (res_id,_userename,_apartment,_startTime,_endTime,_serving)});
 }
+
 void ReservationContainer::loadContent(std::string file_name)
 {
     std::ifstream read(file_name);
@@ -56,6 +58,10 @@ void ReservationContainer::loadContent(std::string file_name)
         {
             try
             {
+                temp=oneline.substr(0,oneline.find(','));
+                std::string resid=temp;
+                oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
                 temp=oneline.substr(0,oneline.find(','));
                 std::string userename=temp;
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
@@ -76,7 +82,7 @@ void ReservationContainer::loadContent(std::string file_name)
                 serving=Serving::stringToServing(temp);
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
 
-                bookRoom(userename,apartment,startTime,endTime,serving);
+                bookRoom(resid,userename,apartment,startTime,endTime,serving);
             }
             catch(std::exception &e)
             {
@@ -92,7 +98,8 @@ void ReservationContainer::saveContent(std::string file_name)
     save.open(file_name);
     for(auto res:reservations)
     {
-        save<<res.second.getUserename()<<","
+        save<<res.second.getRes_id()<<","
+            <<res.second.getUserename()<<","
             <<res.second.getApartmentInString()<<","
             <<res.second.getStartTime().calendarMode()<<","
             <<res.second.getEndTime().calendarMode()<<","
@@ -102,40 +109,29 @@ void ReservationContainer::saveContent(std::string file_name)
     save.close();
 }
 
-Reservation ReservationContainer::getReservation(std::string guestName)
+Reservation ReservationContainer::getReservation(std::string resid)
 {
-    if(reservations.find(guestName)!=reservations.end())
+    if(reservations.find(resid)!=reservations.end())
     {
-        return reservations.find(guestName)->second;
+        return reservations.find(resid)->second;
     }
     else
     {
-        throw NoReservationFound(guestName);
+        throw NoReservationFound(resid);
     }
 }
 
-Reservation ReservationContainer::popReservation(std::string guestName)
+Reservation ReservationContainer::popReservation(std::string resid)
 {
-    if(reservations.find(guestName)!=reservations.end())
+    if(reservations.find(resid)!=reservations.end())
     {
-        Reservation ret=reservations.find(guestName)->second;
-        deleteReservation(guestName);
+        Reservation ret=reservations.find(resid)->second;
+        deleteReservation(resid);
         return ret;
     }
     else
     {
-        throw NoReservationFound(guestName);
-    }
-}
-
-Reservation ReservationContainer::getRes(std::string resid)
-{
-    for(auto res:reservations)
-    {
-        if(res.second.getRes_id()==resid)
-        {
-            return res.second;
-        }
+        throw NoReservationFound(resid);
     }
 }
 

@@ -27,8 +27,8 @@ public:
     void loadContent(std::string file_name);
     void saveContent(std::string file_name);
 
-    Reservation getReservation(std::string guestName);//kikér egy foglalást
-    Reservation popReservation(std::string guestName);//ki kér egy foglalást és asztán törli
+    Reservation getReservation(std::string resid);//kikér egy foglalást
+    Reservation popReservation(std::string resid);//ki kér egy foglalást és asztán törli
 
     Reservation getRes(std::string resid);
 

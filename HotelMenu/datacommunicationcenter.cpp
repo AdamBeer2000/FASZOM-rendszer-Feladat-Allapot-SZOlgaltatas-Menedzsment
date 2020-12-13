@@ -18,6 +18,8 @@ DataCommunicationCenter::DataCommunicationCenter()
 
     std::cout<<"LOGS  LOADING:"<<std::endl;
     //user_man.printLogs();
+
+    task_list=user_man.getTasklink();
 }
 
 DataCommunicationCenter::DataCommunicationCenter(const DataCommunicationCenter &other)
@@ -47,27 +49,19 @@ void DataCommunicationCenter::createReservationRequest(Reservation &newres)
 
 void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id)
 {
-<<<<<<< Updated upstream
-    Reservation res=reservation_cont.getRes(taskid);
+
+    Reservation res=reservation_cont.getReservation(taskid);
 
     room_cont.setReservation(room_id,res);
     reservation_cont.deleteReservation(res.getUserename());
 
     Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
     user_man.logTask(taskid,temp);
-
-=======
-    Reservation res = user_man.getLoggedUser()->getReserv(taskid);
-    room_cont.setReservation(room_id,res);
-    reservation_cont.deleteReservation(res.getUserename());
-    Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
-    user_man.logTask(taskid,temp);
->>>>>>> Stashed changes
 }
 
-void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
+void DataCommunicationCenter::denyReservation(std::string taskid)
 {
-    reservation_cont.deleteReservation(username);
+    reservation_cont.deleteReservation(taskid);
     user_man.setTaskStatusDone(findTask(taskid), taskid);
 }
 
@@ -282,7 +276,7 @@ void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _
     std::string _task_id=generateTaskId(Users::REC,Users::taskdata::RES);
     reservation_cont.bookRoom(_task_id,_userename,_apartment,_startTime,_endTime,_serving);
     std::string worker =user_man.getLeastBusyWorker(Users::jobs::REC);
-    Tasks::Task temp(worker,_task_id,Reservation(_userename,_apartment,_startTime,_endTime,_serving),false);
+    Tasks::Task temp(worker,_task_id,Reservation(_task_id,_userename,_apartment,_startTime,_endTime,_serving),false);
     user_man.addTask(worker,temp);
 }
 
