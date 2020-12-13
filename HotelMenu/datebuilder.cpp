@@ -118,7 +118,7 @@ date DateBuilder::buildWhithClock(std::string sdate)
         throw InvalidDateFormat(originalstring,originalstring.find(temp));
     stream << temp;
     stream >> ret.hour;
-    if(ret.hour>12||ret.hour<1)
+    if(ret.hour>24||ret.hour<1)
         throw InvalidDate(originalstring,"ora");
     stream.clear();
 

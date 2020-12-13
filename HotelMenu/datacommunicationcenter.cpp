@@ -77,7 +77,7 @@ void DataCommunicationCenter::registration(std::string username, std::string fir
 
 void DataCommunicationCenter::addRating(int rate, std::string comment)
 {
-    ratings.push_back(std::pair<int,std::string>(rate,comment));
+     ratings.insert({user_man.getLoggedUser()->getUsername(), std::pair<int,std::string>(rate,comment)});
 }
 
 Tasks::Task DataCommunicationCenter::generateTask(Users::jobs job_id, Users::taskdata type, const std::string &employee_name, const std::string &todo)
@@ -283,6 +283,16 @@ std::map<std::string, std::string> DataCommunicationCenter::showTasks()
 void DataCommunicationCenter::setTaskStatus(std::string user, std::string task_id)
 {
     user_man.setTaskStatusDone(user, task_id);
+}
+
+bool DataCommunicationCenter::isRated() const
+{
+    auto it = ratings.find(user_man.getLoggedUser()->getUsername());
+    if(it != ratings.end())
+    {
+        return true;
+    }
+    return false;
 }
 
 void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving)
