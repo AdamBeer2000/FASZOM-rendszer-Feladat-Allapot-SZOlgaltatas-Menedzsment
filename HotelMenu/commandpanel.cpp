@@ -126,6 +126,11 @@ void CommandPanel::fix()
     std::string datestring;
     std::cout << "Adja meg az kezdo datumot (pl 2000.1.1 11:20:20): " << std::flush;
     std::getline (std::cin, datestring);
+    std::string d1,d2;
+    std::cin>>d1;
+    std::cin>>d2;
+
+    datestring=d1+" "+d2;
     date1=builder.build(datestring);
 
     //int year, month, day, hour, min, sec;
@@ -151,7 +156,11 @@ void CommandPanel::fix()
     date date2;
     std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
     std::cin >>datestring;
-    std::getline (std::cin, datestring);
+    d1="";d2="";
+    std::cin>>d1;
+    std::cin>>d2;
+    datestring=d1+" "+d2;
+    date1=builder.build(datestring);
     //int year2, month2, day2, hour2, min2, sec2;
     /*
     std::cout << "Adja meg az befejezo evet (pl.: 1980): " << std::flush;
@@ -227,7 +236,11 @@ void CommandPanel::replace()
     date.sec = sec;*/
 
     std::cout << "Adja meg az befejezo datumot (pl 2000.1.1 11:20:20): " << std::flush;
-    std::getline (std::cin, datestring);
+    std::string d1,d2;
+    std::cin>>d1;
+    std::cin>>d2;
+
+    datestring=d1+" "+d2;
     date=builder.build(datestring);
 
     Logs::Log *log = new Logs::LogReplace(item,failure,cost,date);
@@ -262,10 +275,13 @@ void CommandPanel::logCleanroom()
 
     date d;
     DateBuilder db;
-    std::string date;
+    std::string date,d1,d2;
 
     std::cout<<"Mikor? :" << std::flush;
-    std::getline (std::cin, date);//invalid date
+
+    std::cin>>d1;
+    std::cin>>d2;
+    date=d1+" "+d2;
     d=db.build(date);
 
     std::string talat;
