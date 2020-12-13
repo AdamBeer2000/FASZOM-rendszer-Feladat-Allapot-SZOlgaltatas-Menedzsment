@@ -46,10 +46,10 @@ public:
         {
 
         }
-        InvalidDate(std::string date, std::string what,int num)
+        InvalidDate(std::string date, std::string what)
         {
             std::stringstream ss;
-            ss<<"A\""<<date<<"\"-ben nem valos a(z): "<<num<<"."<<what;
+            ss<<"A\""<<date<<"\"-ben nem valos a(z): "<<what;
             massage=ss.str();
         }
         virtual const char * what() const throw()

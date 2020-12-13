@@ -52,7 +52,7 @@ date DateBuilder::build(std::string sdate)
     stream << temp;
     stream >> ret.month;
     if(ret.month>12||ret.month<1)
-        throw InvalidDate(originalstring,"honap",ret.month);
+        throw InvalidDate(originalstring,"honap");
     stream.clear();
 
     sdate=sdate.substr(sdate.find('.')+1,sdate.size());
@@ -64,7 +64,7 @@ date DateBuilder::build(std::string sdate)
     stream << temp;
     stream >> ret.day;
     if(ret.month>31||ret.month<1)
-        throw InvalidDate(originalstring,"nap",ret.day);
+        throw InvalidDate(originalstring,"nap");
 
     stream.clear();
 
@@ -96,7 +96,7 @@ date DateBuilder::buildWhithClock(std::string sdate)
     stream << temp;
     stream >> ret.month;
     if(ret.month>12||ret.month<1)
-        throw InvalidDate(originalstring,"honap",ret.month);
+        throw InvalidDate(originalstring,"honap");
     stream.clear();
 
     datepart=datepart.substr(datepart.find('.')+1,datepart.size());
@@ -108,7 +108,7 @@ date DateBuilder::buildWhithClock(std::string sdate)
     stream << temp;
     stream >> ret.day;
     if(ret.month>31||ret.month<1)
-        throw InvalidDate(originalstring,"nap",ret.day);
+        throw InvalidDate(originalstring,"nap");
 
     stream.clear();
 
@@ -118,8 +118,8 @@ date DateBuilder::buildWhithClock(std::string sdate)
         throw InvalidDateFormat(originalstring,originalstring.find(temp));
     stream << temp;
     stream >> ret.hour;
-    if(ret.hour>24||ret.hour<0)
-        throw InvalidDate(originalstring,"ora",ret.hour);
+    if(ret.hour>12||ret.hour<1)
+        throw InvalidDate(originalstring,"ora");
     stream.clear();
 
     timepart=timepart.substr(timepart.find(':')+1,timepart.size());
@@ -130,7 +130,7 @@ date DateBuilder::buildWhithClock(std::string sdate)
     stream << temp;
     stream >> ret.min;
     if(ret.min>59||ret.min<0)
-        throw InvalidDate(originalstring,"perc",ret.min);
+        throw InvalidDate(originalstring,"perc");
     stream.clear();
 
     timepart=timepart.substr(timepart.find(':')+1,timepart.size());
@@ -141,8 +141,8 @@ date DateBuilder::buildWhithClock(std::string sdate)
 
     stream << temp;
     stream >> ret.sec;
-    if(ret.min>59||ret.min<0)
-        throw InvalidDate(originalstring,"masodperc",ret.sec);
+    if(ret.sec>59||ret.sec<0)
+        throw InvalidDate(originalstring,"masodperc");
 
     stream.clear();
 
