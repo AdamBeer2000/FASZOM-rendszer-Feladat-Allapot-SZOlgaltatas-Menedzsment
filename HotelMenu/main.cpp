@@ -27,8 +27,8 @@ using namespace Users;
 
 int main()
 {
-    CommandPanel a=CommandPanel();
-    a.pseudoMain();
+    //CommandPanel a=CommandPanel();
+    //a.pseudoMain();
     std::list<date>dates;
     std::list<std::string>tests;
     std::list<std::string>testsClock;
