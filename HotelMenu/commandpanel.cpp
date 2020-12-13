@@ -80,22 +80,25 @@ void CommandPanel::rating()
 {
     std::string rate;
     int stars;
-    std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::cout <<"Ertekeles" << std::endl;
-    do
+    if(!data_com->isRated())
     {
-        std::cout << "Hany csillagra ertekeli az ellatast [1-5]: " << std::flush;
-        std::cin >> stars;
-        if(stars < 1 || stars > 5)
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+        std::cout <<"Ertekeles" << std::endl;
+        do
         {
-            std::cout << "1-5-ig terjedo skalan lehet csak ertekelni!" << std::endl;
-        }
-    }while(stars < 1 || stars > 5);
-    std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
-    std::cin >>  rate;
-    data_com->addRating(stars, rate);
-    std::cout << "Koszonjuk az ertekelest" << std::endl;
-    std::cout << "-------------------------------------------------------------------" << std::endl;
+            std::cout << "Hany csillagra ertekeli az ellatast [1-5]: " << std::flush;
+            std::cin >> stars;
+            if(stars < 1 || stars > 5)
+            {
+                std::cout << "1-5-ig terjedo skalan lehet csak ertekelni!" << std::endl;
+            }
+        }while(stars < 1 || stars > 5);
+        std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
+        std::cin >>  rate;
+        data_com->addRating(stars, rate);
+        std::cout << "Koszonjuk az ertekelest" << std::endl;
+        std::cout << "-------------------------------------------------------------------" << std::endl;
+    }
 }
 
 void CommandPanel::fix()

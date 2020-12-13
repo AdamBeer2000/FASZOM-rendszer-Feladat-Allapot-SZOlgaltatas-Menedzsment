@@ -21,7 +21,7 @@ class DataCommunicationCenter
 private:
     //VARIABLES
     std::map<std::string, std::string> task_list;
-    std::list<std::pair<int, std::string>> ratings;
+    std::map<std::string, std::pair<int, std::string>> ratings;
     std::list<std::string> lost_items;
 
     UserManager user_man;
@@ -89,6 +89,7 @@ public:
     void deleteTask(std::string task_id);
     std::map<std::string, std::string> showTasks();
     void setTaskStatus(std::string user, std::string task_id);
+    bool isRated() const;
 
     void bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
 
