@@ -32,6 +32,7 @@ public:
     //+FUNCTIONS
     bool ContainerIsEmpty();
     int containerSize();
+    Reservation getReserv(std::string task_id);
 
 };
 

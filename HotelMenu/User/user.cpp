@@ -45,6 +45,11 @@ Tasks::Task Users::User::getTask(std::string taskId)
     return taskCont.getTask(taskId);
 }
 
+Reservation Users::User::getReserv(std::string task_id)
+{
+    return taskCont.getReserv(task_id);
+}
+
 int Users::User::getNumberOfTasks() const
 {
     return taskCont.getActiveTasksNumber();;

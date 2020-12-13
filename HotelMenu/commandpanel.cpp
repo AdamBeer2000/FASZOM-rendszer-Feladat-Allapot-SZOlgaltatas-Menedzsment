@@ -563,7 +563,7 @@ void CommandPanel::pseudoMain()
             {
                 switch (resolveOption(command))
                 {
-                    case Invalid:throw CommandNotFoundException(command.c_str());break;
+                    //case Invalid:throw CommandNotFoundException(command.c_str());break;
                     case cLogin:login();break;
                     case cLogout:logout();break;
                     case cExit:;break;

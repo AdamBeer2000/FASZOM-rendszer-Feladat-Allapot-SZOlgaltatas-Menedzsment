@@ -79,6 +79,7 @@ namespace  Users
         int getRoomId(std::string taskid);
 
         Tasks::Task getTask(std::string taskId);
+        Reservation getReserv(std::string task_id);
 
         int getNumberOfTasks() const;
 

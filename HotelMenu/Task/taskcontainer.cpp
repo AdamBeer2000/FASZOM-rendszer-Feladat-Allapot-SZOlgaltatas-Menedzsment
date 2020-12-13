@@ -112,6 +112,11 @@ int TaskContainer::containerSize()
     return task_list.size();
 }
 
+Reservation TaskContainer::getReserv(std::string task_id)
+{
+    return task_list.find(task_id)->second.getRes();
+}
+
 bool TaskContainer::ContainerIsEmpty()
 {
     return this->containerSize() == 0 ? true : false;

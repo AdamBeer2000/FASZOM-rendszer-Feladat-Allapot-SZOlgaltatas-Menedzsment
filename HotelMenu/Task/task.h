@@ -76,6 +76,7 @@ namespace Tasks
         int getRoomid() const;
         void setRoomid(int value);
 
+        Reservation getRes() const;
     };
 } // eof Tasks
 #endif // TASK_H

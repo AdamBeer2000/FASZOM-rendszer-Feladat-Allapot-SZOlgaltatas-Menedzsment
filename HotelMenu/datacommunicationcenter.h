@@ -65,6 +65,7 @@ public:
 
     void accepptReservation(std::string taskid, int room_id);
     void denyReservation(std::string taskid, std::string username);
+
     void registration(std::string username,std::string first_name,std::string last_name, std::string password);
     void addRating(int rate, std::string comment);
     Tasks::Task generateTask(Users::jobs job_id, Users::taskdata type, const std::string& employee_name, const std::string& todo);

@@ -47,6 +47,7 @@ void DataCommunicationCenter::createReservationRequest(Reservation &newres)
 
 void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id)
 {
+<<<<<<< Updated upstream
     Reservation res=reservation_cont.getRes(taskid);
 
     room_cont.setReservation(room_id,res);
@@ -55,6 +56,13 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
     Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
     user_man.logTask(taskid,temp);
 
+=======
+    Reservation res = user_man.getLoggedUser()->getReserv(taskid);
+    room_cont.setReservation(room_id,res);
+    reservation_cont.deleteReservation(res.getUserename());
+    Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
+    user_man.logTask(taskid,temp);
+>>>>>>> Stashed changes
 }
 
 void DataCommunicationCenter::denyReservation(std::string taskid, std::string username)
