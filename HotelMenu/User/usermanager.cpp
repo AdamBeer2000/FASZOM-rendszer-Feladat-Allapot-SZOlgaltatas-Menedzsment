@@ -388,6 +388,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             date dateEnd=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
+                            temp.setRoomid(roomid);
                             Logs::Log * tempLog=new Logs::LogFix(item,fail,cost,dateStart,dateEnd);
                             temp.setLog(tempLog);
                             addTask(employee,temp);
@@ -418,6 +419,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             date dateStart=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
+                            temp.setRoomid(roomid);
                             Logs::Log * tempLog=new Logs::LogReplace(item,fail,cost,dateStart);
                             temp.setLog(tempLog);
                             addTask(employee,temp);
@@ -464,7 +466,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,Reservation(task_id,guestname,apartment,startTime,endTime,serving),roomid);
-
                             Logs::Log * tempLog = new Logs::LogReservation(guestname,apartment,serving,cost,startTime,endTime,status);
                             temp.setLog(tempLog);
                             addTask(employee,temp);
@@ -486,6 +487,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             date datE=DateBuilder::buildWhithClock(date1+" "+date2);
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
+                            temp.setRoomid(roomid);
 
                             Logs::Log * tempLog =new Logs::LogCleaning(item,datE);
                             temp.setLog(tempLog);
@@ -502,7 +504,9 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
 
                             date datE=DateBuilder::buildWhithClock(date1+" "+date2);
 
+
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
+                            temp.setRoomid(roomid);
                             Logs::Log * tempLog =new Logs::LogCleaning(datE);
                             temp.setLog(tempLog);
                             addTask(employee,temp);
@@ -514,7 +518,9 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             else
             {
                 Tasks::Task temp(employee,task_id,todo,status);
+                temp.setRoomid(roomid);
                 addTask(employee,temp);
+
                 //users.find(employee)->second->printTasks();
             }
         }

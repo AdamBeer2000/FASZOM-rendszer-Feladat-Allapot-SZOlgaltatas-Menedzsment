@@ -72,7 +72,7 @@ std::string Logs::LogReservation::toString() const
 
 void Logs::LogReservation::saveStream(std::ofstream &stream) const
 {
-    stream << "RES#"<<status<< getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
+    stream << "RES#"<<status<<"#"<< getGuestName() << "#" << Suit::suitToString(getApartment()) << "#" << Serving::servingToString(getServing()) << "#";
     stream <<  getStartDate().calendarMode() << "#" << getEndDate().calendarMode() << "#";
     stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }

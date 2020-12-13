@@ -120,7 +120,6 @@ void Task::backupSaveStream(std::ofstream& stream)
     {
         stream<<"#0\n";
     }
-
 }
 
 bool Task::isValid(const std::string& data)
