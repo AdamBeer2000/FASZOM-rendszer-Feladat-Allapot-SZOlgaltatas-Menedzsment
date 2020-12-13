@@ -74,6 +74,8 @@ void CommandPanel::bookRoom()
     DateBuilder db;
 
     data_com->bookRoom(name,Suit::stringToSuit(suitType),db.build(startDate),db.build(endDate),Serving::stringToServing(serving));
+
+    std::cout<<"bookRoom"<<std::endl;
 }
 
 void CommandPanel::rating()
@@ -207,9 +209,11 @@ void CommandPanel::replace()
 }
 void CommandPanel::takeCleanroom()
 {
+    std::string task_id;
+    bool invalid = false;
     std::cout << "-------------------------------------------------------------------" << std::endl;
     int roomId;
-    std::cout<<"Melyik szobat takaritanad ki? " << std::flush;
+    std::cout<<"Melyik szobat takaritanad ki?";
     std::cin>>roomId;//lehet nem igenyel takaritast
     data_com->takeCleaningTask(roomId);
     std::cout << "-------------------------------------------------------------------" << std::endl;
@@ -219,23 +223,23 @@ void CommandPanel::logCleanroom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     std::string tasId;
-    std::cout<<"Melyik munkad vegezted el? " << std::flush;
+    std::cout<<"Melyik munkad vegezted el?";
     std::cin>>tasId;//lehet invalid a task
     date d;
     DateBuilder db;
     std::string date;
 
-    std::cout<<"Mikor? :" << std::flush;
+    std::cout<<"Mikor? :";
     std::cin>>date;
     d=db.build(date);
 
     std::string talat;
-    std::cout<<"Volt talalt targy? (I/N): " << std::flush;
+    std::cout<<"Volt talalt targy? (I/N) :";
     std::cin>>talat;
 
     if(talat=="I"||talat=="i")
     {
-        std::cout<<"Micsoda?: " << std::flush;
+        std::cout<<"Micsoda? :";
         std::cin>>talat;
         data_com->LogCleaningTask(tasId,talat,d);
     }
@@ -257,16 +261,15 @@ void CommandPanel::acceptReservation()
     std::cin>>room_id;
 
     data_com->accepptReservation(tasId,room_id);
+
+    std::cout<<"acceptReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::denyReservation()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
-    std::string tasId;
-    std::cout<<"Melyik foglalast utasitod el?";
-    std::cin>>tasId;
-    data_com->denyReservation(tasId);
+    std::cout<<"denyReservation"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -285,6 +288,7 @@ void CommandPanel::changeRoomStatus()
     std::cout<<"changeRoomStatus"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
+
 
 
 void CommandPanel::createTask()
