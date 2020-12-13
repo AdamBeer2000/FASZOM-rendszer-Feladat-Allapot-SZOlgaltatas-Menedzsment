@@ -208,9 +208,9 @@ void DataCommunicationCenter::logOut()
 
 void DataCommunicationCenter::saveData()
 {   //_Test.txt"
-    room_cont.saveContent("Room_Data_Test.txt");
-    reservation_cont.saveContent("Reservation_Data_Test.txt");
-    user_man.saveContent("User_Data_Test.txt","Task_Data_Test.txt");
+    room_cont.saveContent("Room_Data.txt");
+    reservation_cont.saveContent("Reservation_Datatxt");
+    user_man.saveContent("User_Data.txt","Task_Data.txt");
 }
 
 void DataCommunicationCenter::createUser(std::string username, std::string first_name, std::string last_name, date birth_date, Users::jobs position, int card_id, std::string password)

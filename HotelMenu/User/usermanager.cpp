@@ -487,9 +487,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                     break;
                     case CLF:
                         {
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::string item=temp;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
+
 
                             std::string date1,date2;
                             date1=oneline.substr(0,oneline.find('#'));
@@ -498,6 +496,9 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             date datE=DateBuilder::buildWhithClock(date1+" "+date2);
+                            temp=oneline.substr(0,oneline.find('#'));
+                            std::string item=temp;
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             temp.setRoomid(roomid);

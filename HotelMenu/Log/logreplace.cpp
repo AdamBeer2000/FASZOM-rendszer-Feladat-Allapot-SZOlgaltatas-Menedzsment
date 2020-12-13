@@ -40,7 +40,7 @@ std::string Logs::LogReplace::toString() const
 
 void Logs::LogReplace::saveStream(std::ofstream &stream) const
 {
-    stream << "REP#" << "#" << getItem() << "#" << getCauseOfFailure() << "#" << getReplaceDate().calendarMode() << "#" << getReplaceDate().clockMode() << "#";
+    stream << "REP#" << getItem() << "#" << getCauseOfFailure() << "#" << getReplaceDate().calendarMode() << "#" << getReplaceDate().clockMode() << "#";
     stream << std::fixed <<std::setprecision(2) << getCost() << "\n";
 }
 
