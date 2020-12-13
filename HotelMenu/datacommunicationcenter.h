@@ -91,6 +91,7 @@ public:
     void setTaskStatus(std::string user, std::string task_id);
     bool isRated() const;
     bool isExistUser(std::string username);
+    Users::jobs getJobIdFrom(std::string username);
 
     void bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
 

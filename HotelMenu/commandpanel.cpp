@@ -423,7 +423,7 @@ void CommandPanel::createTask()
 
         std::cout << "Adja meg a feladat tipusat: " << std::flush;
         std::cin >> task_type_raw;
-
+        Users::jobs job = data_com->getJobIdFrom(username);
         if(task_type_raw != "Takaritas"  && task_type_raw != "takaritas" && task_type_raw != "Csere" && task_type_raw != "csere" && task_type_raw != "Javitas" && task_type_raw != "javitas" && task_type_raw != "Kiadas" && task_type_raw != "kiadas")
         {
             std::cout << "Feladat tipus nem letezik!\nFolyamat megszakitva" << std::endl;
@@ -466,28 +466,63 @@ void CommandPanel::createTask()
             job_id = Users::jobs::ERR;
         }
 
-        if(task_type_raw == "Takaritas" || task_type_raw == "takaritas")
+        if(job != job_id)
         {
-            task_type = Users::taskdata::CLN;
+            std::cout << "Ez a munkakor nem adhato ki ennek a felhasznalonak!\nFolyamat megszakitva" << std::endl;
+            std::cout << "-------------------------------------------------------------------" << std::endl;
+            return;
         }
-        else if(task_type_raw == "Csere" || task_type_raw == "csere")
+        switch (job_id)
         {
-            task_type = Users::taskdata::REP;
-        }
-        else if(task_type_raw == "Javitas" || task_type_raw == "javitas")
-        {
-            task_type = Users::taskdata::FIX;
-        }
-        else if(task_type_raw == "Kiadas" || task_type_raw == "kiadas")
-        {
-            task_type = Users::taskdata::RES;
-        }
-        else
-        {
-            wrong_data = true;
-            task_type = Users::taskdata::ER2;
-        }
+            case Users::jobs::CLE:
+                if(task_type_raw == "Takaritas" || task_type_raw == "takaritas")
+                {
+                    task_type = Users::taskdata::CLN;
+                }
+                else
+                {
+                    wrong_data = true;
+                    task_type = Users::taskdata::ER2;
+                    std::cout << "Hibas feladattipus" << std::endl;
+                }
+                break;
 
+            case Users::jobs::JAN:
+                if(task_type_raw == "Csere" || task_type_raw == "csere")
+                {
+                    task_type = Users::taskdata::REP;
+                }
+                else if(task_type_raw == "Javitas" || task_type_raw == "javitas")
+                {
+                    task_type = Users::taskdata::FIX;
+                }
+                else
+                {
+                    wrong_data = true;
+                    task_type = Users::taskdata::ER2;
+                    std::cout << "Hibas feladattipus" << std::endl;
+                }
+                break;
+
+            case Users::jobs::REC:
+                if(task_type_raw == "Kiadas" || task_type_raw == "kiadas")
+                {
+                    task_type = Users::taskdata::RES;
+                }
+                else
+                {
+                    wrong_data = true;
+                    task_type = Users::taskdata::ER2;
+                    std::cout << "Hibas feladattipus" << std::endl;
+                }
+                break;
+
+            default:
+                wrong_data = true;
+                task_type = Users::taskdata::ER2;
+                std::cout << "Hibas feladatkor" << std::endl;
+                break;
+        }
     }while(wrong_data);
 
     Tasks::Task task = data_com->generateTask(job_id, task_type, username, todo);

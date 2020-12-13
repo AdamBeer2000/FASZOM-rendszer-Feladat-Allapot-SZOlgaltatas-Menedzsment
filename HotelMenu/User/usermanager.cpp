@@ -154,6 +154,12 @@ int UserManager::getRoomId(std::string username,std::string taskid)
     return users.find(username)->second->getRoomId(taskid);
 }
 
+Users::jobs UserManager::getJobIdOf(std::string username)
+{
+    auto it = users.find(username);
+    return it->second->getJobID();
+}
+
 bool UserManager::existUser(std::string username)
 {
     auto it = users.find(username);
