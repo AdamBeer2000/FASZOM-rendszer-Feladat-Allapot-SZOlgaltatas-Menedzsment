@@ -36,19 +36,36 @@ namespace  Users
         if(onejobid=="REC") return REC;
         if(onejobid=="GUE") return REC;
         //todo excepcion
-        return Unlogged;
+    }
+    inline std::string JobIDToString(jobs job)
+    {
+        if(job==CLE) return "CLE";
+        if(job==MAN) return "MAN";
+        if(job==JAN) return "JAN";
+        if(job==REC) return "REC";
+        if(job==REC) return "REC";
+        //todo excepcion
     }
 
-    inline taskdata stringTotaskdata(std::string onetastdata)
+    inline taskdata stringToTaskdata(std::string onetastdata)
     {
         if(onetastdata=="FIX") return FIX;
         if(onetastdata=="REP") return REP;
         if(onetastdata=="RES") return RES;
         if(onetastdata=="CLF") return CLF;
         if(onetastdata=="CLN") return CLN;
-        //todo excepcion
-        return ER2;
+        //todo exc
     }
+    inline std::string taskdataToString(taskdata onetastdata)
+    {
+        if(onetastdata==FIX) return "FIX";
+        if(onetastdata==REP) return "REP";
+        if(onetastdata==RES) return "RES";
+        if(onetastdata==CLF) return "CLF";
+        if(onetastdata==CLN) return "CLN";
+        //todo exc
+    }
+
 //todo excepcion
 
 

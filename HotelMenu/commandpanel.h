@@ -223,7 +223,7 @@ public:
         if( inputs[0] == "registrate" ) return cReg;
         if( inputs[0] == "book" ) return cBook;
         if( inputs[0] == "rate" ) return cRate;
-        if( inputs[0] == "exit" ) return cRate;
+        if( inputs[0] == "exit" ) return cExit;
 
         if( inputs[0] == "report" )
         {
