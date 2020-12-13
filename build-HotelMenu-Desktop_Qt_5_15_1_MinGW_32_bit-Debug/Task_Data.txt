@@ -1,7 +1,7 @@
 TesztElek#JANFIX55555#[Javitas]#1406#1#FIX#lampabura#eltort#0.046669#2020.10.4#2020.10.05
 TesztElek#JANREP34344#[Csere]#1400#0
 TesztElek#JANFIX89988#[Javitas]#1401#0
-szab#JANREP12345#[Csere]#1405#1#REP#ajto#ajto#2020.11.13#2020.11.13
+szab#JANREP12345#[Csere]#1405#1#REP#ajto#eltort#20.20#2020.11.13
 viccelek#CLECLF34344#[Takaritas]#1403#1#CLF#piros_szonyeg#2020.11.17
 pisti#CLECLN81968#[Takaritas]#1400#1#CLN#2020.12.07
 makkos#RECRES34969#[Szobafoglalas]#1398#1#RES#true#imi#Notbad#Allinclusive#2020.12.19#2020.12.20#4.6669

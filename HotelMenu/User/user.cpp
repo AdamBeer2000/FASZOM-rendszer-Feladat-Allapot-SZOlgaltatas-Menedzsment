@@ -52,7 +52,7 @@ Reservation Users::User::getReserv(std::string task_id)
 
 int Users::User::getNumberOfTasks() const
 {
-    return taskCont.getActiveTasksNumber();;
+    return taskCont.getActiveTasksNumber();
 }
 
 //ezt eddig miért nem jelezte hibának hogy nem voltak itt?

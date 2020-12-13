@@ -161,7 +161,6 @@ void UserManager::addTask(std::string username, Tasks::Task one_task)
     {
         it->second->addTask(one_task);
     }
-    users.find(username)->second->printLogs();
 }
 
 void UserManager::deleteTask(std::string task_id_del)
@@ -191,12 +190,12 @@ void UserManager::logTask(std::string username, std::string task_id, Logs::Log *
 
 void UserManager::printAllTask() const
 {
-    for(auto cit = users.cbegin(); cit != users.cend(); ++cit)
+    for(auto cit:users)
     {
-        if(cit->second->getNumberOfTasks()>0)
+        if(cit.second->getNumberOfTasks()>0)
         {
-            std::cout << cit->first <<"\'s tasks:" <<std::endl;
-            cit->second->printTasks();
+            std::cout << cit.first <<"\'s tasks:" <<std::endl;
+            cit.second->printTasks();
             std::cout << std::endl;
         }
     }
@@ -253,7 +252,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
     int cardid;
     Users::jobs jobID;
     DateBuilder dba;
-    addUser("admin","Kave","Energiaital",dba.build(2001,9,11),Users::jobs::ADM,69420,"admin");
+    //addUser("admin","Kave","Energiaital",dba.build(2001,9,11),Users::jobs::ADM,69420,"admin");
     while(getline (readuser, oneline))
     {
         try
@@ -342,7 +341,7 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
             {
                 using namespace Users;
                 temp=oneline.substr(0,oneline.find('#'));
-                taskdata tasklogtype=Users::stringTotaskdata(temp);
+                taskdata tasklogtype=Users::stringToTaskdata(temp);
                 oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                 switch (tasklogtype)
@@ -516,6 +515,7 @@ void UserManager::saveContent(std::string user_file_name,std::string task_file_n
         myfile.close();
     }
     else std::cout << "Savingerr";
+
 
 }
 

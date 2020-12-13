@@ -67,7 +67,7 @@ int TaskContainer::getActiveTasksNumber() const
 
     for(auto it = task_list.begin(); it != task_list.end(); it++)
     {
-        if(!(it->second.getStatus()))
+        if(it->second.isActive())
         {
             result++;
         }

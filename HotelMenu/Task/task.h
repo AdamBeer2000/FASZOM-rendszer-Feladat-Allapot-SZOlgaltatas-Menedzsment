@@ -22,7 +22,7 @@ namespace Tasks
         std::string employee;
         std::string task_id; //UNIQUE
         std::string todo;
-        bool status;
+        bool status=false;
         Logs::Log* log;
         Reservation res;
         int roomid;

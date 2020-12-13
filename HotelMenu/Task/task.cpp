@@ -90,14 +90,14 @@ std::string Task::getTodo() const
 }
 
 //FUNCTIONS
-bool Task::isActive()
+bool Task::isActive() const
 {
-    return !getStatus();
+    return !log;
 }
 
 bool Task::isFinished() const
 {
-    return getStatus();
+    return log;
 }
 
 void Task::printLog() const
@@ -183,14 +183,5 @@ std::string Task::statusToString(bool stat) const
     {
         return "Unfinished";
     }
-}
-
-bool Task::isActive() const
-{
-    if(this->getStatus())
-    {
-        return true;
-    }
-    return false;
 }
 
