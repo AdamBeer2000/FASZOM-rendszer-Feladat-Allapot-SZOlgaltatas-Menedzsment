@@ -17,6 +17,7 @@ private:
         cReportLostItem,    //report lost          report l
         cReportDirtyRoom,   //report dirty         report d
         cPrintMyTask,       //print task            print t
+        cPrintDirtyRooms,    //print dirty           print d
         cReg,               //registrate
         cBook,              //book
         cRate,              //rate
@@ -35,6 +36,7 @@ private:
         cPrintLostItems,    //print lost            print l
         cChangeRoomStatus,  //change room
         cCheckhOut,         //checkout
+
     };
     //Egy felhasználó bejelentkezését valósítja meg
     //Login logger;
@@ -70,6 +72,7 @@ private:
     //cleaner  
     void takeCleanroom();
     void logCleanroom();
+    void printDirtyRooms();
 
     //recepcionist
     void acceptReservation();
@@ -158,33 +161,6 @@ public:
     {
         std::string massage;
         public:
-        NoPermissonException(Commands command)//Jogosulatlan próbálkozás
-        {
-            std::stringstream ss;
-            switch (command)
-            {
-                case cPrintMyTask:ss<<"you have no perrmison to printing your tasks";break;
-                case cReg:ss<< "you have no acces to registracion or are you already logged in";break;
-                case cBook:ss<< "you have no perrmisson to boking rooms";break;
-                case cRate:ss<< "placeholder";break;
-                case cCreateTask:ss<< "placeholder";break;
-                case cDeleteTask:ss<< "placeholder";break;
-                case cCreateEmployee:ss<< "placeholder";break;
-                case cEmploYeet:ss<< "placeholder";break;
-                case cPrintAllTask:ss<< "placeholder";break;
-                case cPrintAllLogs:ss<< "placeholder";break;
-                case cFix:ss<< "placeholder";break;
-                case cReplace:ss<< "placeholder";break;
-                case cTakeClean:ss<< "placeholder";break;
-                case cLogClean:ss<< "placeholder";break;
-                case cAcceptRes:ss<< "placeholder";break;
-                case cDenyRes:ss<< "placeholder";break;
-                case cPrintLostItems:ss<< "placeholder";break;
-                case cChangeRoomStatus:ss<< "placeholder";break;
-                default:ss<<"NoPermissonException";break;
-            }
-            massage=ss.str();
-        }
         NoPermissonException()
         {
             massage="no permisson";
@@ -274,6 +250,8 @@ public:
             if( inputs[1] == "t" ) return cPrintMyTask;
             if( inputs[1] == "at" ) return cPrintAllTask;
             if( inputs[1]  == "al" ) return cPrintAllLogs;
+            if( inputs[1]  == "dirty" ) return cPrintDirtyRooms;
+            if( inputs[1]  == "d" ) return cPrintDirtyRooms;
 
             if(inputs[1]=="all")
             {

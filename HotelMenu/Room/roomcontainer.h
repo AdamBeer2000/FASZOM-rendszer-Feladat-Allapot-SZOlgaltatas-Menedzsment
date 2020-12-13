@@ -37,6 +37,8 @@ public:
     bool isCleaned(int roomId)const;
     bool isDirty(int roomId)const;
 
+    void printDirtyRooms();
+
     Suit::suitTypes getSuitType(int roomId);
 
     class NotExistingRoomExc:public std::exception

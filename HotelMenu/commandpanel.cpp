@@ -308,7 +308,7 @@ void CommandPanel::logCleanroom()
     DateBuilder db;
     std::string date,d1,d2;
 
-    std::cout<<"Mikor? :" << std::flush;
+    std::cout<<"Mikor? (pl 2000.1.1 11:20:20):" << std::flush;
 
     std::cin>>d1;
     std::cin>>d2;
@@ -329,6 +329,14 @@ void CommandPanel::logCleanroom()
     {
         data_com->LogCleaningTask(task_id,d);
     }
+}
+
+void CommandPanel::printDirtyRooms()
+{
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout<<"A kovetkezo szobakban kernek takaritast:\n";
+    data_com->printDirtyRooms();
+    std::cout << "\n-------------------------------------------------------------------" << std::endl;
 }
 
 void CommandPanel::acceptReservation()
@@ -720,7 +728,7 @@ void CommandPanel::reportDeartyRoom()
 {
     std::cout << "-------------------------------------------------------------------" << std::endl;
     data_com->reportDeartyRoom();
-    std::cout <<"Koszos szoba jelentve:\n"<<std::endl;
+    std::cout <<"Koszos szoba jelentve!\n"<<std::endl;
     std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 
@@ -756,7 +764,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cRate:return true;
                 case cReportDirtyRoom:return true;
                 case cCheckhOut:return true;
-                default:throw NoPermissonException(requestedCommand);
+                default:throw NoPermissonException();
             }
         }
         if(userPermisson==Users::jobs::JAN)
@@ -765,7 +773,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
             {
                 case cFix:return true;
                 case cReplace:return true;
-                default:throw NoPermissonException(requestedCommand);
+                default:throw NoPermissonException();
             }
         }
         if(userPermisson==Users::jobs::MAN)
@@ -778,7 +786,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cEmploYeet:return true;
                 case cPrintAllLogs:return true;
                 case cPrintAllTask:return true;
-                default:throw NoPermissonException(requestedCommand);
+                default:throw NoPermissonException();
             }
         }
         if(userPermisson==Users::jobs::REC)
@@ -788,7 +796,18 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cAcceptRes:return true;
                 case cDenyRes:return true;
                 case cPrintLostItems:return true;
-                default:throw NoPermissonException(requestedCommand);
+                default:throw NoPermissonException();
+            }
+        }
+        if(userPermisson==Users::jobs::CLE)
+        {
+            switch (requestedCommand)
+            {
+                case cReportDirtyRoom:return true;
+                case cTakeClean:return true;
+                case cPrintDirtyRooms:return true;
+                case cLogClean:return true;
+                default:throw NoPermissonException();
             }
         }
     }
@@ -800,10 +819,10 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
             case cLogin:return true;
             case cLogout:return true;
             case cExit:return true;
-            default:throw NoPermissonException(requestedCommand);
+            default:throw NoPermissonException();
         }
     }
-    throw NoPermissonException(requestedCommand);
+    throw NoPermissonException();
 }
 
 
@@ -847,6 +866,7 @@ void CommandPanel::pseudoMain()
                         case cAcceptRes:acceptReservation();break;
                         case cDenyRes:denyReservation();break;
                         case cPrintLostItems:printLostItems();break;
+                        case cPrintDirtyRooms:printDirtyRooms();break;
                         case cChangeRoomStatus:changeRoomStatus();break;
                         case cCheckhOut:checkhOut();break;
                     }

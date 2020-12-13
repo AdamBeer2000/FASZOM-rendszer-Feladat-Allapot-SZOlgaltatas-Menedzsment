@@ -94,10 +94,11 @@ public:
     Users::jobs getJobIdFrom(std::string username);
 
     void bookRoom(std::string _userename, Suit::suitTypes _apartment, date _startTime, date _endTime, Serving::servingTypes _serving);
-
+    void printDirtyRooms();
     void printMyTasks();
     //test
     void printRes();
+
 
     //jobs
     void logTask(std::string task_id,Logs::Log * one_log);

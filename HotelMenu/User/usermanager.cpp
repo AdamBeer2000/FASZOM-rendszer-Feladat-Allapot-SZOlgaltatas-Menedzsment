@@ -379,12 +379,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             std::string fail=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm2(temp);
-                            double cost;
-                            strm2 >>cost;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
                             std::string date1,date2;
                             date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
@@ -399,6 +393,12 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             date dateEnd=DateBuilder::buildWhithClock(date1+" "+date2);
+
+                            temp=oneline.substr(0,oneline.find('#'));
+                            std::stringstream strm2(temp);
+                            double cost;
+                            strm2 >>cost;
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             temp.setRoomid(roomid);
@@ -417,12 +417,6 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             std::string fail=temp;
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
-                            temp=oneline.substr(0,oneline.find('#'));
-                            std::stringstream strm2(temp);
-                            double cost;
-                            strm2 >>cost;
-                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
-
                             std::string date1,date2;
                             date1=oneline.substr(0,oneline.find('#'));
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
@@ -430,6 +424,12 @@ void UserManager::loadContent(std::string user_file_name,std::string task_file_n
                             oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             date dateStart=DateBuilder::buildWhithClock(date1+" "+date2);
+
+                            temp=oneline.substr(0,oneline.find('#'));
+                            std::stringstream strm2(temp);
+                            double cost;
+                            strm2 >>cost;
+                            oneline=oneline.substr(oneline.find('#')+1,oneline.size());
 
                             Tasks::Task temp=Tasks::Task(employee,task_id,todo,status);
                             temp.setRoomid(roomid);

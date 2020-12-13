@@ -323,6 +323,11 @@ void DataCommunicationCenter::bookRoom(std::string _userename, Suit::suitTypes _
     user_man.addTask(worker,temp);
 }
 
+void DataCommunicationCenter::printDirtyRooms()
+{
+    room_cont.printDirtyRooms();
+}
+
 
 void DataCommunicationCenter::printMyTasks()
 {
@@ -349,12 +354,11 @@ void DataCommunicationCenter::takeCleaningTask(int roomID)
     std::stringstream ss;
     ss<<"Takaritsd ki a "<<roomID<<"-szobat";
     std::string todo=ss.str();
-    Tasks::Task cTask(user_man.getLoggedUser()->getUsername(),generateTaskId(returnLoggedJob(),Users::taskdata::CLN),todo,false);
+    std::string taskid=generateTaskId(returnLoggedJob(),Users::taskdata::CLN);
+    Tasks::Task cTask(user_man.getLoggedUser()->getUsername(),taskid,todo,false);
     cTask.setRoomid(roomID);
-
-    std::cout<<cTask.getRoomid()<<std::endl;
-
     user_man.addTask(user_man.getLoggedUser()->getUsername(),cTask);
+    task_list.insert({taskid,user_man.getLoggedUser()->getUsername()});
 }
 
 void DataCommunicationCenter::LogCleaningTask(std::string task_id, date clean_date)

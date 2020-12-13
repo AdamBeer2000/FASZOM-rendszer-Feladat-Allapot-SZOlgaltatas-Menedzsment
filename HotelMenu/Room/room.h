@@ -26,6 +26,7 @@ public:
     void setFree();
     void setUsed();
 
+
      //egy foglalást add hozá adatok segítséggével
     void setReservation(std::string res_id,std::string _userename,Suit::suitTypes _apartment,date _startTime,date _endTime,Serving::servingTypes _serving);
 

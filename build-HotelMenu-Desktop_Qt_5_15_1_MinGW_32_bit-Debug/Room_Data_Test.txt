@@ -26,7 +26,7 @@ Notbad,1,1401,1,RECRES33333,simon,2022.10.09,2022.11.09,Allinclusive
 Luxury,0,1402,1
 Medium,1,1403,1,RECRES44444,barmi,2022.11.01,2022.11.06,Default
 Luxury,0,1404,1
-Notbad,0,1405,1
+Notbad,1,1405,1,RECRES66666,sajt,2021.10.09,2021.11.09,Allinclusive
 Luxury,0,1406,1
 Medium,1,1407,1,RECRES77777,trabant,2022.10.09,2022.11.09,Premium
 Luxury,0,1408,1

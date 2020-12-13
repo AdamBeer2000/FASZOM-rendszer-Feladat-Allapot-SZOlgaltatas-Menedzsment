@@ -54,6 +54,7 @@ void RoomContainer::cleanRoom(int roomId)
         if(!hotelRooms.find(roomId)->second.getCleaned())
         {
             hotelRooms.at(roomId).setCleaned();
+            return;
         }
         throw ThisRoomAlreadyClean(roomId);
     }
@@ -65,16 +66,21 @@ void RoomContainer::cleanRoom(int roomId)
 
 void RoomContainer::reportDirtyRoom(std::string loggeduser)
 {
+    int roomId=-1;
     for(auto room:hotelRooms)
     {
         if(room.second.getUsed())
         {
             if(room.second.getActiveReservation().getUserename()==loggeduser)
             {
-                room.second.setDirty();
-                return;
+                roomId=room.second.getRoomid();
             }
         }
+    }
+    if(hotelRooms.find(roomId)!=hotelRooms.end())
+    {
+        hotelRooms.at(roomId).setDirty();
+        return;
     }
     throw ReservationContainer::NoReservationFound(loggeduser);
 }
@@ -106,16 +112,6 @@ void RoomContainer::deleteReservation(std::string username)
         }
     }
     throw  YouHaveNoActiveRes();
-
-    /*
-    if(.find(roomId)!=hotelRooms.end())
-    {
-
-    }
-    else
-    {
-        throw  NotExistingRoomExc(roomId);
-    }*/
 }
 
 bool RoomContainer::isFree(int roomId) const
@@ -168,6 +164,17 @@ bool RoomContainer::isDirty(int roomId) const
         throw  NotExistingRoomExc(roomId);
     }
     return false;//to do excepcion
+}
+
+void RoomContainer::printDirtyRooms()
+{
+    for(auto room:hotelRooms)
+    {
+        if(!room.second.getCleaned())
+        {
+            std::cout<<room.second.getRoomid()<<"-szobaba takaritast kernek\n";
+        }
+    }
 }
 
 Suit::suitTypes RoomContainer::getSuitType(int roomId)
