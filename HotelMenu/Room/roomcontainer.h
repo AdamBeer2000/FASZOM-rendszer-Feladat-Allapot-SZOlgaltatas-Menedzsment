@@ -54,6 +54,44 @@ public:
             return massage.c_str();
         }
     };
+    class AlreadyHasReservation:public std::exception
+    {
+        std::string massage;
+        public:
+        AlreadyHasReservation()
+        {
+
+        }
+        AlreadyHasReservation(int roomid)
+        {
+            std::stringstream ss;
+            ss<<roomid<<"'-room already has Active reservacion id";
+            massage=ss.str();
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
+    class ThisRoomAlreadyClean:public std::exception
+    {
+        std::string massage;
+        public:
+        ThisRoomAlreadyClean()
+        {
+
+        }
+        ThisRoomAlreadyClean(int roomid)
+        {
+            std::stringstream ss;
+            ss<<roomid<<"'-room already cleaned";
+            massage=ss.str();
+        }
+        virtual const char * what() const throw()
+        {
+            return massage.c_str();
+        }
+    };
 };
 
 #endif // ROOMCONTAINER_H

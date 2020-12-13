@@ -51,7 +51,11 @@ void RoomContainer::cleanRoom(int roomId)
 {
     if(hotelRooms.find(roomId)!=hotelRooms.end())
     {
-        hotelRooms.at(roomId).setCleaned();
+        if(!hotelRooms.find(roomId)->second.getCleaned())
+        {
+            hotelRooms.at(roomId).setCleaned();
+        }
+        throw ThisRoomAlreadyClean(roomId);
     }
     else
     {
@@ -63,7 +67,11 @@ void RoomContainer::setReservation(int roomId, Reservation oneres)
 {
     if(hotelRooms.find(roomId)!=hotelRooms.end())
     {
-        hotelRooms.at(roomId).setReservation(oneres);
+        if(!hotelRooms.find(roomId)->second.getUsed())
+        {
+            hotelRooms.at(roomId).setReservation(oneres);
+        }
+        throw  AlreadyHasReservation(roomId);
     }
     else
     {
