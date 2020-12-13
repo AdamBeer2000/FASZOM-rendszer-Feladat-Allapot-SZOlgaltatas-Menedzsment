@@ -164,12 +164,15 @@ void Task::printTask() const
     {
         if(isValid(getTodo()) && isValid(getEmployee()) && isValidId(getTaskId()))
         {
-            std::cout << "-------------------------------" << std::endl;
-            std::cout << "Task id: " << getTaskId() << std::endl;
-            std::cout << "Task: " << getTodo() << std::endl;
-            std::cout << "Status: " << statusToString(getStatus()) << std::endl;
-            std::cout << "Employee: " << getEmployee() << std::endl;
-            std::cout << "-------------------------------" << std::endl;
+            if(isActive())
+            {
+                std::cout << "-------------------------------" << std::endl;
+                std::cout << "Task id: " << getTaskId() << std::endl;
+                std::cout << "Task: " << getTodo() << std::endl;
+                std::cout << "Status: " << statusToString(getStatus()) << std::endl;
+                std::cout << "Employee: " << getEmployee() << std::endl;
+                std::cout << "-------------------------------" << std::endl;
+            }
         }
         else
         {
