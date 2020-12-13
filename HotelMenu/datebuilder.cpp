@@ -145,12 +145,5 @@ date DateBuilder::buildWhithClock(std::string sdate)
         throw InvalidDate(originalstring,"masodperc");
 
     stream.clear();
-
-
-
-    return ret;
-
-
-
     return ret;
 }

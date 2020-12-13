@@ -48,6 +48,7 @@ public:
     void printAllTask() const;
     void printLogs() const;
     void printTasksLogged() const;
+    void printAllUser();
 
     void logTask(std::string task_id, Logs::Log * onelog);
     void logTask(std::string username,std::string task_id, Logs::Log * onelog);

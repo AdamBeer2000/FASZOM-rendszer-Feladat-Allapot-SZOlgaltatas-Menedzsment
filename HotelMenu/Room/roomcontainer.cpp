@@ -102,9 +102,11 @@ void RoomContainer::deleteReservation(std::string username)
         if(room.second.getActiveReservation().getUserename()==username)
         {
             hotelRooms.at(room.second.getRoomid()).deleteReservation();
+            return;
         }
     }
     throw  YouHaveNoActiveRes();
+
     /*
     if(.find(roomId)!=hotelRooms.end())
     {
@@ -315,8 +317,7 @@ void RoomContainer::printAllRoom()
 
         if(room.second.getUsed())
         {
-            auto res=room.second.getActiveReservation();
-
+            Reservation res=room.second.getActiveReservation();
             std::cout<<","<<res.getUserename()<<","
                 <<res.getStartTime().calendarMode()<<","
                 <<res.getEndTime().calendarMode()<<","

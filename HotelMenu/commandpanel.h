@@ -183,7 +183,7 @@ public:
                 case cDenyRes:ss<< "placeholder";break;
                 case cPrintLostItems:ss<< "placeholder";break;
                 case cChangeRoomStatus:ss<< "placeholder";break;
-                default:ss<<"error";break;
+                default:ss<<"NoPermissonException";break;
             }
             massage=ss.str();
         }
@@ -217,7 +217,7 @@ public:
 
         if( inputs[0] == "login" ) return cLogin;
         if( inputs[0] == "logout" ) return cLogout;
-
+        if( inputs[0] == "checkout")return cCheckhOut;
         if( inputs[0] == "fix" ) return cFix;
         if( inputs[0] == "replace" ) return cReplace;
         if( inputs[0] == "registrate" ) return cReg;

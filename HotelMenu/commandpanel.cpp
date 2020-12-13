@@ -691,7 +691,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
     if(data_com->isLoggedIn())
     {
         Users::jobs userPermisson=data_com->returnLoggedJob();
-        if(userPermisson!=Users::jobs::ADM)
+        if(userPermisson==Users::jobs::ADM)
         {
             return true;
         }
@@ -704,6 +704,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
             case cLogin:return true;
             case cLogout:return true;
             case cExit:return true;
+            default:;
         }
         if(userPermisson==Users::jobs::GUE)
         {
@@ -712,8 +713,8 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cBook:return true;
                 case cRate:return true;
                 case cReportDirtyRoom:return true;
-                case cCheckhOut:return false;
-                default:return false;
+                case cCheckhOut:return true;
+                default:throw NoPermissonException(requestedCommand);
             }
         }
         if(userPermisson==Users::jobs::JAN)
@@ -722,7 +723,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
             {
                 case cFix:return true;
                 case cReplace:return true;
-                default:return false;
+                default:throw NoPermissonException(requestedCommand);
             }
         }
         if(userPermisson==Users::jobs::MAN)
@@ -735,7 +736,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cEmploYeet:return true;
                 case cPrintAllLogs:return true;
                 case cPrintAllTask:return true;
-                default:return false;
+                default:throw NoPermissonException(requestedCommand);
             }
         }
         if(userPermisson==Users::jobs::REC)
@@ -745,7 +746,7 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
                 case cAcceptRes:return true;
                 case cDenyRes:return true;
                 case cPrintLostItems:return true;
-                default:return false;
+                default:throw NoPermissonException(requestedCommand);
             }
         }
     }
@@ -757,10 +758,10 @@ bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
             case cLogin:return true;
             case cLogout:return true;
             case cExit:return true;
-            default:return false;
+            default:throw NoPermissonException(requestedCommand);
         }
     }
-    return false;
+    throw NoPermissonException(requestedCommand);
 }
 
 
@@ -775,35 +776,38 @@ void CommandPanel::pseudoMain()
         {
             std::cout<<":>";
             std::getline(std::cin, command);
-            if(permissionCheck(resolveOption(command)))
+            if(command.size()>0)
             {
-                switch (resolveOption(command))
+                if(permissionCheck(resolveOption(command)))
                 {
-                    case Invalid:throw CommandNotFoundException(command.c_str());break;
-                    case cLogin:login();break;
-                    case cLogout:logout();break;
-                    case cExit:data_com->saveData();break;
-                    case cReportLostItem:reportLostItem();break;
-                    case cReportDirtyRoom:reportDeartyRoom();break;
-                    case cPrintMyTask:printMyTasks();break;
-                    case cReg:registration();break;
-                    case cBook:bookRoom();data_com->printRes();break;
-                    case cRate:rating();break;
-                    case cCreateTask:createTask();break;
-                    case cDeleteTask:deleteTask();break;
-                    case cCreateEmployee:createEmployee();break;
-                    case cEmploYeet:emploYeet();break;
-                    case cPrintAllTask:printAllTasks();break;
-                    case cPrintAllLogs:printAllLogs();break;
-                    case cFix:fix();break;
-                    case cReplace:replace();break;
-                    case cTakeClean:takeCleanroom();break;
-                    case cLogClean:logCleanroom();break;
-                    case cAcceptRes:acceptReservation();break;
-                    case cDenyRes:denyReservation();break;
-                    case cPrintLostItems:printLostItems();break;
-                    case cChangeRoomStatus:changeRoomStatus();break;
-                    case cCheckhOut:checkhOut();break;
+                    switch (resolveOption(command))
+                    {
+                        case Invalid:throw CommandNotFoundException(command.c_str());break;
+                        case cLogin:login();break;
+                        case cLogout:logout();break;
+                        case cExit:data_com->saveData();break;
+                        case cReportLostItem:reportLostItem();break;
+                        case cReportDirtyRoom:reportDeartyRoom();break;
+                        case cPrintMyTask:printMyTasks();break;
+                        case cReg:registration();break;
+                        case cBook:bookRoom();data_com->printRes();break;
+                        case cRate:rating();break;
+                        case cCreateTask:createTask();break;
+                        case cDeleteTask:deleteTask();break;
+                        case cCreateEmployee:createEmployee();break;
+                        case cEmploYeet:emploYeet();break;
+                        case cPrintAllTask:printAllTasks();break;
+                        case cPrintAllLogs:printAllLogs();break;
+                        case cFix:fix();break;
+                        case cReplace:replace();break;
+                        case cTakeClean:takeCleanroom();break;
+                        case cLogClean:logCleanroom();break;
+                        case cAcceptRes:acceptReservation();break;
+                        case cDenyRes:denyReservation();break;
+                        case cPrintLostItems:printLostItems();break;
+                        case cChangeRoomStatus:changeRoomStatus();break;
+                        case cCheckhOut:checkhOut();break;
+                    }
                 }
             }
         }

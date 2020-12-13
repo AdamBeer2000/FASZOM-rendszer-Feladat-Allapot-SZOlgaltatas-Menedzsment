@@ -34,7 +34,7 @@ namespace  Users
         if(onejobid=="MAN") return MAN;
         if(onejobid=="JAN") return JAN;
         if(onejobid=="REC") return REC;
-        if(onejobid=="GUE") return REC;
+        if(onejobid=="GUE") return GUE;
         //todo excepcion
     }
     inline std::string JobIDToString(jobs job)
@@ -43,7 +43,7 @@ namespace  Users
         if(job==MAN) return "MAN";
         if(job==JAN) return "JAN";
         if(job==REC) return "REC";
-        if(job==REC) return "REC";
+        if(job==GUE) return "GUE";
         //todo excepcion
     }
 

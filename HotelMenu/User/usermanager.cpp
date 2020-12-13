@@ -35,11 +35,9 @@ bool UserManager::isLoggedOut() const
 
 Users::jobs UserManager::getLoggedJob() const
 {
-
     if(loggedUser)
     {
         return loggedUser->getJobID();
-
     }
     else
     {
@@ -81,29 +79,30 @@ void UserManager::addUser(Users::User *newUser)
 
 void UserManager::loginWith(std::string username, std::string password)
 {
-        if(isLoggedIn())
-        {
-            throw AlreadyLoged();
-        }
+    if(isLoggedIn())
+    {
+        throw AlreadyLoged();
+    }
 
-        std::map<std::string,Users::User *>::iterator finduser;
-        finduser=users.find(username);
-        if(finduser!=users.end())
-        {
-            if(finduser->second->getPassword()==password)
-            {
-                loggedUser=finduser->second;
-            }
-            else
-            {
-                throw WrongPasswordException();
-            }
-        }
+    std::map<std::string,Users::User *>::iterator finduser;
+    finduser=users.find(username);
 
-        if(isLoggedOut())
+    if(finduser!=users.end())
+    {
+        if(finduser->second->getPassword()==password)
         {
-            throw WrongUsernameException();
+            loggedUser=finduser->second;
         }
+        else
+        {
+            throw WrongPasswordException();
+        }
+    }
+
+    if(isLoggedOut())
+    {
+        throw WrongUsernameException();
+    }
 }
 
 void UserManager::deleteUser(std::string username)
@@ -232,6 +231,14 @@ void UserManager::printLogs() const
 void UserManager::printTasksLogged() const
 {
     loggedUser->printTasks();
+}
+
+void UserManager::printAllUser()
+{
+    for(auto user:users)
+    {
+        std::cout<<user.second->getUsername()<<" "<<Users::JobIDToString(user.second->getJobID())<<std::endl;
+    }
 }
 
 void UserManager::logout()
