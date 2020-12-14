@@ -10,11 +10,11 @@ DataCommunicationCenter::DataCommunicationCenter()
 
     //std::cout<<"ROOMS LOADED:"<<std::endl;
     room_cont.loadContent("Room_Data.txt");
-    room_cont.printAllRoom();
+    //room_cont.printAllRoom();
 
     //std::cout<<"TASKS LOADED:"<<std::endl;
     user_man.loadContent("User_Data.txt","Task_Data.txt");
-    user_man.printAllUser();
+    //user_man.printAllUser();
     //user_man.printAllTask();
 
     //std::cout<<"LOGS  LOADING:"<<std::endl;

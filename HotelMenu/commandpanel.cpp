@@ -94,8 +94,8 @@ void CommandPanel::rating()
             }
         }while(stars < 1 || stars > 5);
         std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
-        std::cin >>  rate;
-        data_com->addRating(stars, rate);
+        std::getline(std::cin,rate);
+        std::cin >> rate;
         std::cout << "Koszonjuk az ertekelest" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;
     }
@@ -395,6 +395,7 @@ void CommandPanel::printLostItems()
 
 void CommandPanel::changeRoomStatus()
 {
+
 }
 
 
@@ -734,7 +735,18 @@ void CommandPanel::reportDeartyRoom()
 
 void CommandPanel::checkhOut()
 {
+    std::cout << "-------------------------------------------------------------------" << std::endl;
+    std::cout <<"Remelyuk elvezte az itt toltott idot!\nSzeretne ertekelni a tartozkodasat?(I/N)";
+    std::string szeretnee;
+    std::cin>>szeretnee;
+    if(szeretnee=="I"||szeretnee=="i")
+    {
+        rating();
+    }
+    std::cout<<"A viszont latasra\n";
     data_com->checkhOut();
+
+    std::cout << "-------------------------------------------------------------------" << std::endl;
 }
 bool CommandPanel::permissionCheck(CommandPanel::Commands requestedCommand)
 {
