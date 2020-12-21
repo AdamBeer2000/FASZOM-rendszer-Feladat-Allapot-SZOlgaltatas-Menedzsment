@@ -18,15 +18,15 @@ void ReservationContainer::addReservation(Reservation newRes)
     reservations.insert(std::pair<std::string,Reservation>(newRes.getUserename(),newRes));
 }
 
-void ReservationContainer::deleteReservation(std::string guestName)
+void ReservationContainer::deleteReservation(std::string resid)
 {
-    if(reservations.find(guestName)!=reservations.end())
+    if(reservations.find(resid)!=reservations.end())
     {
-        reservations.erase(reservations.find(guestName));
+        reservations.erase(reservations.find(resid));
     }
     else
     {
-        throw NoReservationFound(guestName);
+        throw NoReservationFound(resid);
     }
 }
 /*

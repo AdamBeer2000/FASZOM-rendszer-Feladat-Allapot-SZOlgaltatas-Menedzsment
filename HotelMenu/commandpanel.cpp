@@ -94,7 +94,6 @@ void CommandPanel::rating()
             }
         }while(stars < 1 || stars > 5);
         std::cout <<"Hogyan ertekelne az itt toltott idot?" << std::endl;
-        std::getline(std::cin,rate);
         std::cin >> rate;
         std::cout << "Koszonjuk az ertekelest" << std::endl;
         std::cout << "-------------------------------------------------------------------" << std::endl;

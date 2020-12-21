@@ -92,6 +92,7 @@ void RoomContainer::setReservation(int roomId, Reservation oneres)
         if(!hotelRooms.find(roomId)->second.getUsed())
         {
             hotelRooms.at(roomId).setReservation(oneres);
+            return;
         }
         throw  AlreadyHasReservation(roomId);
     }
@@ -240,6 +241,7 @@ void RoomContainer::loadContent(std::string file_name)
                     cleaned=true;
                 }
                 oneline=oneline.substr(oneline.find(',')+1,oneline.size());
+
                 if(!used)
                 {
                     hotelRooms.insert({roomid,Room(apartment,roomid,cleaned)});

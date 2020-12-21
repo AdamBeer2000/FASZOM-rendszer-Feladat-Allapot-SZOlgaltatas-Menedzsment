@@ -59,7 +59,7 @@ void DataCommunicationCenter::accepptReservation(std::string taskid, int room_id
     Reservation res=reservation_cont.getReservation(taskid);
 
     room_cont.setReservation(room_id,res);
-    reservation_cont.deleteReservation(res.getUserename());
+    reservation_cont.deleteReservation(taskid);
 
     Logs::Log * temp=new Logs::LogReservation(res.getUserename(),res.getApartment(),res.getServing(),0,res.getStartTime(),res.getEndTime());
     user_man.logTask(taskid,temp);

@@ -1,0 +1,5 @@
+RECRES11129,Never,Luxury,2089.10.9,2090.11.9,Allinclusive
+RECRES21528,Gonna,Notbad,2099.10.9,2100.11.9,Default
+RECRES20023,Give,Medium,2000.10.9,2022.11.9,Premium
+RECRES11645,You,Notbad,2022.10.9,2022.11.9,Default
+RECRES30035,Up,Medium,2021.01.01,2021.02.02,Allinclusive

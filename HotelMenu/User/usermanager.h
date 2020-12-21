@@ -22,10 +22,6 @@ public:
     //CONSTRUCTORS
     UserManager(std::list<Users::User *>_users);
     UserManager();
-    ~UserManager()
-    {
-        printAllTask();
-    }
     //FUNCTIONS
     bool isLoggedIn() const;
     bool isLoggedOut() const;

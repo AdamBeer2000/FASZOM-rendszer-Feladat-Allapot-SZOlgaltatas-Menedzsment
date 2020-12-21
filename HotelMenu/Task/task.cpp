@@ -35,9 +35,9 @@ Task::Task(std::string _employee, std::string _task_id, Reservation res, bool _s
     this->res=res;
     status=_status;
     std::stringstream ss;
-    ss<<res.getUserename()<<":\n"
-      <<"Apartment :"<<res.getApartmentInString()<<" Serving :"<<res.getServingInString()<<"\n"
-      <<"Staying: "<<res.getStartTime().calendarMode()<<" - "<<res.getEndTime().calendarMode()<<"\n";
+    ss<<res.getUserename()<<" "
+      <<"Apartment :"<<res.getApartmentInString()<<" Serving :"<<res.getServingInString()<<" "
+      <<"Staying: "<<res.getStartTime().calendarMode()<<" - "<<res.getEndTime().calendarMode()<<" ";
     todo=ss.str();
     log=nullptr;
 }

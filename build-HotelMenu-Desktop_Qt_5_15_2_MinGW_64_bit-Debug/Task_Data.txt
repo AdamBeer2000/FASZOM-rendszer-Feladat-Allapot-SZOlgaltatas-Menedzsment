@@ -1,0 +1,28 @@
+TesztElek#JANFIX55555#[Javitas]#1406#1#FIX#lampabura#eltort#2020.10.04#12:12:12#2020.10.05#12:12:12#0.05
+TesztElek#JANFIX89988#[Javitas]#1401#0
+TesztElek#JANREP34344#[Csere]#1400#0
+makkos#RECRES00041#e:
+Apartment :Notbad Serving :Allinclusive
+Staying: 1500.01.01 - 1500.01.02
+#10025592#0
+makkos#RECRES11645#[Szobafoglalas]#1390#0
+makkos#RECRES21269#[Szobafoglalas]#1394#1#RES#1#techno#Medium#Premium#2022.01.09#2024.01.09#3406.84
+makkos#RECRES34969#[Szobafoglalas]#1398#1#RES#1#imi#Notbad#Allinclusive#2020.12.19#2020.12.20#4.67
+makkos#RECRES44444#[Szobafoglalas]#1403#1#RES#1#barmi#Medium#Default#2022.11.01#2022.11.06#2.35
+makkos#RECRES77777#[Szobafoglalas]#1407#1#RES#1#trabant#Medium#Premium#2022.10.09#2022.11.09#9.69
+makkos#RECRES98765#[Szobafoglalas]#1395#1#RES#1#ebed#Notbad#Allinclusive#2021.02.14#2021.12.20#6.21
+mb#RECRES20023#[Szobafoglalas]#1391#0
+mb#RECRES21528#[Szobafoglalas]#1392#0
+mb#RECRES66666#[Szobafoglalas]#1405#1#RES#1#sajt#Notbad#Allinclusive#2021.10.09#2021.11.09#4.56
+mb#RECRES76583#[Szobafoglalas]#1396#1#RES#1#izsak#Luxury#Default#2022.10.09#2022.11.09#12.15
+pisti#CLECLN00041#Takaritsd ki a 1395-szobat#1395#1#CLF#2005.06.06#11:20:20#p‚nisz
+pisti#CLECLN18467#Takaritsd ki a 1408-szobat#1408#0
+pisti#CLECLN81968#[Takaritas]#1400#1#CLN#2020.12.07#12:12:12
+szab#JANFIX11555#[Javitas]#1393#0
+szab#JANREP12345#[Csere]#1405#1#REP#ajto#eltort#2020.11.13#12:12:12#20.20
+viccelek#CLECLF34344#[Takaritas]#1403#1#CLF#2020.11.17#12:12:12#piros_szonyeg
+viccelek#CLECLF34388#[Takaritas]#1395#0
+zoli#RECRES11129#[Szobafoglalas]#1389#0
+zoli#RECRES22222#[Szobafoglalas]#1397#1#RES#1#e#Medium#Premium#2021.02.14#2024.01.09#1.34
+zoli#RECRES30035#[Szobafoglalas]#1387#0
+zoli#RECRES33333#[Szobafoglalas]#1401#1#RES#1#simon#Medium#Allinclusive#2022.10.09#2022.11.09#7.45
